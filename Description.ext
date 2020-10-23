@@ -1,0 +1,542 @@
+onLoadMission = Combat Patrol Vanilla;
+onLoadName = Combat Patrol Vanilla;
+briefingName = Combat Patrol Vanilla;
+loadScreen = __EVAL(["\a3\Missions_F_EPA\data\img\B_skirmish02_overview_CA.paa", "\a3\missions_f_patrol\data\img\mp_moutm_ca.paa", "\a3\Missions_F_EPA\data\img\B_skirmish03_overview_CA.paa", "\a3\Missions_F_EPA\data\img\C_EB_overview_CA.paa", "\a3\Missions_F_EPA\data\img\C_in1_overview_CA.paa"] select floor random 5); 
+overviewPicture = "a3\missions_f_patrol\data\img\mp_moutm_ca.paa";
+overviewText = Combat Patrol Vanilla;
+author = "DIEHARD";
+saving = 1;
+respawn = 3;
+respawnOnStart = -1;
+respawnDialog = 0;
+respawnDelay = 20;
+
+briefing = 1;
+debriefing = 1;
+showGPS = 1;
+showWatch = 1;
+showCompass = 1;
+showSquadRadar = 1;
+showUAVFeed = 1;
+enableItemsDropping = 0;
+disabledAI = 0;
+aiKills = 1;
+allowSubordinatesTakeWeapons = 1;
+
+enableTeamSwitch = 1;
+setGroupIconsSelectable = 1;
+
+respawnTemplates[] = {"MenuPosition", "Tickets", "Spectator"};
+
+class Header
+{
+	gameType = Patrol;
+	minPlayers = 1;
+	maxPlayers = 16;
+};
+
+#include "bon_recruit_units\dialog\common.hpp"
+#include "bon_recruit_units\dialog\recruitment.hpp"
+
+class Params
+{
+	class BIS_CP_startingDaytime
+	{
+		title = $STR_A3_combatpatrol_params_1;
+		values[] = {-1, 0, 1, 2, 3, 4};
+		texts[] = {$STR_A3_bis_fnc_respawnmenuposition_random, $STR_A3_combatpatrol_params_2, $STR_A3_combatpatrol_params_3, $STR_A3_combatpatrol_params_4, $STR_A3_combatpatrol_params_5, $STR_A3_combatpatrol_params_6};
+		default = 1;
+	};
+	class BIS_CP_weather
+	{
+		title = $STR_A3_rscattributeovercast_title;
+		values[] = {-1, 0, 1, 2, 3};
+		texts[] = {$STR_A3_bis_fnc_respawnmenuposition_random, $STR_A3_combatpatrol_params_7, $STR_A3_combatpatrol_params_8, $STR_A3_combatpatrol_params_9, $STR_A3_combatpatrol_params_10};
+		default = 1;
+	};
+	class BIS_CP_garrison
+	{
+		title = $STR_A3_combatpatrol_params_11;
+		values[] = {0, 1, 2};
+		texts[] = {$STR_A3_combatpatrol_params_12, $STR_A3_combatpatrol_params_13, $STR_A3_combatpatrol_params_14};
+		default = 1;
+	};
+	class BIS_CP_reinforcements
+	{
+		title = $STR_A3_combatpatrol_params_15;
+		values[] = {0, 1, 2};
+		texts[] = {$STR_A3_combatpatrol_params_12, $STR_A3_combatpatrol_params_13, $STR_A3_combatpatrol_params_16};
+		default = 1;
+	};
+	class BIS_CP_showInsertion
+	{
+		title = $STR_A3_combatpatrol_params_17;
+		values[] = {1, 0};
+		texts[] = {$STR_A3_cfgvehicles_modulestrategicmapimage_f_arguments_shadow_values_yes_0, $STR_A3_cfgvehicles_modulestrategicmapimage_f_arguments_shadow_values_no_0};
+		default = 0;
+	};
+	class BIS_CP_tickets
+	{
+		title = $STR_A3_combatpatrol_params_18;
+		values[] = {5, 10, 20, 50, 100};
+		texts[] = {"5", "10", "20", "50", "100"};
+		default = 20;
+	};
+	class BIS_CP_locationSelection
+	{
+		title = $STR_A3_combatpatrol_params_20;
+		values[] = {0, 1};
+		texts[] = {$STR_A3_combatpatrol_params_21, $STR_A3_bis_fnc_respawnmenuposition_random};
+		default = 0;
+	};
+	class BIS_CP_objective
+	{
+		title = $STR_A3_combatpatrol_params_22;
+		values[] = {-1, 1, 2, 3, 4, 5};
+		texts[] = {$STR_A3_bis_fnc_respawnmenuposition_random, $STR_A3_combatpatrol_params_26, $STR_A3_combatpatrol_params_27, $STR_A3_combatpatrol_params_28, $STR_customcombatpatrol_params_2, $STR_customcombatpatrol_params_4};
+		default = -1;
+	};
+	class BAS_CCP_respawnInsertion
+	{
+		title = $STR_customcombatpatrol_params_1;
+		values[] = {1, 0};
+		texts[] = {$STR_A3_cfgvehicles_modulestrategicmapimage_f_arguments_shadow_values_yes_0, $STR_A3_cfgvehicles_modulestrategicmapimage_f_arguments_shadow_values_no_0};
+		default = 1;
+	};
+	class BAS_CCP_fatigueEnabled
+	{
+		title = $STR_customcombatpatrol_params_3;
+		values[] = {1, 0};
+		texts[] = {$STR_A3_cfgvehicles_modulestrategicmapimage_f_arguments_shadow_values_yes_0, $STR_A3_cfgvehicles_modulestrategicmapimage_f_arguments_shadow_values_no_0};
+		default = 1;
+	};
+	class BAS_CCP_insRadiusMul
+	{
+		title = $STR_customcombatpatrol_params_5;
+		values[] = {0, 1, 2, 3, 4};
+		texts[] = {"x1", "x1.5", "x2", "x2.5", "x3"};
+		default = 0;
+	};
+	class BAS_CCP_sandStorm
+	{
+		title = $STR_customcombatpatrol_params_6;
+		values[] = {1, 0};
+		texts[] = {$STR_A3_cfgvehicles_modulestrategicmapimage_f_arguments_shadow_values_yes_0, $STR_A3_cfgvehicles_modulestrategicmapimage_f_arguments_shadow_values_no_0};
+		default = 0;
+	};
+  	class PLoadOut
+	{
+        	title = "Scripted Loadouts";
+       	values[] = {1, 2, 3};
+        	texts[] = {"Playable or Switchable Units","Units Group Player","Disabled"};
+        	default = 2;
+        	file = "ParamsPlus\loadout_selection.sqf";
+        	isGlobal = 1;
+	};			
+    	class PDiverEquip   {    
+
+        	title = "Diver Equipment";
+        	values[] = {1, 2, 3};
+        	texts[] = {"Playable or Switchable Units","Units Group Player","Disabled"};
+        	default = 3;
+        	file = "ParamsPlus\loadouts_diver_selection.sqf";
+        	isGlobal = 1;
+    	};
+    	class PloadoutAdjustments   {    
+
+        	title = "Night Vision and Silencer Adjustments";
+        	values[] = {1, 2, 3};
+        	texts[] = {"Playable or Switchable Units","Units Group Player","Disabled"};
+        	default = 2;
+        	file = "ParamsPlus\loadoutAdjustments_Group.sqf";
+        	isGlobal = 1;
+    	};
+    	class PMarkers   {    
+
+        	title = "Group Markers";
+        	values[] = {1, 2, 3};
+        	texts[] = {"Playable or Switchable Units","Units Group Player","Disabled"};
+        	default = 2;
+        	file = "ParamsPlus\GroupMarkers.sqf";
+        	isGlobal = 1;
+    	};
+    	class PRegenHealth   {    
+
+        	title = "Health Regeneration";
+        	values[] = {1, 2, 3, 4};
+        	texts[] = {"Fair","Middlin","Good","Disabled"};
+        	default = 3;
+        	file = "ParamsPlus\regen_health_group.sqf";
+        	isGlobal = 1;
+    	};
+    	class PAiMedic   {    
+
+        	title = "Keypress Ai Medic";
+        	values[] = {1, 2};
+        	texts[] = {"Enabled","Disabled"};
+        	default = 1;
+        	file = "ParamsPlus\Heal_Keypress.sqf";
+        	isGlobal = 1;
+    	};
+    	class PRallyPoint   {    
+
+        	title = "Group Leader Rally Point";
+        	values[] = {1, 2};
+        	texts[] = {"Enabled","Disabled"};
+        	default = 1;
+        	file = "ParamsPlus\Rally.sqf";
+        	isGlobal = 1;
+    	};
+    	class PGiGoEH   {    
+
+        	title = "Group Leader Vehicle AmmoBox and Respawn Point";
+        	values[] = {1, 2};
+        	texts[] = {"Enabled","Disabled"};
+        	default = 1;
+        	file = "ParamsPlus\GiGoEH.sqf";
+        	isGlobal = 1;
+   	};
+	class Pskill	 {
+
+        	title = "Blufor Skill";
+        	values[] = {1, 2, 3, 4};
+        	texts[] = {"Below Average", "Average", "Above Average", "Excellent"};
+        	default = 3;
+        	file = "ParamsPlus\BluSkill.sqf";
+        	isGlobal = 0;
+	};
+	class Eskill	 {
+
+        	title = "Opfor Skill";
+        	values[] = {1, 2, 3, 4};
+        	texts[] = {"Below Average", "Average", "Above Average", "Excellent"};
+        	default = 3;
+       	file = "ParamsPlus\OpSkill.sqf";
+        	isGlobal = 0;
+	};
+    	class PFatigue    {  
+        	title = "Enable/Disable Player's Fatigue System";
+        	values[] = {1, 2};
+        	texts[] = {"Disable","Enable"};
+        	default = 1;
+    	};  
+    	class PStamina    {  
+  
+        	title = "Enable/Disable Player's Stamina System";
+        	values[] = {1, 2};
+        	texts[] = {"Disable","Enable"};
+        	default = 1;
+    	};    
+    	class PRecoil    {    
+
+        	title = "Player's Weapon Recoil";
+        	values[] = {1, 2, 3, 4};
+        	texts[] = {"No recoil","Poor recoil","Standard recoil","Intensive recoil"};
+        	default = 3;
+    	};    
+    	class PAimCoef    {  
+
+        	title = "Player's Weapon Sway";
+        	values[] = {1, 2, 3, 4};
+        	texts[] = {"No sway","Poor sway","Standard sway","Intensive sway"};
+        	default = 3;
+    	};
+    	class PAudibleCoef    {    
+
+        	title = "Player's Stealth (Audible) Value";
+        	values[] = {1, 2, 3, 4};
+        	texts[] = {"No value","Low value","Standard value","High value"};
+        	default = 3;
+    	};    
+    	class PCamouflageCoef    {    
+
+        	title = "Player's Stealth (Visible) Value";
+        	values[] = {1, 2, 3, 4};
+        	texts[] = {"No value","Low value","Standard value","High value"};
+        	default = 3;
+    	};
+    	class PLoadCoef    {   
+
+        	title = "Player's Load Carrying Value";
+        	values[] = {1, 2, 3, 4};
+        	texts[] = {"No value","Low value","Standard value","High value"};
+        	default = 3;
+    	}; 
+    	class PEngineer    {   
+
+        	title = "Enable/Disable Player's Repair Ability";
+        	values[] = {1, 2};
+        	texts[] = {"Disable","Enable"};
+        	default = 1;
+    	};  
+    	class PExplosiveSpecialist   {   
+ 
+        	title = "Enable/Disable Player's Defuse Ability";
+        	values[] = {1, 2};
+        	texts[] = {"Disable","Enable"};
+        	default = 1;
+    	};    
+    	class PMedic    {   
+
+        	title = "Enable/Disable Player's Medic Ability";
+        	values[] = {1, 2};
+        	texts[] = {"Disable","Enable"};
+        	default = 2;
+    	};  
+    	class PUAVHacker   {    
+
+        	title = "Enable/Disable Player's UAV Ability";
+        	values[] = {1, 2};
+        	texts[] = {"Disable","Enable"};
+        	default = 1;
+    	};  
+    	class PUA   {    
+
+        	title = "Enable/Disable Unlimited Ammo";
+        	values[] = {1, 2};
+        	texts[] = {"Disable","Enable"};
+        	default = 1;
+    	};
+    	class PDiver   {    
+
+        	title = "Enable/Disable SpecOp Divers";
+        	values[] = {1, 2};
+        	texts[] = {"Disable","Enable"};
+        	default = 1;
+    	};
+    	class PIntro   {    
+
+        	title = "Enable/Disable Altis Intro";
+        	values[] = {1, 2};
+        	texts[] = {"Disable","Enable"};
+        	default = 1;
+    	};
+};
+class CfgCommunicationMenu
+{
+	class AirLift
+	{
+		text = "Helicopter AirLift";
+		submenu = "";
+		expression = "_this execVM 'ParamsPlus\HeliTransport.sqf'"; // [caller, pos, target, is3D, id]
+		icon = "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\transport_ca.paa";
+		cursor = "\a3\Ui_f\data\IGUI\Cfg\Cursors\iconCursorSupport_ca.paa";
+		enable = "1";
+		removeAfterExpressionCall = 0;
+//		[player,"AirLift"] call BIS_fnc_addCommMenuItem;
+	};
+	class Artillery
+	{
+		text = "Artillery Strike";		// Text displayed in the menu and in a notification
+		submenu = "";					// Submenu opened upon activation (expression is ignored when submenu is not empty.)
+		expression = "_this execVM 'ParamsPlus\arty.sqf'"; // [caller, pos, target, is3D, id]
+		icon = "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\artillery_ca.paa";	// Icon displayed permanently next to the command menu
+		cursor = "\a3\Ui_f\data\IGUI\Cfg\Cursors\iconCursorSupport_ca.paa";	// Custom cursor displayed when the item is selected
+		enable = "1";					// Simple expression condition for enabling the item
+		removeAfterExpressionCall = 0;	// 1 to remove the item after calling
+//		[player,"Artillery"] call BIS_fnc_addCommMenuItem;
+	};
+	class HaloJump
+	{
+		text = "Halo Jump";
+		submenu = "";
+		expression = "execVM 'ParamsPlus\Bis_Halo.sqf'"; // [caller, pos, target, is3D, id]
+		icon = "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa";
+		cursor = "\a3\Ui_f\data\IGUI\Cfg\Cursors\iconCursorSupport_ca.paa";
+		enable = "1";
+		removeAfterExpressionCall = 0;
+//		[player,"HaloJump"] call BIS_fnc_addCommMenuItem;
+	};
+	class SpawnCargoDrop
+	{
+		text = "Spawn Cargo Drop";
+		submenu = "";
+		expression = "_this execVM 'ParamsPlus\cargodrop.sqf'"; // [caller, pos, target, is3D, id]
+		icon = "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa";
+		cursor = "\a3\Ui_f\data\IGUI\Cfg\Cursors\iconCursorSupport_ca.paa";
+		enable = "1";
+		removeAfterExpressionCall = 0;
+//		[player,"SpawnCargoDrop"] call BIS_fnc_addCommMenuItem;
+	};
+	class SpawnMortar
+	{
+		text = "Mortar Strike";		// Text displayed in the menu and in a notification
+		submenu = "";					// Submenu opened upon activation (expression is ignored when submenu is not empty.)
+		expression = "_this execVM 'ParamsPlus\mortar.sqf'"; // [caller, pos, target, is3D, id]
+		icon = "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\mortar_ca.paa";	// Icon displayed permanently next to the command menu
+		cursor = "\a3\Ui_f\data\IGUI\Cfg\Cursors\iconCursorSupport_ca.paa";	// Custom cursor displayed when the item is selected
+		enable = "1";					// Simple expression condition for enabling the item
+		removeAfterExpressionCall = 0;	// 1 to remove the item after calling
+//		[player,"SpawnMortar"] call BIS_fnc_addCommMenuItem;
+	};
+	class SpawnMortarBag
+	{
+		text = "Mortar Bag";		// Text displayed in the menu and in a notification
+		submenu = "";					// Submenu opened upon activation (expression is ignored when submenu is not empty.)
+		expression = "_this call KK_playerAddMortarBag"; // [caller, pos, target, is3D, id]
+		icon = "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\mortar_ca.paa";	// Icon displayed permanently next to the command menu
+		cursor = "\a3\Ui_f\data\IGUI\Cfg\Cursors\iconCursorSupport_ca.paa";	// Custom cursor displayed when the item is selected
+		enable = "1";					// Simple expression condition for enabling the item
+		removeAfterExpressionCall = 0;	// 1 to remove the item after calling
+//		[player,"SpawnMortarBag"] call BIS_fnc_addCommMenuItem;
+	};
+	class SpawnParaDrop
+	{
+		text = "Spawn ParaDrop";
+		submenu = "";
+		expression = "_this execVM 'ParamsPlus\paradrop.sqf'"; // [caller, pos, target, is3D, id]
+		icon = "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa";
+		cursor = "\a3\Ui_f\data\IGUI\Cfg\Cursors\iconCursorSupport_ca.paa";
+		enable = "1";
+		removeAfterExpressionCall = 0;
+//		[player,"SpawnParaDrop"] call BIS_fnc_addCommMenuItem;
+	};
+	class SpawnReenforcements
+	{
+		text = "Spawn Reenforcements";
+		submenu = "";
+		expression = "_this execVM 'ParamsPlus\paraTeam.sqf'"; // [caller, pos, target, is3D, id]
+		icon = "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa";				
+		cursor = "\a3\Ui_f\data\IGUI\Cfg\Cursors\iconCursorSupport_ca.paa";
+		enable = "1";
+		removeAfterExpressionCall = 0;
+//		[player,"SpawnReenforcements"] call BIS_fnc_addCommMenuItem;
+	};
+	class WindSpeed
+	{
+		text = "Wind Speed";
+		submenu = "";
+		expression = "_this execVM 'ParamsPlus\windSpeed.sqf'"; // [caller, pos, target, is3D, id]
+		icon = "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\supplydrop_ca.paa";
+		cursor = "\a3\Ui_f\data\IGUI\Cfg\Cursors\iconCursorSupport_ca.paa";
+		enable = "1";
+		removeAfterExpressionCall = 0;
+//		[player,"WindSpeed"] call BIS_fnc_addCommMenuItem;
+	};	
+	class ZorilyasUnits
+	{
+		text = "Zorilyas Units";
+		submenu = "";
+		expression = "_this execVM 'zorilyas_random_loadout\zorilyas_units.sqf'"; // [caller, pos, target, is3D, id]
+		icon = "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa";
+		cursor = "\a3\Ui_f\data\IGUI\Cfg\Cursors\iconCursorSupport_ca.paa";
+		enable = "1";
+		removeAfterExpressionCall = 0;
+//		[player,"ZorilyasUnits"] call BIS_fnc_addCommMenuItem;
+	};
+};
+class Weapons
+{
+	class arifle_MX_GL_F { count = 2; };
+	class arifle_MX_SW_F { count = 2; };
+	class arifle_MXC_F { count = 2; };
+	class arifle_TRG21_GL_F { count = 2; }; //arifle_TRG21_GL_F /30Rnd_556x45_Stanag /1Rnd_HE_Grenade_shell /optic_MRCO
+	
+	class srifle_DMR_01_F { count = 2; }; //srifle_DMR_01_F /10Rnd_762x54_Mag /optic_LRPS
+	class srifle_EBR_F { count = 2; }; //srifle_EBR_F /20Rnd_762x51_Mag /optic_Nightstalker 
+	class srifle_LRR_F { count = 2; }; //srifle_LRR_F /7Rnd_408_Mag /optic_SOS
+	class srifle_GM6_F { count = 2; }; //srifle_GM6_F /5Rnd_127x108_Mag /optic_NVS
+	
+	class LMG_Zafir_F { count = 2; }; //LMG_Zafir_F /150Rnd_762x54_Box /optic_tws_mg
+	
+	class optic_MRCO { count = 2; };
+	class optic_LRPS { count = 2; };
+	class optic_Nightstalker { count = 2; };
+//	class optic_DMS { count = 2; };
+//	class optic_SOS { count = 2; };
+//	class optic_NVS { count = 2; };
+//	class optic_tws { count = 2; };
+//	class optic_tws_mg { count = 2; };
+
+	class launch_NLAW_F { count = 2; };
+	class launch_RPG32_F { count = 2; };
+	class launch_I_Titan_short_F { count = 2; };
+};
+class Magazines
+{
+	class 5Rnd_127x108_Mag { count = 10; };
+	class 7Rnd_408_Mag { count = 10; };
+	
+	class 20Rnd_762x51_Mag { count = 10; };
+	class 10Rnd_762x54_Mag { count = 10; };
+	
+	class 30Rnd_65x39_caseless_green { count = 10; };
+	class 30Rnd_65x39_caseless_green_mag_Tracer { count = 10; };
+	class 30Rnd_65x39_caseless_mag { count = 10; };
+	class 30Rnd_65x39_caseless_mag_Tracer { count = 10; };
+	
+	class 20Rnd_556x45_UW_mag { count = 10; };
+	class 30Rnd_556x45_Stanag { count = 10; };	
+	
+	class 150Rnd_762x54_Box { count = 10; };
+	
+	class 1Rnd_HE_Grenade_shell { count = 10; };
+	
+//	class M_NLAW_AT_F { count = 5; };
+//	class R_TBG32V_F { count = 5; };
+//	class R_PG32V_F { count = 5; };
+//	class M_Titan_AP { count = 5; };
+//	class M_Titan_AT { count = 5; };
+};
+class CfgRespawnInventory
+{
+	class Blufor1
+	{
+		displayName = "Light";								// Name visible in the menu
+		icon = "\A3\Ui_f\data\GUI\Cfg\Ranks\sergeant_gs.paa";	// Icon displayed next to the name
+		role = "Assault";										// Optional, see CfgRoles
+
+		// Loadout definition, uses same entries as CfgVehicles classes
+		weapons[] = {
+			"arifle_MXC_F",
+			"Binocular"
+		};
+		magazines[] = {
+			"30Rnd_65x39_caseless_mag",
+			"30Rnd_65x39_caseless_mag",
+			"SmokeShell"
+		};
+		items[] = {
+			"FirstAidKit"
+		};
+		linkedItems[] = {
+			"V_Chestrig_khk",
+			"H_Watchcap_blk",
+			"optic_Aco",
+			"acc_flashlight",
+			"ItemMap",
+			"ItemCompass",
+			"ItemWatch",
+			"ItemRadio"
+		};
+		uniformClass = "U_B_CombatUniform_mcam_tshirt";
+		backpack = "B_AssaultPack_mcamo";
+	};
+	class Blufor2
+	{
+		// Alternative configuration pointing to a CfgVehicles class. Loadout will be copied from it.
+		vehicle = "B_soldier_AR_F";
+	};
+};
+class CfgNotifications
+{
+	class JtacReloadNotification
+	{
+		title = "JTAC";
+		iconPicture = "a3\ui_f\data\gui\cfg\communicationmenu\call_ca.paa";
+		iconText = "1";
+		description = "%1";
+		color[] = {0.153, 0.933, 0.122, 1};
+		duration = 5;
+		priority = 0;
+		difficulty[] = {};
+	};
+}
+class CfgTaskEnhancements
+{
+	enable       = 1;	//0: disable new task features (default), 1: enable new task features & add new task markers and task widgets into the map
+	3d           = 1;	//0: do not use new 3D markers (default), 1: replace task waypoints with new 3D markers
+	3dDrawDist   = 0;	//3d marker draw distance (default: 2000)
+	share        = 1;	//0: do not count assigned players (default), 1: count how many players have the task assigned
+	propagate    = 1;	//0: do not propagate (default), 1: propagate shared tasks to subordinates
+};

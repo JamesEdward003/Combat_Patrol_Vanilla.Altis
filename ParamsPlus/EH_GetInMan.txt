@@ -1,0 +1,12 @@
+------------------------------------------------------------------
+params ["_vehicle", "_role", "_unit", "_turret"];
+
+
+this addEventHandler ["GetIn",{(_this select 0) setDamage 0; (_this select 0) allowDamage false; (_this select 2) setDamage 0; (_this select 2) allowDamage false; if ((_this select 2) isEqualTo (leader group (_this select 2))) then {ammobox1 hideObjectGlobal true;}}]; this addEventHandler ["GetOut",{(_this select 2) allowDamage true; if ((_this select 2) isEqualTo (leader group (_this select 2))) then {_pos = [(_this select 0), 4, 40, 3, 0, 20, 1] call BIS_fnc_findSafePos; "respawn_west" setMarkerPos _pos; respawn_west setPos _pos; ammobox1 setPos _pos; ammobox1 hideObjectGlobal false;}}];
+
+------------------------------------------------------------------
+params ["_unit", "_role", "_vehicle", "_turret"];
+
+
+this addEventHandler ["GetInMan",{(_this select 0) setDamage 0; (_this select 0) allowDamage false; (_this select 2) setDamage 0; (_this select 2) allowDamage false; if ((_this select 0) isEqualTo (leader group (_this select 0))) then {ammobox1 hideObjectGlobal true;}}]; this addEventHandler ["GetOutMan",{(_this select 0) allowDamage true; if ((_this select 0) isEqualTo (leader group (_this select 2))) then {_pos = [(_this select 0), 4, 50, 3, 0, 20, 1] call BIS_fnc_findSafePos; "respawn_west" setMarkerPos _pos; respawn_west setPos _pos; ammobox1 setPos _pos; ammobox1 hideObjectGlobal false;}}];
+

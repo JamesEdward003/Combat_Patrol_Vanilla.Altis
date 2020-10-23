@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Project name="Arma3">
+  <Package name="Language_CCP">
+    <Container name="CustomCombatPatrol">
+      <Key ID="str_customcombatpatrol_title_1">
+        <Original>Custom Combat Patrol</Original>
+        <French>Custom Combat Patrol</French>
+        <English>Custom Combat Patrol</English>
+        <Spanish>Custom Combat Patrol</Spanish>
+        <Italian>Custom Combat Patrol</Italian>
+        <Polish>Custom Combat Patrol</Polish>
+        <Russian>Custom Combat Patrol</Russian>
+        <German>Custom Combat Patrol</German>
+        <Czech>Custom Combat Patrol</Czech>
+        <Portuguese>Custom Combat Patrol</Portuguese>
+        <Korean>Custom Combat Patrol</Korean>
+        <Japanese>Custom Combat Patrol</Japanese>
+      </Key>
+      <Key ID="str_customcombatpatrol_title_2">
+        <Original>[COOP 12] Custom Combat Patrol</Original>
+        <French>[COOP 12] Custom Combat Patrol</French>
+        <English>[COOP 12] Custom Combat Patrol</English>
+        <Spanish>[COOP 12] Custom Combat Patrol</Spanish>
+        <Italian>[COOP 12] Custom Combat Patrol</Italian>
+        <Polish>[COOP 12] Custom Combat Patrol</Polish>
+        <Russian>[COOP 12] Custom Combat Patrol</Russian>
+        <German>[COOP 12] Custom Combat Patrol</German>
+        <Czech>[COOP 12] Custom Combat Patrol</Czech>
+        <Portuguese>[COOP 12] Custom Combat Patrol</Portuguese>
+        <Korean>[COOP 12] Custom Combat Patrol</Korean>
+        <Japanese>[COOP 12] Custom Combat Patrol</Japanese>
+      </Key>
+      <Key ID="str_customcombatpatrol_params_1">
+        <Original>Respawn at insertion point</Original>
+        <French>Réapparition au point d'insertion</French>
+        <English>Respawn at insertion point</English>
+      </Key>
+      <Key ID="str_customcombatpatrol_params_2">
+        <Original>Hostage rescue</Original>
+        <French>Sauvetage d'otage</French>
+        <English>Hostage rescue</English>
+        <Spanish>Rescate de rehenes</Spanish>
+        <Italian>Salvataggio degli ostaggi</Italian>
+        <Polish>Ratowanie zakładników</Polish>
+        <Russian>Спасение заложников</Russian>
+        <German>Geiselrettung</German>
+        <Czech>Záchrana rukojmí</Czech>
+        <Portuguese>Resgate de refém</Portuguese>
+      </Key>
+      <Key ID="str_customcombatpatrol_params_3">
+        <Original>Fatigue</Original>
+        <French>Fatigue</French>
+        <English>Fatigue</English>
+        <Spanish>Fatiga</Spanish>
+        <Italian>Fatica</Italian>
+        <Polish>Zmęczenie</Polish>
+        <Russian>Усталость</Russian>
+        <German>Ermüden</German>
+        <Czech>Únava</Czech>
+        <Portuguese>Fadiga</Portuguese>
+      </Key>
+      <Key ID="str_customcombatpatrol_params_4">
+        <Original>Propaganda</Original>
+        <French>Propagande</French>
+        <English>Propaganda</English>
+        <Spanish>Propaganda</Spanish>
+        <Italian>Propaganda</Italian>
+        <Polish>Propaganda</Polish>
+        <Russian>пропаганда</Russian>
+        <German>Propaganda</German>
+        <Czech>Propaganda</Czech>
+        <Portuguese>Propaganda</Portuguese>
+      </Key>
+      <Key ID="str_customcombatpatrol_params_5">
+        <Original>Insertion radius</Original>
+        <French>Rayon d'insertion</French>
+        <English>Insertion radius</English>
+        <Spanish>Radio de inserción</Spanish>
+        <Italian>Raggio di inserzione</Italian>
+        <Polish>Promień wstawienia</Polish>
+        <Russian>Радиус вставки</Russian>
+        <German>Einfügungsradius</German>
+        <Czech>Poloměr vložení</Czech>
+        <Portuguese>Raio de inserção</Portuguese>
+      </Key>
+      <Key ID="str_customcombatpatrol_params_6">
+        <Original>Sandstorm</Original>
+        <French>Tempête de sable</French>
+        <English>Sandstorm</English>
+        <Spanish>tormenta de arena</Spanish>
+        <Italian>tempesta di sabbia</Italian>
+        <Polish>Burza piaskowa</Polish>
+        <Russian>песчаная буря</Russian>
+        <German>Sandsturm</German>
+        <Czech>písečná bouře</Czech>
+        <Portuguese>tempestade de areia</Portuguese>
+      </Key>
+      <Key ID="str_customcombatpatrol_respawn_1">
+        <Original>Insertion position</Original>
+        <French>Position d'insertion</French>
+        <English>Insertion position</English>
+        <Spanish>posición de inserción</Spanish>
+        <Italian>posizione di inserimento</Italian>
+        <Polish>punkt wstawiania</Polish>
+        <Russian>Вставить Позиция</Russian>
+        <German>Einfügeposition</German>
+        <Czech>poloha vložení</Czech>
+        <Portuguese>Inserir Posição</Portuguese>
+      </Key>
+      <Key ID="str_customcombatpatrol_action_1">
+        <Original>Release hostage</Original>
+        <French>Libérer l'otage</French>
+        <English>Release hostage</English>
+        <Spanish>Libre del rehén</Spanish>
+        <Italian>Libera l'ostaggio</Italian>
+        <Polish>Uwolnić zakładników</Polish>
+        <Russian>Освободить заложника</Russian>
+        <German>Freilassung der Geiseln</German>
+        <Czech>Zdarma rukojmí</Czech>
+        <Portuguese>Livre o refém</Portuguese>
+      </Key>
+      <Key ID="str_customcombatpatrol_mission_1">
+        <Original>Conduct a combat patrol to extract the hostage retained in the AO.</Original>
+        <French>Menez une patrouille et exfiltrez l'otage retenu dans la ZO OPFOR.</French>
+        <English>Conduct a combat patrol to extract the hostage retained in the AO.</English>
+        <Spanish>Realizar una patrulla de combate para extraer el rehén retenido en el área de operación.</Spanish>
+        <Italian>Condurre una pattuglia di combattimento per estrarre l'ostaggio trattenuto nell'area delle operazioni.</Italian>
+        <Polish>Przeprowadzenie patrolu bojowego w celu wyjęcia zakładnika zatrzymanego w obszarze działania.</Polish>
+        <Russian>Провести боевой патруль для извлечения заложника, удерживаемого в зоне действия.</Russian>
+        <German>Führen Sie eine Kampfpatrouille aus, um die im Betrieb befindliche Geisel zu extrahieren.</German>
+        <Czech>Proveďte bojovou hlídku, abyste mohli vymanit rukojmí zachovaný v oblasti operace.</Czech>
+        <Portuguese>Conduza uma patrulha de combate para extrair o refém retido na área de operação.</Portuguese>
+      </Key>
+      <Key ID="str_customcombatpatrol_mission_2">
+        <Original>The enemy are hiding an hostage to negotiate the release of their fellows.&lt;br/&gt;&lt;br/&gt;The AO is guarded by a platoon-sized, OPFOR infantry element, while the building where the hostage is hidden is being serviced by a squad-sized security detail. Intel also suggests they are defending nearby buildings. Due to the close proximity of the combat zone, OPFOR reinforcements may arrive in five minutes. Such a counterattack could include airborne, motorized, or even mechanized forces.</Original>
+        <French>L'ennemi cache un otage qui leur permettra de négocier la libération de leurs camarades.&lt;br/&gt;&lt;br/&gt;La ZO est gardée par une section d'infanterie OPFOR et le bâtiment où est retenu l'otage est gardé par une escouade de sécurité. Nos renseignements semblent indiquer qu'ils défendent également les bâtiments voisins. En raison de la proximité avec la zone de combat, des renforts OPFOR peuvent arriver sur place en cinq minutes. Une telle contre-offensive peut avoir lieu par les airs ou avec des véhicules terrestres, blindés ou non.</French>
+        <English>The enemy are hiding an hostage to negotiate the release of their fellows.&lt;br/&gt;&lt;br/&gt;The AO is guarded by a platoon-sized, OPFOR infantry element, while the node itself is being serviced by a squad-sized security detail. Intel also suggests they are defending nearby buildings. Due to the close proximity of the combat zone, OPFOR reinforcements may arrive in five minutes. Such a counterattack could include airborne, motorized, or even mechanized forces.</English>
+        <Spanish>El enemigo esconde a un rehén para negociar la liberación de sus compañeros.&lt;br/&gt;&lt;br/&gt;La zona de operaciones está protegida por un pelotón de infantería de OPFOR, mientras que el nódulo está resguardado por un escuadrón de seguridad. Tenemos información que asegura que están defendiendo los edificios cercanos. Debido a la proximidad de la zona de combate, los refuerzos de OPFOR podrían llegar en cinco minutos. El contraataque podrían llevarlo a cabo fuerzas aéreas, motorizadas e incluso mecanizadas.</Spanish>
+        <Italian>Il nemico sta nascondendo un ostaggio per negoziare il rilascio dei loro compagni.&lt;br/&gt;&lt;br/&gt;L'Area delle operazioni è protetta da un elemento di fanteria OPFOR delle dimensioni di un plotone, mentre il nodo stesso è protetto da una squadra di sicurezza delle dimensioni di un plotone. Le informazioni indicano inoltre che stanno difendendo gli edifici nelle vicinanze. A causa della vicinanza alla zona di combattimento, i rinforzi OPFOR potrebbero arrivare entro cinque minuti. Tale contrattacco potrebbe includere forze aeree, motorizzate o persino meccanizzate.</Italian>
+        <Polish>Wróg ukrywa się w zakładzie, w celu wynegocjowania uwolnienia swoich towarzyszy.&lt;br/&gt;&lt;br/&gt;Obszar działania jest chroniony przez pluton piechoty OPFOR, zaś sam węzeł przez oddział ochrony w sile drużyny. Wywiad sugeruje również, że przeciwnik broni pobliskich budynków. Ze względu na bliskość strefy walki posiłki OPFOR mogą nadejść w ciągu 5 minut. Kontratak może nastąpić przy udziale sił powietrznodesantowych, zmotoryzowanych lub nawet zmechanizowanych.</Polish>
+        <Russian>Враг скрывает заложника, чтобы договориться о выпуске своих товарищей.&lt;br/&gt;&lt;br/&gt;Район боевых действий контролируется взводом пехоты OPFOR, в то время как сам узел охраняет отряд пехоты. По данным разведки, они защищают расположенные поблизости здания. В связи с близким расположением к зоне боевых действий, подкрепления OPFOR могут прибыть в течение пяти минут. Они могут включать авиацию, моторизованные расчеты и даже механизированные подразделения.</Russian>
+        <German>Der Feind versteckt eine Geisel, um die Freilassung ihrer Gefährten zu verhandeln.&lt;br/&gt;&lt;br/&gt;Das Einsatzgebiet wird von einem OPFOR-Infanteriezug bewacht. Der Knotenpunkt selbst wird von einem Sicherheitsteam bedient. Unseren Informationen zufolge werden die in der Nähe befindlichen Gebäude ebenfalls bewacht. Aufgrund der Nähe zum Kampfgebiet könnten in fünf Minuten OPFOR-Verstärkungstruppen eintreffen. Ein solcher Gegenangriff kann Lufteinheiten, Fahrzeuge und sogar Panzer beinhalten.</German>
+        <Czech>Nepřátelé skrývají rukojmí, aby vyjednávali o propuštění svých kolegů.&lt;br/&gt;&lt;br/&gt;Operační oblast střeží pěchotní jednotka OPFOR velikosti čety. Provoz samotného uzlu zajišťuje menší bezpečnostní oddíl. Informace naznačují, že brání také sousední budovy. Vzhledem k blízkosti bojové oblasti jsou posily OPFOR schopny dorazit do pěti minut. Případný protiútok může zahrnovat vzdušné, motorizované, či dokonce mechanizované síly.</Czech>
+        <Portuguese>O inimigo está escondendo um refém para negociar a libertação de seus companheiros.&lt;br/&gt; &lt;br/&gt;A AO está protegida por um pelotão de infantaria da OPFOR, ao passo que o dispositivo em si está sendo atendido por um esquadrão de segurança de dados. Os dados da inteligência sugerem que eles estão protegendo os edifícios próximos. Devido à proximidade com a zona de combate, os reforços da OPFOR devem chegar apenas em cinco minutos. O contra-ataque pode tanto incluir forças aéreas quanto motorizadas ou até mesmo mecanizadas.</Portuguese>
+      </Key>
+      <Key ID="str_customcombatpatrol_mission_3">
+        <Original>- Locate the building where the hostage is hidden. It should be well guarded.&lt;br/&gt;- Once the building is found, launch the assault and rescue the hostage.&lt;br/&gt;- Spare the life of surrendering hostage takers or it may push them to kill the hostage.</Original>
+        <French>- Repérez le bâtiment où est caché l'otage. Il devrait être bien guardé.&lt;br/&gt;- Une fois le bâtiment trouvé, lancez l'assaut et secourez l'otage.&lt;br/&gt;- Epargnez la vie des preneurs d'otage qui se rendent ou ils pourraient s'en prendre à l'otage en retour.</French>
+        <English>- Locate the building where the hostage is hidden. It should be well guarded.&lt;br/&gt;- Once the building is found, launch the assault and rescue the hostage.&lt;br/&gt;- Spare the life of surrendering hostage takers or it may push them to kill the hostage.</English>
+      </Key>
+      <Key ID="str_customcombatpatrol_mission_4">
+        <Original>Rescue the hostage</Original>
+        <French>Secourez l'otage</French>
+        <English>Rescue the hostage</English>
+        <Spanish>Rescatar al rehén</Spanish>
+        <Italian>Salvare l'ostaggio</Italian>
+        <Polish>Ratowanie zakładników</Polish>
+        <Russian>Спасти заложника</Russian>
+        <German>Rettung der Geiseln</German>
+        <Czech>Zachraňte rukojmí</Czech>
+        <Portuguese>Resgatar o refém</Portuguese>
+      </Key>
+      <Key ID="str_customcombatpatrol_mission_5">
+        <Original>Find and assault the building where the hostage is retained.</Original>
+        <French>Trouvez et lancez l'assaut sur le bâtiment où est retenu l'otage.</French>
+        <English>Find and assault the building where the hostage is retained.</English>
+        <Spanish>Buscar y asaltar el edificio donde se mantiene el rehén.</Spanish>
+        <Italian>Trovare e aggredire l'edificio dove l'ostaggio è mantenuto.</Italian>
+        <Polish>Znajdź i atak budynku, w którym zatrzymano zakładnika.</Polish>
+        <Russian>Найти и нанести удар по зданию, где заложник сохранен.</Russian>
+        <German>Finde und greife das Gebäude an, wo die Geisel behalten wird.</German>
+        <Czech>Najděte a napadněte budovu, kde jsou rukojmí zachováváni.</Czech>
+        <Portuguese>Encontre e ataque o prédio onde o refém é mantido.</Portuguese>
+      </Key>
+      <Key ID="str_customcombatpatrol_mission_6">
+        <Original>Extract the hostage</Original>
+        <French>Exfiltrez l'otage</French>
+        <English>Extract the hostage</English>
+        <Spanish>Extraer al rehén</Spanish>
+        <Italian>Estrae l'ostaggio</Italian>
+        <Polish>Wyciągnij zakładników</Polish>
+        <Russian>Извлечь заложника</Russian>
+        <German>Entdecke die Geisel</German>
+        <Czech>Extrahujte rukojmí</Czech>
+        <Portuguese>Extraia o refém</Portuguese>
+      </Key>
+      <Key ID="str_customcombatpatrol_mission_7">
+        <Original>Escort the hostage outside the AO.</Original>
+        <French>Escortez l'otage en dehors de la ZO OPFOR.</French>
+        <English>Escort the hostage outside the AO.</English>
+        <Spanish>Escolher o refém fora da área de operação.</Spanish>
+        <Italian>Escort l'ostaggio fuori l'area delle operazioni.</Italian>
+        <Polish>Escort zakładnik poza obszarem działania.</Polish>
+        <Russian>Сопровождать заложника за пределами зоны действия.</Russian>
+        <German>Begleite die Geisel außerhalb des Betriebsbereichs.</German>
+        <Czech>Doprovod rukojmí mimo oblast působení.</Czech>
+        <Portuguese>Escolher o refém fora da área de operação.</Portuguese>
+      </Key>
+      <Key ID="str_customcombatpatrol_mission_8">
+        <Original>Search the AO for the building where hostage takers are entrenched, rescue the hostage and extract him.</Original>
+        <French>Fouillez la ZO OPFOR pour trouver la bâtiment où les preneurs d'otage sont retranchés, secourez l'otage et exfiltrez-le.</French>
+        <English>Search the AO for the building where hostage takers are entrenched, rescue the hostage and extract him.</English>
+        <Spanish>Busque el área de operación para el edificio donde los secuestradores están atrincherados, rescate al rehén y extráigalo.</Spanish>
+        <Italian>Cerca l'area delle operazioni per l'edificio dove i detentori di ostaggi sono radicati, salvano l'ostaggio e lo estraggono.</Italian>
+        <Polish>Przeszukaj obszar działania budynku, w którym zakładnicy są przytwierdzeni, ratuj zakładnika i wynij go.</Polish>
+        <Russian>Найдите зону действия здания, где заложники захвачены, спасают заложника и вытаскивают его.</Russian>
+        <German>Suchen Sie den Bereich der Operation für das Gebäude, wo Geiselnehmer sind verankert, retten die Geisel und entziehen ihn.</German>
+        <Czech>Vyhledejte oblast operace budovy, kde jsou zakořeněni rukojmí, zachránit rukojmí a vytáhnout ho.</Czech>
+        <Portuguese>Pesquise a área de operação para o prédio onde os reféns estão enraizados, resgatar o refém e extraí-lo.</Portuguese>
+      </Key>
+      <Key ID="str_customcombatpatrol_mission_9">
+        <Original>Conduct a combat patrol to end the OPFOR propaganda.</Original>
+        <French>Menez une patrouille pour mettre fin à la propagande OPFOR.</French>
+        <English>Conduct a combat patrol to end the OPFOR propaganda.</English>
+        <Spanish>Realizar una patrulla de combate para poner fin a la propaganda OPFOR.</Spanish>
+        <Italian>Condurre una pattuglia di combattimento per porre fine alla propaganda di OPFOR.</Italian>
+        <Polish>Przeprowadź patrol walki, aby zakończyć propagandę OPFOR.</Polish>
+        <Russian>Провести боевой патруль для прекращения пропаганды силы условного противника.</Russian>
+        <German>Führen Sie eine Kampfpatrouille aus, um die OPFOR-Propaganda zu beenden.</German>
+        <Czech>Proveďte bojovou hlídku k ukončení propagandy OPFOR.</Czech>
+        <Portuguese>Realizar uma patrulha de combate para acabar com a propaganda OPFOR.</Portuguese>
+      </Key>
+      <Key ID="str_customcombatpatrol_mission_10">
+        <Original>The enemy try to keep the population under control by spreading their partisan propaganda.&lt;br/&gt;&lt;br/&gt;The AO is guarded by a platoon-sized, OPFOR infantry element, while the building where the hostage is hidden is being serviced by a squad-sized security detail. Intel also suggests they are defending nearby buildings. Due to the close proximity of the combat zone, OPFOR reinforcements may arrive in five minutes. Such a counterattack could include airborne, motorized, or even mechanized forces.</Original>
+        <French>L'ennemi cherche à maintenir la population sous contrôle en diffusant leur propagande partisane.&lt;br/&gt;&lt;br/&gt;La ZO est gardée par une section d'infanterie OPFOR et le bâtiment où est retenu l'otage est gardé par une escouade de sécurité. Nos renseignements semblent indiquer qu'ils défendent également les bâtiments voisins. En raison de la proximité avec la zone de combat, des renforts OPFOR peuvent arriver sur place en cinq minutes. Une telle contre-offensive peut avoir lieu par les airs ou avec des véhicules terrestres, blindés ou non.</French>
+        <English>The enemy try to keep the population under control by spreading their partisan propaganda.&lt;br/&gt;&lt;br/&gt;The AO is guarded by a platoon-sized, OPFOR infantry element, while the node itself is being serviced by a squad-sized security detail. Intel also suggests they are defending nearby buildings. Due to the close proximity of the combat zone, OPFOR reinforcements may arrive in five minutes. Such a counterattack could include airborne, motorized, or even mechanized forces.</English>
+        <Spanish>El enemigo intenta mantener a la población bajo control propagando su propaganda partidista.&lt;br/&gt;&lt;br/&gt;La zona de operaciones está protegida por un pelotón de infantería de OPFOR, mientras que el nódulo está resguardado por un escuadrón de seguridad. Tenemos información que asegura que están defendiendo los edificios cercanos. Debido a la proximidad de la zona de combate, los refuerzos de OPFOR podrían llegar en cinco minutos. El contraataque podrían llevarlo a cabo fuerzas aéreas, motorizadas e incluso mecanizadas.</Spanish>
+        <Italian>Il nemico cerca di mantenere la popolazione sotto controllo spargendo la loro propaganda partigiana.&lt;br/&gt;&lt;br/&gt;L'Area delle operazioni è protetta da un elemento di fanteria OPFOR delle dimensioni di un plotone, mentre il nodo stesso è protetto da una squadra di sicurezza delle dimensioni di un plotone. Le informazioni indicano inoltre che stanno difendendo gli edifici nelle vicinanze. A causa della vicinanza alla zona di combattimento, i rinforzi OPFOR potrebbero arrivare entro cinque minuti. Tale contrattacco potrebbe includere forze aeree, motorizzate o persino meccanizzate.</Italian>
+        <Polish>Wróg próbuje utrzymać populację pod kontrolą, rozprzestrzeniając swoją partyzancką propagandę.&lt;br/&gt;&lt;br/&gt;Obszar działania jest chroniony przez pluton piechoty OPFOR, zaś sam węzeł przez oddział ochrony w sile drużyny. Wywiad sugeruje również, że przeciwnik broni pobliskich budynków. Ze względu na bliskość strefy walki posiłki OPFOR mogą nadejść w ciągu 5 minut. Kontratak może nastąpić przy udziale sił powietrznodesantowych, zmotoryzowanych lub nawet zmechanizowanych.</Polish>
+        <Russian>Враг пытается держать население под контролем, распространяя свою партизанскую пропаганду.&lt;br/&gt;&lt;br/&gt;Район боевых действий контролируется взводом пехоты OPFOR, в то время как сам узел охраняет отряд пехоты. По данным разведки, они защищают расположенные поблизости здания. В связи с близким расположением к зоне боевых действий, подкрепления OPFOR могут прибыть в течение пяти минут. Они могут включать авиацию, моторизованные расчеты и даже механизированные подразделения.</Russian>
+        <German>Der Feind versucht, die Bevölkerung unter Kontrolle zu halten, indem sie ihre Partisanenpropaganda ausbreitet.&lt;br/&gt;&lt;br/&gt;Das Einsatzgebiet wird von einem OPFOR-Infanteriezug bewacht. Der Knotenpunkt selbst wird von einem Sicherheitsteam bedient. Unseren Informationen zufolge werden die in der Nähe befindlichen Gebäude ebenfalls bewacht. Aufgrund der Nähe zum Kampfgebiet könnten in fünf Minuten OPFOR-Verstärkungstruppen eintreffen. Ein solcher Gegenangriff kann Lufteinheiten, Fahrzeuge und sogar Panzer beinhalten.</German>
+        <Czech>Nepřítel se snaží udržet obyvatelstvo pod kontrolou šířením své partizánské propagandy.&lt;br/&gt;&lt;br/&gt;Operační oblast střeží pěchotní jednotka OPFOR velikosti čety. Provoz samotného uzlu zajišťuje menší bezpečnostní oddíl. Informace naznačují, že brání také sousední budovy. Vzhledem k blízkosti bojové oblasti jsou posily OPFOR schopny dorazit do pěti minut. Případný protiútok může zahrnovat vzdušné, motorizované, či dokonce mechanizované síly.</Czech>
+        <Portuguese>O inimigo tenta manter a população sob controle espalhando sua propaganda partidária.&lt;br/&gt; &lt;br/&gt;A AO está protegida por um pelotão de infantaria da OPFOR, ao passo que o dispositivo em si está sendo atendido por um esquadrão de segurança de dados. Os dados da inteligência sugerem que eles estão protegendo os edifícios próximos. Devido à proximidade com a zona de combate, os reforços da OPFOR devem chegar apenas em cinco minutos. O contra-ataque pode tanto incluir forças aéreas quanto motorizadas ou até mesmo mecanizadas.</Portuguese>
+      </Key>
+      <Key ID="str_customcombatpatrol_mission_11">
+        <Original>- Locate and destroy the loudspeakers broadcasting the propaganda.&lt;br/&gt;- Locate and destroy the statue of the local leader.</Original>
+        <French>- Repérez et détruisez les haut-parleurs diffusant la propagande.&lt;br/&gt;- Repérez et détruisez la statue à l'effigie du dirigeant local.</French>
+        <English>- Locate and destroy the loudspeakers broadcasting the propaganda.&lt;br/&gt;- Locate and destroy the statue of the local leader.</English>
+        <Spanish>- Localizar y destruir los altavoces que transmiten la propaganda.&lt;br/&gt;- Localizar y destruir la estatua del líder local.</Spanish>
+        <Italian>- Individuare e distruggere gli altoparlanti che trasmettono la propaganda.&lt;br/&gt;- Individuare e distruggere la statua del leader locale.</Italian>
+        <Polish>- Zlokalizuj i zniszcz głośniki emitujące propagandę.&lt;br/&gt;- Zlokalizuj i zniszcz pomnik lidera lokalnego.</Polish>
+        <Russian>- Найдите и уничтожьте громкоговорители, транслирующие пропаганду.&lt;br/&gt;- Найдите и уничтожьте статую местного лидера.</Russian>
+        <German>- Lokalisieren und zerstören die Lautsprecher, die die Propaganda ausstrahlen.&lt;br/&gt;- Lokalisieren und zerstören die Statue des lokalen Führers.</German>
+        <Czech>- Vyhledejte a zničte reproduktory vysílající propagandu.&lt;br/&gt;- Vyhledejte a zničte sochu místního vůdce.</Czech>
+        <Portuguese>- Localize e destrua os altifalantes que transmitem a propaganda.&lt;br/&gt;- Localize e destrua a estátua do líder local.</Portuguese>
+      </Key>
+      <Key ID="str_customcombatpatrol_mission_12">
+        <Original>Destroy the loudspeakers</Original>
+        <French>Détruisez les haut-parleurs</French>
+        <English>Destroy the loudspeakers</English>
+        <Spanish>Destruye los altavoces</Spanish>
+        <Italian>Distruggi gli altoparlanti</Italian>
+        <Polish>Zniszcz głośniki</Polish>
+        <Russian>Уничтожьте громкоговорители</Russian>
+        <German>Zerstöre die Lautsprecher</German>
+        <Czech>Zničte reproduktory</Czech>
+        <Portuguese>Destrua os alto-falantes</Portuguese>
+      </Key>
+      <Key ID="str_customcombatpatrol_mission_13">
+        <Original>Find and destroy all the loudspeakers broadcasting the propaganda.</Original>
+        <French>Trouvez et détruisez tous les haut-parleurs diffusant la propagande.</French>
+        <English>Find and destroy all the loudspeakers broadcasting the propaganda.</English>
+        <Spanish>Buscar y destruir todos los altavoces que transmiten la propaganda.</Spanish>
+        <Italian>Trovare e distruggere tutti gli altoparlanti che trasmettono la propaganda.</Italian>
+        <Polish>Znajdź i zniszcz głośniki emitujące propagandę.</Polish>
+        <Russian>Найдите и уничтожьте все громкоговорители, транслирующие пропаганду.</Russian>
+        <German>Finden und zerstören alle Lautsprecher, die die Propaganda ausstrahlen.</German>
+        <Czech>Najděte a zničte všechny reproduktory vysílající propagandu.</Czech>
+        <Portuguese>Encontre e destrua todos os altifalantes que transmitem a propaganda.</Portuguese>
+      </Key>
+      <Key ID="str_customcombatpatrol_mission_14">
+        <Original>Destroy the statue</Original>
+        <French>Détruisez la statue</French>
+        <English>Destroy the statue</English>
+        <Spanish>Destruye la estatua</Spanish>
+        <Italian>Distruggi la statua</Italian>
+        <Polish>Zniszcz posąg</Polish>
+        <Russian>Уничтожьте статую</Russian>
+        <German>Zerstöre die Statue</German>
+        <Czech>Zničte sochu</Czech>
+        <Portuguese>Destrua a estátua</Portuguese>
+      </Key>
+      <Key ID="str_customcombatpatrol_mission_15">
+        <Original>Find the statue and reduce it to dust.</Original>
+        <French>Trouvez la statue et réduisez-la en poussière.</French>
+        <English>Find the statue and reduce it to dust.</English>
+        <Spanish>Encuentra la estatua y reduzca a polvo.</Spanish>
+        <Italian>Trovare la statua e ridurla in polvere.</Italian>
+        <Polish>Znajdź posąg i zredukuj go do kurzu.</Polish>
+        <Russian>Найдите статую и уменьшите ее до пыли.</Russian>
+        <German>Finden Sie die Statue und reduzieren Sie sie zu Staub.</German>
+        <Czech>Najděte sochu a snižte ji na prach.</Czech>
+        <Portuguese>Encontre a estátua e reduza-a ao pó.</Portuguese>
+      </Key>
+      <Key ID="str_customcombatpatrol_mission_16">
+        <Original>Search the AO for all the propaganda assets and destroy them.</Original>
+        <French>Fouillez la ZO OPFOR pour trouver tous les vecteurs de propagande et détruisez-les.</French>
+        <English>Search the AO for all the propaganda assets and destroy them.</English>
+        <Spanish>Buscar el área de operación para todos los activos de propaganda y destruirlos.</Spanish>
+        <Italian>Cerca l'area delle operazioni per tutte le risorse propagandistiche e distruggila.</Italian>
+        <Polish>Przeszukaj obszar działania dla wszystkich zasobów propagandowych i zniszcz ich.</Polish>
+        <Russian>Искать в зоне действия всех пропагандистских активов и уничтожать их.</Russian>
+        <German>Suchen Sie den Bereich der Operation für alle Propaganda Vermögenswerte und zerstören sie.</German>
+        <Czech>Vyhledejte oblast operace pro všechny propagandistické prostředky a zničte je.</Czech>
+        <Portuguese>Pesquise a área de operação para todos os recursos de propaganda e destrua-os.</Portuguese>
+      </Key>
+    </Container>
+  </Package>
+</Project>

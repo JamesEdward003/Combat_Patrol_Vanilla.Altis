@@ -1,11 +1,9 @@
 // initPlayerLocal.sqf //
 waitUntil {!isNull player && alive player}; 
 
-[playerSide, "HQ"] commandChat format ["%1, Executing initPlayer!",name player];
+[playerSide, "HQ"] commandChat "Executing InitPlayer!";
 
-if !isMultiplayer then { execVM "paramsplus\respawn.sqf"; };
-
-[player] execVM "paramsplus\playerSettings.sqf";
+if !isMultiplayer then { execVM "ParamsPlus\respawn.sqf"; };
 
 //call compile preprocessFileLineNumbers "zorilyas_random_loadout\fnc_randomWeapon.sqf";
 
@@ -17,8 +15,13 @@ call compile preprocessFileLineNumbers "arsenalTriggerAction.sqf";
 
 call compile preprocessFileLineNumbers "garageTriggerAction.sqf";
 
-_storeGear = getUnitLoadOut player;
-missionNameSpace setVariable ["StoredUnitLoadOut", _storeGear];
+//call compile preprocessFileLineNumbers "ParamsPlus\UnlimitedAmmo.sqf";
+
+//_storeGear = getUnitLoadOut player;
+
+//missionNameSpace setVariable ["StoredUnitLoadOut", _storeGear];
+
+//player setUnitLoadOut [(missionNameSpace getVariable "StoredUnitLoadOut"),true];
 
 call compile preprocessFileLineNumbers "SafeWeapon.sqf";
 
@@ -80,26 +83,5 @@ if ( isNil{player getVariable "CommGroupManager"} ) then
 	player setVariable ["CommGroupManager", true];	
 };
 
-player addEventHandler ["Reloaded",{  
-	params ["_unit", "_weapon", "_muzzle", "_newMagazine", "_oldMagazine"];
-  	_unit = _this select 0;  
-  	_mag = _this select 4 select 0; 
-  	_magCount = {_x == currentMagazine _unit} count (magazines _unit);
-  	if (_magCount < 6) then    
-  	{
-	  	_unit addMagazine _mag;
-	};
- }]; 
-player addEventHandler ["Fired", {
-	params ["_unit", "_weapon", "_muzzle", "_mode", "_ammo", "_magazine", "_projectile", "_gunner"];
-  	_unit = _this select 0;  
-  	_weapon = _this select 1;
-  	_magazine = _this select 5;
-  	hint format ["%1,%2,%3,%4,%5,%6,%7,%8", name _unit,_weapon,_muzzle,_mode,_ammo,_magazine,_projectile,_gunner];
-  	_magCount = {_x == currentMagazine _unit} count (magazines _unit);
-	if ((_weapon == "THROW") and (_magCount < 4)) then
-	{
-		_unit addMagazine _magazine;
-	};
-}];
+
 

@@ -6,6 +6,8 @@ _array = [];
 
 _unit addEventHandler ["Respawn",{_this execVM "paramsplus\rallyPoint.sqf"}];
 
+_unit addEventHandler ["WeaponAssembled", { (_this select 1) allowDamage false }];
+
 for 	[{_i= (count _actions)-1},{_i>-1},{_i=_i-1}]
 do 	{
 	_params = _unit actionParams (_actions select _i);

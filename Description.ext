@@ -108,7 +108,7 @@ class Params
 		title = $STR_customcombatpatrol_params_3;
 		values[] = {1, 0};
 		texts[] = {$STR_A3_cfgvehicles_modulestrategicmapimage_f_arguments_shadow_values_yes_0, $STR_A3_cfgvehicles_modulestrategicmapimage_f_arguments_shadow_values_no_0};
-		default = 1;
+		default = 0;
 	};
 	class BAS_CCP_insRadiusMul
 	{
@@ -211,7 +211,7 @@ class Params
         	values[] = {1, 2, 3, 4};
         	texts[] = {"Below Average", "Average", "Above Average", "Excellent"};
         	default = 3;
-       	file = "ParamsPlus\OpSkill.sqf";
+       		file = "ParamsPlus\OpSkill.sqf";
         	isGlobal = 0;
 	};
     	class PFatigue    {  
@@ -295,7 +295,9 @@ class Params
         	title = "Enable/Disable Unlimited Ammo";
         	values[] = {1, 2};
         	texts[] = {"Disable","Enable"};
-        	default = 1;
+        	default = 2;
+			file = "ParamsPlus\UnlimitedAmmo.sqf";
+			isGlobal = 1;
     	};
     	class PDiver   {    
 

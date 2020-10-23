@@ -1,7 +1,7 @@
 //////	[player] execVM "playerSettings.sqf";	//////
 private ["_player","_pfatigue","_pstamina","_precoil","_psway","_paudible","_pcamocoef","_ploadcoef","_pengineer","_pexplspec","_pmedic","_puavhacker","_pua","_pdiver","_pintro"];
 _player = _this select 0;
-
+//[1,1,1,1,0,20,0,-1,1,0,0,0,2,3,2,2,3,1,1,1,3,3,1,1,3,3,3,3,3,1,1,2,1,2,1,1]
 _pfatigue 	= paramsArray select 22;
 _pstamina 	= paramsArray select 23;
 _precoil 	= paramsArray select 24;
@@ -169,7 +169,7 @@ if (isNil "pintro") then
 };
 if (!isDedicated) then
 {
-	waitUntil {!(isNull player)};
+	waitUntil {!isNull player};
 	waitUntil {player == player};
 	waitUntil {!isNil "pfatigue"};
 	waitUntil {!isNil "pstamina"};
@@ -205,10 +205,47 @@ missionNamespace setVariable ["UnlimitedAmmo", pua];
 missionNamespace setVariable ["SF_diver", pdiver];
 missionNamespace setVariable ["PIntro", pintro];
 
+_player addEventHandler ["Respawn", {
+	params ["_unit", "_corpse"];
+
+	_pfatigue 	= paramsArray select 22;
+	_pstamina 	= paramsArray select 23;
+	_precoil 	= paramsArray select 24;
+	_psway   	= paramsArray select 25;
+	_paudible	= paramsArray select 26;
+	_pcamocoef	= paramsArray select 27;
+	_ploadcoef	= paramsArray select 28;
+	_pengineer	= paramsArray select 29;
+	_pexplspec	= paramsArray select 30;
+	_pmedic		= paramsArray select 31;
+	_puavhacker	= paramsArray select 32;
+	_pua		= paramsArray select 33;
+	_pdiver		= paramsArray select 34;
+	_pintro		= paramsArray select 35;
+
+	_unit enableFatigue pfatigue;
+	_unit enableStamina pstamina;
+	_unit setUnitRecoilCoefficient precoil;
+	_unit setCustomAimCoef psway;
+	_unit setUnitTrait ["audibleCoef",paudible];
+	_unit setUnitTrait ["camouflageCoef",pcamocoef];
+	_unit setUnitTrait ["loadCoef",ploadcoef];
+	_unit setUnitTrait ["Engineer",pengineer];
+	_unit setUnitTrait ["ExplosiveSpecialist",pexplspec];
+	_unit setUnitTrait ["Medic",pmedic];
+	_unit setUnitTrait ["UAVHacker",puavhacker];
+
+	if (isPlayer _unit) then {
+
+	[playerSide, "HQ"] commandChat format ["%1, Player Settings installed!",name _unit];
+
+	};
+
+}];
+
 if (isPlayer _player) then {
 
-[playerSide, "HQ"] commandChat format ["%1, Player Settings installed!",name _player];
+[playerSide, "HQ"] commandChat format ["%1, Player Settings Installed!",name _player];
 
 };
-
 

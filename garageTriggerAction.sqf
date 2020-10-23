@@ -17,8 +17,6 @@ _spawnPos = createVehicle [ 'Land_HelipadEmpty_F', _pos, [], 0, 'CAN_COLLIDE' ];
 
 [ 'Open', [ true, _spawnPos ] ] call BIS_fnc_garage;
 
-[cursorTarget] execVM 'vehicleMarker.sqf';
-
 },
 	    [_vehicleData],
 	    1, 

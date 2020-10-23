@@ -3,6 +3,7 @@ _PloadoutAdjustments = "PloadoutAdjustments" call BIS_fnc_getParamValue;
 if (_PloadoutAdjustments isEqualTo 3) exitWith {};
 private ["_unit","_classname","_displayname","_nvList","_nv","_muzzleList","_ml","_ldList","_PloadoutAdjustments"];
 _unit = _this select 0;
+waitUntil { !(isNil {_unit getVariable "LoadoutDone"}) };
 //_classname 	= format ["%1", typeOf _unit];
 //_displayname = gettext (configfile >> "CfgVehicles" >> _className >> "displayName");
 
@@ -12,7 +13,7 @@ _muzzleList = ["muzzle_snds_H","muzzle_snds_L","muzzle_snds_M","muzzle_snds_B","
 
 _ldList = ["Binocular","Laserdesignator","Laserdesignator_02","Laserdesignator_03","Laserdesignator_01_khk_F","Laserdesignator_02_ghex_F"];
 
-if ((dayTime < ((date call BIS_fnc_sunriseSunsetTime) select 0) - 0.5) && (dayTime > ((date call BIS_fnc_sunriseSunsetTime) select 1) + 0.5)) then
+if (((dayTime > ((date call BIS_fnc_sunriseSunsetTime) select 0) - 0.5) && (dayTime < ((date call BIS_fnc_sunriseSunsetTime) select 1) + 0.5)) isEqualTo false) then
 {
 	if (([_unit, "G_Goggles_VR"] call BIS_fnc_hasItem) isEqualTo true) then {
 		
@@ -65,8 +66,7 @@ if (!isPlayer _unit) then
 
 if (isPlayer _unit) then {
 
-[playerSide, "HQ"] commandChat "Loadout adjustments done!";
+[playerSide, "HQ"] commandChat "Loadout Adjustments Done!";
 
 };
-
 

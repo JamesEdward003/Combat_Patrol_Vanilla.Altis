@@ -8,7 +8,3 @@ _marker = _chosenBuilding select 1;
 	
 _newUnit setPos getMarkerPos _marker;
 
-[_newUnit] execVM "ParamsPlus\playerSettings.sqf";
-
-_newUnit setUnitLoadOut [(missionNameSpace getVariable "StoredUnitLoadOut"),true];
-

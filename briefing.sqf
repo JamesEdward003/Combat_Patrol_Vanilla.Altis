@@ -25,6 +25,6 @@ case CIVILIAN: // CIVILIAN briefing goes here
 };
 };
 
-waitUntil { (isServer || !isNull player) && (!isNil "introQuotationsDone" || !isNil "introTitlecardDone" || !isNil "introPlayVideoDone") };
+waitUntil { (isServer || !isNull player) };
 
 [playerSide, "HQ"] commandChat "Briefing Done!";

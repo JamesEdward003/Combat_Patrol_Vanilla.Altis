@@ -2,7 +2,9 @@
 
 call compile preprocessFileLineNumbers "briefing.sqf";
 
-call compile preprocessFileLineNumbers "EPD\VirtualJTAC\init.sqf";
+//call compile preprocessFileLineNumbers "ParamsPlus\PlayerSettings.sqf";
+
+//call compile preprocessFileLineNumbers "EPD\VirtualJTAC\init.sqf";
 
 call compile preprocessFileLineNumbers "bon_recruit_units\init.sqf";
 

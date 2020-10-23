@@ -1,5 +1,5 @@
 ///////  [_unit] execVM "paramsplus\loadouts.sqf";  ///////
-//["Officer","Team Leader","Recon JTAC","Squad Leader","Autorifleman","Rifleman (AT)","Rifleman","Repair Specialist","Combat Life Saver","Grenadier"];
+//["Officer","Team Leader","Recon JTAC","Squad Leader","Autorifleman","Rifleman (AT)","Rifleman","Repair Specialist","Grenadier","Combat Life Saver","Marksman"];
 //_recruitableunits = ["B_Captain_Pettka_F","B_CTRG_soldier_GL_LAT_F","B_Story_Protagonist_F","B_CTRG_soldier_engineer_exp_F","B_CTRG_soldier_AR_A_F","B_CTRG_soldier_M_medic_F","B_Captain_Jay_F"];
 _PLoadOut = "PLoadOut" call BIS_fnc_getParamValue;
 if (_PLoadOut isEqualTo 3) exitWith {};
@@ -78,9 +78,9 @@ _unit linkItem "ItemRadio";
 _unit linkItem "B_UavTerminal";
 _unit linkItem "NVGoggles";
 
-if (daytime > 19.25 || daytime < 3.75) then {_unit action ["nvGoggles", _unit]};
-_unit setVariable ["loadout", getUnitLoadout _unit];
-_unit action ["WEAPONONBACK", _unit];
+comment "Set identity";
+[this,"WhiteHead_08","male12eng"] call BIS_fnc_setIdentity;
+[this,"111thID"] call BIS_fnc_setUnitInsignia;
 };
 
 	case "Team Leader": {	//	GRENADE LAUNCHER/LASERDESIGNATOR EQUIPPED
@@ -151,9 +151,9 @@ _unit linkItem "ItemRadio";
 _unit linkItem "B_UavTerminal";
 _unit linkItem "NVGoggles";
 
-if (daytime > 19.25 || daytime < 3.75) then {_unit action ["nvGoggles", _unit]};
-_unit setVariable ["loadout", getUnitLoadout _unit];
-_unit action ["WEAPONONBACK", _unit];
+comment "Set identity";
+[this,"WhiteHead_08","male12eng"] call BIS_fnc_setIdentity;
+[this,"111thID"] call BIS_fnc_setUnitInsignia;
 };
 
 	case "Recon JTAC": {	//	GRENADE LAUNCHER/LASERDESIGNATOR EQUIPPED
@@ -224,9 +224,9 @@ _unit linkItem "ItemRadio";
 _unit linkItem "B_UavTerminal";
 _unit linkItem "NVGoggles";
 
-if (daytime > 19.25 || daytime < 3.75) then {_unit action ["nvGoggles", _unit]};
-_unit setVariable ["loadout", getUnitLoadout _unit];
-_unit action ["WEAPONONBACK", _unit];
+comment "Set identity";
+[this,"WhiteHead_08","male12eng"] call BIS_fnc_setIdentity;
+[this,"111thID"] call BIS_fnc_setUnitInsignia;
 };
 
 case "Squad Leader": {	//	GRENADE LAUNCHER/LASERDESIGNATOR EQUIPPED
@@ -293,9 +293,9 @@ _unit linkItem "ItemRadio";
 _unit linkItem "B_UavTerminal";
 _unit linkItem "NVGoggles";
 
-if (daytime > 19.25 || daytime < 3.75) then {_unit action ["nvGoggles", _unit]};
-_unit setVariable ["loadout", getUnitLoadout _unit];
-_unit action ["WEAPONONBACK", _unit];
+comment "Set identity";
+[this,"WhiteHead_08","male12eng"] call BIS_fnc_setIdentity;
+[this,"111thID"] call BIS_fnc_setUnitInsignia;
 };
 
 	case "Autorifleman": {	//	GRENADE LAUNCHER/JAVELIN EQUIPPED
@@ -360,9 +360,9 @@ _unit linkItem "ItemRadio";
 _unit linkItem "B_UavTerminal";
 _unit linkItem "NVGoggles";
 
-if (daytime > 19.25 || daytime < 3.75) then {_unit action ["nvGoggles", _unit]};
-_unit setVariable ["loadout", getUnitLoadout _unit];
-_unit action ["WEAPONONBACK", _unit];
+comment "Set identity";
+[this,"WhiteHead_08","male12eng"] call BIS_fnc_setIdentity;
+[this,"111thID"] call BIS_fnc_setUnitInsignia;
 };
 
 	case "Rifleman (AT)": {	//	GRENADE LAUNCHER/PCML-NLAW/LASERDESIGNATOR EQUIPPED
@@ -430,9 +430,9 @@ _unit linkItem "ItemRadio";
 _unit linkItem "B_UavTerminal";
 _unit linkItem "NVGoggles";
 
-if (daytime > 19.25 || daytime < 3.75) then {_unit action ["nvGoggles", _unit]};
-_unit setVariable ["loadout", getUnitLoadout _unit];
-_unit action ["WEAPONONBACK", _unit];
+comment "Set identity";
+[this,"WhiteHead_08","male12eng"] call BIS_fnc_setIdentity;
+[this,"111thID"] call BIS_fnc_setUnitInsignia;
 };
 
 	case "Rifleman": {	//	GRENADE LAUNCHER/LASERDESIGNATOR EQUIPPED
@@ -499,9 +499,9 @@ _unit linkItem "ItemRadio";
 _unit linkItem "B_UavTerminal";
 _unit linkItem "NVGoggles";
 
-if (daytime > 19.25 || daytime < 3.75) then {_unit action ["nvGoggles", _unit]};
-_unit setVariable ["loadout", getUnitLoadout _unit];
-_unit action ["WEAPONONBACK", _unit];
+comment "Set identity";
+[this,"WhiteHead_08","male12eng"] call BIS_fnc_setIdentity;
+[this,"111thID"] call BIS_fnc_setUnitInsignia;
 };
 
 	case "Repair Specialist": {	//	GRENADE LAUNCHER/LASERDESIGNATOR/MINE DETECTOR/TOOLKIT EQUIPPED
@@ -568,9 +568,9 @@ _unit linkItem "ItemRadio";
 _unit linkItem "B_UavTerminal";
 _unit linkItem "NVGoggles";
 
-if (daytime > 19.25 || daytime < 3.75) then {_unit action ["nvGoggles", _unit]};
-_unit setVariable ["loadout", getUnitLoadout _unit];
-_unit action ["WEAPONONBACK", _unit];
+comment "Set identity";
+[this,"WhiteHead_08","male12eng"] call BIS_fnc_setIdentity;
+[this,"111thID"] call BIS_fnc_setUnitInsignia;
 };
 
 	case "Grenadier": {	//	GRENADE LAUNCHER/LASERDESIGNATOR/MINE DETECTOR/TOOLKIT EQUIPPED
@@ -637,9 +637,9 @@ _unit linkItem "ItemRadio";
 _unit linkItem "B_UavTerminal";
 _unit linkItem "NVGoggles";
 
-if (daytime > 19.25 || daytime < 3.75) then {_unit action ["nvGoggles", _unit]};
-_unit setVariable ["loadout", getUnitLoadout _unit];
-_unit action ["WEAPONONBACK", _unit];
+comment "Set identity";
+[this,"WhiteHead_08","male12eng"] call BIS_fnc_setIdentity;
+[this,"111thID"] call BIS_fnc_setUnitInsignia;
 };
 
 	case "Combat Life Saver": {	//	MEDIKIT/TOOLKIT/MINE DETECTOR/RANGEFINDER EQUIPPED
@@ -703,15 +703,81 @@ _unit linkItem "ItemRadio";
 _unit linkItem "B_UavTerminal";
 _unit linkItem "NVGoggles";
 
-if (daytime > 19.25 || daytime < 3.75) then {_unit action ["nvGoggles", _unit]};
+comment "Set identity";
+[this,"WhiteHead_08","male11eng"] call BIS_fnc_setIdentity;
+[this,"111thID"] call BIS_fnc_setUnitInsignia;
+};
+
+	case "Marksman": {	//	MEDIKIT/MINE DETECTOR/LASER DESIGNATOR EQUIPPED
+
+comment "Exported from Arsenal by RENFRO";
+
+comment "[!] UNIT MUST BE LOCAL [!]";
+if (!local this) exitWith {};
+
+comment "Remove existing items";
+removeAllWeapons this;
+removeAllItems this;
+removeAllAssignedItems this;
+removeUniform this;
+removeVest this;
+removeBackpack this;
+removeHeadgear this;
+removeGoggles this;
+
+comment "Add weapons";
+this addWeapon "arifle_MXM_Hamr_LP_BI_F";
+this addPrimaryWeaponItem "muzzle_snds_H";
+this addPrimaryWeaponItem "acc_pointer_IR";
+this addPrimaryWeaponItem "optic_Nightstalker";
+this addPrimaryWeaponItem "30Rnd_65x39_caseless_mag";
+this addWeapon "hgun_P07_F";
+this addHandgunItem "muzzle_snds_L";
+this addHandgunItem "16Rnd_9x21_Mag";
+
+comment "Add containers";
+this forceAddUniform "U_B_CombatUniform_mcam";
+this addVest "V_PlateCarrier1_rgr";
+
+comment "Add binoculars";
+this addMagazine "Laserbatteries";
+this addWeapon "Laserdesignator";
+
+comment "Add items to containers";
+this addItemToUniform "FirstAidKit";
+for "_i" from 1 to 3 do {this addItemToUniform "30Rnd_65x39_caseless_mag";};
+this addItemToUniform "Chemlight_green";
+this addItemToVest "MineDetector";
+for "_i" from 1 to 7 do {this addItemToVest "30Rnd_65x39_caseless_mag";};
+for "_i" from 1 to 2 do {this addItemToVest "16Rnd_9x21_Mag";};
+for "_i" from 1 to 2 do {this addItemToVest "HandGrenade";};
+this addItemToVest "SmokeShell";
+this addItemToVest "SmokeShellGreen";
+this addItemToVest "Chemlight_green";
+this addItemToVest "Laserbatteries";
+this addHeadgear "H_Cap_usblack";
+this addGoggles "G_Diving";
+
+comment "Add items";
+this linkItem "ItemMap";
+this linkItem "ItemCompass";
+this linkItem "ItemWatch";
+this linkItem "ItemRadio";
+this linkItem "ItemGPS";
+this linkItem "NVGoggles";
+
+comment "Set identity";
+[this,"WhiteHead_08","male12eng"] call BIS_fnc_setIdentity;
+[this,"111thID"] call BIS_fnc_setUnitInsignia;
+};
+};
+
+if (((dayTime > ((date call BIS_fnc_sunriseSunsetTime) select 0) - 0.5) && (dayTime < ((date call BIS_fnc_sunriseSunsetTime) select 1) + 0.5)) isEqualTo false) then {_unit action ["nvGoggles", _unit]};
 _unit setVariable ["loadout", getUnitLoadout _unit];
 _unit action ["WEAPONONBACK", _unit];
-};
-};
 
 if (isPlayer _unit) then {
 
-[playerSide, "HQ"] commandChat "Loadouts Done!"
+[playerSide, "HQ"] commandChat "Loadouts Done!";
 
 };
-

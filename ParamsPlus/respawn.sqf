@@ -3,11 +3,11 @@ _unitvn		= vehicleVarName player;
 _classname 	= format ["%1", typeOf player];
 _displayname = gettext (configfile >> "CfgVehicles" >> _className >> "displayName");
 _unitname 	= [name player,name player,name player];
-_unitrank   	= rank player;
+_unitrank   = rank player;
 _unitface	= face player;
 _unitvoice	= speaker player;
 _unitskill	= skill player;
-_plyrgrp		= group player;	
+_plyrgrp	= group player;	
 _grpldr		= leader _plyrgrp;
 _plyrlo		= getUnitLoadout player;
 
@@ -33,11 +33,11 @@ playerRespawn = {
 		_className 	= _PlayerProfile select 1;
 		_displayName = _PlayerProfile select 2;
 		_unitname 	= _PlayerProfile select 3;
-		_unitrank   	= _PlayerProfile select 4;
+		_unitrank   = _PlayerProfile select 4;
 		_unitface	= _PlayerProfile select 5;
 		_unitvoice	= _PlayerProfile select 6;
 		_unitskill	= _PlayerProfile select 7;
-		_plyrgrp		= _PlayerProfile select 8;	
+		_plyrgrp	= _PlayerProfile select 8;	
 		_grpldr		= _PlayerProfile select 9;
 		_plyrlo		= _PlayerProfile select 10;
 		//_className createUnit [position, group, init, skill, rank]	getMarkerPos ["respawn_west", true];
@@ -77,8 +77,14 @@ playerRespawn = {
 //	
 //player setPos getMarkerPos _marker;
 
-player setUnitLoadOut _plyrlo;
-																	
+_PLoadOut = "PLoadOut" call BIS_fnc_getParamValue;
+if (_PLoadOut isEqualTo 3) then 
+{
+	player setUnitLoadOut _plyrlo;
+};
+
+[player] execVM "paramsplus\loadouts.sqf";
+
 BIS_DeathBlur ppEffectAdjust [0.0];
 BIS_DeathBlur ppEffectCommit 0.0;
 

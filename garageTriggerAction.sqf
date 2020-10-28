@@ -4,7 +4,7 @@ _trg3 setTriggerActivation ["Charlie", "PRESENT", true];
 _trg3 setTriggerText "Garage Action";
 _trg3 setTriggerStatements ["this", "
 
-player addAction [ '<t color=''#00FFFF''>Custom Garage</t>',{
+player addAction [ '<t color=''#00FFFF''>Garage Action</t>',{
 	_unit 	= _this select 0;
 	_caller 	= _this select 1;
 	_id 		= _this select 2;
@@ -12,7 +12,7 @@ player addAction [ '<t color=''#00FFFF''>Custom Garage</t>',{
 	
 BIS_fnc_garage_data = ( _this select 3 ) select ( side player call BIS_fnc_sideID );
 
-_pos = [ player, 30, getDir player ] call BIS_fnc_relPos;
+_pos = [ player, 20, getDir player ] call BIS_fnc_relPos;
 _spawnPos = createVehicle [ 'Land_HelipadEmpty_F', _pos, [], 0, 'CAN_COLLIDE' ];
 
 [ 'Open', [ true, _spawnPos ] ] call BIS_fnc_garage;
@@ -26,3 +26,27 @@ _spawnPos = createVehicle [ 'Land_HelipadEmpty_F', _pos, [], 0, 'CAN_COLLIDE' ];
 	    ''
 	];", ""];
 
+_trg4 = createTrigger ["EmptyDetector", [0,0,0]];
+_trg4 setTriggerActivation ["Delta", "PRESENT", true];
+_trg4 setTriggerText "Marshall Tank";
+_trg4 setTriggerStatements ["this", "
+
+player addAction [ '<t color=''#00FFFF''>Marshall Tank</t>',{
+	_unit 	= _this select 0;
+	_caller 	= _this select 1;
+	_id 		= _this select 2;
+	_unit removeAction _id;
+	
+garage_object = _this select 3;
+
+_pos = [ player, 10, getDir player ] call BIS_fnc_relPos;
+_spawnPos = createVehicle [ garage_object, _pos, [], 0, 'CAN_COLLIDE' ];
+
+},
+	    ['B_APC_Wheeled_01_cannon_F'],
+	    1, 
+	    true, 
+	    false, 
+	    '',
+	    ''
+	];", ""];

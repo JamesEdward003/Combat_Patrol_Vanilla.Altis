@@ -15,17 +15,7 @@ call compile preprocessFileLineNumbers "arsenalTriggerAction.sqf";
 
 call compile preprocessFileLineNumbers "garageTriggerAction.sqf";
 
-//call compile preprocessFileLineNumbers "ParamsPlus\UnlimitedAmmo.sqf";
-
-//_storeGear = getUnitLoadOut player;
-
-//missionNameSpace setVariable ["StoredUnitLoadOut", _storeGear];
-
-//player setUnitLoadOut [(missionNameSpace getVariable "StoredUnitLoadOut"),true];
-
 call compile preprocessFileLineNumbers "SafeWeapon.sqf";
-
-//call compile preprocessFileLineNumbers "drawIcons.sqf";
 
 if ( isNil{player getVariable "CommAirLift"} ) then
 {	

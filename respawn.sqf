@@ -22,8 +22,8 @@ for "_i" from 0 to 1 step 0 do
 	_unitvn		= _pp select 0;
 	_type 		= _pp select 1;
 	_unitname 	= _pp select 2;
-	_unitrank   	= _pp select 3;
-	_plyrgrp		= _pp select 4; 
+	_unitrank   = _pp select 3;
+	_plyrgrp	= _pp select 4; 
 	_grpldr		= _pp select 5;
 		//type createUnit [position, group, init, skill, rank]	getMarkerPos ["respawn_west", true];
 		_type createUnit [getMarkerPos ["respawn_west", true], _plyrgrp, "selectPlayer this; addSwitchableUnit this;"];

@@ -26,7 +26,7 @@ allowSubordinatesTakeWeapons = 1;
 enableTeamSwitch = 1;
 setGroupIconsSelectable = 1;
 
-respawnTemplates[] = {"MenuPosition", "Tickets", "Spectator"};
+respawnTemplates[] = {"MenuPosition", "Tickets"};
 
 class Header
 {
@@ -82,12 +82,19 @@ class Params
 		texts[] = {"5", "10", "20", "50", "100"};
 		default = 20;
 	};
+	class BIS_CP_enemyFaction
+	{
+		title = $STR_A3_combatpatrol_params_19;
+		values[] = {0, 1, 2};
+		texts[] = {$STR_A3_cfgfactionclasses_opf_f0, $STR_A3_cfgfactionclasses_ind_f0, $STR_A3_bis_fnc_respawnmenuposition_random};
+		default = 0;
+	};
 	class BIS_CP_locationSelection
 	{
 		title = $STR_A3_combatpatrol_params_20;
 		values[] = {0, 1};
 		texts[] = {$STR_A3_combatpatrol_params_21, $STR_A3_bis_fnc_respawnmenuposition_random};
-		default = 0;
+		default = 1;
 	};
 	class BIS_CP_objective
 	{
@@ -126,193 +133,211 @@ class Params
 	};
   	class PLoadOut
 	{
-        	title = "Scripted Loadouts";
+        title = "Scripted Loadouts";
        	values[] = {1, 2, 3};
-        	texts[] = {"Playable or Switchable Units","Units Group Player","Disabled"};
-        	default = 2;
-        	file = "ParamsPlus\loadout_selection.sqf";
-        	isGlobal = 1;
-	};			
-    	class PDiverEquip   {    
-
-        	title = "Diver Equipment";
-        	values[] = {1, 2, 3};
-        	texts[] = {"Playable or Switchable Units","Units Group Player","Disabled"};
-        	default = 3;
-        	file = "ParamsPlus\loadouts_diver_selection.sqf";
-        	isGlobal = 1;
-    	};
-    	class PloadoutAdjustments   {    
-
-        	title = "Night Vision and Silencer Adjustments";
-        	values[] = {1, 2, 3};
-        	texts[] = {"Playable or Switchable Units","Units Group Player","Disabled"};
-        	default = 2;
-        	file = "ParamsPlus\loadoutAdjustments_Group.sqf";
-        	isGlobal = 1;
-    	};
-    	class PMarkers   {    
-
-        	title = "Group Markers";
-        	values[] = {1, 2, 3};
-        	texts[] = {"Playable or Switchable Units","Units Group Player","Disabled"};
-        	default = 2;
-        	file = "ParamsPlus\GroupMarkers.sqf";
-        	isGlobal = 1;
-    	};
-    	class PRegenHealth   {    
-
-        	title = "Health Regeneration";
-        	values[] = {1, 2, 3, 4};
-        	texts[] = {"Fair","Middlin","Good","Disabled"};
-        	default = 3;
-        	file = "ParamsPlus\regen_health_group.sqf";
-        	isGlobal = 1;
-    	};
-    	class PAiMedic   {    
-
-        	title = "Keypress Ai Medic";
-        	values[] = {1, 2};
-        	texts[] = {"Enabled","Disabled"};
-        	default = 1;
-        	file = "ParamsPlus\Heal_Keypress.sqf";
-        	isGlobal = 1;
-    	};
-    	class PRallyPoint   {    
-
-        	title = "Group Leader Rally Point";
-        	values[] = {1, 2};
-        	texts[] = {"Enabled","Disabled"};
-        	default = 1;
-        	file = "ParamsPlus\Rally.sqf";
-        	isGlobal = 1;
-    	};
-    	class PGiGoEH   {    
-
-        	title = "Group Leader Vehicle AmmoBox and Respawn Point";
-        	values[] = {1, 2};
-        	texts[] = {"Enabled","Disabled"};
-        	default = 1;
-        	file = "ParamsPlus\GiGoEH.sqf";
-        	isGlobal = 1;
+        texts[] = {"All Playable or Switchable Units","Units Group Player","Disabled"};
+        default = 2;
+        file = "ParamsPlus\loadout_selection.sqf";
+        isGlobal = 1;
+	};	
+  	class PDeadLoadOuts
+	{
+        title = "Dead Loadouts on Respawn)";
+       	values[] = {1, 2};
+        texts[] = {"Disable","Enable"};
+        default = 1;
+        isGlobal = 1;
+	};		
+	class PDiverEquip       
+	{
+		title = "Diver Equipment";
+		values[] = {1, 2, 3};
+		texts[] = {"All Playable or Switchable Units","Units Group Player","Disabled"};
+		default = 3;
+		file = "ParamsPlus\loadouts_diver_selection.sqf";
+		isGlobal = 1;
+	};
+    class PNightVision       
+	{
+        title = "Night Vision Adjustments";
+        values[] = {1, 2, 3};
+        texts[] = {"All Playable or Switchable Units","Units Group Player","Disabled"};
+        default = 2;
+        file = "ParamsPlus\loadoutAdjustments_Group.sqf";
+        isGlobal = 1;
+    };
+    class PSilencers       
+	{
+        title = "Silencer Adjustments";
+        values[] = {1, 2, 3};
+        texts[] = {"All Playable or Switchable Units","Units Group Player","Disabled"};
+        default = 2;
+        file = "ParamsPlus\loadoutAdjustments_Group.sqf";
+        isGlobal = 1;
+    };
+    class PMarkers       
+	{
+        title = "Group Markers";
+        values[] = {1, 2, 3};
+        texts[] = {"Playable or Switchable Units","Units Group Player","Disabled"};
+        default = 2;
+        file = "ParamsPlus\GroupMarkers.sqf";
+        isGlobal = 1;
+    };
+    class PRegenHealth       
+	{
+    	title = "Health Regeneration";
+        values[] = {1, 2, 3, 4};
+        texts[] = {"Fair","Middlin","Good","Disabled"};
+        default = 3;
+        file = "ParamsPlus\regen_health_group.sqf";
+        isGlobal = 1;
+    };
+    class PAiMedic       
+	{
+        title = "Keypress Ai Medic";
+        values[] = {1, 2};
+        texts[] = {"Disable","Enable"};
+        default = 1;
+        file = "ParamsPlus\Heal_Keypress.sqf";
+        isGlobal = 1;
+    };
+    class PRallyPoint      
+	{ 
+        title = "Group Leader Rally Point";
+        values[] = {1, 2};
+        texts[] = {"Disable","Enable"};
+        default = 1;
+        file = "ParamsPlus\Rally.sqf";
+        isGlobal = 1;
+    };
+    class PGiGoEH       
+	{
+        title = "Group Leader Vehicle AmmoBox and Respawn Point";
+        values[] = {1, 2};
+        texts[] = {"Disable","Enable"};
+        default = 1;
+        file = "ParamsPlus\GiGoEH.sqf";
+        isGlobal = 1;
    	};
-	class Pskill	 {
-
-        	title = "Blufor Skill";
-        	values[] = {1, 2, 3, 4};
-        	texts[] = {"Below Average", "Average", "Above Average", "Excellent"};
-        	default = 3;
-        	file = "ParamsPlus\BluSkill.sqf";
-        	isGlobal = 0;
+	class Pskill	 
+	{
+        title = "Blufor Skill";
+        values[] = {1, 2, 3, 4};
+        texts[] = {"Below Average", "Average", "Above Average", "Excellent"};
+        default = 3;
+        file = "ParamsPlus\BluSkill.sqf";
+        isGlobal = 0;
 	};
-	class Eskill	 {
-
-        	title = "Opfor Skill";
-        	values[] = {1, 2, 3, 4};
-        	texts[] = {"Below Average", "Average", "Above Average", "Excellent"};
-        	default = 3;
-       		file = "ParamsPlus\OpSkill.sqf";
-        	isGlobal = 0;
+	class Eskill	 
+	{
+        title = "Opfor Skill";
+        values[] = {1, 2, 3, 4};
+        texts[] = {"Below Average", "Average", "Above Average", "Excellent"};
+        default = 3;
+       	file = "ParamsPlus\OpSkill.sqf";
+        isGlobal = 0;
 	};
-    	class PFatigue    {  
-        	title = "Enable/Disable Player's Fatigue System";
-        	values[] = {1, 2};
-        	texts[] = {"Disable","Enable"};
-        	default = 1;
-    	};  
-    	class PStamina    {  
-  
-        	title = "Enable/Disable Player's Stamina System";
-        	values[] = {1, 2};
-        	texts[] = {"Disable","Enable"};
-        	default = 1;
-    	};    
-    	class PRecoil    {    
-
-        	title = "Player's Weapon Recoil";
-        	values[] = {1, 2, 3, 4};
-        	texts[] = {"No recoil","Poor recoil","Standard recoil","Intensive recoil"};
-        	default = 3;
-    	};    
-    	class PAimCoef    {  
-
-        	title = "Player's Weapon Sway";
-        	values[] = {1, 2, 3, 4};
-        	texts[] = {"No sway","Poor sway","Standard sway","Intensive sway"};
-        	default = 3;
-    	};
-    	class PAudibleCoef    {    
-
-        	title = "Player's Stealth (Audible) Value";
-        	values[] = {1, 2, 3, 4};
-        	texts[] = {"No value","Low value","Standard value","High value"};
-        	default = 3;
-    	};    
-    	class PCamouflageCoef    {    
-
-        	title = "Player's Stealth (Visible) Value";
-        	values[] = {1, 2, 3, 4};
-        	texts[] = {"No value","Low value","Standard value","High value"};
-        	default = 3;
-    	};
-    	class PLoadCoef    {   
-
-        	title = "Player's Load Carrying Value";
-        	values[] = {1, 2, 3, 4};
-        	texts[] = {"No value","Low value","Standard value","High value"};
-        	default = 3;
-    	}; 
-    	class PEngineer    {   
-
-        	title = "Enable/Disable Player's Repair Ability";
-        	values[] = {1, 2};
-        	texts[] = {"Disable","Enable"};
-        	default = 1;
-    	};  
-    	class PExplosiveSpecialist   {   
- 
-        	title = "Enable/Disable Player's Defuse Ability";
-        	values[] = {1, 2};
-        	texts[] = {"Disable","Enable"};
-        	default = 1;
-    	};    
-    	class PMedic    {   
-
-        	title = "Enable/Disable Player's Medic Ability";
-        	values[] = {1, 2};
-        	texts[] = {"Disable","Enable"};
-        	default = 2;
-    	};  
-    	class PUAVHacker   {    
-
-        	title = "Enable/Disable Player's UAV Ability";
-        	values[] = {1, 2};
-        	texts[] = {"Disable","Enable"};
-        	default = 1;
-    	};  
-    	class PUA   {    
-
-        	title = "Enable/Disable Unlimited Ammo";
-        	values[] = {1, 2};
-        	texts[] = {"Disable","Enable"};
-        	default = 2;
-			file = "ParamsPlus\UnlimitedAmmo.sqf";
-			isGlobal = 1;
-    	};
-    	class PDiver   {    
-
-        	title = "Enable/Disable SpecOp Divers";
-        	values[] = {1, 2};
-        	texts[] = {"Disable","Enable"};
-        	default = 1;
-    	};
-    	class PIntro   {    
-
-        	title = "Enable/Disable Altis Intro";
-        	values[] = {1, 2};
-        	texts[] = {"Disable","Enable"};
-        	default = 1;
-    	};
+    class PFatigue      
+	{
+        title = "Enable/Disable Player's Fatigue System";
+        values[] = {1, 2};
+        texts[] = {"Disable","Enable"};
+        default = 1;
+    };  
+    class PStamina      
+  	{
+        title = "Enable/Disable Player's Stamina System";
+        values[] = {1, 2};
+        texts[] = {"Disable","Enable"};
+        default = 1;
+    };    
+    class PRecoil        
+	{
+        title = "Player's Weapon Recoil";
+        values[] = {1, 2, 3, 4};
+        texts[] = {"No recoil","Poor recoil","Standard recoil","Intensive recoil"};
+        default = 3;
+    };    
+    class PAimCoef      
+	{
+        title = "Player's Weapon Sway";
+        values[] = {1, 2, 3, 4};
+        texts[] = {"No sway","Poor sway","Standard sway","Intensive sway"};
+        default = 3;
+    };
+    class PAudibleCoef        
+	{
+        title = "Player's Stealth (Audible) Value";
+        values[] = {1, 2, 3, 4};
+        texts[] = {"No value","Low value","Standard value","High value"};
+        default = 3;
+    };    
+    class PCamouflageCoef        
+	{
+        title = "Player's Stealth (Visible) Value";
+        values[] = {1, 2, 3, 4};
+        texts[] = {"No value","Low value","Standard value","High value"};
+        default = 3;
+    };
+    class PLoadCoef       
+	{
+        title = "Player's Load Carrying Value";
+        values[] = {1, 2, 3, 4};
+        texts[] = {"No value","Low value","Standard value","High value"};
+        default = 3;
+    }; 
+    class PEngineer       
+	{
+        title = "Enable/Disable Player's Repair Ability";
+        values[] = {1, 2};
+        texts[] = {"Disable","Enable"};
+        default = 1;
+    };  
+    class PExplosiveSpecialist      
+ 	{
+        title = "Enable/Disable Player's Defuse Ability";
+        values[] = {1, 2};
+        texts[] = {"Disable","Enable"};
+        default = 1;
+    };    
+    class PMedic       
+	{
+        title = "Enable/Disable Player's Medic Ability";
+        values[] = {1, 2};
+        texts[] = {"Disable","Enable"};
+        default = 2;
+    };  
+    class PUAVHacker       
+	{
+        title = "Enable/Disable Player's UAV Ability";
+        values[] = {1, 2};
+        texts[] = {"Disable","Enable"};
+        default = 1;
+    };  
+    class PUA       
+	{
+        title = "Enable/Disable Unlimited Ammo";
+        values[] = {1, 2};
+        texts[] = {"Disable","Enable"};
+        default = 2;
+		file = "ParamsPlus\UnlimitedAmmo.sqf";
+		isGlobal = 1;
+    };
+    class PDiver       
+	{
+        title = "Enable/Disable SpecOp Divers";
+        values[] = {1, 2};
+        texts[] = {"Disable","Enable"};
+        default = 1;
+    };
+    class PIntro      
+	{ 
+        title = "Enable/Disable Altis Intro";
+        values[] = {1, 2};
+        texts[] = {"Disable","Enable"};
+        default = 1;
+    };
 };
 class CfgCommunicationMenu
 {
@@ -520,20 +545,6 @@ class CfgRespawnInventory
 		vehicle = "B_soldier_AR_F";
 	};
 };
-class CfgNotifications
-{
-	class JtacReloadNotification
-	{
-		title = "JTAC";
-		iconPicture = "a3\ui_f\data\gui\cfg\communicationmenu\call_ca.paa";
-		iconText = "1";
-		description = "%1";
-		color[] = {0.153, 0.933, 0.122, 1};
-		duration = 5;
-		priority = 0;
-		difficulty[] = {};
-	};
-}
 class CfgTaskEnhancements
 {
 	enable       = 1;	//0: disable new task features (default), 1: enable new task features & add new task markers and task widgets into the map

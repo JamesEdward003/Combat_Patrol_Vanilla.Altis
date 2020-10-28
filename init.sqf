@@ -1,15 +1,16 @@
 /// init.sqf ///
-[playerSide, "HQ"] commandChat "Executing Init!";
-
-["Preload"] call BIS_fnc_arsenal;
+[playerSide, "HQ"] commandChat "Initiating Init!";
 
 _PLoadOut = "PLoadOut" call BIS_fnc_getParamValue;
 if (_PLoadOut isEqualTo 3) then 
 {
 	addMissionEventHandler ["entityKilled", { 
 		params ["_unit"]; 
-		if (isNil {_unit getVariable "loadout"} && !isPlayer _unit) then {
+		if (_PSaveLoadOut isEqualTo 3 && !isPlayer _unit) then {
 		_unit setVariable ["loadout", getUnitLoadout _unit];
+		};
+		if (_PLoadOut isEqualTo 3 && !isPlayer _unit) then {
+		_unit setVariable ["LoadoutDone", _unitlo, true];
 		};
 	}];
 

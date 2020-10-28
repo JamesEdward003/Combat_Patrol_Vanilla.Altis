@@ -773,7 +773,11 @@ comment "Set identity";
 };
 
 if (((dayTime > ((date call BIS_fnc_sunriseSunsetTime) select 0) - 0.5) && (dayTime < ((date call BIS_fnc_sunriseSunsetTime) select 1) + 0.5)) isEqualTo false) then {_unit action ["nvGoggles", _unit]};
-//_unit setVariable ["loadout", getUnitLoadout _unit];
+
+_unitlo	= getUnitLoadout _unit;
+
+_unit setVariable ["LoadoutDone", _unitlo, true];
+
 _unit action ["WEAPONONBACK", _unit];
 
 if (isPlayer _unit) then {

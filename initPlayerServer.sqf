@@ -1,5 +1,5 @@
 // initPlayerServer.sqf //
-//Parameters in Briefing script by NeoArmageddon
+[playerSide, "HQ"] commandChat "Initiating InitPlayerServer!";
 private["_paramsArray","_settings"];
 _paramsArray = paramsArray;
 _settings = "Parameters:<br/>";
@@ -18,7 +18,6 @@ if(!isNull player) then {
            _settings = _settings + format["%1 : %2 (%3)<br/>",_name,_valueName,_value];
        };
    };
-
 
    player createDiaryRecord ["Diary", ["Settings", _settings]];
 } else {

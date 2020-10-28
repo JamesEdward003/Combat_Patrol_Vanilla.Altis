@@ -1,7 +1,7 @@
 // initPlayerLocal.sqf //
 waitUntil {!isNull player && alive player}; 
 
-[playerSide, "HQ"] commandChat "Executing InitPlayer!";
+[playerSide, "HQ"] commandChat "Initiating InitPlayer!";
 
 if !isMultiplayer then { execVM "ParamsPlus\respawn.sqf"; };
 

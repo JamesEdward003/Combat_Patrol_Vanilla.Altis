@@ -131,6 +131,31 @@ class Params
 		texts[] = {$STR_A3_cfgvehicles_modulestrategicmapimage_f_arguments_shadow_values_yes_0, $STR_A3_cfgvehicles_modulestrategicmapimage_f_arguments_shadow_values_no_0};
 		default = 0;
 	};
+	class Pskill	 
+	{
+        title = "Blufor Skill";
+        values[] = {1, 2, 3, 4};
+        texts[] = {"Below Average", "Average", "Above Average", "Excellent"};
+        default = 3;
+        file = "ParamsPlus\BluSkill.sqf";
+        isGlobal = 0;
+	};
+	class Eskill	 
+	{
+        title = "Opfor Skill";
+        values[] = {1, 2, 3, 4};
+        texts[] = {"Below Average", "Average", "Above Average", "Excellent"};
+        default = 3;
+       	file = "ParamsPlus\OpSkill.sqf";
+        isGlobal = 0;
+	};
+    class PIntro      
+	{ 
+        title = "Enable/Disable Altis Intro";
+        values[] = {1, 2};
+        texts[] = {"Disable","Enable"};
+        default = 1;
+    };
   	class PLoadOut
 	{
         title = "Scripted Loadouts";
@@ -140,14 +165,23 @@ class Params
         file = "ParamsPlus\loadout_selection.sqf";
         isGlobal = 1;
 	};	
-  	class PDeadLoadOuts
+  	class PRespawnLoadOut
 	{
-        title = "Dead Loadouts on Respawn";
+        title = "New Loadout on Respawn";
        	values[] = {1, 2};
         texts[] = {"Disable","Enable"};
-        default = 1;
+        default = 2;
         isGlobal = 1;
-	};		
+	};
+    class PUA       
+	{
+        title = "Enable/Disable Unlimited Ammo";
+        values[] = {1, 2};
+        texts[] = {"Disable","Enable"};
+        default = 2;
+		file = "ParamsPlus\UnlimitedAmmo.sqf";
+		isGlobal = 1;
+    };		
 	class PDiverEquip       
 	{
 		title = "Diver Equipment";
@@ -195,7 +229,7 @@ class Params
     };
     class PAiMedic       
 	{
-        title = "Keypress Ai Medic";
+        title = "Ctrl-M Medic";
         values[] = {1, 2};
         texts[] = {"Disable","Enable"};
         default = 1;
@@ -204,7 +238,7 @@ class Params
     };
     class PRallyPoint      
 	{ 
-        title = "Group Leader Rally Point";
+        title = "Group Leader UAV Rally Point";
         values[] = {1, 2};
         texts[] = {"Disable","Enable"};
         default = 1;
@@ -220,24 +254,6 @@ class Params
         file = "ParamsPlus\GiGoEH.sqf";
         isGlobal = 1;
    	};
-	class Pskill	 
-	{
-        title = "Blufor Skill";
-        values[] = {1, 2, 3, 4};
-        texts[] = {"Below Average", "Average", "Above Average", "Excellent"};
-        default = 3;
-        file = "ParamsPlus\BluSkill.sqf";
-        isGlobal = 0;
-	};
-	class Eskill	 
-	{
-        title = "Opfor Skill";
-        values[] = {1, 2, 3, 4};
-        texts[] = {"Below Average", "Average", "Above Average", "Excellent"};
-        default = 3;
-       	file = "ParamsPlus\OpSkill.sqf";
-        isGlobal = 0;
-	};
     class PFatigue      
 	{
         title = "Enable/Disable Player's Fatigue System";
@@ -292,14 +308,14 @@ class Params
         title = "Enable/Disable Player's Repair Ability";
         values[] = {1, 2};
         texts[] = {"Disable","Enable"};
-        default = 1;
+        default = 2;
     };  
     class PExplosiveSpecialist      
  	{
         title = "Enable/Disable Player's Defuse Ability";
         values[] = {1, 2};
         texts[] = {"Disable","Enable"};
-        default = 1;
+        default = 2;
     };    
     class PMedic       
 	{
@@ -313,31 +329,8 @@ class Params
         title = "Enable/Disable Player's UAV Ability";
         values[] = {1, 2};
         texts[] = {"Disable","Enable"};
-        default = 1;
-    };  
-    class PUA       
-	{
-        title = "Enable/Disable Unlimited Ammo";
-        values[] = {1, 2};
-        texts[] = {"Disable","Enable"};
         default = 2;
-		file = "ParamsPlus\UnlimitedAmmo.sqf";
-		isGlobal = 1;
-    };
-    class PDiver       
-	{
-        title = "Enable/Disable SpecOp Divers";
-        values[] = {1, 2};
-        texts[] = {"Disable","Enable"};
-        default = 1;
-    };
-    class PIntro      
-	{ 
-        title = "Enable/Disable Altis Intro";
-        values[] = {1, 2};
-        texts[] = {"Disable","Enable"};
-        default = 1;
-    };
+    };  
 };
 class CfgCommunicationMenu
 {

@@ -1,5 +1,5 @@
 //////	[player] execVM "playerSettings.sqf";	//////
-private ["_player","_pfatigue","_pstamina","_precoil","_psway","_paudible","_pcamocoef","_ploadcoef","_pengineer","_pexplspec","_pmedic","_puavhacker","_pua","_pdiver","_pintro"];
+private ["_player","_ploadout","_prespawnloadout","_pdiverequip","_pnightvision","_psilencers","_pmarkers","_pregenhealth","_paimedic","_pfatigue","_pstamina","_precoil","_psway","_paudible","_pcamocoef","_ploadcoef","_pengineer","_pexplspec","_pmedic","_puavhacker","_pua","_pdiver","_pintro"];
 _player = _this select 0;
 //[1,1,1,1,0,20,0,-1,1,0,0,0,2,3,2,2,3,1,1,1,3,3,1,1,3,3,3,3,3,1,1,2,1,2,1,1]
 _pfatigue 	= paramsArray select 22;
@@ -13,7 +13,7 @@ _pengineer	= paramsArray select 29;
 _pexplspec	= paramsArray select 30;
 _pmedic		= paramsArray select 31;
 _puavhacker	= paramsArray select 32;
-_pua			= paramsArray select 33;
+_pua		= paramsArray select 33;
 _pdiver		= paramsArray select 34;
 _pintro		= paramsArray select 35;
 

@@ -151,14 +151,14 @@ class Params
 	};
     class PIntro      
 	{ 
-        title = "Enable/Disable Altis Intro";
+        title = "Intro";
         values[] = {1, 2};
         texts[] = {"Disable","Enable"};
         default = 1;
     };
   	class PLoadOut
 	{
-        title = "Scripted Loadouts";
+        title = "Scripted Loadout";
        	values[] = {1, 2, 3};
         texts[] = {"All Playable or Switchable Units","Units Group Player","Disabled"};
         default = 2;
@@ -175,7 +175,7 @@ class Params
 	};
     class PUA       
 	{
-        title = "Enable/Disable Unlimited Ammo";
+        title = "Unlimited Ammo";
         values[] = {1, 2};
         texts[] = {"Disable","Enable"};
         default = 2;
@@ -215,7 +215,7 @@ class Params
         values[] = {1, 2, 3};
         texts[] = {"Playable or Switchable Units","Units Group Player","Disabled"};
         default = 2;
-        file = "ParamsPlus\GroupMarkers.sqf";
+        file = "ParamsPlus\markers_group.sqf";
         isGlobal = 1;
     };
     class PRegenHealth       

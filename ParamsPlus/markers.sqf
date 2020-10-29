@@ -1,5 +1,5 @@
-////////////////////////
-// "paramsplus\markerGroup".sqf; //
+///////////////////////////////
+// "paramsplus\markers".sqf; //
 _PMarkers = "PMarkers" call BIS_fnc_getParamValue;
 if (_PMarkers isEqualTo 3) exitWith {};
 private ["_unit","_varname","_group","_grp","_mrkrCnt","_mrkr","_text","_PMarkers"];
@@ -26,7 +26,7 @@ if (!(isNil { _unit getVariable "markerGroup"})) then
 }  else 	{		
 			_mrkrCnt = 1;
 			_unit setVariable ["markerGroup", _mrkrCnt, true];
-			_unit addEventHandler ["Respawn",{_this execVM "paramsplus\markerGroup.sqf"}];
+			_unit addEventHandler ["Respawn",{_this execVM "paramsplus\markers.sqf"}];
 };
 
 _mrkrcolor 	= [];

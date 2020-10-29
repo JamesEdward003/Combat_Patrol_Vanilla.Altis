@@ -1,9 +1,7 @@
 //////	[player] execVM "playerSettings.sqf";	//////
-private ["_player","_ploadout","_prespawnloadout","_pdiverequip","_pnightvision","_psilencers","_pmarkers","_pregenhealth","_paimedic","_pfatigue","_pstamina","_precoil","_psway","_paudible","_pcamocoef","_ploadcoef","_pengineer","_pexplspec","_pmedic","_puavhacker","_pua","_pdiver","_pintro"];
+private ["_player","_ploadout","_prespawnloadout","_pdiverequip","_pnightvision","_psilencers","_pmarkers","_pregenhealth","_paimedic","_precoil","_psway","_paudible","_pcamocoef","_ploadcoef","_pengineer","_pexplspec","_pmedic","_puavhacker","_pua","_pdiver","_pintro"];
 _player = _this select 0;
 //[1,1,1,1,0,20,0,-1,1,0,0,0,2,3,2,2,3,1,1,1,3,3,1,1,3,3,3,3,3,1,1,2,1,2,1,1]
-_pfatigue 	= paramsArray select 22;
-_pstamina 	= paramsArray select 23;
 _precoil 	= paramsArray select 24;
 _psway   	= paramsArray select 25;
 _paudible	= paramsArray select 26;
@@ -17,26 +15,6 @@ _pua		= paramsArray select 33;
 _pdiver		= paramsArray select 34;
 _pintro		= paramsArray select 35;
 
-if (isNil "pfatigue") then
-{
-	switch (_pfatigue) do
-	{
-		case 1: {pfatigue = false};
-		case 2: {pfatigue = true};
-	};
-	_player enableFatigue pfatigue;
-	publicvariable "pfatigue";
-};
-if (isNil "pstamina") then
-{
-	switch (_pstamina) do
-	{
-		case 1: {pstamina = false};
-		case 2: {pstamina = true};
-	};
-	_player enableStamina pstamina;
-	publicvariable "pstamina";
-};
 if (isNil "precoil") then
 {	
 	switch (_precoil) do

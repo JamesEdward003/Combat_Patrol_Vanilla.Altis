@@ -20,10 +20,5 @@ switch (_this select 0) do
 	};
 };
 
+[playerSide, "HQ"] commandChat "OPFOR SKILL SET!";
 
-//private _future = time + 12;
-//waitUntil { time >= _future };
-
-//[playerSide, "HQ"] commandChat "OPFOR SKILL SET!";
-//uisleep 4;
-//[playerSide, "HQ"] commandChat "Let the game begin!";

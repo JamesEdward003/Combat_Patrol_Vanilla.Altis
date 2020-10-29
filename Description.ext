@@ -253,21 +253,7 @@ class Params
         default = 1;
         file = "ParamsPlus\GiGoEH.sqf";
         isGlobal = 1;
-   	};
-    class PFatigue      
-	{
-        title = "Enable/Disable Player's Fatigue System";
-        values[] = {1, 2};
-        texts[] = {"Disable","Enable"};
-        default = 1;
-    };  
-    class PStamina      
-  	{
-        title = "Enable/Disable Player's Stamina System";
-        values[] = {1, 2};
-        texts[] = {"Disable","Enable"};
-        default = 1;
-    };    
+   	};   
     class PRecoil        
 	{
         title = "Player's Weapon Recoil";

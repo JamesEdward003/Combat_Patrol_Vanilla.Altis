@@ -163,7 +163,7 @@ class Params
         values[] = {1, 2, 3};
         texts[] = {"All Playable or Switchable Units","Units Group Player","Disabled"};
         default = 2;
-        file = "ParamsPlus\loadoutAdjustments_Group.sqf";
+        file = "ParamsPlus\nightvision_Group.sqf";
         isGlobal = 1;
     };
     class PSilencers       
@@ -172,7 +172,7 @@ class Params
         values[] = {1, 2, 3};
         texts[] = {"All Playable or Switchable Units","Units Group Player","Disabled"};
         default = 2;
-        file = "ParamsPlus\loadoutAdjustments_Group.sqf";
+        file = "ParamsPlus\silencers_Group.sqf";
         isGlobal = 1;
     };
     class PMarkers       

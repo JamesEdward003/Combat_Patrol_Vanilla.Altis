@@ -778,6 +778,8 @@ _unitlo	= getUnitLoadout _unit;
 
 _unit setVariable ["LoadoutDone", _unitlo, true];
 
+_unit addEventHandler ["Respawn",{[_this] execVM "paramsplus\loadouts.sqf"}];
+
 _unit action ["WEAPONONBACK", _unit];
 
 if (isPlayer _unit) then {

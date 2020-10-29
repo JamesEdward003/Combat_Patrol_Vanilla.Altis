@@ -142,7 +142,7 @@ class Params
 	};	
   	class PDeadLoadOuts
 	{
-        title = "Dead Loadouts on Respawn)";
+        title = "Dead Loadouts on Respawn";
        	values[] = {1, 2};
         texts[] = {"Disable","Enable"};
         default = 1;

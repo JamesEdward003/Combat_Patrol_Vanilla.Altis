@@ -34,7 +34,6 @@ if (((dayTime > ((date call BIS_fnc_sunriseSunsetTime) select 0) - 0.5) && (dayT
 		};	
 	};
 };
-};
 
 if (isPlayer _unit) then {
 

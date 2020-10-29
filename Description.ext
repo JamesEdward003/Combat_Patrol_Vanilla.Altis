@@ -153,7 +153,7 @@ class Params
 	{ 
         title = "Intro";
         values[] = {1, 2};
-        texts[] = {"Disable","Enable"};
+        texts[] = {"Disabled","Enabled"};
         default = 1;
     };
   	class PLoadOut
@@ -169,7 +169,7 @@ class Params
 	{
         title = "New Loadout on Respawn";
        	values[] = {1, 2};
-        texts[] = {"Disable","Enable"};
+        texts[] = {"Disabled","Enabled"};
         default = 2;
         isGlobal = 1;
 	};
@@ -177,7 +177,7 @@ class Params
 	{
         title = "Unlimited Ammo";
         values[] = {1, 2};
-        texts[] = {"Disable","Enable"};
+        texts[] = {"Disabled","Enabled"};
         default = 2;
 		file = "ParamsPlus\UnlimitedAmmo.sqf";
 		isGlobal = 1;
@@ -231,7 +231,7 @@ class Params
 	{
         title = "Ctrl-M Medic";
         values[] = {1, 2};
-        texts[] = {"Disable","Enable"};
+        texts[] = {"Disabled","Enabled"};
         default = 1;
         file = "ParamsPlus\Heal_Keypress.sqf";
         isGlobal = 1;
@@ -240,7 +240,7 @@ class Params
 	{ 
         title = "Group Leader UAV Rally Point";
         values[] = {1, 2};
-        texts[] = {"Disable","Enable"};
+        texts[] = {"Disabled","Enabled"};
         default = 1;
         file = "ParamsPlus\Rally.sqf";
         isGlobal = 1;
@@ -249,7 +249,7 @@ class Params
 	{
         title = "Group Leader Vehicle AmmoBox and Respawn Point";
         values[] = {1, 2};
-        texts[] = {"Disable","Enable"};
+        texts[] = {"Disabled","Enabled"};
         default = 1;
         file = "ParamsPlus\GiGoEH.sqf";
         isGlobal = 1;
@@ -293,28 +293,28 @@ class Params
 	{
         title = "Enable/Disable Player's Repair Ability";
         values[] = {1, 2};
-        texts[] = {"Disable","Enable"};
+        texts[] = {"Disabled","Enabled"};
         default = 2;
     };  
     class PExplosiveSpecialist      
  	{
         title = "Enable/Disable Player's Defuse Ability";
         values[] = {1, 2};
-        texts[] = {"Disable","Enable"};
+        texts[] = {"Disabled","Enabled"};
         default = 2;
     };    
     class PMedic       
 	{
         title = "Enable/Disable Player's Medic Ability";
         values[] = {1, 2};
-        texts[] = {"Disable","Enable"};
+        texts[] = {"Disabled","Enabled"};
         default = 2;
     };  
     class PUAVHacker       
 	{
         title = "Enable/Disable Player's UAV Ability";
         values[] = {1, 2};
-        texts[] = {"Disable","Enable"};
+        texts[] = {"Disabled","Enabled"};
         default = 2;
     };  
 };

@@ -236,15 +236,6 @@ class Params
         file = "ParamsPlus\Heal_Keypress.sqf";
         isGlobal = 1;
     };
-    class PRallyPoint      
-	{ 
-        title = "Group Leader UAV Rally Point";
-        values[] = {1, 2};
-        texts[] = {"Disabled","Enabled"};
-        default = 1;
-        file = "ParamsPlus\Rally.sqf";
-        isGlobal = 1;
-    };
     class PGiGoEH       
 	{
         title = "Group Leader Vehicle AmmoBox and Respawn Point";
@@ -253,41 +244,29 @@ class Params
         default = 1;
         file = "ParamsPlus\GiGoEH.sqf";
         isGlobal = 1;
-   	};   
-    class PRecoil        
-	{
-        title = "Player's Weapon Recoil";
-        values[] = {1, 2, 3, 4};
-        texts[] = {"No recoil","Poor recoil","Standard recoil","Intensive recoil"};
-        default = 3;
-    };    
-    class PAimCoef      
-	{
-        title = "Player's Weapon Sway";
-        values[] = {1, 2, 3, 4};
-        texts[] = {"No sway","Poor sway","Standard sway","Intensive sway"};
-        default = 3;
+   	};
+    class PRallyPoint      
+	{ 
+        title = "Group Leader Rally Point";
+        values[] = {1, 2};
+        texts[] = {"Disabled","Enabled"};
+        default = 1;
+        file = "ParamsPlus\Rally.sqf";
+        isGlobal = 1;
     };
-    class PAudibleCoef        
-	{
-        title = "Player's Stealth (Audible) Value";
-        values[] = {1, 2, 3, 4};
-        texts[] = {"No value","Low value","Standard value","High value"};
-        default = 3;
-    };    
-    class PCamouflageCoef        
-	{
-        title = "Player's Stealth (Visible) Value";
-        values[] = {1, 2, 3, 4};
-        texts[] = {"No value","Low value","Standard value","High value"};
-        default = 3;
+    class PUAV      
+	{ 
+        title = "Group Leader UAV Backpack";
+        values[] = {1, 2};
+        texts[] = {"Disabled","Enabled"};
+        default = 2;
     };
-    class PLoadCoef       
+    class PUAVHacker       
 	{
-        title = "Player's Load Carrying Value";
-        values[] = {1, 2, 3, 4};
-        texts[] = {"No value","Low value","Standard value","High value"};
-        default = 3;
+        title = "Enable/Disable Player's UAV Ability";
+        values[] = {1, 2};
+        texts[] = {"Disabled","Enabled"};
+        default = 2;
     }; 
     class PEngineer       
 	{
@@ -310,13 +289,41 @@ class Params
         texts[] = {"Disabled","Enabled"};
         default = 2;
     };  
-    class PUAVHacker       
+    class PRecoil        
 	{
-        title = "Enable/Disable Player's UAV Ability";
-        values[] = {1, 2};
-        texts[] = {"Disabled","Enabled"};
-        default = 2;
+        title = "Player's Weapon Recoil";
+        values[] = {1, 2, 3, 4};
+        texts[] = {"No recoil","Poor recoil","Standard recoil","Intensive recoil"};
+        default = 3;
+    };    
+    class PAimCoef      
+	{
+        title = "Player's Weapon Sway";
+        values[] = {1, 2, 3, 4};
+        texts[] = {"No sway","Poor sway","Standard sway","Intensive sway"};
+        default = 3;
+    };
+    class PLoadCoef       
+	{
+        title = "Player's Load Carrying Ability";
+        values[] = {1, 2, 3, 4};
+        texts[] = {"No ability","Low ability","Standard ability","High ability"};
+        default = 3;
     };  
+    class PAudibleCoef        
+	{
+        title = "Player's Stealth (Audible) Ability";
+        values[] = {1, 2, 3, 4};
+        texts[] = {"No ability","Low ability","Standard ability","High ability"};
+        default = 3;
+    };    
+    class PCamouflageCoef        
+	{
+        title = "Player's Stealth (Visible) Ability";
+        values[] = {1, 2, 3, 4};
+        texts[] = {"No ability","Low ability","Standard ability","High ability"};
+        default = 3;
+    };   
 };
 class CfgCommunicationMenu
 {

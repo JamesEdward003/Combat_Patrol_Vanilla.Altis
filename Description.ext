@@ -238,7 +238,7 @@ class Params
     };
     class PGiGoEH       
 	{
-        title = "Group Leader Vehicle AmmoBox and Respawn Point";
+        title = "Group Leader Vehicle AmmoBox and Rally Point";
         values[] = {1, 2};
         texts[] = {"Disabled","Enabled"};
         default = 1;

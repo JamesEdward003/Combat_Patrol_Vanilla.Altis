@@ -12,7 +12,7 @@ switch (_this select 0) do
 					
 					[_unit] execVM "paramsplus\silencers.sqf";			
 				};									
-	};
+			};
 	case 2: {
 				for "_i" from 0 to count (units group player) - 1 do
 				{
@@ -20,7 +20,7 @@ switch (_this select 0) do
 					
 					[_unit] execVM "paramsplus\silencers.sqf";	
 				};		
-	};
+			};
 	case 3: {	
 				for "_i" from 0 to count (if ismultiplayer then {playableunits} else {switchableunits}) - 1 do
 				{
@@ -40,9 +40,13 @@ switch (_this select 0) do
 					};
 				};									
 			};
+	case 4: {
+				for "_i" from 0 to count (allUnits) - 1 do
+				{
+					_unit = allUnits select _i;
+					
+					[_unit] setDamage 0;	
+				};		
+			};
 };
-if (isPlayer _unit) then {
 
-[playerSide, "HQ"] commandChat "Silencer Adjustments Done!";
-
-};

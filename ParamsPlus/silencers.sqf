@@ -3,8 +3,7 @@ _PSilencers = "PSilencers" call BIS_fnc_getParamValue;
 if (_PSilencers isEqualTo 3) exitWith {};
 private ["_unit","_classname","_displayname","_muzzleList","_ml","_PSilencers"];
 _unit = _this select 0;
-//_classname 	= format ["%1", typeOf _unit];
-//_displayname = gettext (configfile >> "CfgVehicles" >> _className >> "displayName");
+
 waitUntil { !(isNil {_unit getVariable "LoadoutDone"}) };
 
 _muzzleList = ["muzzle_snds_H","muzzle_snds_L","muzzle_snds_M","muzzle_snds_B","muzzle_snds_H_MG","muzzle_snds_H_SW","muzzle_snds_acp","muzzle_snds_338_black","muzzle_snds_338_green","muzzle_snds_338_sand","muzzle_snds_93mmg","muzzle_snds_93mmg_tan","muzzle_snds_570","muzzle_snds_H_khk_F","muzzle_snds_H_snd_F","muzzle_snds_m_khk_F","muzzle_snds_m_snd_F","muzzle_snds_58_blk_F","muzzle_snds_58_wdm_F","muzzle_snds_58_ghex_F","muzzle_snds_58_hex_F","muzzle_snds_B_khk_F","muzzle_snds_B_snd_F","muzzle_snds_65_TI_blk_F","muzzle_snds_65_TI_hex_F","muzzle_snds_65_TI_ghex_F","muzzle_snds_H_MG_blk_F","muzzle_snds_H_MG_khk_F","muzzle_snds_B_lush_F","muzzle_snds_B_arid_F"];

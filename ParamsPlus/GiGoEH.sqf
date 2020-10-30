@@ -1,7 +1,6 @@
 ///////		[this] execVM GiGoEH.sqf"	  ////////
 //	params ["_unit", "_role", "_vehicle", "_turret"];  //
 _unit = _this select 0;
-if (leader group _unit != leader _unit) exitWith {};
 
 switch (side _unit) do
 {

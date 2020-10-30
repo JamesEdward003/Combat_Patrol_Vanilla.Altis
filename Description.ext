@@ -203,9 +203,9 @@ class Params
     class PSilencers       
 	{
         title = "Silencer Adjustments";
-        values[] = {1, 2, 3};
-        texts[] = {"All Playable or Switchable Units","Units Group Player","Disabled"};
-        default = 2;
+        values[] = {1, 2, 3, 4};
+        texts[] = {"All Playable or Switchable Units","Units Group Player","All Units","Disabled"};
+        default = 3;
         file = "ParamsPlus\silencers_Group.sqf";
         isGlobal = 1;
     };

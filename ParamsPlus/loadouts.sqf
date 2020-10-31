@@ -2,7 +2,7 @@
 //["Officer","Team Leader","Recon JTAC","Squad Leader","Autorifleman","Rifleman (AT)","Rifleman","Repair Specialist","Grenadier","Combat Life Saver","Marksman"];
 //_recruitableunits = ["B_Captain_Pettka_F","B_CTRG_soldier_GL_LAT_F","B_Story_Protagonist_F","B_CTRG_soldier_engineer_exp_F","B_CTRG_soldier_AR_A_F","B_CTRG_soldier_M_medic_F","B_Captain_Jay_F"];
 _PLoadOut = "PLoadOut" call BIS_fnc_getParamValue;
-if (_PLoadOut isEqualTo 3) exitWith {};
+if (_PLoadOut isEqualTo 1) exitWith {};
 private ["_unit","_classname","_displayname","_PLoadOut"];
 _unit = _this select 0;
 _classname 	= format ["%1", typeOf _unit];
@@ -774,11 +774,19 @@ comment "Set identity";
 
 if (((dayTime > ((date call BIS_fnc_sunriseSunsetTime) select 0) - 0.5) && (dayTime < ((date call BIS_fnc_sunriseSunsetTime) select 1) + 0.5)) isEqualTo false) then {_unit action ["nvGoggles", _unit]};
 
+_PRespawnLoadOut = "PRespawnLoadOut" call BIS_fnc_getParamValue;
+
+if (_PRespawnLoadOut isEqualTo 2) then {
+
 _unitlo	= getUnitLoadout _unit;
 
 _unit setVariable ["LoadoutDone", _unitlo, true];
 
+} else {
+
 _unit addEventHandler ["Respawn",{[_this] execVM "paramsplus\loadouts.sqf"}];
+
+};
 
 _unit action ["WEAPONONBACK", _unit];
 

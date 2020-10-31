@@ -160,17 +160,17 @@ class Params
 	{
         title = "Scripted Loadout";
        	values[] = {1, 2, 3};
-        texts[] = {"All Playable or Switchable Units","Units Group Player","Disabled"};
+        texts[] = {"Disabled","Units Group Player","All Playable or Switchable Units"};
         default = 2;
         file = "ParamsPlus\loadout_selection.sqf";
         isGlobal = 1;
 	};	
   	class PRespawnLoadOut
 	{
-        title = "New Loadout on Respawn";
+        title = "Old Loadout on Respawn";
        	values[] = {1, 2};
         texts[] = {"Disabled","Enabled"};
-        default = 2;
+        default = 1;
         isGlobal = 1;
 	};
     class PUA       

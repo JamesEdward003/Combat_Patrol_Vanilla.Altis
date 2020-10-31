@@ -1,4 +1,6 @@
 /////--"ParamsPlus\Rally.sqf--/////
+_PRallyPoint = "PRallyPoint" call BIS_fnc_getParamValue;
+if (_PRallyPoint isEqualTo 1) exitWith {};
 switch (_this select 0) do
 {
 	case 1: {	
@@ -6,7 +8,7 @@ switch (_this select 0) do
 				{
 					_unit = (if ismultiplayer then {playableunits} else {switchableunits}) select _i;
 
-					if (isPlayer _unit) then {[_unit] execVM "paramsplus\rallypoint.sqf";};			
+					_unit setDamage 0;			
 				};									
 			};
 	case 2: {
@@ -14,8 +16,8 @@ switch (_this select 0) do
 				{
 					_unit = (if ismultiplayer then {playableunits} else {switchableunits}) select _i;
 
-					_unit setDamage 0;			
-				};							
+					if (isPlayer _unit) then {[_unit] execVM "paramsplus\rallypoint.sqf";};			
+				};						
 			};
 };
 

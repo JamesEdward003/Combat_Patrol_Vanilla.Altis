@@ -6,7 +6,7 @@
 //(findDisplay 46) displayRemoveEventHandler ["KeyDown", _KeyDown];
 //(findDisplay 46) displayRemoveEventHandler ["KeyUp", _KeyUp];
 _PAiMedic = "PAiMedic" call BIS_fnc_getParamValue;
-if (_PAiMedic isEqualTo 2) exitWith {};
+if (_PAiMedic isEqualTo 1) exitWith {};
 tempheal = true;
 HEAL_KEYDOWN_FNC = {
 private["_ctrl", "_dikCode", "_shift", "_ctrlKey", "_alt", "_handled"];
@@ -15,12 +15,12 @@ params ["_ctrl", "_dikCode", "_shift", "_ctrlKey", "_alt", ["_handled", false, [
     	
     switch (_dikCode) do {
 			
-                	//NumPad - [/-Divide]
+                	//Ctrl-M
         case 181 : {
 	        
-	        if (_shift) then {
+	        if (_ctrl) then {
 	        
-	     		if (tempheal) then {tempheal = false;[player] execVM "paramsplus\HealPlayer.sqf";};
+	     		if (tempheal) then {tempheal = false;[player] execVM "ParamsPlus\CtrlM_Medic.sqf";};
 				_handled = true;		
 			};	
 	            	
@@ -39,7 +39,7 @@ waituntil {!isnull (finddisplay 46)};
 waitUntil {!(isNull (findDisplay 46))};
 (findDisplay 46) displayAddEventHandler ["KeyUp", "tempheal = true;false;"];
 
-//hint composeText ["HEAL keypress installed", lineBreak, "NumPad - [/-Divide]"];
+//hint composeText ["HEAL keypress installed", lineBreak, "Ctrl-M"];
 
 //[playerSide, "HQ"] commandChat "HEAL Keypress Installed!";
 

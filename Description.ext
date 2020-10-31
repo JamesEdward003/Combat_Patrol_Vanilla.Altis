@@ -215,7 +215,7 @@ class Params
         values[] = {1, 2, 3};
         texts[] = {"Playable or Switchable Units","Units Group Player","Disabled"};
         default = 2;
-        file = "ParamsPlus\markers_group.sqf";
+        file = "ParamsPlus\markers_Group.sqf";
         isGlobal = 1;
     };
     class PRegenHealth       
@@ -224,7 +224,7 @@ class Params
         values[] = {1, 2, 3, 4};
         texts[] = {"Fair","Middlin","Good","Disabled"};
         default = 3;
-        file = "ParamsPlus\regen_health_group.sqf";
+        file = "ParamsPlus\regen_health_Group.sqf";
         isGlobal = 1;
     };
     class PAiMedic       
@@ -232,8 +232,8 @@ class Params
         title = "Ctrl-M Medic";
         values[] = {1, 2};
         texts[] = {"Disabled","Enabled"};
-        default = 1;
-        file = "ParamsPlus\Heal_Keypress.sqf";
+        default = 2;
+        file = "ParamsPlus\CtrlM_Medic.sqf";
         isGlobal = 1;
     };
     class PGiGoEH       
@@ -241,8 +241,8 @@ class Params
         title = "Group Leader Vehicle AmmoBox and Rally Point";
         values[] = {1, 2};
         texts[] = {"Disabled","Enabled"};
-        default = 1;
-        file = "ParamsPlus\GiGoEH.sqf";
+        default = 2;
+        file = "ParamsPlus\GiGoEH_Group.sqf";
         isGlobal = 1;
    	};
     class PRallyPoint      
@@ -251,7 +251,7 @@ class Params
         values[] = {1, 2};
         texts[] = {"Disabled","Enabled"};
         default = 2;
-        file = "ParamsPlus\Rally.sqf";
+        file = "ParamsPlus\RallyPoint_Group.sqf";
         isGlobal = 1;
     };
     class PUAV      

@@ -1,9 +1,10 @@
-/////--"ParamsPlus\BluSkill--/////
+/////--"ParamsPlus\BluSkill--///// BIS_fnc_EXP_camp_dynamicAISkill // BIS_fnc_EXP_camp_setSkill
+// [side,skillMin,skillAimMin,skillMax,skillAimMax] call BIS_fnc_EXP_camp_setSkill
 switch (_this select 0) do
 {
 	case 1: {
 		
-			[WEST,0.1,0.2,0.7,0.6] call BIS_fnc_EXP_camp_setSkill;									
+			[WEST,0.1,0.2,0.6,0.6] call BIS_fnc_EXP_camp_setSkill;									
 	};
 	case 2: {
 
@@ -11,11 +12,11 @@ switch (_this select 0) do
 	};
 	case 3: {
 		
-			[WEST,0.3,0.4,0.8,0.7] call BIS_fnc_EXP_camp_setSkill;								
+			[WEST,0.3,0.4,0.8,0.8] call BIS_fnc_EXP_camp_setSkill;								
 	};
 	case 4: {
 
-			[WEST,0.4,0.5,0.9,0.8] call BIS_fnc_EXP_camp_setSkill;						
+			[WEST,0.4,0.5,0.9,0.9] call BIS_fnc_EXP_camp_setSkill;						
 	};
 };
 

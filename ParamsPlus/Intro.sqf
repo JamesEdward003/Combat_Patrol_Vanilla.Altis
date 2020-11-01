@@ -30,7 +30,7 @@ titleCut ["", "BLACK FADED", 999];
 _this spawn {
 	
 	params[
-		["_missionName", "Combat Niggaz"],
+		["_missionName", "An Arma 3 mission"],
 		["_missionAuthor", "Arma 3 Community"],
 		["_missionVersion", "Vanilla Version"],
 		["_quote", "Why Today When Tommorrow?"],
@@ -38,7 +38,7 @@ _this spawn {
 	];
 
 	// Starting quote as volume fades in.
-	sleep (_duration - 2);
+	sleep _duration;
 	titleText [_quote,"PLAIN"];
 	titleFadeOut _duration;
 	_duration fadeSound 1;

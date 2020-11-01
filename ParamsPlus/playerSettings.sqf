@@ -11,7 +11,7 @@ _pengineer	= paramsArray select 29;
 _pexplspec	= paramsArray select 30;
 _pmedic		= paramsArray select 31;
 _puavhacker	= paramsArray select 32;
-_pua		= paramsArray select 33;
+_pua			= paramsArray select 33;
 _pdiver		= paramsArray select 34;
 _pintro		= paramsArray select 35;
 

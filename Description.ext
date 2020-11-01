@@ -154,13 +154,13 @@ class Params
         title = "Intro";
         values[] = {1, 2};
         texts[] = {"Disabled","Enabled"};
-        default = 1;
+        default = 2;
        	file = "ParamsPlus\timeLineIntro.sqf";
         isGlobal = 0;
     };
   	class PLoadOut
 	{
-        title = "Scripted Loadout";
+        title = "Scripted Loadouts";
        	values[] = {1, 2, 3};
         texts[] = {"Disabled","Units Group Player","All Playable or Switchable Units"};
         default = 2;
@@ -169,7 +169,7 @@ class Params
 	};	
   	class PRespawnLoadOut
 	{
-        title = "Old Loadout on Respawn";
+        title = "Dead Loadouts on Respawn";
        	values[] = {1, 2};
         texts[] = {"Disabled","Enabled"};
         default = 1;

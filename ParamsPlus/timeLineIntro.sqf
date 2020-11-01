@@ -1,7 +1,7 @@
 // "ParamsPlus/timeLineIntro.sqf" //
 _PIntro = "PIntro" call BIS_fnc_getParamValue;
 if (_PIntro isEqualTo 1) exitWith {};
-#include "ParamsPlus/timeLineFile.sqf";
+#include "timeLineFile.sqf";
 // Timeline of events
 private _timeline =
 [

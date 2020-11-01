@@ -28,17 +28,17 @@ titleCut ["", "BLACK FADED", 999];
 
 // Spawn text effects.
 _this spawn {
-
 	
 	params[
 		["_missionName", "Combat Patrol Vanilla"],
-		["_missionAuthor", "by Arma 3 Community"],
-		["_missionVersion", "version 1.0"],
+		["_missionAuthor", "Arma 3 Community"],
+		["_missionVersion", "Version 1.0"],
 		["_quote", "Why Today When Tommorrow?"],
 		["_duration", 9]
 	];
 
 	// Starting quote as volume fades in.
+	sleep (_duration - 2);
 	titleText [_quote,"PLAIN"];
 	titleFadeOut _duration;
 	_duration fadeSound 1;

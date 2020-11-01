@@ -17,7 +17,7 @@ private _timeline =
 
 
 // Wait until timeline is over
-waitUntil { !(missionNamespace getVariable "BIS_fnc_eventTimeline_playing"); };
+waitUntil { (missionNamespace getVariable "BIS_fnc_eventTimeline_playing") isEqualTo false };
 
 
 // End Intro and start mission

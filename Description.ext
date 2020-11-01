@@ -178,10 +178,10 @@ class Params
     class PUA       
 	{
         title = "Unlimited Ammo";
-        values[] = {1, 2};
-        texts[] = {"Disabled","Enabled"};
+        values[] = {1, 2, 3};
+        texts[] = {"Disabled","Units Group Player","All Playable or Switchable Units"};
         default = 2;
-		file = "ParamsPlus\UnlimitedAmmo.sqf";
+		file = "ParamsPlus\UnlimitedAmmo_Group.sqf";
 		isGlobal = 1;
     };		
 	class PDiverEquip       

@@ -31,11 +31,11 @@ _this spawn {
 
 	
 	params[
-		["_missionName", "Arma 3 Combat Patrol"],
-		["_missionAuthor", ""],
-		["_missionVersion", ""],
-		["_quote", ""],
-		["_duration", 16]
+		["_missionName", "Combat Patrol Vanilla"],
+		["_missionAuthor", "by Arma 3 Community"],
+		["_missionVersion", "version 1.0"],
+		["_quote", "Why Today When Tommorrow?"],
+		["_duration", 9]
 	];
 
 	// Starting quote as volume fades in.

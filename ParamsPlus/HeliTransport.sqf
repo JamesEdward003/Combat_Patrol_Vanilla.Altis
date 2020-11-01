@@ -3,14 +3,17 @@ private ["_caller","_position","_target","_is3D","_id","_unit", "_sideUnit", "_p
 params ["_caller","_position","_target","_is3D","_id"];
 _unit = _this select 0;
 _position = _this select 1;
+_searchRadius = 300;
+_friendlySide = side _unit;
+_neutralSide = CIVILIAN;
 _sideUnit 			= 	side _unit;
-_sourcePoint 			= 	_unit;
+_sourcePoint 		= 	_unit;
 _randDir 			= 	getDir vehicle _sourcePoint - 180;
 _randDist 			= 	(random 100) + 1000;
 _airStart 			=	[(getPos vehicle _sourcePoint select 0) + (_randDist * sin(_randDir)), (getPos vehicle _sourcePoint select 1) + (_randDist * cos(_randDir)), 100];
 _randDir2 			= 	getDir vehicle _sourcePoint;
-_airEnd 				=	[(getPos vehicle _sourcePoint select 0) + (_randDist * sin(_randDir2)), (getPos vehicle _sourcePoint select 1) + (_randDist * cos(_randDir2)), 60];
-//_airTypes 			= 	B_Heli_Light_01_F // B_Heli_Light_01_stripped_F // B_Heli_Transport_01_F // B_Heli_Transport_01_camo_F ////DLC > B_Heli_Transport_03_F // B_Heli_Transport_03_unarmed_F
+_airEnd 			=	[(getPos vehicle _sourcePoint select 0) + (_randDist * sin(_randDir2)), (getPos vehicle _sourcePoint select 1) + (_randDist * cos(_randDir2)), 60];
+//_airTypes 		= 	B_Heli_Light_01_F // B_Heli_Light_01_stripped_F // B_Heli_Transport_01_F // B_Heli_Transport_01_camo_F ////DLC > B_Heli_Transport_03_F // B_Heli_Transport_03_unarmed_F
 //_airTypes			=	O_Heli_Light_02_F // O_Heli_Light_02_unarmed_F // O_Heli_Light_02_v2_F ////DLC > O_Heli_Transport_04_F 
 _airType = [];
 
@@ -75,6 +78,23 @@ uisleep 2;
 hintSilent "";
 openmap [false,false];
 
+	_enemyArray = (getPos lzDropoff) nearEntities [["AllVehicles"], _searchRadius];
+
+	{
+		if ((side _x == _friendlySide) || (side _x == _neutralSide)) then {
+		
+			_enemyArray = _enemyArray - [_x];
+		};
+	} count _enemyArray;
+
+		if ((count _enemyArray) > 0) exitWith {
+		
+			hint parseText format ["<t size = '1.5' color = '#FF0000'>Transport Not Available!</t><br/><br/>Enemies are too close! (300m)<br/><br/>Secure the area before requesting transport!"];
+
+			deleteMarker "LZ";
+	    	deleteVehicle lzDropOff;
+		};
+	
 	_flightPath = _airStart getDir _airEnd;		
 
 	_ch = [_airStart, _flightPath, _airType, _sideUnit] call BIS_fnc_spawnVehicle;

@@ -1,25 +1,23 @@
 // "ParamsPlus/timeLineIntro.sqf" //
 _PIntro = "PIntro" call BIS_fnc_getParamValue;
 if (_PIntro isEqualTo 1) exitWith {};
-#include "timeLineFile.sqf";
-// Timeline of events
-private _timeline =
+#include "timeLineFile_2.sqf";
+// timeline of events
+_timeline =
 [
-	[0.0, { hint "Start of the Timeline" }],
-	[10.0, { hint "Event 1" }],
-	[60.0, { hint "End of the timeline" }]
+	[0.0,	{ hint "Start of the Timeline" }	],
+	[10.0,	{ hint "Event 1" }					],
+	[120.0,	{ hint "End of the timeline" }		]
 ];
 
+// get markers to be shown at end by using the layer's name
+private _showMarkers = (getMissionLayerEntities "showAtEnd") select 1;
 
-// Start the Animated Opening at index 0
-// also start the "LeadTrack03_F_Tacops" audio track and sync the timeline to it
-[_timeline, 0, "LeadTrack03_F_Tacops"] spawn BIS_fnc_animatedOpening;
-
+// start the Animated Briefing at index 0
+// hide all markers and show the markers from the "showAtEnd" layer after the briefing is done
+// zoom on marker_rect_1 at the end of the briefing
+[_timeline, 0, nil, allMapMarkers, _showMarkers, "marker_rect_1"] spawn BIS_fnc_animatedBriefing;
 
 // Wait until timeline is over
-//waitUntil { (missionNamespace getVariable "BIS_fnc_eventTimeline_playing") isEqualTo false };
-
-
-// End Intro and start mission
-//endMission "END1";
+waitUntil { !(missionNamespace getVariable "BIS_fnc_eventTimeline_playing"); };
 

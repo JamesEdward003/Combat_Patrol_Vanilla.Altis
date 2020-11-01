@@ -30,9 +30,9 @@ titleCut ["", "BLACK FADED", 999];
 _this spawn {
 	
 	params[
-		["_missionName", "Combat Patrol Vanilla"],
+		["_missionName", "Combat Patrol"],
 		["_missionAuthor", "Arma 3 Community"],
-		["_missionVersion", "Version 1.0"],
+		["_missionVersion", "Vanilla Version"],
 		["_quote", "Why Today When Tommorrow?"],
 		["_duration", 9]
 	];

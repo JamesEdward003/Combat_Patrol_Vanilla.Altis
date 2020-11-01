@@ -6,8 +6,8 @@ if (_PIntro isEqualTo 1) exitWith {};
 private _timeline =
 [
 	[0.0, { hint "Start of the Timeline" }],
-	[1.0, { hint "Event 1" }],
-	[3.0, { hint "End of the timeline" }]
+	[10.0, { hint "Event 1" }],
+	[60.0, { hint "End of the timeline" }]
 ];
 
 
@@ -17,9 +17,9 @@ private _timeline =
 
 
 // Wait until timeline is over
-waitUntil { (missionNamespace getVariable "BIS_fnc_eventTimeline_playing") isEqualTo false };
+//waitUntil { (missionNamespace getVariable "BIS_fnc_eventTimeline_playing") isEqualTo false };
 
 
 // End Intro and start mission
-endMission "END1";
+//endMission "END1";
 

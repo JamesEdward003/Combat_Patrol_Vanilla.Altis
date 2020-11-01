@@ -188,8 +188,8 @@ class Params
 	{
 		title = "Diver Equipment";
 		values[] = {1, 2, 3};
-		texts[] = {"All Playable or Switchable Units","Units Group Player","Disabled"};
-		default = 3;
+		texts[] = {"Disabled","Units Group Player","All Playable or Switchable Units"};
+		default = 1;
 		file = "ParamsPlus\loadouts_diver_selection.sqf";
 		isGlobal = 1;
 	};

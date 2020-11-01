@@ -24,7 +24,7 @@ _player addEventHandler ["Fired", {
 	{
 		_unit addMagazine _magazine;
 	};
-//  	hint format ["%1,%2,%3,%4,%5,%6,%7,%8,%9", name _unit,_weapon,_muzzle,_mode,_ammo,_magazine,_projectile,_gunner,_magCount];
+//  hint format ["%1,%2,%3,%4,%5,%6,%7,%8,%9", name _unit,_weapon,_muzzle,_mode,_ammo,_magazine,_projectile,_gunner,_magCount];
 //	copyToClipboard format ["%1,%2,%3,%4,%5,%6,%7,%8,%9", name _unit,_weapon,_muzzle,_mode,_ammo,_magazine,_projectile,_gunner,_magCount];
 }];
 

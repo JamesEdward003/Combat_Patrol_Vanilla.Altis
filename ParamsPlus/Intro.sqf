@@ -46,11 +46,11 @@ _this spawn {
 
 	// New "sitrep style" text in bottom right corner, typed out over time.
 	[ 
-		[_missionName,"font = 'PuristaSemiBold'"],
+		[_missionName,"font = 'PuristaMedium'"],
 		["","<br/>"],
 		[_missionAuthor,"font = 'PuristaMedium'"],
 		["","<br/>"],
-		[_missionVersion,"font = 'PuristaLight'"]
+		[_missionVersion,"font = 'PuristaMedium'"]
 	]  execVM "\a3\missions_f_bootcamp\Campaign\Functions\GUI\fn_SITREP.sqf";
 
 	// Fade from black, to blur, to clear as text types.

@@ -5,8 +5,8 @@ if (_PIntro isEqualTo 1) exitWith {};
 // timeline of events
 _timeline =
 [
-	[0.0,	{ hint "Start of the Timeline" }	],
-	[10.0,	{ hint "Event 1" }					],
+	[60.0,	{ hint "Start of the Timeline" }	],
+	[70.0,	{ hint "Event 1" }					],
 	[120.0,	{ hint "End of the timeline" }		]
 ];
 

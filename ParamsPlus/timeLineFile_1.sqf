@@ -9,13 +9,13 @@ private _timeline =
 		}
 	],
 	[
-		1.5,
+		11.5,
 		{
 			[MODE_BLACKOUT, 3, false] call BIS_fnc_animatedScreen;
 		}
 	],
 	[
-		8.2,
+		18.2,
 		{
 			[MODE_RESET, [true, true]]  call BIS_fnc_animatedScreen;
 			[MODE_BLACKOUT, 0.01, true] call BIS_fnc_animatedScreen;

@@ -5,7 +5,7 @@ if (_PIntro isEqualTo 1) exitWith {};
 // timeline of events
 _timeline =
 [
-	[0.0,	{ hint "Start of the Timeline" }	],
+	[0.0,	{ execVM "a3\missions_f_epa\Campaign_shared\Functions\Timeline\fn_camp_showOSD.sqf"; }	],
 	[10.0,	{ hint "Event 1" }					],
 	[120.0,	{ hint "End of the timeline" }		]
 ];

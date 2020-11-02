@@ -5,7 +5,7 @@ private _timeline =
 		0,
 		{
 			[MODE_RESET, [true, true]] call BIS_fnc_animatedScreen;
-			[MODE_BLACKIN, 0, false]   call BIS_fnc_animatedScreen;
+			[MODE_BLACKIN, 0, false] call BIS_fnc_animatedScreen;
 		}
 	],
 	[
@@ -17,7 +17,7 @@ private _timeline =
 	[
 		8.2,
 		{
-			[MODE_RESET, [true, true]]  call BIS_fnc_animatedScreen;
+			[MODE_RESET, [true, true]] call BIS_fnc_animatedScreen;
 			[MODE_BLACKOUT, 0.01, true] call BIS_fnc_animatedScreen;
 
 			[MODE_LAYER_CREATE, C03_SLIDE1_ID_DUST,     C03_SLIDE1_IMG_DUST,     nil,         nil, 1.3] call BIS_fnc_animatedScreen;
@@ -27,7 +27,7 @@ private _timeline =
 	[12, 
 		{
 			[MODE_RESET, [true, true]] call BIS_fnc_animatedScreen;
-			[MODE_BLACKIN, 0, false]   call BIS_fnc_animatedScreen;
+			[MODE_BLACKIN, 0, false] call BIS_fnc_animatedScreen;
 		}
 	]
 ];

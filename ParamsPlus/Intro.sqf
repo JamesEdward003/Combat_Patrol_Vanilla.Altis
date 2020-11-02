@@ -1,6 +1,6 @@
 // "Intro.sqf" //
 
-_nil = [] execVM "a3\missions_f_epa\Campaign_shared\Functions\Timeline\fn_camp_showOSD.sqf";
+//_nil = [] execVM "a3\missions_f_epa\Campaign_shared\Functions\Timeline\fn_camp_showOSD.sqf";
 
 [
     [
@@ -81,5 +81,11 @@ h = [] spawn {
 
 	BIS_showOSD_running = false;
 };
+
+[
+    [
+      player call BIS_fnc_locationDescription
+    ]
+] spawn BIS_fnc_EXP_camp_SITREP;
 
 

@@ -155,7 +155,7 @@ class Params
         values[] = {1, 2};
         texts[] = {"Disabled","Enabled"};
         default = 2;
-       	file = "ParamsPlus/timeLineIntro_1.sqf";
+       	file = "ParamsPlus\timeLineIntro_1.sqf";
         isGlobal = 0;
     };
   	class PLoadOut

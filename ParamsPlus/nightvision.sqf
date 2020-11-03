@@ -1,10 +1,9 @@
 ///  		[player] execVM "paramsplus\nightvision.sqf";		  ///
 _PNightVision = "PNightVision" call BIS_fnc_getParamValue;
 if (_PNightVision isEqualTo 1) exitWith {};
-private ["_unit","_classname","_displayname","_nvList","_nv","_ldList","_PNightVision"];
+private ["_unit","_nvList","_nv","_ldList","_PNightVision"];
 _unit = _this select 0;
-//_classname 	= format ["%1", typeOf _unit];
-//_displayname = gettext (configfile >> "CfgVehicles" >> _className >> "displayName");
+
 waitUntil { !(isNil {_unit getVariable "LoadoutDone"}) };
 
 _nvList = ["NVGoggles","NVGoggles_INDEP","NVGoggles_OPFOR","NVGoggles_tna_F","NVGogglesB_blk_F","NVGogglesB_grn_F","NVGogglesB_gry_F","O_NVGoggles_ghex_F","O_NVGoggles_grn_F","O_NVGoggles_hex_F","O_NVGoggles_urb_F","Integrated_NVG_F","Integrated_NVG_TI_0_F","Integrated_NVG_TI_1_F"];

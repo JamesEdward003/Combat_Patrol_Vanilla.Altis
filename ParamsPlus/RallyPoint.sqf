@@ -81,51 +81,11 @@ Rally_Point = _unit addAction ["<t color='#00FFFF'>Deploy Rally Point</t>", {(_t
   	"",
   	""];
 };
-  
-//private _future = time + 20;
-//waitUntil { time >= _future };
 
-// hintSilent parsetext format ["<t size='0.85' color='#00bbff' align='left'>Rallypoint placement available for: </t><t size='0.85' color='#00bbff' align='left'> %1</t>", name _this];
-// _this == leader group _this && {((units group _this) findIf {_x distance _this < 25}) > -1} && { allUnits findIf {side _x getFriend side _this <0.6 && _x distance _this < 50} == -1}    
-//_location = _this modelToWorld [0,1.25,_height];
-//_this playMove "AmovPknlMstpSrasWrflDnon_AinvPknlMstpSrasWrflDnon_Putdown";
-//uisleep 0.3;
-//uavbp = "GroundWeaponHolder_Scripted" createVehicle _location;
-//uavbp setVehiclePosition [_this modelToWorld [0,1.25,_height], [], 0, "CAN_COLLIDE"];
-//uavbp setPosWorld getPosWorld uavbp;
-//uisleep 0.1;
-//uavbp addBackpackCargoGlobal [_uavbpclass, 1];
-//uisleep 0.1;
-//[uavbp] execVM "terminal.sqf";
-//uavbp addAction ["<t color='#40e0d0'>Recruit Units</t>","bon_recruit_units\open_dialog.sqf",[],99,false,true,"","_this distance _target<10"];	
-//hintSilent parsetext format ["<t size='0.85' color='#00bbff' align='left'>Rallypoint placed for: </t><t size='0.85' color='#00bbff' align='left'> %1</t>", name _this];
+if (isPlayer _unit) then {
 
+[playerSide, "HQ"] commandChat "RallyPoint Adjustments Done!";
 
-
-
-
-
-
-
-
-
-
-//	switch (side _this) do {		
-//	case WEST: {"respawn_west" setMarkerPos (_this modeltoworld [0,3,_height]);	
-//	 respawn_west setPos (_this modeltoworld [0,3,_height]);};
-//	case EAST: {"respawn_east" setMarkerPos (_this modeltoworld [0,3,_height]);	
-//	 respawn_east setPos (_this modeltoworld [0,3,_height]);};
-//	case INDEPENDENT: {"respawn_guer" setMarkerPos (_this modeltoworld [0,3,_height]);	
-//	 respawn_guer setPos (_this modeltoworld [0,3,_height]);};	 
-//	};
-	
-	
-	
-	
-	
-	
-	
-	
-	
+};
 	
 			

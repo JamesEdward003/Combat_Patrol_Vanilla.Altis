@@ -1,4 +1,6 @@
-// "Intro.sqf" //
+// "ParamsPlus/Intro.sqf" //
+_PIntro = "PIntro" call BIS_fnc_getParamValue;
+if (_PIntro isEqualTo 1) exitWith {};
 /*
 	Author: kylania
 

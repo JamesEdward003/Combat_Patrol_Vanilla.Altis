@@ -154,7 +154,7 @@ class Params
         title = "Intro";
         values[] = {1, 2};
         texts[] = {"Disabled","Enabled"};
-        default = 2;
+        default = 1;
        	file = "ParamsPlus\Intro.sqf";
         isGlobal = 0;
     };
@@ -234,7 +234,7 @@ class Params
         title = "Ctrl-M Medic";
         values[] = {1, 2};
         texts[] = {"Disabled","Enabled"};
-        default = 2;
+        default = 1;
         file = "ParamsPlus\CtrlM_Medic.sqf";
         isGlobal = 1;
     };
@@ -243,25 +243,18 @@ class Params
         title = "Group Leader Vehicle AmmoBox and Rally Point";
         values[] = {1, 2};
         texts[] = {"Disabled","Enabled"};
-        default = 2;
+        default = 1;
         file = "ParamsPlus\GiGoEH_Group.sqf";
         isGlobal = 1;
    	};
     class PRallyPoint      
 	{ 
-        title = "Group Leader Rally Point";
+        title = "Group Leader Rally Point UAV Backpack";
         values[] = {1, 2};
         texts[] = {"Disabled","Enabled"};
         default = 2;
         file = "ParamsPlus\RallyPoint_Group.sqf";
         isGlobal = 1;
-    };
-    class PUAV      
-	{ 
-        title = "Group Leader UAV Backpack";
-        values[] = {1, 2};
-        texts[] = {"Disabled","Enabled"};
-        default = 1;
     };
     class PUAVHacker       
 	{
@@ -298,7 +291,7 @@ class Params
         texts[] = {"No recoil","Poor recoil","Standard recoil","Intensive recoil"};
         default = 1;
     };    
-    class PAimCoef      
+    class PSway     
 	{
         title = "Player's Weapon Sway";
         values[] = {1, 2, 3, 4};
@@ -319,7 +312,7 @@ class Params
         texts[] = {"No ability","Low ability","Standard ability","High ability"};
         default = 4;
     };    
-    class PCamouflageCoef        
+    class PCamoCoef        
 	{
         title = "Player's Stealth (Visible) Ability";
         values[] = {1, 2, 3, 4};

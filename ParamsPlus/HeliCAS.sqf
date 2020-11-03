@@ -3,9 +3,10 @@ private ["_caller","_position","_target","_is3D","_id","_unit", "_sideUnit", "_p
 params ["_caller","_position","_target","_is3D","_id"];
 _unit = _this select 0;
 _position = _this select 1;
-_searchRadius = 100;
+_searchRadius = 300;
 _friendlySide = side _unit;
 _neutralSide = CIVILIAN;
+_enemyAntiAir = if (_friendlySide isEqualTo "WEST") then { ["","","O_Soldier_AA_F","O_soldierU_AA_F",""] } else { ["B_T_Static_AA_F","B_T_APC_Tracked_01_AA_F","B_APC_Tracked_01_AA_F","B_static_AA_F","B_soldier_AA_F","B_T_Soldier_AA_F","B_W_Soldier_AA_F"] };
 _sideUnit 			= 	side _unit;
 _sourcePoint 		= 	_unit;
 _randDir 			= 	getDir vehicle _sourcePoint - 180;
@@ -19,7 +20,7 @@ _airType = [];
 
 switch (_sideUnit) do 
 {
-	case west: 		{_airType = "B_Heli_Light_01_F"};
+	case west: 		{_airType = "B_Heli_Attack_01_F"}; // B_Heli_Attack_01_dynamicLoadout_F
 	case east: 		{_airType = "	O_Heli_Light_02_F"};
 	case resistance: 	{_airType = "O_Heli_Light_02_v2_F"};
 	case civilian: 	{_airType = "O_Heli_Light_02_unarmed_F"};
@@ -56,14 +57,14 @@ waitUntil {sleep 1; (!visiblemap OR location OR !alive player)};
 	titletext ["","plain"];
 	};
   
-	if ((getMarkerPos " TARGET") isEqualTo [0,0,0]) then {deleteMarker " TARGET"};
+	if ((getMarkerPos "target") isEqualTo [0,0,0]) then {deleteMarker "target"};
 
 	//_location = [mappos, 20, 80, 3, 0, 20, 0] call BIS_fnc_findSafePos;
 
-	_mrkr = createMarker [" TARGET",mappos];
-	_mrkr setMarkerTypeLocal "mil_end";
+	_mrkr = createMarker ["target",mappos];
+	_mrkr setMarkerType "selector_selectedMission";
 	_mrkr setMarkerShapeLocal "Icon";
-	_mrkr setMarkerTextLocal " TARGET";
+	_mrkr setMarkerTextLocal "target";
 	_mrkr setMarkerSizeLocal [1,1];
 	_mrkr setMarkerColorLocal _mrkrcolor;
 	
@@ -73,7 +74,7 @@ uisleep 2;
 hintSilent "";
 openmap [false,false];
 
-	_enemyArray = (getMarkerPos  " TARGET") nearEntities [["AllVehicles"], _searchRadius];
+	_enemyArray = (getMarkerPos  "target") nearEntities [["AllVehicles"], _searchRadius];
 
 	{
 		if ((side _x == _friendlySide) || (side _x == _neutralSide)) then {
@@ -82,11 +83,19 @@ openmap [false,false];
 		};
 	} count _enemyArray;
 
-		if ((count _enemyArray) > 0) exitWith {
-		
-			hint parseText format ["<t size = '1.5' color = '#FF0000'>Attack Not Available!</t><br/><br/>Enemies are too close! (300m)<br/><br/>Secure the area before requesting Attack!"];
+		if ((count _enemyArray) > 0) then {
 
-			deleteMarker " TARGET";
+			for "_i" from 0 to (count _enemyAntiAir) - 1 do { 
+
+				_enemyItem = _enemyAntiAir select _i;
+
+				if (_enemyItem in _enemyArray) exitWith {
+				
+					hint parseText format ["<t size = '1.5' color = '#FF0000'>Attack Not Available!</t><br/><br/>Enemy anti-air are too close! 300m)<br/><br/>Secure the area before requesting Attack!"];
+
+					deleteMarker "target";
+				};
+			};
 		};
 	
 	_flightPath = _airStart getDir _airEnd;		
@@ -105,16 +114,16 @@ openmap [false,false];
 	
 	PAPABEAR=[_sideUnit,"HQ"]; PAPABEAR SideChat format ["AttackHelo to your position %1", name _unit];
 				
-	driver AttackHelo setBehaviour "CARELESS";
+	gunner AttackHelo setBehaviour "COMBAT";
 	
-	wp0 = (_ch select 2) addwaypoint [(getMarkerPos " TARGET"), 0];
+	wp0 = (_ch select 2) addwaypoint [(getMarkerPos "target"), 0];
 	wp0 setwaypointtype "MOVE";	
 	wp0 setWaypointBehaviour "AWARE";
 	wp0 setWaypointCombatMode "RED";
 	wp0 setWaypointSpeed "NORMAL";
 	wp0 setWaypointStatements ["true",""];
 
-	wp1 = (_ch select 2) addwaypoint [(getMarkerPos " TARGET"), 0];
+	wp1 = (_ch select 2) addwaypoint [(getMarkerPos "target"), 0];
 	wp1 setwaypointtype "MOVE";	
 	wp1 setWaypointBehaviour "AWARE";
 	wp1 setWaypointCombatMode "YELLOW";
@@ -132,7 +141,7 @@ openmap [false,false];
 	
  	PAPABEAR=[_sideUnit,"HQ"]; PAPABEAR SideChat format ["AttackHelo ready for reassignment!"];
  			
-	deleteMarker " TARGET";
+	deleteMarker "target";
 				
 //PAPABEAR=[_sideUnit,"HQ"]; PAPABEAR SideChat format ["Moving to your location, %1!", name _unit];
 

@@ -22,6 +22,11 @@ if ( isNil{player getVariable "CommAirLift"} ) then
     [player,"AirLift"] call BIS_fnc_addCommMenuItem;
 	 player setVariable ["CommAirLift", true];	
 };
+if ( isNil{player getVariable "CommHeliCAS"} ) then
+{	
+    [player,"HeliSupport"] call BIS_fnc_addCommMenuItem;
+	 player setVariable ["CommHeliCAS", true];	
+};
 if ( isNil{player getVariable "CommArty"} ) then
 {	
 	[player,"Artillery"] call BIS_fnc_addCommMenuItem;

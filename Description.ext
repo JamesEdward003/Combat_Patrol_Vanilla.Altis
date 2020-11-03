@@ -340,7 +340,7 @@ class CfgCommunicationMenu
 		removeAfterExpressionCall = 0;
 //		[player,"AirLift"] call BIS_fnc_addCommMenuItem;
 	};
-	class AirSupport
+	class HeliSupport
 	{
 		text = "Helicopter Air Support";
 		submenu = "";

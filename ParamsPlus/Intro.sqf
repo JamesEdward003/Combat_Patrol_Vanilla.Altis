@@ -68,7 +68,7 @@ _this spawn {
 //[
 //    [
 //      player call BIS_fnc_locationDescription
-    ]
+//    ]
 //] spawn BIS_fnc_EXP_camp_SITREP;
 
 

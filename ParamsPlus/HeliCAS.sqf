@@ -6,7 +6,7 @@ _position = _this select 1;
 _searchRadius = 300;
 _friendlySide = side _unit;
 _neutralSide = CIVILIAN;
-_enemyAntiAir = if (_friendlySide isEqualTo "WEST") then { ["","","O_Soldier_AA_F","O_soldierU_AA_F",""] } else { ["B_T_Static_AA_F","B_T_APC_Tracked_01_AA_F","B_APC_Tracked_01_AA_F","B_static_AA_F","B_soldier_AA_F","B_T_Soldier_AA_F","B_W_Soldier_AA_F"] };
+_enemyAntiAir = if (_friendlySide isEqualTo "WEST") then { ["O_T_APC_Tracked_02_AA_ghex_F","O_APC_Tracked_02_AA_F","O_static_AA_F","O_Soldier_AA_F","O_soldierU_AA_F","O_T_Soldier_AA_F","O_A_soldier_AA_F"] } else { ["B_T_APC_Tracked_01_AA_F","B_APC_Tracked_01_AA_F","B_static_AA_F","B_T_Static_AA_F","B_soldier_AA_F","B_T_Soldier_AA_F","B_W_Soldier_AA_F"] };
 _sideUnit 			= 	side _unit;
 _sourcePoint 		= 	_unit;
 _randDir 			= 	getDir vehicle _sourcePoint - 180;
@@ -21,8 +21,8 @@ _airType = [];
 switch (_sideUnit) do 
 {
 	case west: 		{_airType = "B_Heli_Attack_01_F"}; // B_Heli_Attack_01_dynamicLoadout_F
-	case east: 		{_airType = "	O_Heli_Light_02_F"};
-	case resistance: 	{_airType = "O_Heli_Light_02_v2_F"};
+	case east: 		{_airType = "O_Heli_Light_02_F"}; // O_Heli_Light_02_v2_F // O_Heli_Attack_02_F // 	O_Heli_Attack_02_black_F // O_Heli_Attack_02_dynamicLoadout_F // O_Heli_Attack_02_dynamicLoadout_black_F
+	case resistance: 	{_airType = "O_Heli_Attack_02_v2_F"}; 
 	case civilian: 	{_airType = "O_Heli_Light_02_unarmed_F"};
 };
 
@@ -94,6 +94,8 @@ openmap [false,false];
 					hint parseText format ["<t size = '1.5' color = '#FF0000'>Attack Not Available!</t><br/><br/>Enemy anti-air are too close! 300m)<br/><br/>Secure the area before requesting Attack!"];
 
 					deleteMarker "target";
+
+					_friendlySide reveal [_enemyItem, 1.5]
 				};
 			};
 		};

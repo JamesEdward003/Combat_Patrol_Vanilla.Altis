@@ -155,7 +155,7 @@ class Params
         values[] = {1, 2};
         texts[] = {"Disabled","Enabled"};
         default = 2;
-       	file = "ParamsPlus\timeLineIntro_2.sqf";
+       	file = "ParamsPlus\Intro.sqf";
         isGlobal = 0;
     };
   	class PLoadOut
@@ -196,8 +196,8 @@ class Params
     class PNightVision       
 	{
         title = "Night Vision Adjustments";
-        values[] = {1, 2, 3};
-        texts[] = {"All Playable or Switchable Units","Units Group Player","Disabled"};
+        values[] = {1, 2, 3, 4};
+        texts[] = {"Disabled","Units Group Player","All Playable or Switchable Units","All Units None"};
         default = 2;
         file = "ParamsPlus\nightvision_Group.sqf";
         isGlobal = 1;
@@ -206,8 +206,8 @@ class Params
 	{
         title = "Silencer Adjustments";
         values[] = {1, 2, 3, 4};
-        texts[] = {"All Playable or Switchable Units","Units Group Player","All Units","Disabled"};
-        default = 3;
+        texts[] = {"Disabled","Units Group Player","All Playable or Switchable Units","All Units None"};
+        default = 2;
         file = "ParamsPlus\silencers_Group.sqf";
         isGlobal = 1;
     };
@@ -215,7 +215,7 @@ class Params
 	{
         title = "Group Markers";
         values[] = {1, 2, 3};
-        texts[] = {"Playable or Switchable Units","Units Group Player","Disabled"};
+        texts[] = {"Disabled","Units Group Player","All Playable or Switchable Units","All Units"};
         default = 2;
         file = "ParamsPlus\markers_Group.sqf";
         isGlobal = 1;

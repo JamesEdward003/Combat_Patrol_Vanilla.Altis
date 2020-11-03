@@ -214,7 +214,7 @@ class Params
     class PMarkers       
 	{
         title = "Group Markers";
-        values[] = {1, 2, 3};
+        values[] = {1, 2, 3, 4};
         texts[] = {"Disabled","Units Group Player","All Playable or Switchable Units","All Units"};
         default = 2;
         file = "ParamsPlus\markers_Group.sqf";
@@ -261,28 +261,28 @@ class Params
         title = "Group Leader UAV Backpack";
         values[] = {1, 2};
         texts[] = {"Disabled","Enabled"};
-        default = 2;
+        default = 1;
     };
     class PUAVHacker       
 	{
         title = "Enable/Disable Player's UAV Ability";
         values[] = {1, 2};
         texts[] = {"Disabled","Enabled"};
-        default = 2;
+        default = 1;
     }; 
     class PEngineer       
 	{
         title = "Enable/Disable Player's Repair Ability";
         values[] = {1, 2};
         texts[] = {"Disabled","Enabled"};
-        default = 2;
+        default = 1;
     };  
     class PExplosiveSpecialist      
  	{
         title = "Enable/Disable Player's Defuse Ability";
         values[] = {1, 2};
         texts[] = {"Disabled","Enabled"};
-        default = 2;
+        default = 1;
     };    
     class PMedic       
 	{
@@ -296,35 +296,35 @@ class Params
         title = "Player's Weapon Recoil";
         values[] = {1, 2, 3, 4};
         texts[] = {"No recoil","Poor recoil","Standard recoil","Intensive recoil"};
-        default = 3;
+        default = 1;
     };    
     class PAimCoef      
 	{
         title = "Player's Weapon Sway";
         values[] = {1, 2, 3, 4};
         texts[] = {"No sway","Poor sway","Standard sway","Intensive sway"};
-        default = 3;
+        default = 1;
     };
     class PLoadCoef       
 	{
         title = "Player's Load Carrying Ability";
         values[] = {1, 2, 3, 4};
         texts[] = {"No ability","Low ability","Standard ability","High ability"};
-        default = 3;
+        default = 4;
     };  
     class PAudibleCoef        
 	{
         title = "Player's Stealth (Audible) Ability";
         values[] = {1, 2, 3, 4};
         texts[] = {"No ability","Low ability","Standard ability","High ability"};
-        default = 3;
+        default = 4;
     };    
     class PCamouflageCoef        
 	{
         title = "Player's Stealth (Visible) Ability";
         values[] = {1, 2, 3, 4};
         texts[] = {"No ability","Low ability","Standard ability","High ability"};
-        default = 3;
+        default = 4;
     };   
 };
 class CfgCommunicationMenu

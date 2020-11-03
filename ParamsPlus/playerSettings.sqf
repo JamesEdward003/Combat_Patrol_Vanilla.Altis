@@ -1,16 +1,16 @@
-//////	[player] execVM "playerSettings.sqf";	//////
+//////	[player] execVM "ParamsPlus\playerSettings.sqf";	//////
 private ["_player","_puavhacker","_pengineer","_pexplspec","_pmedic","_precoil","_psway","_ploadcoef","_paudible","_pcamocoef"];
 _player = _this select 0;
 
-_puavhacker	= paramsArray select 32;
-_pengineer	= paramsArray select 29;
-_pexplspec	= paramsArray select 30;
-_pmedic		= paramsArray select 31;
-_precoil 	= paramsArray select 24;
-_psway   	= paramsArray select 25;
-_ploadcoef	= paramsArray select 28;
-_paudible	= paramsArray select 26;
-_pcamocoef	= paramsArray select 27;
+_puavhacker	= paramsArray select 27;
+_pengineer	= paramsArray select 28;
+_pexplspec	= paramsArray select 29;
+_pmedic		= paramsArray select 30;
+_precoil 	= paramsArray select 31;
+_psway   	= paramsArray select 32;
+_ploadcoef	= paramsArray select 33;
+_paudible	= paramsArray select 34;
+_pcamocoef	= paramsArray select 35;
 
 if (isNil "puavhacker") then
 {	
@@ -139,38 +139,43 @@ _player setUnitTrait ["loadCoef",ploadcoef];
 _player setUnitTrait ["audibleCoef",paudible];
 _player setUnitTrait ["camouflageCoef",pcamocoef];
 
-
-
 _player addEventHandler ["Respawn", {
 	params ["_unit", "_corpse"];
 
-	_puavhacker	= paramsArray select 32;
-	_pengineer	= paramsArray select 29;
-	_pexplspec	= paramsArray select 30;
-	_pmedic		= paramsArray select 31;	
-	_precoil 	= paramsArray select 24;
-	_psway   	= paramsArray select 25;
-	_ploadcoef	= paramsArray select 28;
-	_paudible	= paramsArray select 26;
-	_pcamocoef	= paramsArray select 27;
-
-	_unit setUnitRecoilCoefficient precoil;
-	_unit setCustomAimCoef psway;
-	_unit setUnitTrait ["audibleCoef",paudible];
-	_unit setUnitTrait ["camouflageCoef",pcamocoef];
-	_unit setUnitTrait ["loadCoef",ploadcoef];
-	_unit setUnitTrait ["Engineer",pengineer];
-	_unit setUnitTrait ["ExplosiveSpecialist",pexplspec];
-	_unit setUnitTrait ["Medic",pmedic];
-	_unit setUnitTrait ["UAVHacker",puavhacker];
-
-	if (isPlayer _unit) then {
-
-	[playerSide, "HQ"] commandChat format ["%1, Player Settings installed!",name _unit];
-
-	};
+	[_unit] execVM "playerSettings.sqf";
 
 }];
+
+//_player addEventHandler ["Respawn", {
+//	params ["_unit", "_corpse"];
+
+//	_puavhacker	= paramsArray select 27;
+//	_pengineer	= paramsArray select 28;
+//	_pexplspec	= paramsArray select 29;
+//	_pmedic		= paramsArray select 30;	
+//	_precoil 	= paramsArray select 31;
+//	_psway   	= paramsArray select 32;
+//	_ploadcoef	= paramsArray select 33;
+//	_paudible	= paramsArray select 34;
+//	_pcamocoef	= paramsArray select 35;
+
+//	_unit setUnitTrait ["UAVHacker",puavhacker];
+//	_unit setUnitTrait ["Engineer",pengineer];
+//	_unit setUnitTrait ["ExplosiveSpecialist",pexplspec];
+//	_unit setUnitTrait ["Medic",pmedic];
+//	_unit setUnitRecoilCoefficient precoil;
+//	_unit setCustomAimCoef psway;
+//	_unit setUnitTrait ["loadCoef",ploadcoef];
+//	_unit setUnitTrait ["audibleCoef",paudible];
+//	_unit setUnitTrait ["camouflageCoef",pcamocoef];
+
+//	if (isPlayer _unit) then {
+
+//	[playerSide, "HQ"] commandChat format ["%1, Player Settings installed!",name _unit];
+
+//	};
+
+//}];
 
 if (isPlayer _player) then {
 

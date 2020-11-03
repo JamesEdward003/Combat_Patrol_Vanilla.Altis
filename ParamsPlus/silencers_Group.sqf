@@ -33,9 +33,9 @@ switch (_this select 0) do
 			};
 
 	case 4: {	
-				for "_i" from 0 to count (if ismultiplayer then {playableunits} else {switchableunits}) - 1 do
+				for "_i" from 0 to count (allUnits) - 1 do
 				{
-					_unit = (if ismultiplayer then {playableunits} else {switchableunits}) select _i;
+					_unit = (allUnits) select _i;
 					
 					for "_i" from 0 to count _muzzleList -1 do
 					{

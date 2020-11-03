@@ -1,6 +1,6 @@
 ///  		[player] execVM "paramsplus\nightvision.sqf";		  ///
 _PNightVision = "PNightVision" call BIS_fnc_getParamValue;
-if (_PNightVision isEqualTo 3) exitWith {};
+if (_PNightVision isEqualTo 1) exitWith {};
 private ["_unit","_classname","_displayname","_nvList","_nv","_ldList","_PNightVision"];
 _unit = _this select 0;
 //_classname 	= format ["%1", typeOf _unit];

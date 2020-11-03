@@ -1,6 +1,6 @@
 ///  		[player] execVM "paramsplus\silencers.sqf";		  ///
 _PSilencers = "PSilencers" call BIS_fnc_getParamValue;
-if (_PSilencers isEqualTo 3) exitWith {};
+if (_PSilencers isEqualTo 1) exitWith {};
 private ["_unit","_classname","_displayname","_muzzleList","_ml","_PSilencers"];
 _unit = _this select 0;
 

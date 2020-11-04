@@ -37,14 +37,25 @@ _unit setVehicleVarname _varname;
 
 addswitchableunit _unit;
 
-_PDiver = "PDiver" call BIS_fnc_getParamValue;
-_PLoadout = "PLoadout" call BIS_fnc_getParamValue;
-_PRespawnLoadout = "PRespawnLoadout" call BIS_fnc_getParamValue;
-_PUA = "PUA" call BIS_fnc_getParamValue;
-_PMarkers = "PMarkers" call BIS_fnc_getParamValue;
-_PRegenHealth = "PRegenHealth" call BIS_fnc_getParamValue;
-_PNightVision = "PNightVision" call BIS_fnc_getParamValue;
-_PSilencers = "PSilencers" call BIS_fnc_getParamValue;
+_pdiverequip = "pdiverequip" call BIS_fnc_getParamValue;
+_ploadout = "ploadout" call BIS_fnc_getParamValue;
+_prespawnLoadout = "prespawnloadout" call BIS_fnc_getParamValue;
+_pua = "pua" call BIS_fnc_getParamValue;
+_pmarkers = "pmarkers" call BIS_fnc_getParamValue;
+_pregenhealth = "pregenhealth" call BIS_fnc_getParamValue;
+_pnightVision = "pnightvision" call BIS_fnc_getParamValue;
+_psilencers = "psilencers" call BIS_fnc_getParamValue;
+
+_puavhacker	= "puavhacker" call BIS_fnc_getParamValue;
+_pengineer	= "pengineer" call BIS_fnc_getParamValue;
+_pexplspec	= "pexplspec" call BIS_fnc_getParamValue;
+_pmedic		= "pmedic" call BIS_fnc_getParamValue;
+_precoil 	= "precoil" call BIS_fnc_getParamValue;
+_psway   	= "psway" call BIS_fnc_getParamValue;
+_ploadcoef	= "ploadcoef" call BIS_fnc_getParamValue;
+_paudible	= "paudible" call BIS_fnc_getParamValue;
+_pcamocoef	= "pcamocoef" call BIS_fnc_getParamValue;
+_psettings	= "psettings" call BIS_fnc_getParamValue;
 
 switch (side _unit) do {
 	case west: {
@@ -60,8 +71,9 @@ switch (side _unit) do {
 		[_unit] execVM "ParamsPlus\loadouts_g_diver.sqf";
 	};
 };
-[_unit] execVM "ParamsPlus\loadoutAdjustments.sqf";
-[_unit] execVM "ParamsPlus\markerGroup.sqf";
+[_unit] execVM "ParamsPlus\nightvision.sqf";
+[_unit] execVM "ParamsPlus\silencers.sqf";
+[_unit] execVM "ParamsPlus\markers.sqf";
 [_unit,0.15,.01] execVM "ParamsPlus\regen_health.sqf";
 _unit addAction ["<t color='#00FFFF'>Dismiss</t>",BON_RECRUIT_PATH+"dismiss.sqf",[],-100,false,true,""];
 

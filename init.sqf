@@ -2,22 +2,21 @@
 [playerSide, "HQ"] commandChat "Initiating Init!";
 
 _PLoadOut = "PLoadOut" call BIS_fnc_getParamValue;
-if (_PLoadOut isEqualTo 3) then 
+if (_PLoadOut isEqualTo 1) then 
 {
 	addMissionEventHandler ["entityKilled", { 
 		params ["_unit"]; 
-		if (_PSaveLoadOut isEqualTo 3 && !isPlayer _unit) then {
-		_unit setVariable ["loadout", getUnitLoadout _unit];
-		};
-		if (_PLoadOut isEqualTo 3 && !isPlayer _unit) then {
-		_unit setVariable ["LoadoutDone", _unitlo, true];
-		};
+		if (_PRespawnLoadout isEqualTo 2 && !isPlayer _unit) then {
+			_unit setVariable ["loadout", getUnitLoadout _unit];
+		} else {
+			_unit setVariable ["loadout", true];
+		}
 	}];
 
 	addMissionEventHandler ["entityRespawned", { 
 		params ["_unit"];
 		if (!isNil {_unit getVariable "loadout"} && !isPlayer _unit) then {
-		_unit setUnitLoadout {_unit getVariable "loadout"};
+			_unit setUnitLoadout {_unit getVariable "loadout"};
 		};
 	}]; 
 };

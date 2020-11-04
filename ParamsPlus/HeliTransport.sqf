@@ -3,7 +3,7 @@ private ["_caller","_position","_target","_is3D","_id","_unit", "_sideUnit", "_p
 params ["_caller","_position","_target","_is3D","_id"];
 _unit = _this select 0;
 _position = _this select 1;
-_searchRadius = 300;
+_searchRadius = 100;
 _friendlySide = side _unit;
 _neutralSide = CIVILIAN;
 _sideUnit 			= 	side _unit;
@@ -87,9 +87,9 @@ openmap [false,false];
 		};
 	} count _enemyArray;
 
-		if ((count _enemyArray) > 0) exitWith {
+		if ((count _enemyArray) > 4) exitWith {
 		
-			hint parseText format ["<t size = '1.5' color = '#FF0000'>Transport Not Available!</t><br/><br/>Enemies are too close! (300m)<br/><br/>Secure the area before requesting transport!"];
+			hint parseText format ["<t size = '1.5' color = '#FF0000'>Transport Not Available!</t><br/><br/>Enemies are too close! (100m)<br/><br/>Secure the area before requesting transport!"];
 
 			deleteMarker "LZ";
 	    	deleteVehicle lzDropOff;

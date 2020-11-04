@@ -20,7 +20,7 @@ _airType = [];
 
 switch (_sideUnit) do 
 {
-	case west: 		{_airType = "B_Heli_Attack_01_F"}; // B_Heli_Attack_01_dynamicLoadout_F
+	case west: 		{_airType = "B_Heli_Attack_01_dynamicLoadout_F"}; // B_Heli_Attack_01_dynamicLoadout_F // B_Heli_Attack_01_F
 	case east: 		{_airType = "O_Heli_Light_02_F"}; // O_Heli_Light_02_v2_F // O_Heli_Attack_02_F // 	O_Heli_Attack_02_black_F // O_Heli_Attack_02_dynamicLoadout_F // O_Heli_Attack_02_dynamicLoadout_black_F
 	case resistance: 	{_airType = "O_Heli_Attack_02_v2_F"}; 
 	case civilian: 	{_airType = "O_Heli_Light_02_unarmed_F"};
@@ -109,8 +109,8 @@ openmap [false,false];
 	
 	[AttackHelo] execVM "vehicleMarker.sqf";
 	
-	AttackHelo addEventHandler ["GetIn", { if (_this select 1 == "cargo") then { (_this select 2) allowDamage false; } } ]; 
-	AttackHelo addEventHandler ["GetOut", { if (_this select 1 == "cargo") then { (_this select 2) allowDamage true; } } ];	
+	AttackHelo addEventHandler ["GetIn", { (_this select 0) allowDamage false; (_this select 2) allowDamage false; } ]; 
+	AttackHelo addEventHandler ["GetOut", { (_this select 0) allowDamage true; (_this select 2) allowDamage true; } ];	
 			
 	{_x addEventHandler ["HandleDamage", {false}]} forEach crew (AttackHelo) + [AttackHelo];
 	
@@ -125,13 +125,40 @@ openmap [false,false];
 	wp0 setWaypointSpeed "NORMAL";
 	wp0 setWaypointStatements ["true",""];
 
-	wp1 = (_ch select 2) addwaypoint [(getMarkerPos "target"), 0];
-	wp1 setwaypointtype "MOVE";	
+	wp1 = (_ch select 2) addwaypoint [_airEnd, 0];
+	wp1 setwaypointtype "CYCLE";	
 	wp1 setWaypointBehaviour "AWARE";
-	wp1 setWaypointCombatMode "YELLOW";
+	wp1 setWaypointCombatMode "RED";
 	wp1 setWaypointSpeed "NORMAL";
 	wp1 setWaypointStatements ["true",""];
 
+	scopeName "main";
+	while {alive AttackHelo isEqualTo true} do {
+		
+		scopeName "loop1";
+		
+		_enemyArray = (getMarkerPos  "target") nearEntities [["AllVehicles"], _searchRadius];
+
+	{
+		if ((side _x == _friendlySide) || (side _x == _neutralSide)) then {
+		
+			_enemyArray = _enemyArray - [_x];
+		};
+	} count _enemyArray;
+
+		if ((count _enemyArray) < 4) then {
+	
+		while {(count (waypoints (_ch select 2))) > 0} do {
+			scopeName "loop2";
+			deleteWaypoint ((waypoints (_ch select 2)) select 0);
+			sleep 0.01;
+			};
+			if (alive AttackHelo) then {breakTo "main"};
+		};
+		
+		uisleep 10;
+	};
+	
 	wp2 = (_ch select 2) addwaypoint [_airStart, 0];
 	wp2 setwaypointtype "MOVE";
 	wp2 setWaypointBehaviour "AWARE";

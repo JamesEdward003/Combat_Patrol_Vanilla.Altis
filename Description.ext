@@ -318,7 +318,16 @@ class Params
         values[] = {1, 2, 3, 4};
         texts[] = {"No ability","Low ability","Standard ability","High ability"};
         default = 4;
-    };   
+    }; 
+  	class PSettings
+	{
+        title = "Settings";
+       	values[] = {1, 2, 3};
+        texts[] = {"Disabled","Units Group Player","All Playable or Switchable Units"};
+        default = 2;
+        file = "ParamsPlus\playerSettings_Group.sqf";
+        isGlobal = 1;
+	};  
 };
 class CfgCommunicationMenu
 {

@@ -1,7 +1,7 @@
 //////	[player] execVM "ParamsPlus\playerSettings.sqf";	//////
-private ["_player","_puavhacker","_pengineer","_pexplspec","_pmedic","_precoil","_psway","_ploadcoef","_paudible","_pcamocoef"];
+private ["_player","_puavhacker","_pengineer","_pexplspec","_pmedic","_precoil","_psway","_ploadcoef","_paudiblecoef","_pcamocoef","_psettings"];
 _player = _this select 0;
-
+//[1,1,1,1,0,20,0,1,-1,1,0,0,0,3,3,1,2,1,2,1,2,2,2,3,1,1,2,1,1,1,2,1,1,4,4,4,2]
 _puavhacker	= paramsArray select 27;
 _pengineer	= paramsArray select 28;
 _pexplspec	= paramsArray select 29;
@@ -11,6 +11,7 @@ _psway   	= paramsArray select 32;
 _ploadcoef	= paramsArray select 33;
 _paudible	= paramsArray select 34;
 _pcamocoef	= paramsArray select 35;
+_psettings	= paramsarray select 36;
 
 if (isNil "puavhacker") then
 {	
@@ -88,7 +89,7 @@ if (isNil "ploadcoef") then
 	_player setUnitTrait ["loadCoef",ploadcoef];
 	publicvariable "ploadcoef";
 };
-if (isNil "paudible") then
+if (isNil "Paudiblecoef") then
 {	
 	switch (_paudible) do
 	{
@@ -136,13 +137,13 @@ _player setUnitTrait ["Medic",pmedic];
 _player setUnitRecoilCoefficient precoil;
 _player setCustomAimCoef psway;
 _player setUnitTrait ["loadCoef",ploadcoef];
-_player setUnitTrait ["audibleCoef",paudible];
+_player setUnitTrait ["audibleCoef",paudiblecoef];
 _player setUnitTrait ["camouflageCoef",pcamocoef];
 
 _player addEventHandler ["Respawn", {
 	params ["_unit", "_corpse"];
 
-	[_unit] execVM "playerSettings.sqf";
+	[_unit] execVM "ParamsPlus\playerSettings.sqf";
 
 }];
 
@@ -182,4 +183,3 @@ if (isPlayer _player) then {
 [playerSide, "HQ"] commandChat format ["%1, Player Settings Installed!",name _player];
 
 };
-

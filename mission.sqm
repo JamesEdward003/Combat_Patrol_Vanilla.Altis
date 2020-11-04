@@ -121,7 +121,6 @@ class Mission
 					{
 						skill=0.85182697;
 						rank="MAJOR";
-						init="call{this setVariable [""JTAC"",true];}";
 						name="Rambo_1";
 						description="SquadLeader";
 						isPlayer=1;
@@ -145,7 +144,7 @@ class Mission
 											"STRING"
 										};
 									};
-									value="Male07ENG";
+									value="Male09ENG";
 								};
 							};
 						};
@@ -164,11 +163,49 @@ class Mission
 											"SCALAR"
 										};
 									};
-									value=1.01;
+									value=1;
 								};
 							};
 						};
-						nAttributes=2;
+						class Attribute2
+						{
+							property="unitInsignia";
+							expression="[_this,_value] call BIS_fnc_setUnitInsignia;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="111thID";
+								};
+							};
+						};
+						class Attribute3
+						{
+							property="face";
+							expression="_this setface _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="WhiteHead_19";
+								};
+							};
+						};
+						nAttributes=4;
 					};
 				};
 				class Item1
@@ -184,7 +221,6 @@ class Mission
 					{
 						skill=0.85407525;
 						rank="CAPTAIN";
-						init="call{this setVariable [""JTAC"",true];}";
 						name="Rambo_2";
 						description="AutoRifleman";
 						isPlayable=1;
@@ -227,11 +263,30 @@ class Mission
 											"SCALAR"
 										};
 									};
-									value=1.01;
+									value=1;
 								};
 							};
 						};
-						nAttributes=2;
+						class Attribute2
+						{
+							property="unitInsignia";
+							expression="[_this,_value] call BIS_fnc_setUnitInsignia;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="111thID";
+								};
+							};
+						};
+						nAttributes=3;
 					};
 				};
 				class Item2
@@ -245,9 +300,8 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.98673421;
+						skill=0.95075893;
 						rank="CORPORAL";
-						init="call{this setVariable [""JTAC"",true];}";
 						name="Rambo_8";
 						description="CombatLifeSaver";
 						isPlayable=1;
@@ -290,11 +344,30 @@ class Mission
 											"SCALAR"
 										};
 									};
-									value=0.97000003;
+									value=1;
 								};
 							};
 						};
-						nAttributes=2;
+						class Attribute2
+						{
+							property="unitInsignia";
+							expression="[_this,_value] call BIS_fnc_setUnitInsignia;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="111thID";
+								};
+							};
+						};
+						nAttributes=3;
 					};
 				};
 				class Item3
@@ -309,9 +382,8 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						skill=0.86981457;
+						skill=0.92152894;
 						rank="LIEUTENANT";
-						init="call{this setVariable [""JTAC"",true];}";
 						name="Rambo_3";
 						description="Marksman";
 						isPlayable=1;
@@ -335,7 +407,7 @@ class Mission
 											"STRING"
 										};
 									};
-									value="Male12ENG";
+									value="Male10ENG";
 								};
 							};
 						};
@@ -354,11 +426,49 @@ class Mission
 											"SCALAR"
 										};
 									};
-									value=1.01;
+									value=1;
 								};
 							};
 						};
-						nAttributes=2;
+						class Attribute2
+						{
+							property="unitInsignia";
+							expression="[_this,_value] call BIS_fnc_setUnitInsignia;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="111thID";
+								};
+							};
+						};
+						class Attribute3
+						{
+							property="face";
+							expression="_this setface _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="WhiteHead_14";
+								};
+							};
+						};
+						nAttributes=4;
 					};
 				};
 				class Item4
@@ -375,7 +485,6 @@ class Mission
 					{
 						skill=0.91928053;
 						rank="SERGEANT";
-						init="call{this setVariable [""JTAC"",true];}";
 						name="Rambo_5";
 						description="Grenadier";
 						isPlayable=1;
@@ -418,11 +527,30 @@ class Mission
 											"SCALAR"
 										};
 									};
-									value=0.95999998;
+									value=1;
 								};
 							};
 						};
-						nAttributes=2;
+						class Attribute2
+						{
+							property="unitInsignia";
+							expression="[_this,_value] call BIS_fnc_setUnitInsignia;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="111thID";
+								};
+							};
+						};
+						nAttributes=3;
 					};
 				};
 				class Item5
@@ -437,7 +565,7 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						skill=0.86531764;
+						skill=0.91703224;
 						rank="LIEUTENANT";
 						name="Rambo_4";
 						description="Grenadier";
@@ -462,7 +590,7 @@ class Mission
 											"STRING"
 										};
 									};
-									value="Male08ENG";
+									value="Male11ENG";
 								};
 							};
 						};
@@ -481,11 +609,49 @@ class Mission
 											"SCALAR"
 										};
 									};
-									value=0.98000002;
+									value=1;
 								};
 							};
 						};
-						nAttributes=2;
+						class Attribute2
+						{
+							property="unitInsignia";
+							expression="[_this,_value] call BIS_fnc_setUnitInsignia;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="111thID";
+								};
+							};
+						};
+						class Attribute3
+						{
+							property="face";
+							expression="_this setface _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="WhiteHead_15";
+								};
+							};
+						};
+						nAttributes=4;
 					};
 				};
 				class Item6
@@ -502,7 +668,6 @@ class Mission
 					{
 						skill=0.92377746;
 						rank="SERGEANT";
-						init="call{this setVariable [""JTAC"",true];}";
 						name="Rambo_6";
 						description="Marksman";
 						isPlayable=1;
@@ -526,7 +691,7 @@ class Mission
 											"STRING"
 										};
 									};
-									value="Male01ENG";
+									value="Male10ENG";
 								};
 							};
 						};
@@ -545,11 +710,49 @@ class Mission
 											"SCALAR"
 										};
 									};
-									value=1.01;
+									value=1;
 								};
 							};
 						};
-						nAttributes=2;
+						class Attribute2
+						{
+							property="unitInsignia";
+							expression="[_this,_value] call BIS_fnc_setUnitInsignia;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="111thID";
+								};
+							};
+						};
+						class Attribute3
+						{
+							property="face";
+							expression="_this setface _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="WhiteHead_14";
+								};
+							};
+						};
+						nAttributes=4;
 					};
 				};
 				class Item7
@@ -566,7 +769,6 @@ class Mission
 					{
 						skill=0.95300734;
 						rank="CORPORAL";
-						init="call{this setVariable [""JTAC"",true];}";
 						name="Rambo_7";
 						description="CombatLifeSaver";
 						isPlayable=1;
@@ -590,7 +792,7 @@ class Mission
 											"STRING"
 										};
 									};
-									value="Male04ENG";
+									value="Male12ENG";
 								};
 							};
 						};
@@ -609,11 +811,49 @@ class Mission
 											"SCALAR"
 										};
 									};
-									value=1.05;
+									value=1;
 								};
 							};
 						};
-						nAttributes=2;
+						class Attribute2
+						{
+							property="unitInsignia";
+							expression="[_this,_value] call BIS_fnc_setUnitInsignia;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="111thID";
+								};
+							};
+						};
+						class Attribute3
+						{
+							property="face";
+							expression="_this setface _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="WhiteHead_17";
+								};
+							};
+						};
+						nAttributes=4;
 					};
 				};
 			};

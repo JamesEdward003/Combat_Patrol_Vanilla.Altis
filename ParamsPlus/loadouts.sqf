@@ -5,7 +5,7 @@ _PLoadOut = "PLoadOut" call BIS_fnc_getParamValue;
 if (_PLoadOut isEqualTo 1) exitWith {};
 private ["_unit","_classname","_displayname","_PLoadOut"];
 _unit = _this select 0;
-_classname 	= format ["%1", typeOf _unit];
+_classname 	= typeOf _unit;
 _displayname = gettext (configfile >> "CfgVehicles" >> _className >> "displayName");
 
 switch (_displayname) do {
@@ -294,7 +294,7 @@ _unit linkItem "B_UavTerminal";
 _unit linkItem "NVGoggles";
 
 comment "Set identity";
-[_unit,"WhiteHead_08","male12eng"] call BIS_fnc_setIdentity;
+[_unit,"WhiteHead_19","male09eng"] call BIS_fnc_setIdentity;
 [_unit,"111thID"] call BIS_fnc_setUnitInsignia;
 };
 
@@ -347,7 +347,7 @@ _unit addItemToVest "B_UavTerminal";
 _unit addItemToVest "MineDetector";
 for "_i" from 1 to 2 do {_unit addItemToVest "30Rnd_65x39_caseless_mag_Tracer";};
 for "_i" from 1 to 4 do {_unit addItemToVest "30Rnd_65x39_caseless_green";};
-_unit addItemToBackpack "rhs_fgm148_magazine_AT";
+_unit addItemToBackpack "NLAW_F";
 for "_i" from 1 to 8 do {_unit addItemToBackpack "1Rnd_HE_Grenade_shell";};
 _unit addHeadgear "H_Cap_usblack";
 _unit addGoggles "G_Goggles_VR";
@@ -361,7 +361,7 @@ _unit linkItem "B_UavTerminal";
 _unit linkItem "NVGoggles";
 
 comment "Set identity";
-[_unit,"WhiteHead_08","male12eng"] call BIS_fnc_setIdentity;
+[_unit,"WhiteHead_08","male11eng"] call BIS_fnc_setIdentity;
 [_unit,"111thID"] call BIS_fnc_setUnitInsignia;
 };
 
@@ -638,7 +638,7 @@ _unit linkItem "B_UavTerminal";
 _unit linkItem "NVGoggles";
 
 comment "Set identity";
-[_unit,"WhiteHead_08","male12eng"] call BIS_fnc_setIdentity;
+[_unit,"WhiteHead_15","male11eng"] call BIS_fnc_setIdentity;
 [_unit,"111thID"] call BIS_fnc_setUnitInsignia;
 };
 
@@ -704,7 +704,7 @@ _unit linkItem "B_UavTerminal";
 _unit linkItem "NVGoggles";
 
 comment "Set identity";
-[_unit,"WhiteHead_08","male11eng"] call BIS_fnc_setIdentity;
+[_unit,"WhiteHead_17","male12eng"] call BIS_fnc_setIdentity;
 [_unit,"111thID"] call BIS_fnc_setUnitInsignia;
 };
 
@@ -767,7 +767,7 @@ _unit linkItem "ItemGPS";
 _unit linkItem "NVGoggles";
 
 comment "Set identity";
-[_unit,"WhiteHead_08","male12eng"] call BIS_fnc_setIdentity;
+[_unit,"WhiteHead_14","male10eng"] call BIS_fnc_setIdentity;
 [_unit,"111thID"] call BIS_fnc_setUnitInsignia;
 };
 };

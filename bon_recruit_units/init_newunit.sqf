@@ -38,9 +38,13 @@ _unit setVehicleVarname _varname;
 addswitchableunit _unit;
 
 _PDiver = "PDiver" call BIS_fnc_getParamValue;
-_PloadoutAdjustments = "PloadoutAdjustments" call BIS_fnc_getParamValue;
+_PLoadout = "PLoadout" call BIS_fnc_getParamValue;
+_PRespawnLoadout = "PRespawnLoadout" call BIS_fnc_getParamValue;
+_PUA = "PUA" call BIS_fnc_getParamValue;
 _PMarkers = "PMarkers" call BIS_fnc_getParamValue;
 _PRegenHealth = "PRegenHealth" call BIS_fnc_getParamValue;
+_PNightVision = "PNightVision" call BIS_fnc_getParamValue;
+_PSilencers = "PSilencers" call BIS_fnc_getParamValue;
 
 switch (side _unit) do {
 	case west: {

@@ -58,7 +58,7 @@ playerRespawn = {
 				
 		if (_grpldr isEqualTo _unitvn) then {[_plyrgrp, player] remoteExec ["selectLeader", groupOwner _plyrgrp];};
 								
-		[player] execVM "ParamsPlus\markerGroup.sqf";
+		[player] execVM "ParamsPlus\markers.sqf";
 		
 		[player] execVM "ParamsPlus\loadoutAdjustments.sqf";
 		

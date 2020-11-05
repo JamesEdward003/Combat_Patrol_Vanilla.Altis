@@ -20,7 +20,7 @@ _airType = [];
 
 switch (_sideUnit) do 
 {
-	case west: 		{_airType = "B_Heli_Attack_01_dynamicLoadout_F"}; // B_Heli_Attack_01_dynamicLoadout_F // B_Heli_Attack_01_F
+	case west: 		{_airType = "fza_ah64d_b2e_nr"}; // B_Heli_Attack_01_dynamicLoadout_F // B_Heli_Attack_01_F
 	case east: 		{_airType = "O_Heli_Light_02_F"}; // O_Heli_Light_02_v2_F // O_Heli_Attack_02_F // 	O_Heli_Attack_02_black_F // O_Heli_Attack_02_dynamicLoadout_F // O_Heli_Attack_02_dynamicLoadout_black_F
 	case resistance: 	{_airType = "O_Heli_Attack_02_v2_F"}; 
 	case civilian: 	{_airType = "O_Heli_Light_02_unarmed_F"};

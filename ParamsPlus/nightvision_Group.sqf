@@ -32,7 +32,7 @@ switch (_this select 0) do
 	case 4: {	
 				for "_i" from 0 to count (allUnits) - 1 do
 				{
-					_unit = allUnits select _i;
+					_unit = (allUnits) select _i;
 					
 					for "_i" from 0 to count _nvList -1 do
 					{

@@ -7,7 +7,7 @@ switch (_this select 0) do
 			for "_i" from 0 to count (units group player) - 1 do
 			
 				{
-					_unit = (units group player) select _i;
+					private _unit = (units group player) select _i;
 				
 				switch true do 
 				
@@ -55,7 +55,7 @@ switch (_this select 0) do
 			for "_i" from 0 to count (units group player) - 1 do
 			
 				{
-					_unit = (units group player) select _i;
+					private _unit = (units group player) select _i;
 
 				switch true do 
 				
@@ -90,7 +90,7 @@ switch (_this select 0) do
 			for "_i" from 0 to count (if ismultiplayer then {playableunits} else {switchableunits}) - 1 do
 			
 				{
-					_unit = (if ismultiplayer then {playableunits} else {switchableunits}) select _i;
+					private _unit = (if ismultiplayer then {playableunits} else {switchableunits}) select _i;
 				
 				switch true do 
 				

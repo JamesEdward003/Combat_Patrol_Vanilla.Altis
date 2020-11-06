@@ -39,8 +39,11 @@ player addAction [ '<t color=''#00FFFF''>Artillery</t>',{
 
 	_unit removeAction _id;
 
-	_pos = (getPos respawn_vehicle_west); //, 0, getDir respawn_vehicle_west] call BIS_fnc_relPos;
-	_spawnPos = createVehicle [ _vehicle, _pos, [], 0, 'CAN_COLLIDE' ];
+	_spawnPos = lineIntersectsSurfaces [AGLToASL positionCameraToWorld [0,0,0],AGLToASL positionCameraToWorld [0,0,5000],_caller,objNull,true,1,"VIEW","FIRE"];
+
+	hint parseText format["<t size='1.25' color='#208000'>Created armored personnel carrier!</t>"];
+
+	if (count _spawnPos == 0) then {_spawnPos = [(getPos _caller), 400] call BIS_fnc_nearestRoad; hint parseText format["<t size='1.25' color='#208000'>Created armored personnel carrier on the nearest road!</t>"];};
 
 },
 	    ['B_APC_Wheeled_01_cannon_F'],

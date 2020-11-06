@@ -83,11 +83,11 @@ switch (side _caller) do {
 };
 //hint format ["%1",_position];
 
-_spawnPos = (position player) findEmptyPosition [20, 50, _vehicle];
+_spawnPos = (getPos respawn_vehicle_west);
 
-if (count _spawnPos == 0) then {_spawnPos = [player, 20, random 360] call BIS_fnc_relPos};
+if (count _spawnPos == 0) then { _spawnPos = (getPos respawn_vehicle_west) };
 
-if (count _spawnPos == 0) then {_spawnPos = [getPosATL player, 400] call BIS_fnc_nearestRoad};
+if (count _spawnPos == 0) then {_spawnPos = [(getPos respawn_vehicle_west), 400] call BIS_fnc_nearestRoad};
 
 _virtualProvider = [_spawnPos, 0, _vehicle, side group player] call BIS_fnc_spawnVehicle;
 

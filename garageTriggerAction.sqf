@@ -35,12 +35,12 @@ player addAction [ '<t color=''#00FFFF''>Marshall Tank</t>',{
 	_unit 	= _this select 0;
 	_caller 	= _this select 1;
 	_id 		= _this select 2;
-	_unit removeAction _id;
-	
-garage_object = _this select 3;
+	_vehicle = _this select 3;
 
-_pos = [ player, 10, getDir player ] call BIS_fnc_relPos;
-_spawnPos = createVehicle [ garage_object, _pos, [], 0, 'CAN_COLLIDE' ];
+	_unit removeAction _id;
+
+	_pos = [ respawn_vehicle_west, 0, getDir respawn_vehicle_west] call BIS_fnc_relPos;
+	_spawnPos = createVehicle [ _vehicle, _pos, [], 0, 'CAN_COLLIDE' ];
 
 },
 	    ['B_APC_Wheeled_01_cannon_F'],

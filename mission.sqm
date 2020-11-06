@@ -16,9 +16,9 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={8880.75,78.300339,7481.5024};
-		dir[]={0.79015845,0,0.61289859};
-		aside[]={0.61289859,0,-0.79015845};
+		pos[]={8916.4229,144.24838,7253.7397};
+		dir[]={-0.014281969,0,0.99989665};
+		aside[]={0.99989665,0,0.014281969};
 	};
 };
 binarizationWanted=0;
@@ -28,14 +28,13 @@ addons[]=
 	"A3_Modules_F_Patrol",
 	"A3_Ui_F",
 	"A3_Modules_F_Multiplayer",
-	"A3_Modules_F_Marta",
-	"A3_Armor_F_Beta_APC_Wheeled_01"
+	"A3_Modules_F_Marta"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=5;
+		items=4;
 		class Item0
 		{
 			className="A3_Characters_F";
@@ -61,13 +60,6 @@ class AddonsMetaData
 		{
 			className="A3_Modules_F";
 			name="Arma 3 Alpha - Scripted Modules";
-			author="Bohemia Interactive";
-			url="https://www.arma3.com";
-		};
-		class Item4
-		{
-			className="A3_Armor_F_Beta";
-			name="Arma 3 Beta - Armored Land Vehicles";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
@@ -100,7 +92,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=12;
+		items=11;
 		class Item0
 		{
 			dataType="Group";
@@ -301,8 +293,8 @@ class Mission
 					class Attributes
 					{
 						skill=0.95075893;
-						rank="CORPORAL";
-						name="Rambo_8";
+						rank="LIEUTENANT";
+						name="Rambo_4";
 						description="CombatLifeSaver";
 						isPlayable=1;
 					};
@@ -383,8 +375,8 @@ class Mission
 					class Attributes
 					{
 						skill=0.92152894;
-						rank="LIEUTENANT";
-						name="Rambo_3";
+						rank="CORPORAL";
+						name="Rambo_8";
 						description="Marksman";
 						isPlayable=1;
 					};
@@ -485,7 +477,7 @@ class Mission
 					{
 						skill=0.91928053;
 						rank="SERGEANT";
-						name="Rambo_5";
+						name="Rambo_6";
 						description="Grenadier";
 						isPlayable=1;
 					};
@@ -566,8 +558,8 @@ class Mission
 					class Attributes
 					{
 						skill=0.91703224;
-						rank="LIEUTENANT";
-						name="Rambo_4";
+						rank="SERGEANT";
+						name="Rambo_5";
 						description="Grenadier";
 						isPlayable=1;
 					};
@@ -667,8 +659,8 @@ class Mission
 					class Attributes
 					{
 						skill=0.92377746;
-						rank="SERGEANT";
-						name="Rambo_6";
+						rank="CORPORAL";
+						name="Rambo_7";
 						description="Marksman";
 						isPlayable=1;
 					};
@@ -768,8 +760,8 @@ class Mission
 					class Attributes
 					{
 						skill=0.95300734;
-						rank="CORPORAL";
-						name="Rambo_7";
+						rank="LIEUTENANT";
+						name="Rambo_3";
 						description="CombatLifeSaver";
 						isPlayable=1;
 					};
@@ -1392,22 +1384,6 @@ class Mission
 			init="call{setGroupIconsVisible [true,true]; }";
 			id=65;
 			type="MartaManager";
-		};
-		class Item11
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={8911.8906,68.901077,7510.5947};
-				angles[]={6.2697287,0.48790178,6.2692051};
-			};
-			side="Empty";
-			flags=4;
-			class Attributes
-			{
-			};
-			id=67;
-			type="B_APC_Wheeled_01_cannon_F";
 		};
 	};
 };

@@ -28,10 +28,10 @@ _spawnPos = createVehicle [ 'Land_HelipadEmpty_F', _pos, [], 0, 'CAN_COLLIDE' ];
 
 _trg4 = createTrigger ["EmptyDetector", [0,0,0]];
 _trg4 setTriggerActivation ["Delta", "PRESENT", true];
-_trg4 setTriggerText "Marshall Tank";
+_trg4 setTriggerText "Artillery";
 _trg4 setTriggerStatements ["this", "
 
-player addAction [ '<t color=''#00FFFF''>Marshall Tank</t>',{
+player addAction [ '<t color=''#00FFFF''>Artillery</t>',{
 	_unit 	= _this select 0;
 	_caller 	= _this select 1;
 	_id 		= _this select 2;

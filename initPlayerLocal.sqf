@@ -67,11 +67,11 @@ if ( isNil{player getVariable "CommWindSpeed"} ) then
 	[player,"WindSpeed"] call BIS_fnc_addCommMenuItem;
 	 player setVariable ["CommWindSpeed", true];	
 };
-if ( isNil{player getVariable "CommZorilya"} ) then
-{	
-	[player,"ZorilyasUnits"] call BIS_fnc_addCommMenuItem;
-	 player setVariable ["CommZorilya", true];	
-};
+//if ( isNil{player getVariable "CommZorilya"} ) then
+//{	
+//	[player,"ZorilyasUnits"] call BIS_fnc_addCommMenuItem;
+//	 player setVariable ["CommZorilya", true];	
+//};
 if ( isNil{player getVariable "CommGroupManager"} ) then
 {	
 	execVM "Group_Manager.sqf";

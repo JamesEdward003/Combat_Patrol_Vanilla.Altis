@@ -39,7 +39,7 @@ player addAction [ '<t color=''#00FFFF''>Marshall Tank</t>',{
 
 	_unit removeAction _id;
 
-	_pos = [ respawn_vehicle_west, 0, getDir respawn_vehicle_west] call BIS_fnc_relPos;
+	_pos = [getPos respawn_vehicle_west]; //, 0, getDir respawn_vehicle_west] call BIS_fnc_relPos;
 	_spawnPos = createVehicle [ _vehicle, _pos, [], 0, 'CAN_COLLIDE' ];
 
 },

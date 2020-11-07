@@ -41,9 +41,9 @@ player addAction [ '<t color=''#00FFFF''>APC-Marshall</t>',{
 
 	_spawnPos = lineIntersectsSurfaces [AGLToASL positionCameraToWorld [0,0,0],AGLToASL positionCameraToWorld [0,0,5000],_caller,objNull,true,1,'VIEW','FIRE'];
 
-	hint parseText format["<t size='1.25' color='#208000'>Created armored personnel carrier!</t>"];
+	hint parseText format['<t size=''1.25'' color=''#208000''>Created armored personnel carrier!</t>'];
 
-	if (count _spawnPos == 0) then {_spawnPos = [(getPos _caller), 400] call BIS_fnc_nearestRoad; hint parseText format["<t size='1.25' color='#208000'>Created armored personnel carrier on the nearest road!</t>"];};
+	if (count _spawnPos == 0) then {_spawnPos = [(getPos _caller), 400] call BIS_fnc_nearestRoad; hint parseText format['<t size=''1.25'' color=''#208000''>Created armored personnel carrier on the nearest road!</t>'];};
 
 	_apc = [_spawnPos, getDir _caller + 90, _vehicle, side _caller] call BIS_fnc_spawnVehicle;
 

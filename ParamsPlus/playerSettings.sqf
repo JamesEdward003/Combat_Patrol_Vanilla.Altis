@@ -1,7 +1,10 @@
 //////	[player] execVM "ParamsPlus\playerSettings.sqf";	//////
 private ["_player","_puavhacker","_pengineer","_pexplspec","_pmedic","_precoil","_psway","_ploadcoef","_paudiblecoef","_pcamocoef","_psettings"];
 _player = _this select 0;
-//[1,1,1,1,0,20,0,1,-1,1,0,0,0,3,3,1,2,1,2,1,2,2,2,3,1,1,2,1,1,1,2,1,1,4,4,4,2]
+for "_i" from 16 to count paramsarray - 1 do {
+
+}
+//[2,1,2,1,2,2,2,3,1,1,2,1,1,1,2,1,1,4,4,4,2]
 _puavhacker	= paramsArray select 27;
 _pengineer	= paramsArray select 28;
 _pexplspec	= paramsArray select 29;

@@ -134,8 +134,8 @@ class Params
 	class Pskill	 
 	{
         title = "Blufor Skill";
-        values[] = {1, 2, 3, 4};
-        texts[] = {"Below Average", "Average", "Above Average", "Excellent"};
+        values[] = {1, 2, 3, 4, 5};
+        texts[] = {"Rookie", "Recruit", "Veteran", "Expert", "Random"};
         default = 3;
         file = "ParamsPlus\BluSkill.sqf";
         isGlobal = 0;
@@ -143,8 +143,8 @@ class Params
 	class Eskill	 
 	{
         title = "Opfor Skill";
-        values[] = {1, 2, 3, 4};
-        texts[] = {"Below Average", "Average", "Above Average", "Excellent"};
+        values[] = {1, 2, 3, 4, 5};
+        texts[] = {"Rookie", "Recruit", "Veteran", "Expert", "Random"};
         default = 3;
        	file = "ParamsPlus\OpSkill.sqf";
         isGlobal = 0;

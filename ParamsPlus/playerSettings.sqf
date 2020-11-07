@@ -27,20 +27,34 @@ _paudible	= paramsArray select 34;
 _pcamocoef	= paramsArray select 35;
 _psettings	= paramsarray select 36;
 
-	switch (_puavhacker) do
-	{
-		case 1: {puavhacker = false};
-		case 2: {puavhacker = true};
-	};
-	_player setUnitTrait ["UAVHacker",puavhacker];
+_AiSkill = _player execVM "GF_AiSkill.sqf";
+_AiLoadout = _player execVM "GF_AiSkill.sqf";
+_AiRespawnLoadout = _player execVM "GF_AiSkill.sqf";
+_AiSkill = _player execVM "GF_AiSkill.sqf";
+_AiSkill = _player execVM "GF_AiSkill.sqf";
+_AiSkill = _player execVM "GF_AiSkill.sqf";
+_AiSkill = _player execVM "GF_AiSkill.sqf";
+_AiSkill = _player execVM "GF_AiSkill.sqf";
+_AiSkill = _player execVM "GF_AiSkill.sqf";
+_AiSkill = _player execVM "GF_AiSkill.sqf";
 
-	switch (_pengineer) do
+PUAVHacker = "PUAVHacker" call BIS_fnc_getParamValue;
+	switch (PUAVHacker) do
+	{
+		case 1: {_puavhacker = false};
+		case 2: {_puavhacker = true};
+	};
+	_player setUnitTrait ["UAVHacker",_puavhacker];
+
+PEngineer = "PEngineer" call BIS_fnc_getParamValue;
+	switch (PEngineer) do
 	{
 		case 1: {pengineer = false};
 		case 2: {pengineer = true};
 	};
 	_player setUnitTrait ["Engineer",pengineer];
 
+GF_Set_AISkill = "GF_Set_AISkill" call BIS_fnc_getParamValue;
 	switch (_pexplspec) do
 	{
 		case 1: {pexplspec = false};

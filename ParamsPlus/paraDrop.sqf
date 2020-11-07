@@ -31,7 +31,7 @@ switch (side player) do {
 		[_unit] execVM "ParamsPlus\loadoutAdjustments.sqf";
 		[_unit] execVM "ParamsPlus\regen_health.sqf";
 		[_unit] joinSilent (group player);	
-		[_unit] execVM "ParamsPlus\markerGroup.sqf";
+		[_unit] execVM "ParamsPlus\markers.sqf";
 		[_unit, _displayname] remoteExec ["setVehicleVarName", groupOwner (group player)];
 		[_unit, _rank] remoteExec ["setRank", groupOwner (group player)];
 		_unit allowDamage true;

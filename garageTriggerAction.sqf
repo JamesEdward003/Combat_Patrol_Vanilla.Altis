@@ -39,7 +39,7 @@ player addAction [ '<t color=''#00FFFF''>APC-Marshall</t>',{
 
 	_unit removeAction _id;
 
-	_spawnPos = lineIntersectsSurfaces [AGLToASL positionCameraToWorld [0,0,0],AGLToASL positionCameraToWorld [0,0,5000],_caller,objNull,true,1,"VIEW","FIRE"];
+	_spawnPos = lineIntersectsSurfaces [AGLToASL positionCameraToWorld [0,0,0],AGLToASL positionCameraToWorld [0,0,5000],_caller,objNull,true,1,'VIEW','FIRE'];
 
 	hint parseText format["<t size='1.25' color='#208000'>Created armored personnel carrier!</t>"];
 

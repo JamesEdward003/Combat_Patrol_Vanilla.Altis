@@ -5,8 +5,8 @@ for "_i" from 16 to count paramsarray - 1 do {
 
 }
 //[2,1,2,1,2,2,2,3,1,1,2,1,1,1,2,1,1,4,4,4,2]
-_ploadout		= paramsArray select 16;
-_prespawnloadout	= paramsArray select 17;
+_prespawnloadout	= paramsArray select 16;
+_ploadout		= paramsArray select 17;
 _pua			= paramsArray select 18;
 _pdiverequip	= paramsArray select 19;
 _pnightvision 	= paramsArray select 20;
@@ -27,10 +27,24 @@ _paudible	= paramsArray select 34;
 _pcamocoef	= paramsArray select 35;
 _psettings	= paramsarray select 36;
 
-_AiSkill = _player execVM "GF_AiSkill.sqf";
-_AiLoadout = _player execVM "GF_AiSkill.sqf";
-_AiRespawnLoadout = _player execVM "GF_AiSkill.sqf";
-_AiSkill = _player execVM "GF_AiSkill.sqf";
+_AiSkill = _player execVM "ParamsArray\GF_AiSkill.sqf";
+_PRespawnLoadOut = "PRespawnLoadOut" call BIS_fnc_getParamValue;
+_AiLoadout = switch true do {
+	case (side _unit isEqualTo WEST) :  {
+		_player execVM "ParamsArray\loadouts.sqf";
+	};
+	case (side _unit isEqualTo EAST) :  {
+		_player execVM "ParamsArray\loadouts_e.sqf";
+	};
+	case (side _unit isEqualTo RESISTANCE) :  {
+		_player execVM "ParamsArray\loadouts_r.sqf";
+	};
+	case (side _unit isEqualTo CIVILIAN) :  {
+		_player execVM "ParamsArray\loadouts_c.sqf";
+	};
+};	
+
+_Pua = _player execVM "ParamsPlus\UnlimitedAmmo.sqf";
 _AiSkill = _player execVM "GF_AiSkill.sqf";
 _AiSkill = _player execVM "GF_AiSkill.sqf";
 _AiSkill = _player execVM "GF_AiSkill.sqf";

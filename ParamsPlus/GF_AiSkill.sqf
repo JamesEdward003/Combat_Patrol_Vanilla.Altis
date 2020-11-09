@@ -1,14 +1,23 @@
 // [_unit] execVM "paramsplus\GF_AiSkill.sqf" //
 _unit = _this select 0;
 
-GF_Set_AISkill = "Pskill" call BIS_fnc_getParamValue;
+_AiSkill = switch true do {
 
+	case (side _unit isEqualTo WEST) :  {
+
+		GF_Set_AISkill = "Pskill" call BIS_fnc_getParamValue;
+	};
+	case (side _unit isEqualTo EAST) :  {
+
+		GF_Set_AISkill = "Eskill" call BIS_fnc_getParamValue;
+	};
+};
 
 switch (GF_Set_AISkill) do  {
 		
 //________________	Rookie	________________
 
-case 1: {
+	case 1: {
 	
 		if (((alive _unit)) && (!(_unit getVariable ["GF_AISkill",false]))) then {
 			_unit setSkill ["aimingAccuracy", 0.1 + (random 0.05)];
@@ -29,7 +38,7 @@ case 1: {
 	
 //________________	Recruit	________________
 
-case 2: {
+	case 2: {
 		
 		if (((alive _unit)) && (!(_unit getVariable ["GF_AISkill",false]))) then {
 			_unit setSkill ["aimingAccuracy", 0.2 + (random 0.05)];
@@ -50,7 +59,7 @@ case 2: {
 
 //________________	Veteran	________________
 
-case 3: {	
+	case 3: {	
 		
 		if (((alive _unit)) && (!(_unit getVariable ["GF_AISkill",false]))) then {		
 			_unit setSkill ["aimingAccuracy", 0.5 + (random 0.20)];
@@ -71,7 +80,7 @@ case 3: {
 
 //________________	Expert	________________
 
-case 4: {		
+	case 4: {		
 		
 		if (((alive _unit)) && (!(_unit getVariable ["GF_AISkill",false]))) then {	
 			_unit setSkill ["aimingAccuracy", 0.75 + (random 0.25)];
@@ -90,10 +99,10 @@ case 4: {
 
 	};
 
-  
+
 //________________	Random	________________	
 
-case 5:	{		
+	case 5:	{		
 		
 		if (((alive _unit)) && (!(_unit getVariable ["GF_AISkill",false]))) then {
 			_unit setSkill ["aimingAccuracy", 0.25 + (random 0.75)];

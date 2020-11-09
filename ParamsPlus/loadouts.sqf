@@ -797,3 +797,4 @@ if (isPlayer _unit) then {
 [playerSide, "HQ"] commandChat "Loadouts Done!";
 
 };
+

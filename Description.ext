@@ -158,6 +158,14 @@ class Params
        	file = "ParamsPlus\Intro.sqf";
         isGlobal = 0;
     };
+  	class PRespawnLoadOut
+	{
+        title = "Dead Loadouts on Respawn";
+       	values[] = {1, 2};
+        texts[] = {"Disabled","Enabled"};
+        default = 1;
+        isGlobal = 1;
+	};
   	class PLoadOut
 	{
         title = "Scripted Loadouts";
@@ -167,14 +175,6 @@ class Params
         file = "ParamsPlus\loadout_selection.sqf";
         isGlobal = 1;
 	};	
-  	class PRespawnLoadOut
-	{
-        title = "Dead Loadouts on Respawn";
-       	values[] = {1, 2};
-        texts[] = {"Disabled","Enabled"};
-        default = 1;
-        isGlobal = 1;
-	};
     class PUA       
 	{
         title = "Unlimited Ammo";

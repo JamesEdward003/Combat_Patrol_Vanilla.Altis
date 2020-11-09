@@ -166,9 +166,18 @@ class Params
         default = 1;
         isGlobal = 1;
 	};
+	class PDiverEquip       
+	{
+		title = "Diver Loadouts";
+		values[] = {1, 2, 3};
+		texts[] = {"Disabled","Units Group Player","All Playable or Switchable Units"};
+		default = 1;
+		file = "ParamsPlus\loadouts_diver_selection.sqf";
+		isGlobal = 1;
+	};
   	class PLoadOut
 	{
-        title = "Scripted Loadouts";
+        title = "Custom Loadouts";
        	values[] = {1, 2, 3};
         texts[] = {"Disabled","Units Group Player","All Playable or Switchable Units"};
         default = 2;
@@ -184,15 +193,6 @@ class Params
 		file = "ParamsPlus\UnlimitedAmmo_Group.sqf";
 		isGlobal = 1;
     };		
-	class PDiverEquip       
-	{
-		title = "Diver Equipment";
-		values[] = {1, 2, 3};
-		texts[] = {"Disabled","Units Group Player","All Playable or Switchable Units"};
-		default = 1;
-		file = "ParamsPlus\loadouts_diver_selection.sqf";
-		isGlobal = 1;
-	};
     class PNightVision       
 	{
         title = "Night Vision Adjustments";

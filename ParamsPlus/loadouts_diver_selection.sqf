@@ -1,6 +1,8 @@
 /////--"paramsplus\loadouts_diver_selection.sqf"--/////
 _PDiverEquip = "PDiverEquip" call BIS_fnc_getParamValue;
 if (_PDiverEquip isEqualTo 1) exitWith {};
+if (_PLoadOut isEqualTo 2) exitWith {};
+if (_PLoadOut isEqualTo 3) exitWith {};
 private ["_unit","_PDiverEquip"];
 switch (_this select 0) do
 {				

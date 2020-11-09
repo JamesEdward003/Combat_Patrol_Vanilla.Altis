@@ -6,9 +6,9 @@ for "_i" from 16 to count paramsarray - 1 do {
 }
 //[2,1,2,1,2,2,2,3,1,1,2,1,1,1,2,1,1,4,4,4,2]
 _prespawnloadout	= paramsArray select 16;
-_ploadout		= paramsArray select 17;
-_pua			= paramsArray select 18;
-_pdiverequip	= paramsArray select 19;
+_pdiverequip	= paramsArray select 17;
+_ploadout		= paramsArray select 18;
+_pua			= paramsArray select 19;
 _pnightvision 	= paramsArray select 20;
 _psilencers   	= paramsArray select 21;
 _pmarkers		= paramsArray select 22;
@@ -29,6 +29,7 @@ _psettings	= paramsarray select 36;
 
 _AiSkill = _player execVM "ParamsArray\GF_AiSkill.sqf";
 _PRespawnLoadOut = "PRespawnLoadOut" call BIS_fnc_getParamValue;
+_PDiverEquip = "PDiverEquip" call BIS_fnc_getParamValue;
 _AiLoadout = switch true do {
 	case (side _unit isEqualTo WEST) :  {
 		_player execVM "ParamsArray\loadouts.sqf";

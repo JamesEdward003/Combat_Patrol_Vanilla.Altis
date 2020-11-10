@@ -61,12 +61,12 @@ _PSkill = _player execVM "ParamsArray\GF_AiSkill.sqf";
 	};	 
 	_player setCustomAimCoef _psway;
 
-	switch (_ploadcoef) do
+	switch (_pload) do
 	{
-		case 1: {_ploadcoef = 0.10};
-		case 2: {_ploadcoef = 0.40};
-		case 3: {_ploadcoef = 0.70};
-		case 4: {_ploadcoef =    1};
+		case 1: {_pload = 0.10};
+		case 2: {_pload = 0.40};
+		case 3: {_pload = 0.70};
+		case 4: {_pload =    1};
 	};	 
 	_player setUnitTrait ["loadCoef",_ploadcoef];
 

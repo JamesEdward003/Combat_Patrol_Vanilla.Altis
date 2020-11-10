@@ -30,14 +30,17 @@ params ["_ctrl", "_dikCode", "_shift", "_ctrlKey", "_alt", ["_handled", false, [
         
 };
         
-
-
 //==And the key EventHandler to execute the script...
 waituntil {!isnull (finddisplay 46)};
 (findDisplay 46) displayAddEventHandler ["KeyDown","_this call HEAL_KEYDOWN_FNC;false;"];
 
 waitUntil {!(isNull (findDisplay 46))};
 (findDisplay 46) displayAddEventHandler ["KeyUp", "tempheal = true;false;"];
+
+player addEventHandler ["Respawn", {
+	params ["_unit", "_corpse"];
+	_unit execVM "ParamsPlus\CtrlM_Medic.sqf";
+}];
 
 //hint composeText ["HEAL keypress installed", lineBreak, "Ctrl-M"];
 

@@ -54,7 +54,7 @@ if (!isPlayer _unit) then
 
 _unit addEventHandler ["Respawn", {
 	params ["_unit", "_corpse"];
-	_unit execVM "ParamsPlus\nightvision.sqf"
+	_unit execVM "ParamsPlus\nightvision.sqf";
 }];
 
 if (isPlayer _unit) then {

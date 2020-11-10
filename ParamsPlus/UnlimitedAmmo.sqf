@@ -31,7 +31,7 @@ _player addEventHandler ["Fired", {
 
 _player addEventHandler ["Respawn", {
 	params ["_unit", "_corpse"];
-	_unit execVM "ParamsPlus\UnlimitedAmmo.sqf"
+	_unit execVM "ParamsPlus\UnlimitedAmmo.sqf";
 }];
 
 if (isPlayer _player) then {

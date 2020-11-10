@@ -90,6 +90,9 @@ _unit addEventHandler ["GetOutMan",{
 
 };
 
-
+_unit addEventHandler ["Respawn", {
+	params ["_unit", "_corpse"];
+	_unit execVM "ParamsPlus\GiGoEH.sqf";
+}];
 
 

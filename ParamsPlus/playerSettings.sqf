@@ -13,9 +13,9 @@ for "_i" from 16 to count paramsarray - 1 do {
 	_psilencers   	= paramsArray select 21;
 	_pmarkers		= paramsArray select 22;
 	_pregenhealth	= paramsArray select 23;
-_paimedic		= paramsArray select 24;
-_pgigoeh		= paramsarray select 25;
-_prallypoint	= paramsarray select 26;
+	_paimedic		= paramsArray select 24;
+	_pgigoeh		= paramsarray select 25;
+	_prallypoint	= paramsarray select 26;
 _puavhacker	= paramsArray select 27;
 _pengineer	= paramsArray select 28;
 _pexplspec	= paramsArray select 29;

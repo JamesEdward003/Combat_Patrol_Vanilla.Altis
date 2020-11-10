@@ -249,7 +249,7 @@ class Params
    	};
     class PRallyPoint      
 	{ 
-        title = "Group Leader Rally Point UAV Backpack";
+        title = "Group Leader UAV Backpack and Rally Point";
         values[] = {1, 2};
         texts[] = {"Disabled","Enabled"};
         default = 2;

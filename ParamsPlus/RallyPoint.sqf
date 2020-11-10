@@ -1,6 +1,6 @@
 //////     [player] execVM "paramsplus\rallyPoint.sqf";    ///////
 //(_this select 0) addEventHandler ["Respawn",{(_this select 0) execVM "paramsplus\rallyPoint.sqf"}];
-_unit = _this select 0;
+_unit = _this;
 _actions = actionIDs _unit;
 _array = [];
 

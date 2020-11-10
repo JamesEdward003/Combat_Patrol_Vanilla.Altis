@@ -23,12 +23,17 @@ switch (side player) do {
 		_displayname = gettext (configfile >> "CfgVehicles" >> _type >> "displayName");
 		_unit = (group player) createUnit [_type, _position, [], 0, "FORM"];
 		_unit allowDamage false;
-		[_unit] execVM "ParamsPlus\loadouts.sqf";
-//		[_unit] execVM "ParamsPlus\loadouts_diver.sqf";
-		[_unit] execVM "ParamsPlus\loadoutAdjustments.sqf";
-		[_unit] execVM "ParamsPlus\regen_health.sqf";
+
+		_unit execVM "ParamsPlus\loadouts_diver.sqf";
+		_unit execVM "ParamsPlus\loadouts.sqf";	
+		_unit execVM "ParamsPlus\nightvision.sqf";
+		_unit execVM "ParamsPlus\silencers.sqf";
+		_unit execVM "ParamsPlus\regen_health.sqf";
+		_unit execVM "ParamsPlus\UnlimitedAmmo.sqf";
 		[_unit] joinSilent (group player);	
-		[_unit] execVM "ParamsPlus\markers.sqf";
+		_unit execVM "ParamsPlus\markers.sqf";
+		_unit execVM "ParamsPlus\playerSettings.sqf";
+
 		[_unit, _displayname] remoteExec ["setVehicleVarName", groupOwner (group player)];
 		[_unit, _rank] remoteExec ["setRank", groupOwner (group player)];
 		_unit allowDamage true;
@@ -60,12 +65,17 @@ switch (side player) do {
 		_displayname = gettext (configfile >> "CfgVehicles" >> _type >> "displayName");
 		_unit = (group player) createUnit [_type, _position, [], 0, "FORM"];
 		_unit allowDamage false;
-		[_unit] execVM "ParamsPlus\loadouts_e.sqf";
-		[_unit] execVM "ParamsPlus\loadouts_e_diver.sqf";
-		[_unit] execVM "ParamsPlus\loadoutAdjustments.sqf";
-		[_unit] execVM "ParamsPlus\regen_health.sqf";
+
+		_unit execVM "ParamsPlus\loadouts_e_diver.sqf";
+		_unit execVM "ParamsPlus\loadouts_e.sqf";	
+		_unit execVM "ParamsPlus\nightvision.sqf";
+		_unit execVM "ParamsPlus\silencers.sqf";
+		_unit execVM "ParamsPlus\regen_health.sqf";
+		_unit execVM "ParamsPlus\UnlimitedAmmo.sqf";
 		[_unit] joinSilent (group player);	
-		[_unit] execVM "ParamsPlus\markers.sqf";
+		_unit execVM "ParamsPlus\markers.sqf";
+		_unit execVM "ParamsPlus\playerSettings.sqf";
+
 		[_unit, _displayname] remoteExec ["setVehicleVarName", groupOwner (group player)];
 		[_unit, _rank] remoteExec ["setRank", groupOwner (group player)];
 		_unit allowDamage true;
@@ -97,12 +107,17 @@ switch (side player) do {
 		_displayname = gettext (configfile >> "CfgVehicles" >> _type >> "displayName");
 		_unit = (group player) createUnit [_type, _position, [], 0, "FORM"];
 		_unit allowDamage false;
-		[_unit] execVM "ParamsPlus\loadouts_r.sqf";
-		[_unit] execVM "ParamsPlus\loadouts_r_diver.sqf";
-		[_unit] execVM "ParamsPlus\loadoutAdjustments.sqf";
-		[_unit] execVM "ParamsPlus\regen_health.sqf";
+
+		_unit execVM "ParamsPlus\loadouts_r_diver.sqf";
+		_unit execVM "ParamsPlus\loadouts_r.sqf";	
+		_unit execVM "ParamsPlus\nightvision.sqf";
+		_unit execVM "ParamsPlus\silencers.sqf";
+		_unit execVM "ParamsPlus\regen_health.sqf";
+		_unit execVM "ParamsPlus\UnlimitedAmmo.sqf";
 		[_unit] joinSilent (group player);	
-		[_unit] execVM "ParamsPlus\markers.sqf";
+		_unit execVM "ParamsPlus\markers.sqf";
+		_unit execVM "ParamsPlus\playerSettings.sqf";
+
 		[_unit, _displayname] remoteExec ["setVehicleVarName", groupOwner (group player)];
 		[_unit, _rank] remoteExec ["setRank", groupOwner (group player)];
 		_unit allowDamage true;
@@ -118,3 +133,4 @@ switch (side player) do {
 	"F_40mm_White" createVehicle [getPos _box select 0,getPos _box select 1,+150];
 	};
 };
+

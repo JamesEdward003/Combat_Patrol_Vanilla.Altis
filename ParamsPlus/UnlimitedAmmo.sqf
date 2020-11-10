@@ -19,7 +19,8 @@ _player addEventHandler ["Fired", {
   	_unit = _this select 0;  
   	_weapon = _this select 1;
   	_magazine = _this select 5;
-  	_magCount = {_x isEqualTo currentMagazine _unit} count (magazines _unit);
+//  	_magCount = {_x isEqualTo currentMagazine _unit} count (magazines _unit);
+	_magcount = {_x == _magazine} count magazines _unit;
 	if ((_weapon isEqualTo "THROW") and (_magCount < 4)) then
 	{
 		_unit addMagazine _magazine;

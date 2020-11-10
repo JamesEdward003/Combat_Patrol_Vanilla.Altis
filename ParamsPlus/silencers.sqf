@@ -37,6 +37,11 @@ if (((dayTime > ((date call BIS_fnc_sunriseSunsetTime) select 0) - 0.5) && (dayT
 	};
 };
 
+_unit addEventHandler ["Respawn", {
+	params ["_unit", "_corpse"];
+	_unit execVM "ParamsPlus\silencers.sqf"
+}];
+
 if (isPlayer _unit) then {
 
 [playerSide, "HQ"] commandChat "Silencer Adjustments Done!";

@@ -6,12 +6,12 @@ for "_i" from 16 to count paramsarray - 1 do {
 }
 //[2,1,2,1,2,2,2,3,1,1,2,1,1,1,2,1,1,4,4,4,2]
 	_prespawnloadout	= paramsArray select 16;
-_pdiverequip	= paramsArray select 17;
-_ploadout		= paramsArray select 18;
-_pua			= paramsArray select 19;
-_pnightvision 	= paramsArray select 20;
-_psilencers   	= paramsArray select 21;
-_pmarkers		= paramsArray select 22;
+	_pdiverequip	= paramsArray select 17;
+	_ploadout		= paramsArray select 18;
+	_pua			= paramsArray select 19;
+	_pnightvision 	= paramsArray select 20;
+	_psilencers   	= paramsArray select 21;
+	_pmarkers		= paramsArray select 22;
 	_pregenhealth	= paramsArray select 23;
 _paimedic		= paramsArray select 24;
 _pgigoeh		= paramsarray select 25;

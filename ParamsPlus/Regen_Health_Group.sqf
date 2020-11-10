@@ -11,7 +11,7 @@ switch (_this select 0) do
 				{
 					_unit = (if ismultiplayer then {playableunits} else {switchableunits}) select _i;
 										
-					[_unit] execVM "paramsplus\Regen_Health.sqf";			
+					_unit execVM "paramsplus\Regen_Health.sqf";			
 				};									
 			};
 	case 2: 	{
@@ -21,7 +21,7 @@ switch (_this select 0) do
 				{
 					_unit = (if ismultiplayer then {playableunits} else {switchableunits}) select _i;
 										
-					[_unit] execVM "paramsplus\Regen_Health.sqf";	
+					_unit execVM "paramsplus\Regen_Health.sqf";	
 				};			
 			};
 	case 3: 	{	
@@ -31,7 +31,7 @@ switch (_this select 0) do
 				{
 					_unit = (if ismultiplayer then {playableunits} else {switchableunits}) select _i;
 										
-					[_unit] execVM "paramsplus\Regen_Health.sqf";		
+					_unit execVM "paramsplus\Regen_Health.sqf";		
 				};									
 			};
 	case 4: 	{

@@ -1,6 +1,6 @@
 //////	[player] execVM "ParamsPlus\playerSettings.sqf";	//////
 private ["_player","_pskill","_puavhacker","_pengineer","_pexplspec","_pmedic","_precoil","_psway","_pload","_paudible","_pcamo","_psettings"];
-_player = _this select 0;
+_player = _this;
 
 _puavhacker	= paramsArray select 27;
 _pengineer	= paramsArray select 28;
@@ -91,7 +91,7 @@ _PSkill = _player execVM "ParamsPlus\GF_AiSkill.sqf";
 _player addEventHandler ["Respawn", {
 	params ["_unit", "_corpse"];
 
-	[_unit] execVM "ParamsPlus\playerSettings.sqf";
+	_unit execVM "ParamsPlus\playerSettings.sqf";
 
 }];
 

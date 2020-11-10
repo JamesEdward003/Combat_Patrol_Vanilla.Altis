@@ -26,12 +26,17 @@ switch (side player) do {
 		_chute = createVehicle ["NonSteerable_Parachute_F", (getPos _unit), [], 0, "FLY"];
 		_chute setPos (getPos _unit);
 		_unit moveinDriver _chute;
-		[_unit] execVM "ParamsPlus\loadouts.sqf";
-//		[_unit] execVM "ParamsPlus\loadouts_diver.sqf";
-		[_unit] execVM "ParamsPlus\loadoutAdjustments.sqf";
-		[_unit] execVM "ParamsPlus\regen_health.sqf";
+		
+		_unit execVM "ParamsPlus\loadouts_diver.sqf";
+		_unit execVM "ParamsPlus\loadouts.sqf";	
+		_unit execVM "ParamsPlus\nightvision.sqf";
+		_unit execVM "ParamsPlus\silencers.sqf";
+		_unit execVM "ParamsPlus\regen_health.sqf";
+		_unit execVM "ParamsPlus\UnlimitedAmmo.sqf";
 		[_unit] joinSilent (group player);	
-		[_unit] execVM "ParamsPlus\markers.sqf";
+		_unit execVM "ParamsPlus\markers.sqf";
+		_unit execVM "ParamsPlus\playerSettings.sqf";
+
 		[_unit, _displayname] remoteExec ["setVehicleVarName", groupOwner (group player)];
 		[_unit, _rank] remoteExec ["setRank", groupOwner (group player)];
 		_unit allowDamage true;
@@ -68,12 +73,17 @@ switch (side player) do {
 		_chute = createVehicle ["NonSteerable_Parachute_F", (getPos _unit), [], 0, "FLY"];
 		_chute setPos (getPos _unit);
 		_unit moveinDriver _chute;
-		[_unit] execVM "ParamsPlus\loadouts_e.sqf";
-		[_unit] execVM "ParamsPlus\loadouts_e_diver.sqf";
-		[_unit] execVM "ParamsPlus\loadoutAdjustments.sqf";
-		[_unit] execVM "ParamsPlus\regen_health.sqf";
+
+		_unit execVM "ParamsPlus\loadouts_e_diver.sqf";
+		_unit execVM "ParamsPlus\loadouts_e.sqf";	
+		_unit execVM "ParamsPlus\nightvision.sqf";
+		_unit execVM "ParamsPlus\silencers.sqf";
+		_unit execVM "ParamsPlus\regen_health.sqf";
+		_unit execVM "ParamsPlus\UnlimitedAmmo.sqf";
 		[_unit] joinSilent (group player);	
-		[_unit] execVM "ParamsPlus\markerGroup.sqf";
+		_unit execVM "ParamsPlus\markers.sqf";
+		_unit execVM "ParamsPlus\playerSettings.sqf";
+
 		[_unit, _displayname] remoteExec ["setVehicleVarName", groupOwner (group player)];
 		[_unit, _rank] remoteExec ["setRank", groupOwner (group player)];
 		_unit allowDamage true;
@@ -110,12 +120,17 @@ switch (side player) do {
 		_chute = createVehicle ["NonSteerable_Parachute_F", (getPos _unit), [], 0, "FLY"];
 		_chute setPos (getPos _unit);
 		_unit moveinDriver _chute;
-		[_unit] execVM "ParamsPlus\loadouts_r.sqf";
-		[_unit] execVM "ParamsPlus\loadouts_r_diver.sqf";
-		[_unit] execVM "ParamsPlus\loadoutAdjustments.sqf";
-		[_unit] execVM "ParamsPlus\regen_health.sqf";
+
+		_unit execVM "ParamsPlus\loadouts_r_diver.sqf";
+		_unit execVM "ParamsPlus\loadouts_r.sqf";	
+		_unit execVM "ParamsPlus\nightvision.sqf";
+		_unit execVM "ParamsPlus\silencers.sqf";
+		_unit execVM "ParamsPlus\regen_health.sqf";
+		_unit execVM "ParamsPlus\UnlimitedAmmo.sqf";
 		[_unit] joinSilent (group player);	
-		[_unit] execVM "ParamsPlus\markerGroup.sqf";
+		_unit execVM "ParamsPlus\markers.sqf";
+		_unit execVM "ParamsPlus\playerSettings.sqf";
+
 		[_unit, _displayname] remoteExec ["setVehicleVarName", groupOwner (group player)];
 		[_unit, _rank] remoteExec ["setRank", groupOwner (group player)];
 		_unit allowDamage true;

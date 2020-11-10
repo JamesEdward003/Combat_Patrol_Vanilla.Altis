@@ -787,7 +787,7 @@ _unit setVariable ["LoadoutDone", _unitlo, true];
 
 } else {
 
-_unit addEventHandler ["Respawn",{[_this] execVM "paramsplus\loadouts.sqf"}];
+_unit addEventHandler ["Respawn",{_this execVM "paramsplus\loadouts.sqf"}];
 
 _unit setVariable ["LoadoutDone", true];
 

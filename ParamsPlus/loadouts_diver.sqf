@@ -1,7 +1,7 @@
 ///////  [_unit] execVM "paramsplus\loadouts_diver.sqf";  ///////
 _PDiverEquip = "PDiverEquip" call BIS_fnc_getParamValue;
 if (_PDiverEquip isEqualTo 3) exitWith {};
-_unit = _this select 0;
+_unit = _this;
 _typeUnit = typeOf _unit;
 
 //_loadOutArray = [Pettka_Special,NorthGate_TeamLeader,Kerry_Special,Explosives_Specialist,McKay_Special,Combat_Life_Saver];
@@ -453,7 +453,7 @@ _unit setVariable ["LoadoutDone", _unitlo, true];
 
 } else {
 
-_unit addEventHandler ["Respawn",{[_this] execVM "paramsplus\loadouts_diver.sqf"}];
+_unit addEventHandler ["Respawn",{_this execVM "paramsplus\loadouts_diver.sqf"}];
 
 _unit setVariable ["LoadoutDone", true];
 

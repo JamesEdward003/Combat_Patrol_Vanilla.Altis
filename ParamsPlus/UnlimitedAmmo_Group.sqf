@@ -113,7 +113,7 @@ switch (_this select 0) do
 						
 							_unit addEventHandler ["Respawn",{_this execVM "paramsplus\UnlimitedAmmo.sqf"}];
 							
-							_unit execVM "paramsplus\lUnlimitedAmmo.sqf";
+							_unit execVM "paramsplus\UnlimitedAmmo.sqf";
 						};
 						case (side _unit isEqualTo CIVILIAN) :  {
 

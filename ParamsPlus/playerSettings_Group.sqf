@@ -31,11 +31,11 @@ switch (_this select 0) do
 						};
 						case (side _unit isEqualTo EAST) :  {
 													
-							[_unit] execVM "paramsplus\playerSettings.sqf";
+							_unit execVM "paramsplus\playerSettings.sqf";
 						};
 						case (side _unit isEqualTo RESISTANCE) :  {
 																			
-							[_unit] execVM "paramsplus\playerSettings.sqf";
+							_unit execVM "paramsplus\playerSettings.sqf";
 						};
 						case (side _unit isEqualTo CIVILIAN) :  {
 						
@@ -56,15 +56,15 @@ switch (_this select 0) do
 					{
 						case (side _unit isEqualTo WEST) :  {
 																					
-							[_unit] execVM "paramsplus\playerSettings.sqf";	
+							_unit execVM "paramsplus\playerSettings.sqf";	
 						};
 						case (side _unit isEqualTo EAST) :  {
 													
-							[_unit] execVM "paramsplus\playerSettings.sqf";
+							_unit execVM "paramsplus\playerSettings.sqf";
 						};
 						case (side _unit isEqualTo RESISTANCE) :  {
 																			
-							[_unit] execVM "paramsplus\playerSettings.sqf";
+							_unit execVM "paramsplus\playerSettings.sqf";
 						};
 						case (side _unit isEqualTo CIVILIAN) :  {
 						
@@ -85,15 +85,15 @@ switch (_this select 0) do
 					{
 						case (side _unit isEqualTo WEST) :  {
 							
-							[_unit] execVM "paramsplus\playerSettings.sqf";	
+							_unit execVM "paramsplus\playerSettings.sqf";	
 						};
 						case (side _unit isEqualTo EAST) :  {
 							
-							[_unit] execVM "paramsplus\playerSettings.sqf";	
+							_unit execVM "paramsplus\playerSettings.sqf";	
 						};
 						case (side _unit isEqualTo RESISTANCE) :  {
 													
-							[_unit] execVM "paramsplus\playerSettings.sqf";
+							_unit execVM "paramsplus\playerSettings.sqf";
 						};
 						case (side _unit isEqualTo CIVILIAN) :  {
 						

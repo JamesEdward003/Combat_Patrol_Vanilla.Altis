@@ -1,6 +1,6 @@
 ///////		[this] execVM GiGoEH.sqf"	  ////////
 //	params ["_unit", "_role", "_vehicle", "_turret"];  //
-_unit = _this select 0;
+_unit = _this;
 
 switch (side _unit) do
 {

@@ -3,7 +3,7 @@
 _PMarkers = "PMarkers" call BIS_fnc_getParamValue;
 if (_PMarkers isEqualTo 1) exitWith {};
 private ["_unit","_varname","_group","_grp","_mrkrCnt","_mrkr","_text","_PMarkers"];
-_unit		= _this select 0;
+_unit		= _this;
 //_unitname 	= name _unit;
 _varname 	= vehicleVarName _unit;
 _classname 	= format ["%1", typeOf _unit];

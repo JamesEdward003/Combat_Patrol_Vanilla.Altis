@@ -3,7 +3,7 @@
 _PRegenHealth = "PRegenHealth" call BIS_fnc_getParamValue;
 if (_PRegenHealth isEqualTo 4) exitWith {};
 private ["_unit","_armor","_recovery","_newDamage","_PRegenHealth"];
-_unit = _this select 0;
+_unit = _this;
 _rhv = missionNameSpace getVariable "RegenHealthVar";
 //_rhv = 35;
 _armor = _rhv/100;

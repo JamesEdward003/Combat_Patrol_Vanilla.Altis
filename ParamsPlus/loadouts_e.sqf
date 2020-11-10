@@ -1,5 +1,5 @@
 ///////  [_unit] execVM "paramsplus\loadouts_e.sqf";  ///////
-_unit = _this select 0;
+_unit = _this;
 _typeUnit = typeOf _unit;
 
 //_recruitableunits = ["O_diver_TL_F","O_diver_exp_F","O_diver_F","O_medic_F","O_soldier_exp_F","O_engineer_F","O_soldier_mine_F","O_Story_Colonel_F","O_Story_CEO_F","O_officer_F","O_A_soldier_TL_F","O_Soldier_GL_F","O_Soldier_AT_F","O_soldier_M_F","O_A_soldier_F"];
@@ -1044,7 +1044,7 @@ _unit setVariable ["LoadoutDone", _unitlo, true];
 
 } else {
 
-_unit addEventHandler ["Respawn",{[_this] execVM "paramsplus\loadouts_e.sqf"}];
+_unit addEventHandler ["Respawn",{_this execVM "paramsplus\loadouts_e.sqf"}];
 
 _unit setVariable ["LoadoutDone", true];
 

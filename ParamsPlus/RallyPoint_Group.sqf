@@ -16,7 +16,7 @@ switch (_this select 0) do
 				{
 					_unit = (if ismultiplayer then {playableunits} else {switchableunits}) select _i;
 
-					if (isPlayer _unit) then {[_unit] execVM "paramsplus\rallypoint.sqf";};			
+					if (isPlayer _unit) then {_unit execVM "paramsplus\rallypoint.sqf";};			
 				};						
 			};
 };

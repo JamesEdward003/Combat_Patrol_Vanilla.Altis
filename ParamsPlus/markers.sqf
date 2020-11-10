@@ -26,7 +26,10 @@ if (!(isNil { _unit getVariable "markerGroup"})) then
 }  else 	{		
 			_mrkrCnt = 1;
 			_unit setVariable ["markerGroup", _mrkrCnt, true];
-			_unit addEventHandler ["Respawn",{_this execVM "paramsplus\markers.sqf"}];
+			_unit addEventHandler ["Respawn", {
+				params ["_unit", "_corpse"];
+				_unit execVM "ParamsPlus\markers.sqf";
+			}];
 };
 
 _mrkrcolor 	= [];

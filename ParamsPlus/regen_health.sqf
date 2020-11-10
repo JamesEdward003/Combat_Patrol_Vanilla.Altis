@@ -12,7 +12,10 @@ _armor = _rhv/100;
 
 if (isMultiPlayer) then
 {	
-	_unit addEventHandler ["Respawn",{_this execVM "paramsplus\regen_health.sqf"}];
+	_unit addEventHandler ["Respawn", {
+		params ["_unit", "_corpse"];
+		_unit execVM "ParamsPlus\regen_health.sqf";
+	}];
 };
 
 scopeName "main";

@@ -64,6 +64,14 @@ if (!isPlayer _unit) then
 	};
 };
 
+if (isMultiPlayer) then
+{	
+	_unit addEventHandler ["Respawn", {
+		params ["_unit", "_corpse"];
+		_unit execVM "ParamsPlus\loadoutAdjustments.sqf";
+	}];
+};
+
 if (isPlayer _unit) then {
 
 [playerSide, "HQ"] commandChat "Loadout Adjustments Done!";

@@ -4,7 +4,10 @@ _unit = _this select 0;
 _actions = actionIDs _unit;
 _array = [];
 
-_unit addEventHandler ["Respawn",{_this execVM "paramsplus\rallyPoint.sqf"}];
+_unit addEventHandler ["Respawn", {
+	params ["_unit", "_corpse"];
+	_unit execVM "ParamsPlus\rallyPoint.sqf";
+}];
 
 _unit addEventHandler ["WeaponAssembled", { (_this select 1) allowDamage false }];
 

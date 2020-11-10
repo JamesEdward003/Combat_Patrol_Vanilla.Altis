@@ -72,10 +72,6 @@ comment "Set identity";
 _unit setName ["Tung Farsi","Tung","Farsi"]; 
 [_unit,"AsianHead_A3_03","male01per",1,"GreyWolf"] call BIS_fnc_setIdentity;
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
-
-_unit action ["WEAPONONBACK", _unit];
-if (daytime > 19.25 || daytime < 3.75) then {_unit action ["nvGoggles", _unit]};
-_unit setVariable ["loadout", getUnitLoadout _unit];
 };
 
 	case "O_diver_exp_F": {		// (GREYWOLF_2) ExplosivesSpecialist-Diver
@@ -146,10 +142,6 @@ comment "Set identity";
 _unit setName ["Faisal Khusraw","Faisal","Khusraw"];
 [_unit,"PersianHead_A3_03","male03per",1,"GreyWolf"] call BIS_fnc_setIdentity;
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
-
-_unit action ["WEAPONONBACK", _unit];
-if (daytime > 19.25 || daytime < 3.75) then {_unit action ["nvGoggles", _unit]};
-_unit setVariable ["loadout", getUnitLoadout _unit];
 };
 
 	case "O_diver_F": {	//  (GREYWOLF_3) AT-Diver
@@ -215,10 +207,6 @@ comment "Set identity";
 _unit setName ["Sadat Mohammadi","Sadat","Mohammadi"];
 [_unit,"PersianHead_A3_03","male03per",1,"GreyWolf"] call BIS_fnc_setIdentity;
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
-
-_unit action ["WEAPONONBACK", _unit];
-if (daytime > 19.25 || daytime < 3.75) then {_unit action ["nvGoggles", _unit]};
-_unit setVariable ["loadout", getUnitLoadout _unit];
 };
 
 	case "O_medic_F": {		//  (GREYWOLF_4) CombatLifeSaver-Diver
@@ -286,10 +274,6 @@ comment "Set identity";
 _unit setName ["Majeed Saikal","Majeed","Saikal"];
 [_unit,"PersianHead_A3_02","male02per",1,"GreyWolf"] call BIS_fnc_setIdentity;
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
-
-_unit action ["WEAPONONBACK", _unit];
-if (daytime > 19.25 || daytime < 3.75) then {_unit action ["nvGoggles", _unit]};
-_unit setVariable ["loadout", getUnitLoadout _unit];
 };
 
 	case "O_soldier_exp_F": {	//  Explosives Specialist
@@ -362,10 +346,6 @@ comment "Set identity";
 _unit setName ["Hafiz Kushan","Hafiz","Kushan"];
 [_unit,"PersianHead_A3_03","male03per",1,"GreyWolf"] call BIS_fnc_setIdentity;
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
-
-_unit action ["WEAPONONBACK", _unit];
-if (daytime > 19.25 || daytime < 3.75) then {_unit action ["nvGoggles", _unit]};
-_unit setVariable ["loadout", getUnitLoadout _unit];
 };
 
 	case "O_engineer_F": {		// Engineer
@@ -436,10 +416,6 @@ comment "Set identity";
 _unit setName ["Abbas Yousuf","Abbas","Yousuf"];
 [_unit,"PersianHead_A3_03","male03per",1,"GreyWolf"] call BIS_fnc_setIdentity;
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
-
-_unit action ["WEAPONONBACK", _unit];
-if (daytime > 19.25 || daytime < 3.75) then {_unit action ["nvGoggles", _unit]};
-_unit setVariable ["loadout", getUnitLoadout _unit];
 };
 
 case "O_soldier_mine_F": {	 // Mine Specialist
@@ -510,10 +486,6 @@ comment "Set identity";
 _unit setName ["Hafiz Kohzad","Hafiz","Kohzad"];
 [_unit,"PersianHead_A3_01","male01per",1,"GreyWolf"] call BIS_fnc_setIdentity;
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
-
-_unit action ["WEAPONONBACK", _unit];
-if (daytime > 19.25 || daytime < 3.75) then {_unit action ["nvGoggles", _unit]};
-_unit setVariable ["loadout", getUnitLoadout _unit];
 };
 
 	case "O_Story_Colonel_F": { 	//  Namdar
@@ -582,10 +554,6 @@ comment "Set identity";
 _unit setName ["Faisal Yusufzai","Faisal","Yusufzai"];
 [_unit,"PersianHead_A3_01","male02per",1,"IRIA"] call BIS_fnc_setIdentity;
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
-
-_unit action ["WEAPONONBACK", _unit];
-if (daytime > 19.25 || daytime < 3.75) then {_unit action ["nvGoggles", _unit]};
-_unit setVariable ["loadout", getUnitLoadout _unit];
 };
 
 	case "O_Story_CEO_F": { 	//  Attar 
@@ -654,10 +622,6 @@ comment "Set identity";
 _unit setName ["Hafiz Haidari","Hafiz","Haidari"];
 [_unit,"PersianHead_A3_02","male02per",1,"IRIA"] call BIS_fnc_setIdentity;
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
-
-_unit action ["WEAPONONBACK", _unit];
-if (daytime > 19.25 || daytime < 3.75) then {_unit action ["nvGoggles", _unit]};
-_unit setVariable ["loadout", getUnitLoadout _unit];
 };	
 
 	case "O_officer_F": { 	// Officer
@@ -726,10 +690,6 @@ comment "Set identity";
 _unit setName ["Umar Yusufzai","Umar","Yusufzai"];
 [_unit,"PersianHead_A3_01","male02per",1,"IRIA"] call BIS_fnc_setIdentity;
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
-
-_unit action ["WEAPONONBACK", _unit];
-if (daytime > 19.25 || daytime < 3.75) then {_unit action ["nvGoggles", _unit]};
-_unit setVariable ["loadout", getUnitLoadout _unit];
 };
 
 	case "O_A_soldier_TL_F": { 	//  TeamLeader
@@ -798,10 +758,6 @@ comment "Set identity";
 _unit setName ["Umar Haidari","Umar","Haidari"];
 [_unit,"PersianHead_A3_03","male02per",1,"IRIA"] call BIS_fnc_setIdentity;
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
-
-_unit action ["WEAPONONBACK", _unit];
-if (daytime > 19.25 || daytime < 3.75) then {_unit action ["nvGoggles", _unit]};
-_unit setVariable ["loadout", getUnitLoadout _unit];
 };
 
 	case "O_Soldier_GL_F": { 	// Grenadier
@@ -872,10 +828,6 @@ comment "Set identity";
 _unit setName ["Sibhatullah Muhtaram","Sibhatullah","Muhtaram"];
 [_unit,"PersianHead_A3_01","male02per",1,"IRIA"] call BIS_fnc_setIdentity;
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
-
-_unit action ["WEAPONONBACK", _unit];
-if (daytime > 19.25 || daytime < 3.75) then {_unit action ["nvGoggles", _unit]};
-_unit setVariable ["loadout", getUnitLoadout _unit];
 };
 
 	case "O_Soldier_AT_F": { 	// 	AT Specialist
@@ -941,10 +893,6 @@ comment "Set identity";
 _unit setName ["Majeed Aybak","Majeed","Aybak"];
 [_unit,"PersianHead_A3_01","male02per",1,"IRIA"] call BIS_fnc_setIdentity;
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
-
-_unit action ["WEAPONONBACK", _unit];
-if (daytime > 19.25 || daytime < 3.75) then {_unit action ["nvGoggles", _unit]};
-_unit setVariable ["loadout", getUnitLoadout _unit];
 };
 
 	case "O_soldier_M_F": { 	//  Marksman
@@ -1013,10 +961,6 @@ comment "Set identity";
 _unit setName ["Qadeer Masood","Qadeer","Masood"];
 [_unit,"PersianHead_A3_03","male01per",1,"IRIA"] call BIS_fnc_setIdentity;
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
-
-_unit action ["WEAPONONBACK", _unit];
-if (daytime > 19.25 || daytime < 3.75) then {_unit action ["nvGoggles", _unit]};
-_unit setVariable ["loadout", getUnitLoadout _unit];
 };
 
 	case "O_A_soldier_F": { 	//  Rifleman  
@@ -1085,18 +1029,32 @@ comment "Set identity";
 _unit setName ["Rahim Siddiqi","Rahim","Siddiqi"];
 [_unit,"PersianHead_A3_01","male03per",1,"IRIA"] call BIS_fnc_setIdentity;
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
+};
+};
+
+if (((dayTime > ((date call BIS_fnc_sunriseSunsetTime) select 0) - 0.5) && (dayTime < ((date call BIS_fnc_sunriseSunsetTime) select 1) + 0.5)) isEqualTo false) then {_unit action ["nvGoggles", _unit]};
+
+_PRespawnLoadOut = "PRespawnLoadOut" call BIS_fnc_getParamValue;
+
+if (_PRespawnLoadOut isEqualTo 2) then {
+
+_unitlo	= getUnitLoadout _unit;
+
+_unit setVariable ["LoadoutDone", _unitlo, true];
+
+} else {
+
+_unit addEventHandler ["Respawn",{[_this] execVM "paramsplus\loadouts_e.sqf"}];
+
+_unit setVariable ["LoadoutDone", true];
+
+};
 
 _unit action ["WEAPONONBACK", _unit];
-if (daytime > 19.25 || daytime < 3.75) then {_unit action ["nvGoggles", _unit]};
-_unit setVariable ["loadout", getUnitLoadout _unit];
+
+if (isPlayer _unit) then {
+
+[playerSide, "HQ"] commandChat "Loadouts Done!"
+
 };
-};
-
-//if (isPlayer _unit) then {
-
-//waitUntil {"introDone" isEqualTo true};
-
-//[playerSide, "HQ"] commandChat "Loadouts Done!"
-
-//};
 

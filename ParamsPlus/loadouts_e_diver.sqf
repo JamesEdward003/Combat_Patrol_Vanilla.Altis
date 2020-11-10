@@ -66,10 +66,6 @@ comment "Set identity";
 _unit setName ["Tung Farsi","Tung","Farsi"]; 
 [_unit,"AsianHead_A3_03","male01per",1,"GreyWolf"] call BIS_fnc_setIdentity;
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
-
-_unit action ["WEAPONONBACK", _unit];
-if (daytime > 19.25 || daytime < 3.75) then {_unit action ["nvGoggles", _unit]};
-_unit setVariable ["loadout", getUnitLoadout _unit];
 };
 
 	case "O_diver_exp_F": {		// (GREYWOLF_2)
@@ -130,10 +126,6 @@ comment "Set identity";
 _unit setName ["Christou Lagos","Christou","Lagos"];
 [_unit,"PersianHead_A3_03","male02per",1,"GreyWolf"] call BIS_fnc_setIdentity;
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
-
-_unit action ["WEAPONONBACK", _unit];
-if (daytime > 19.25 || daytime < 3.75) then {_unit action ["nvGoggles", _unit]};
-_unit setVariable ["loadout", getUnitLoadout _unit];
 };
 
 	case "O_diver_F": {	//  (GREYWOLF_3)
@@ -198,10 +190,6 @@ comment "Set identity";
 _unit setName ["Telly Savalas","Telly","Savalas"];
 [_unit,"GreekHead_A3_09","male03per",1,"GreyWolf"] call BIS_fnc_setIdentity;
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
-
-_unit action ["WEAPONONBACK", _unit];
-if (daytime > 19.25 || daytime < 3.75) then {_unit action ["nvGoggles", _unit]};
-_unit setVariable ["loadout", getUnitLoadout _unit];
 };
 
 	case "O_soldier_exp_F": {	//  (GREYWOLF_4) 
@@ -264,10 +252,6 @@ comment "Set identity";
 _unit setName ["Dimitrias Dukas","Dimitrias","Dukas"];
 [_unit,"GreekHead_A3_03","male01pervr",1,"GreyWolf"] call BIS_fnc_setIdentity;
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
-
-_unit action ["WEAPONONBACK", _unit];
-if (daytime > 19.25 || daytime < 3.75) then {_unit action ["nvGoggles", _unit]};
-_unit setVariable ["loadout", getUnitLoadout _unit];
 };
 
 	case "O_medic_F": {		//  (GREYWOLF_5) 
@@ -325,10 +309,6 @@ comment "Set identity";
 _unit setName ["Telly Savalas","Telly","Savalas"];
 [_unit,"GreekHead_A3_09","male03per",1,"GreyWolf"] call BIS_fnc_setIdentity;
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
-
-_unit action ["WEAPONONBACK", _unit];
-if (daytime > 19.25 || daytime < 3.75) then {_unit action ["nvGoggles", _unit]};
-_unit setVariable ["loadout", getUnitLoadout _unit];
 };
 
 	case "O_engineer_F": {		//  (GREYWOLF_6) 
@@ -391,10 +371,6 @@ comment "Set identity";
 _unit setName ["Papa Papadopolis","Papa","Papadopolis"];
 [_unit,"GreekHead_A3_09","male03per",1,"GreyWolf"] call BIS_fnc_setIdentity;
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
-
-_unit action ["WEAPONONBACK", _unit];
-if (daytime > 19.25 || daytime < 3.75) then {_unit action ["nvGoggles", _unit]};
-_unit setVariable ["loadout", getUnitLoadout _unit];
 };
 
 case "O_Story_CEO_F": {	//  (GREYWOLF_7) 
@@ -457,18 +433,31 @@ comment "Set identity";
 _unit setName ["Ari Aristotle","Ari","Aristotle"];
 [_unit,"GreekHead_A3_09","male03per",1,"GreyWolf"] call BIS_fnc_setIdentity;
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
+};
+};
+
+if (((dayTime > ((date call BIS_fnc_sunriseSunsetTime) select 0) - 0.5) && (dayTime < ((date call BIS_fnc_sunriseSunsetTime) select 1) + 0.5)) isEqualTo false) then {_unit action ["nvGoggles", _unit]};
+
+_PRespawnLoadOut = "PRespawnLoadOut" call BIS_fnc_getParamValue;
+
+if (_PRespawnLoadOut isEqualTo 2) then {
+
+_unitlo	= getUnitLoadout _unit;
+
+_unit setVariable ["LoadoutDone", _unitlo, true];
+
+} else {
+
+_unit addEventHandler ["Respawn",{[_this] execVM "paramsplus\loadouts_e_diver.sqf"}];
+
+_unit setVariable ["LoadoutDone", true];
+
+};
 
 _unit action ["WEAPONONBACK", _unit];
-if (daytime > 19.25 || daytime < 3.75) then {_unit action ["nvGoggles", _unit]};
-_unit setVariable ["loadout", getUnitLoadout _unit];
+
+if (isPlayer _unit) then {
+
+[playerSide, "HQ"] commandChat "Diver Loadouts Done!"
+
 };
-};
-
-//if (isPlayer _unit) then {
-
-//waitUntil {"introDone" isEqualTo true};
-
-//[playerSide, "HQ"] commandChat "Diver Loadouts Done!"
-
-//};
-

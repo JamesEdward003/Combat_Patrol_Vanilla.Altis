@@ -131,7 +131,7 @@ class Params
 		texts[] = {$STR_A3_cfgvehicles_modulestrategicmapimage_f_arguments_shadow_values_yes_0, $STR_A3_cfgvehicles_modulestrategicmapimage_f_arguments_shadow_values_no_0};
 		default = 0;
 	};
-	class Pskill	 
+	class Bskill	 
 	{
         title = "Blufor Skill";
         values[] = {1, 2, 3, 4, 5};
@@ -140,7 +140,7 @@ class Params
         file = "ParamsPlus\BluSkill.sqf";
         isGlobal = 0;
 	};
-	class Eskill	 
+	class Oskill	 
 	{
         title = "Opfor Skill";
         values[] = {1, 2, 3, 4, 5};

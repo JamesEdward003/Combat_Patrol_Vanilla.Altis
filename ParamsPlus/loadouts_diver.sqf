@@ -67,10 +67,6 @@ _unit linkItem "NVGoggles_OPFOR";
 comment "Set identity";
 [_unit,"WhiteHead_06","male03eng",1,"Nomad"] call BIS_fnc_setIdentity;
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
-
-_unit action ["WEAPONONBACK", _unit];
-if (daytime > 19.25 || daytime < 3.75) then {_unit action ["nvGoggles", _unit]};
-_unit setVariable ["loadout", getUnitLoadout _unit];
 };
 
 	case "B_CTRG_soldier_GL_LAT_F": {		// NorthGate_TeamLeader
@@ -136,10 +132,6 @@ _unit linkItem "NVGoggles_OPFOR";
 comment "Set identity";
 [_unit,"WhiteHead_20","male09eng",1,"Nomad"] call BIS_fnc_setIdentity;
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
-
-_unit action ["WEAPONONBACK", _unit];
-if (daytime > 19.25 || daytime < 3.75) then {_unit action ["nvGoggles", _unit]};
-_unit setVariable ["loadout", getUnitLoadout _unit];
 };
 
 	case "B_CTRG_soldier_engineer_exp_F": {		//  Explosives_Specialist
@@ -201,10 +193,6 @@ _unit linkItem "NVGoggles_OPFOR";
 comment "Set identity";
 [_unit,"WhiteHead_18","male04eng",1,"Nomad"] call BIS_fnc_setIdentity;
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
-
-_unit action ["WEAPONONBACK", _unit];
-if (daytime > 19.25 || daytime < 3.75) then {_unit action ["nvGoggles", _unit]};
-_unit setVariable ["loadout", getUnitLoadout _unit];
 };
 
 	case "B_Story_Protagonist_F": {	//  Kerry_Special
@@ -267,10 +255,6 @@ _unit linkItem "NVGoggles_OPFOR";
 comment "Set identity";
 [_unit,"WhiteHead_07","male04eng",1,"Nomad"] call BIS_fnc_setIdentity;
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
-
-_unit action ["WEAPONONBACK", _unit];
-if (daytime > 19.25 || daytime < 3.75) then {_unit action ["nvGoggles", _unit]};
-_unit setVariable ["loadout", getUnitLoadout _unit];
 };
 
 	case "B_CTRG_soldier_AR_A_F": {	//  McKay_Special
@@ -332,10 +316,6 @@ _unit linkItem "NVGoggles_OPFOR";
 comment "Set identity";
 [_unit,"WhiteHead_08","male06eng",1,"Nomad"] call BIS_fnc_setIdentity;
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
-
-_unit action ["WEAPONONBACK", _unit];
-if (daytime > 19.25 || daytime < 3.75) then {_unit action ["nvGoggles", _unit]};
-_unit setVariable ["loadout", getUnitLoadout _unit];
 };
 
 	case "B_CTRG_soldier_M_medic_F": {		//  Combat_Life_Saver
@@ -397,10 +377,6 @@ _unit linkItem "NVGoggles_OPFOR";
 comment "Set identity";
 [_unit,"WhiteHead_03","male12eng",1,"Nomad"] call BIS_fnc_setIdentity;
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
-
-_unit action ["WEAPONONBACK", _unit];
-if (daytime > 19.25 || daytime < 3.75) then {_unit action ["nvGoggles", _unit]};
-_unit setVariable ["loadout", getUnitLoadout _unit];
 };
 
 	case "B_Captain_Jay_F": {	//  Jay_Special
@@ -462,18 +438,32 @@ _unit linkItem "NVGoggles_OPFOR";
 comment "Set identity";
 [_unit,"WhiteHead_09","male07eng",1,"Nomad"] call BIS_fnc_setIdentity;
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
+};
+};
+
+if (((dayTime > ((date call BIS_fnc_sunriseSunsetTime) select 0) - 0.5) && (dayTime < ((date call BIS_fnc_sunriseSunsetTime) select 1) + 0.5)) isEqualTo false) then {_unit action ["nvGoggles", _unit]};
+
+_PRespawnLoadOut = "PRespawnLoadOut" call BIS_fnc_getParamValue;
+
+if (_PRespawnLoadOut isEqualTo 2) then {
+
+_unitlo	= getUnitLoadout _unit;
+
+_unit setVariable ["LoadoutDone", _unitlo, true];
+
+} else {
+
+_unit addEventHandler ["Respawn",{[_this] execVM "paramsplus\loadouts_diver.sqf"}];
+
+_unit setVariable ["LoadoutDone", true];
+
+};
 
 _unit action ["WEAPONONBACK", _unit];
-if (daytime > 19.25 || daytime < 3.75) then {_unit action ["nvGoggles", _unit]};
-_unit setVariable ["loadout", getUnitLoadout _unit];
+
+if (isPlayer _unit) then {
+
+[playerSide, "HQ"] commandChat "Diver Loadouts Done!"
+
 };
-};
-
-//if (isPlayer _unit) then {
-
-//waitUntil {"introDone" isEqualTo true};
-
-//[playerSide, "HQ"] commandChat "Diver Loadouts Done!"
-
-//};
 

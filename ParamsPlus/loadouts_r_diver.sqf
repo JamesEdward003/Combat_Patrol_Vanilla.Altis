@@ -69,10 +69,6 @@ comment "Set identity";
 _unit setName ["Lazaros Elias","Lazaros","Elias"]; 
 [_unit,"GreekHead_A3_03","male03gre",1,"Revolution"] call BIS_fnc_setIdentity;
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
-
-_unit action ["WEAPONONBACK", _unit];
-if (daytime > 19.25 || daytime < 3.75) then {_unit action ["nvGoggles", _unit]};
-_unit setVariable ["loadout", getUnitLoadout _unit];
 };
 
 	case "I_diver_exp_F": {		// (REVOLUTION_2)
@@ -132,10 +128,6 @@ comment "Set identity";
 _unit setName ["Stefanos Petridish","Stefanos","Petridish"];
 [_unit,"GreekHead_A3_09","male06gre",1,"Revolution"] call BIS_fnc_setIdentity;
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
-
-_unit action ["WEAPONONBACK", _unit];
-if (daytime > 19.25 || daytime < 3.75) then {_unit action ["nvGoggles", _unit]};
-_unit setVariable ["loadout", getUnitLoadout _unit];
 };
 
 	case "I_diver_F": {	//  (REVOLUTION_3)
@@ -199,10 +191,6 @@ comment "Set identity";
 _unit setName ["Satiris Rumpesi","Satiris","Rumpesi"];
 [_unit,"GreekHead_A3_04","male01gre",1,"Revolution"] call BIS_fnc_setIdentity;
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
-
-_unit action ["WEAPONONBACK", _unit];
-if (daytime > 19.25 || daytime < 3.75) then {_unit action ["nvGoggles", _unit]};
-_unit setVariable ["loadout", getUnitLoadout _unit];
 };
 
 	case "I_medic_F": {	//  (REVOLUTION_4) 
@@ -266,10 +254,6 @@ comment "Set identity";
 _unit setName ["Michalis Costas","Michalis","Costas"];
 [_unit,"GreekHead_A3_04","male05gre",1,"Revolution"] call BIS_fnc_setIdentity;
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
-
-_unit action ["WEAPONONBACK", _unit];
-if (daytime > 19.25 || daytime < 3.75) then {_unit action ["nvGoggles", _unit]};
-_unit setVariable ["loadout", getUnitLoadout _unit];
 };
 
 	case "I_engineer_F": {		//  (REVOLUTION_5) 
@@ -332,10 +316,6 @@ comment "Set identity";
 _unit setName ["Papa Papadopolis","Papa","Papadopolis"];
 [_unit,"GreekHead_A3_09","male03per",1,"Revolution"] call BIS_fnc_setIdentity;
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
-
-_unit action ["WEAPONONBACK", _unit];
-if (daytime > 19.25 || daytime < 3.75) then {_unit action ["nvGoggles", _unit]};
-_unit setVariable ["loadout", getUnitLoadout _unit];
 };
 
 	case "I_soldier_mine_F": {	//  (REVOLUTION_6) 
@@ -398,10 +378,6 @@ comment "Set identity";
 _unit setName ["Dimitrias Dukas","Dimitrias","Dukas"];
 [_unit,"GreekHead_A3_03","male01gre",1,"Revolution"] call BIS_fnc_setIdentity;
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
-
-_unit action ["WEAPONONBACK", _unit];
-if (daytime > 19.25 || daytime < 3.75) then {_unit action ["nvGoggles", _unit]};
-_unit setVariable ["loadout", getUnitLoadout _unit];
 };
 
 	case "I_Story_Colonel_F": {	//  (REVOLUTION_7) 
@@ -465,10 +441,6 @@ comment "Set identity";
 _unit setName ["Athanasiadis Akhanteros","Athanasiadis","Akhanteros"];
 [_unit,"GreekHead_A3_01","male02gre",1,"Revolution"] call BIS_fnc_setIdentity;
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
-
-_unit action ["WEAPONONBACK", _unit];
-if (daytime > 19.25 || daytime < 3.75) then {_unit action ["nvGoggles", _unit]};
-_unit setVariable ["loadout", getUnitLoadout _unit];
 };
 
 	case "I_Captain_Hladas_F": {	//  (REVOLUTION_8) 
@@ -532,10 +504,6 @@ comment "Set identity";
 _unit setName ["Harvey Hladik","Harvey","Hladik"];
 [_unit,"","male01gre",1,"Revolution"] call BIS_fnc_setIdentity;
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
-
-_unit action ["WEAPONONBACK", _unit];
-if (daytime > 19.25 || daytime < 3.75) then {_unit action ["nvGoggles", _unit]};
-_unit setVariable ["loadout", getUnitLoadout _unit];
 };
 
 	case "I_Story_Officer_01_F": {	//  (REVOLUTION_9) 
@@ -599,10 +567,6 @@ comment "Set identity";
 _unit setName ["Panas Gavras","Panas","Gavras"];
 [_unit,"GreekHead_A3_05","male02gre",1,"Revolution"] call BIS_fnc_setIdentity;
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
-
-_unit action ["WEAPONONBACK", _unit];
-if (daytime > 19.25 || daytime < 3.75) then {_unit action ["nvGoggles", _unit]};
-_unit setVariable ["loadout", getUnitLoadout _unit];
 };
 
 	case "I_Story_Crew_F": {	//  (REVOLUTION_10) 
@@ -666,18 +630,32 @@ comment "Set identity";
 _unit setName ["Kyros Kalogeros","Kyros","Kalogeros"];
 [_unit,"GreekHead_A3_08","male06gre",1,"Revolution"] call BIS_fnc_setIdentity;
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
+};
+};
+
+if (((dayTime > ((date call BIS_fnc_sunriseSunsetTime) select 0) - 0.5) && (dayTime < ((date call BIS_fnc_sunriseSunsetTime) select 1) + 0.5)) isEqualTo false) then {_unit action ["nvGoggles", _unit]};
+
+_PRespawnLoadOut = "PRespawnLoadOut" call BIS_fnc_getParamValue;
+
+if (_PRespawnLoadOut isEqualTo 2) then {
+
+_unitlo	= getUnitLoadout _unit;
+
+_unit setVariable ["LoadoutDone", _unitlo, true];
+
+} else {
+
+_unit addEventHandler ["Respawn",{[_this] execVM "paramsplus\loadouts_r_diver.sqf"}];
+
+_unit setVariable ["LoadoutDone", true];
+
+};
 
 _unit action ["WEAPONONBACK", _unit];
-if (daytime > 19.25 || daytime < 3.75) then {_unit action ["nvGoggles", _unit]};
-_unit setVariable ["loadout", getUnitLoadout _unit];
+
+if (isPlayer _unit) then {
+
+[playerSide, "HQ"] commandChat "Diver Loadouts Done!"
+
 };
-};
-
-//if (isPlayer _unit) then {
-
-//waitUntil {"introDone" isEqualTo true};
-
-//[playerSide, "HQ"] commandChat "Diver Loadouts Done!"
-
-//};
 

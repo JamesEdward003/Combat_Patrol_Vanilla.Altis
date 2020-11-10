@@ -5,11 +5,11 @@ _AiSkill = switch true do {
 
 	case (side _unit isEqualTo WEST) :  {
 
-		GF_Set_AISkill = "Pskill" call BIS_fnc_getParamValue;
+		GF_Set_AISkill = "Bskill" call BIS_fnc_getParamValue;
 	};
 	case (side _unit isEqualTo EAST) :  {
 
-		GF_Set_AISkill = "Eskill" call BIS_fnc_getParamValue;
+		GF_Set_AISkill = "Oskill" call BIS_fnc_getParamValue;
 	};
 };
 

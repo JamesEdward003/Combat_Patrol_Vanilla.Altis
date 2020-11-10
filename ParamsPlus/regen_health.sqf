@@ -18,14 +18,14 @@ if (isMultiPlayer) then
 scopeName "main";
  	while {alive _unit} do {
       	scopeName "loop1";
-      	getDamage _unit;
-      	while {((getDamage _unit) > .1)} do {
+      	getDammage _unit;
+      	while {((getDammage _unit) > .1)} do {
          	scopeName "loop2";
 			_newDamage = (damage _unit) - _armor;
 			_unit setdamage _newDamage;
 			hintSilent parsetext format ["<t size='0.85' align='left'>Unit Name: </t><t size='0.85' color='#00bbff' align='left'>%1</t><br/><t size='0.85' align='left'>Before Regen: </t><t size='0.85' color='#00bbff' align='left'> %2m</t><br/><t size='0.85' align='left'>After Regen: $</t> <t size='0.85' color='#00bbff' align='left'> %3</t>", name _unit, damage _unit, round _newdamage];
-          	if ((getDamage _unit) > .9) then {breakTo "main"}; // Breaks all scopes and return to "main"
-          	if ((getDamage _unit) < .1) then {breakOut  "loop2"}; // Breaks scope named "loop2"
+          	if ((getDammage _unit) > .9) then {breakTo "main"}; // Breaks all scopes and return to "main"
+          	if ((getDammage _unit) < .1) then {breakOut  "loop2"}; // Breaks scope named "loop2"
       	sleep  .01; };
   	sleep  1; }; 
 

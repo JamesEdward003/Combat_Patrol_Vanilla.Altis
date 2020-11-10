@@ -96,33 +96,33 @@ switch (side _unit) do {
 //	};
 
 scopeName "main";
-while {(getDamage _unit) < .3} do {
+while {(getDammage _unit) < .3} do {
 	scopeName "loop1";
 	_mrkr setMarkerType "mil_start";
 	_mrkr setMarkerDir getDir _unit;
 	_mrkr setMarkerPos getPos _unit;
 	if !(isNull objectParent _unit) then {_mrkr setMarkerAlphaLocal 0} else {_mrkr setMarkerAlphaLocal 1};
-	while {(getDamage _unit) >= .3} do {
+	while {(getDammage _unit) >= .3} do {
 		scopeName "loop2";
 		_mrkr setMarkerType "mil_flag";
 		_mrkr setMarkerDir getDir _unit;
 		_mrkr setMarkerPos getPos _unit;
 		if !(isNull objectParent _unit) then {_mrkr setMarkerAlphaLocal 0} else {_mrkr setMarkerAlphaLocal 1};
 		if (!alive _unit) then {breakTo "main"}; // Breaks all scopes and return to "main"
-		if ((getDamage _unit) < .3) then {breakOut "loop2"}; // Breaks scope named "loop2"
+		if ((getDammage _unit) < .3) then {breakOut "loop2"}; // Breaks scope named "loop2"
 		sleep 1;
 	};
 	sleep 1;
 };
 	
 //while {alive _unit} do {
-//	if ((getDamage _unit) < .3) then {
+//	if ((getDammage _unit) < .3) then {
 //	_mrkr setMarkerType "mil_start";
 //	_mrkr setMarkerDir getDir _unit;
 //	_mrkr setMarkerPos getPos _unit;
 //	if !(isNull objectParent _unit) then {_mrkr setMarkerAlphaLocal 0} else {_mrkr setMarkerAlphaLocal 1};
 //	} else {
-//		if ((getDamage _unit) >= .3) then {
+//		if ((getDammage _unit) >= .3) then {
 //		_mrkr setMarkerType "mil_flag";
 //		_mrkr setMarkerDir getDir _unit;
 //		_mrkr setMarkerPos getPos _unit;

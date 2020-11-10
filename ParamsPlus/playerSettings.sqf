@@ -13,7 +13,7 @@ _paudible	= paramsArray select 34;
 _pcamo		= paramsArray select 35;
 _psettings	= paramsarray select 36;
 
-_PSkill = _player execVM "ParamsArray\GF_AiSkill.sqf";
+_PSkill = _player execVM "ParamsPlus\GF_AiSkill.sqf";
 
 	switch (_puavhacker) do
 	{

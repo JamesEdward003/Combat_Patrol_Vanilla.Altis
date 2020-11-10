@@ -1,5 +1,5 @@
 //////	[player] execVM "ParamsPlus\playerSettings.sqf";	//////
-private ["_player","_puavhacker","_pengineer","_pexplspec","_pmedic","_precoil","_psway","_ploadcoef","_paudiblecoef","_pcamocoef","_psettings"];
+private ["_player","_prespawnloadout","_pdiverequip","_ploadout","_pua","_pnightvision","_psilencers","_pmarkers","_pregenhealth","_paimedic","_pgigoeh","_prallypoint","_puavhacker","_pengineer","_pexplspec","_pmedic","_precoil","_psway","_ploadcoef","_paudiblecoef","_pcamocoef","_psettings"];
 _player = _this select 0;
 for "_i" from 16 to count paramsarray - 1 do {
 
@@ -46,12 +46,8 @@ _AiLoadout = switch true do {
 };	
 
 _Pua = _player execVM "ParamsPlus\UnlimitedAmmo.sqf";
-_AiSkill = _player execVM "GF_AiSkill.sqf";
-_AiSkill = _player execVM "GF_AiSkill.sqf";
-_AiSkill = _player execVM "GF_AiSkill.sqf";
-_AiSkill = _player execVM "GF_AiSkill.sqf";
-_AiSkill = _player execVM "GF_AiSkill.sqf";
-_AiSkill = _player execVM "GF_AiSkill.sqf";
+_PNightVision = _player execVM "ParamsPlus\nightvision.sqf";
+_PSilencers = _player execVM "ParamsPlus\silencers.sqf";
 
 PUAVHacker = "PUAVHacker" call BIS_fnc_getParamValue;
 	switch (PUAVHacker) do

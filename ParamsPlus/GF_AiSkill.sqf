@@ -1,5 +1,5 @@
-// [_unit] execVM "paramsplus\GF_AiSkill.sqf" //
-_unit = _this select 0;
+// _unit execVM "paramsplus\GF_AiSkill.sqf" //
+_unit = _this;
 
 _AiSkill = switch true do {
 

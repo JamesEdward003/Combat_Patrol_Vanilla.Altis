@@ -68,7 +68,7 @@ _PSkill = _player execVM "ParamsPlus\GF_AiSkill.sqf";
 		case 3: {_pload = 0.70};
 		case 4: {_pload =    1};
 	};	 
-	_player setUnitTrait ["loadCoef",_ploadcoef];
+	_player setUnitTrait ["loadCoef",_pload];
 
 	switch (_paudible) do
 	{

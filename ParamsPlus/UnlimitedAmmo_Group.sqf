@@ -1,8 +1,7 @@
 // "ParamsPlus\UnlimitedAmmo_Group.sqf" //
 _PUA = "PUA" call BIS_fnc_getParamValue;
 if (_PUA isEqualTo 1) exitWith {};
-_player = _this select 0;
-//if (isPlayer _player isEqualTo false) exitWith {};
+
 switch (_this select 0) do
 {
 	case 1: {
@@ -34,19 +33,19 @@ switch (_this select 0) do
 
 							_unit addEventHandler ["Respawn",{_this execVM "paramsplus\UnlimitedAmmo.sqf"}];
 													
-							[_unit] execVM "paramsplus\UnlimitedAmmo.sqf";
+							_unit execVM "paramsplus\UnlimitedAmmo.sqf";
 						};
 						case (side _unit isEqualTo RESISTANCE) :  {
 						
 							_unit addEventHandler ["Respawn",{_this execVM "paramsplus\UnlimitedAmmo.sqf"}];
 													
-							[_unit] execVM "paramsplus\UnlimitedAmmo.sqf";
+							_unit execVM "paramsplus\UnlimitedAmmo.sqf";
 						};
 						case (side _unit isEqualTo CIVILIAN) :  {
 
 							_unit addEventHandler ["Respawn",{_this execVM "paramsplus\UnlimitedAmmo.sqf"}];
 													
-							[_unit] execVM "paramsplus\UnlimitedAmmo.sqf";
+							_unit execVM "paramsplus\UnlimitedAmmo.sqf";
 						};
 					};		
 				};						
@@ -65,25 +64,25 @@ switch (_this select 0) do
 														
 							_unit addEventHandler ["Respawn",{_this execVM "paramsplus\UnlimitedAmmo.sqf"}];
 							
-							[_unit] execVM "paramsplus\UnlimitedAmmo.sqf";	
+							_unit execVM "paramsplus\UnlimitedAmmo.sqf";	
 						};
 						case (side _unit isEqualTo EAST) :  {
 
 							_unit addEventHandler ["Respawn",{_this execVM "paramsplus\UnlimitedAmmo.sqf"}];
 													
-							[_unit] execVM "paramsplus\UnlimitedAmmo.sqf";
+							_unit execVM "paramsplus\UnlimitedAmmo.sqf";
 						};
 						case (side _unit isEqualTo RESISTANCE) :  {
 						
 							_unit addEventHandler ["Respawn",{_this execVM "paramsplus\UnlimitedAmmo.sqf"}];
 													
-							[_unit] execVM "paramsplus\UnlimitedAmmo.sqf";
+							_unit execVM "paramsplus\UnlimitedAmmo.sqf";
 						};
 						case (side _unit isEqualTo CIVILIAN) :  {
 
 							_unit addEventHandler ["Respawn",{_this execVM "paramsplus\UnlimitedAmmo.sqf"}];
 													
-							[_unit] execVM "paramsplus\UnlimitedAmmo.sqf";
+							_unit execVM "paramsplus\UnlimitedAmmo.sqf";
 						};
 					};		
 				};						
@@ -102,25 +101,25 @@ switch (_this select 0) do
 						
 							_unit addEventHandler ["Respawn",{_this execVM "paramsplus\UnlimitedAmmo.sqf"}];
 							
-							[_unit] execVM "paramsplus\UnlimitedAmmo.sqf";	
+							_unit execVM "paramsplus\UnlimitedAmmo.sqf";	
 						};
 						case (side _unit isEqualTo EAST) :  {
 						
 							_unit addEventHandler ["Respawn",{_this execVM "paramsplus\UnlimitedAmmo.sqf"}];
 							
-							[_unit] execVM "paramsplus\UnlimitedAmmo.sqf";	
+							_unit execVM "paramsplus\UnlimitedAmmo.sqf";	
 						};
 						case (side _unit isEqualTo RESISTANCE) :  {
 						
 							_unit addEventHandler ["Respawn",{_this execVM "paramsplus\UnlimitedAmmo.sqf"}];
 							
-							[_unit] execVM "paramsplus\lUnlimitedAmmo.sqf";
+							_unit execVM "paramsplus\lUnlimitedAmmo.sqf";
 						};
 						case (side _unit isEqualTo CIVILIAN) :  {
 
 							_unit addEventHandler ["Respawn",{_this execVM "paramsplus\UnlimitedAmmo.sqf"}];
 													
-							[_unit] execVM "paramsplus\UnlimitedAmmo.sqf";	
+							_unit execVM "paramsplus\UnlimitedAmmo.sqf";	
 						};
 					};		
 				};	

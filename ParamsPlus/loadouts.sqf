@@ -1,4 +1,4 @@
-///////  [_unit] execVM "paramsplus\loadouts.sqf";  ///////
+///////  _unit execVM "paramsplus\loadouts.sqf";  ///////
 //["Officer","Team Leader","Recon JTAC","Squad Leader","Autorifleman","Rifleman (AT)","Rifleman","Repair Specialist","Grenadier","Combat Life Saver","Marksman"];
 //_recruitableunits = ["B_Captain_Pettka_F","B_CTRG_soldier_GL_LAT_F","B_Story_Protagonist_F","B_CTRG_soldier_engineer_exp_F","B_CTRG_soldier_AR_A_F","B_CTRG_soldier_M_medic_F","B_Captain_Jay_F"];
 _PLoadOut = "PLoadOut" call BIS_fnc_getParamValue;
@@ -7,7 +7,7 @@ if (_PLoadOut isEqualTo 1) exitWith {};
 if (_PDiverEquip isEqualTo 2) exitWith {};
 if (_PDiverEquip isEqualTo 3) exitWith {};
 private ["_unit","_classname","_displayname","_PLoadOut"];
-_unit = _this select 0;
+_unit = _this;
 _classname 	= typeOf _unit;
 _displayname = gettext (configfile >> "CfgVehicles" >> _className >> "displayName");
 

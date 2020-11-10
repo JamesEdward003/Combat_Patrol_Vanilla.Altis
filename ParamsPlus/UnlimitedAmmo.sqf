@@ -1,7 +1,7 @@
 // "ParamsPlus\UnlimitedAmmo.sqf" //
 _PUA = "PUA" call BIS_fnc_getParamValue;
 if (_PUA isEqualTo 1) exitWith {};
-_player = _this select 0;
+_player = _this;
 //if (isPlayer _player isEqualTo false) exitWith {};
 
 _player addEventHandler ["Reloaded",{  

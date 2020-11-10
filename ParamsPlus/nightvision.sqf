@@ -2,7 +2,7 @@
 _PNightVision = "PNightVision" call BIS_fnc_getParamValue;
 if (_PNightVision isEqualTo 1) exitWith {};
 private ["_unit","_nvList","_nv","_ldList","_PNightVision"];
-_unit = _this select 0;
+_unit = _this;
 
 waitUntil { !(isNil {_unit getVariable "LoadoutDone"}) };
 

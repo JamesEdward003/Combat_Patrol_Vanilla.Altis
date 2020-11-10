@@ -10,7 +10,7 @@ switch (_this select 0) do
 				{
 					_unit = allUnits select _i;
 					
-					[_unit] setDamage 0;	
+					_unit setDamage 0;	
 				};		
 			};
 	case 2: {
@@ -18,7 +18,7 @@ switch (_this select 0) do
 				{
 					_unit = (units group player) select _i;
 					
-					[_unit] execVM "paramsplus\nightvision.sqf";	
+					_unit execVM "paramsplus\nightvision.sqf";	
 				};		
 			};
 	case 3: {	
@@ -26,7 +26,7 @@ switch (_this select 0) do
 				{
 					_unit = (if ismultiplayer then {playableunits} else {switchableunits}) select _i;
 					
-					[_unit] execVM "paramsplus\nightvision.sqf";			
+					_unit execVM "paramsplus\nightvision.sqf";			
 				};									
 			};
 	case 4: {	

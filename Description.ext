@@ -270,7 +270,7 @@ class Params
         texts[] = {"Disabled","Enabled"};
         default = 1;
     };  
-    class PExplosiveSpecialist      
+    class PExplSpec      
  	{
         title = "Enable/Disable Player's Defuse Ability";
         values[] = {1, 2};

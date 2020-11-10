@@ -1,21 +1,7 @@
 //////	[player] execVM "ParamsPlus\playerSettings.sqf";	//////
 private ["_player","_pskill","_prespawnloadout","_pdiverequip","_ploadout","_pua","_pnightvision","_psilencers","_pmarkers","_pregenhealth","_paimedic","_pgigoeh","_prallypoint","_puavhacker","_pengineer","_pexplspec","_pmedic","_precoil","_psway","_ploadcoef","_paudiblecoef","_pcamocoef","_psettings"];
 _player = _this select 0;
-for "_i" from 16 to count paramsarray - 1 do {
 
-}
-//[2,1,2,1,2,2,2,3,1,1,2,1,1,1,2,1,1,4,4,4,2]
-	_prespawnloadout	= paramsArray select 16;
-	_pdiverequip	= paramsArray select 17;
-	_ploadout		= paramsArray select 18;
-	_pua			= paramsArray select 19;
-	_pnightvision 	= paramsArray select 20;
-	_psilencers   	= paramsArray select 21;
-	_pmarkers		= paramsArray select 22;
-	_pregenhealth	= paramsArray select 23;
-	_paimedic		= paramsArray select 24;
-	_pgigoeh		= paramsarray select 25;
-	_prallypoint	= paramsarray select 26;
 _puavhacker	= paramsArray select 27;
 _pengineer	= paramsArray select 28;
 _pexplspec	= paramsArray select 29;
@@ -28,30 +14,6 @@ _pcamocoef	= paramsArray select 35;
 _psettings	= paramsarray select 36;
 
 _PSkill = _player execVM "ParamsArray\GF_AiSkill.sqf";
-
-_PLoadout = switch true do {
-	case (side _unit isEqualTo WEST) :  {
-		_player execVM "ParamsArray\loadouts.sqf";
-	};
-	case (side _unit isEqualTo EAST) :  {
-		_player execVM "ParamsArray\loadouts_e.sqf";
-	};
-	case (side _unit isEqualTo RESISTANCE) :  {
-		_player execVM "ParamsArray\loadouts_r.sqf";
-	};
-	case (side _unit isEqualTo CIVILIAN) :  {
-		_player execVM "ParamsArray\loadouts_c.sqf";
-	};
-};	
-
-_Pua = _player execVM "ParamsPlus\UnlimitedAmmo.sqf";
-_PNightVision = _player execVM "ParamsPlus\nightvision.sqf";
-_PSilencers = _player execVM "ParamsPlus\silencers.sqf";
-_Pmarkers = _player execVM "ParamsPlus\markers.sqf";
-
-
-
-
 
 PUAVHacker = "PUAVHacker" call BIS_fnc_getParamValue;
 	switch (PUAVHacker) do
@@ -69,7 +31,6 @@ PEngineer = "PEngineer" call BIS_fnc_getParamValue;
 	};
 	_player setUnitTrait ["Engineer",pengineer];
 
-GF_Set_AISkill = "GF_Set_AISkill" call BIS_fnc_getParamValue;
 	switch (_pexplspec) do
 	{
 		case 1: {pexplspec = false};

@@ -35,7 +35,7 @@ player addAction [ '<t color=''#00FFFF''>APC-Marshall</t>',{
 	_unit 	= _this select 0;
 	_caller 	= _this select 1;
 	_id 		= _this select 2;
-	_vehicle = "B_APC_Wheeled_01_cannon_F";
+	_vehicle = 'B_APC_Wheeled_01_cannon_F';
 
 	_unit removeAction _id;
 

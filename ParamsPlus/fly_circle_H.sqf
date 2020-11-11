@@ -1,6 +1,6 @@
 /////////////////////////////////////////////////////////////////////////////////////////////
-// _null = [position,radius,how-many,height,start dir,arc,vehicle,_vhome] //////////////////////////
-// _null = [getMarkerPos _vehicleVarName,300,360,80,60,360,_vehicle,_vhome] execvm "movement\fly_circle_H.sqf"; //
+// [position,radius,how-many,height,start dir,arc,vehicle,_vhome] //////////////////////////
+// [getMarkerPos _vehicleVarName,300,360,80,60,360,_vehicle,_vhome] execvm "movement\fly_circle_H.sqf"; //
 /////////////////////////////////////////////////////////////////////////////////////////////
 _centrepos = _this select 0;
 _rad       = _this select 1;
@@ -46,7 +46,8 @@ for "_x" from 0 to _many-1 do
 																		
 _wp0 = (group _vehicle) addWaypoint [ (_wppos select 0), 0];	
 _wp0 setWaypointType "MOVE";
-_wp0 setWaypointStatements ["true", "_null = [(vehicle this),50,80] execVM 'speedLimiter.sqf';"];
+_wp0 setWaypointStatements ["true", ""];
+//_wp0 setWaypointStatements ["true", "_null = [(vehicle this),50,80] execVM 'speedLimiter.sqf';"];
 _wp0 setWaypointSpeed "FULL";
 
 _wp1 = (group _vehicle) addWaypoint [ (_wppos select 60), 0];	
@@ -99,12 +100,12 @@ while {(count (waypoints (group _vehicle))) > 0} do {
 	deleteWaypoint ((waypoints (group _vehicle)) select 0);
 	sleep 0.01;
 	};
-	[_vehicle,200,80] execVM "speedLimiter.sqf";
+	//[_vehicle,200,80] execVM "speedLimiter.sqf";
 	(driver _vehicle) setBehaviour "AWARE";
 	_wp = (group _vehicle) addWaypoint [ position _vhome, 0];	
 	_wp setWaypointType "MOVE";
 	_wp setWaypointSpeed "NORMAL";
-	_wp setWaypointStatements ["true", "(vehicle this) land 'LAND'"];
+	_wp setWaypointStatements ["true", "{deletevehicle _x} foreach (crew vehicle this + [vehicle this]);"];
 };
 if (east countSide _ent < 1) exitwith {
 	hintSilent "Enemy Targets: 0";
@@ -120,7 +121,7 @@ while {(count (waypoints (group _vehicle))) > 0} do {
 	_wp = (group _vehicle) addWaypoint [ position _vhome, 0];	
 	_wp setWaypointType "MOVE";
 	_wp setWaypointSpeed "NORMAL";
-	_wp setWaypointStatements ["true", "(vehicle this) land 'LAND'"];
+	_wp setWaypointStatements ["true", "{deletevehicle _x} foreach (crew vehicle this + [vehicle this]);"];
 };	
 if (east countSide _ent > 0) then {  
 	for "_x" from 0 to (east countSide _ent) do { _portals = _portals + [_x] }; 
@@ -150,10 +151,10 @@ while {(count (waypoints (group _vehicle))) > 0} do {
 	deleteWaypoint ((waypoints (group _vehicle)) select 0);
 	sleep 0.01;
 	};
-[_vehicle,200,80] execVM "speedLimiter.sqf";
+//[_vehicle,200,80] execVM "speedLimiter.sqf";
 (driver _vehicle) setBehaviour "AWARE";
 _wp = (group _vehicle) addWaypoint [position _vhome, 0];	
 _wp setWaypointType "MOVE";
 _wp setWaypointSpeed "NORMAL";
-_wp setWaypointStatements ["true", "(vehicle this) land 'LAND'"];
+_wp setWaypointStatements ["true", "{deletevehicle _x} foreach (crew vehicle this + [vehicle this]);"];
 

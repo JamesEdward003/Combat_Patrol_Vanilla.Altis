@@ -57,9 +57,16 @@ waitUntil {sleep 1; (!visiblemap OR location OR !alive player)};
 	};
   
   	if ((getMarkerPos "pickup") isEqualTo [0,0,0]) then {deleteMarker "pickup"};
+	if !((getMarkerPos "pickup") isEqualTo [0,0,0]) then {deleteMarker "pickup"};
+	
 	if ((getMarkerPos "LZ") isEqualTo [0,0,0]) then {deleteMarker "LZ"};
-	if ((alive lzPickup) isEqualTo true) then {deleteVehicle lzPickup};
-	if ((alive lzDropoff) isEqualTo true) then {deleteVehicle lzDropoff};
+	if !((getMarkerPos "LZ") isEqualTo [0,0,0]) then {deleteMarker "LZ"};
+
+	if ((getPos lzPickup) isEqualTo [0,0,0]) then {deleteVehicle lzPickup};
+	if !((getPos lzPickup) isEqualTo [0,0,0]) then {deleteVehicle lzPickup};
+
+	if ((getPos lzDropoff) isEqualTo [0,0,0]) then {deleteVehicle lzDropoff};
+	if !((getPos lzDropoff) isEqualTo [0,0,0]) then {deleteVehicle lzDropoff};
 
 	//_location = [mappos, 20, 80, 3, 0, 20, 0] call BIS_fnc_findSafePos;
 

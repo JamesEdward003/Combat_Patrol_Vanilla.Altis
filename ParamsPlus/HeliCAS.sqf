@@ -14,8 +14,6 @@ _randDist 			= 	(random 100) + 1000;
 _airStart 			=	[(getPos vehicle _sourcePoint select 0) + (_randDist * sin(_randDir)), (getPos vehicle _sourcePoint select 1) + (_randDist * cos(_randDir)), 100];
 _randDir2 			= 	getDir vehicle _sourcePoint;
 _airEnd 			=	[(getPos vehicle _sourcePoint select 0) + (_randDist * sin(_randDir2)), (getPos vehicle _sourcePoint select 1) + (_randDist * cos(_randDir2)), 60];
-//_airTypes 		= 	B_Heli_Light_01_F // B_Heli_Light_01_stripped_F // B_Heli_Attack_01_F // B_Heli_Attack_01_camo_F ////DLC > B_Heli_Attack_03_F // B_Heli_Attack_03_unarmed_F
-//_airTypes			=	O_Heli_Light_02_F // O_Heli_Light_02_unarmed_F // O_Heli_Light_02_v2_F ////DLC > O_Heli_Attack_04_F 
 _airType = [];
 
 switch (_sideUnit) do 
@@ -58,6 +56,7 @@ waitUntil {sleep 1; (!visiblemap OR location OR !alive player)};
 	};
   
 	if ((getMarkerPos "target") isEqualTo [0,0,0]) then {deleteMarker "target"};
+	if !((getMarkerPos "target") isEqualTo [0,0,0]) then {deleteMarker "target"};
 
 	//_location = [mappos, 20, 80, 3, 0, 20, 0] call BIS_fnc_findSafePos;
 

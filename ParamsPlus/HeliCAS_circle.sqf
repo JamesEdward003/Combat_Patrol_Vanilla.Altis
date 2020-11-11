@@ -119,18 +119,9 @@ openmap [false,false];
 				
 	gunner AttackHelo setBehaviour "COMBAT";
 	
-	[getMarkerPos "target",300,360,80,60,360,AttackHelo,_airStart] execvm "ParamsPlus\fly_circle_H.sqf";
+	[getMarkerPos "target",300,360,80,60,360,AttackHelo,_airEnd] execvm "ParamsPlus\fly_circle_H.sqf";
 
-
-	
-	wp2 = (_ch select 2) addwaypoint [_airStart, 0];
-	wp2 setwaypointtype "MOVE";
-	wp2 setWaypointBehaviour "AWARE";
-	wp2 setWaypointCombatMode "BLUE";
-	wp2 setWaypointSpeed "NORMAL";
-	wp2 setWaypointStatements ["true","{deletevehicle _x} foreach (crew vehicle this + [vehicle this]);"];
-
-	waitUntil {AttackHelo distance2d _airStart < 100};
+	waitUntil {AttackHelo distance2d _airEnd < 100};
 	
  	PAPABEAR=[_sideUnit,"HQ"]; PAPABEAR SideChat format ["AttackHelo ready for reassignment!"];
  			

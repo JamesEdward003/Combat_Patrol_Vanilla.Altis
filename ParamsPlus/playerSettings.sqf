@@ -1,7 +1,7 @@
 //////	[player] execVM "ParamsPlus\playerSettings.sqf";	//////
 private ["_player","_pskill","_puavhacker","_pengineer","_pexplspec","_pmedic","_precoil","_psway","_pload","_paudible","_pcamo","_psettings"];
 _player = _this;
-
+//[1,1,1,1,0,20,0,1,-1,1,0,0,0,4,1,1,1,1,2,2,2,2,2,3,1,1,2,1,1,1,2,1,1,4,4,4,2]
 _puavhacker	= paramsArray select 27;
 _pengineer	= paramsArray select 28;
 _pexplspec	= paramsArray select 29;

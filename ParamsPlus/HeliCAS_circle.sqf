@@ -108,7 +108,7 @@ openmap [false,false];
 	
 	(_ch select 0) setVehicleVarname "AttackHelo";
 	
-	[AttackHelo] execVM "vehicleMarker.sqf";
+	[AttackHelo] execVM "ParamsPlus\vehicleMarker.sqf";
 	
 	AttackHelo addEventHandler ["GetIn", { (_this select 0) allowDamage false; (_this select 2) allowDamage false; } ]; 
 	AttackHelo addEventHandler ["GetOut", { (_this select 0) allowDamage true; (_this select 2) allowDamage true; } ];	

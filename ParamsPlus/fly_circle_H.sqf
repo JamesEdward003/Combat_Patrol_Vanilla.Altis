@@ -11,6 +11,8 @@ _inc       = (_this select 5)/_many;
 _vehicle   = _this select 6;
 _vhome     = _this select 7;
 _vVarName  = vehicleVarName _vehicle;
+hint format ["Center: %1, Radius: %2, Amount: %3, FlyInHeight: %4, Angle: %5, Inc: %6, Vehicle: %7, Home: %8, Varname: %9",_centrepos,_rad,_many,_height,_ang,_inc,_vehicle,_vhome,_vVarname];
+copyToClipboard format ["Center: %1, Radius: %2, Amount: %3, FlyInHeight: %4, Angle: %5, Inc: %6, Vehicle: %7, Home: %8, Varname: %9",_centrepos,_rad,_many,_height,_ang,_inc,_vehicle,_vhome,_vVarname];
 
 while {(count (waypoints (group _vehicle))) > 0} do {
 	deleteWaypoint ((waypoints (group _vehicle)) select 0);
@@ -18,6 +20,7 @@ while {(count (waypoints (group _vehicle))) > 0} do {
 	};
 			
 for "_x" from 1 to _many do { deletemarker str _x; };
+
 
 _target_pos = _centrepos;
 	
@@ -46,8 +49,7 @@ for "_x" from 0 to _many-1 do
 																		
 _wp0 = (group _vehicle) addWaypoint [ (_wppos select 0), 0];	
 _wp0 setWaypointType "MOVE";
-_wp0 setWaypointStatements ["true", ""];
-//_wp0 setWaypointStatements ["true", "_null = [(vehicle this),50,80] execVM 'speedLimiter.sqf';"];
+_wp0 setWaypointStatements ["true", "_null = [(vehicle this),50,80] execVM 'paramsplus\speedLimiter.sqf';"];
 _wp0 setWaypointSpeed "FULL";
 
 _wp1 = (group _vehicle) addWaypoint [ (_wppos select 60), 0];	
@@ -100,7 +102,7 @@ while {(count (waypoints (group _vehicle))) > 0} do {
 	deleteWaypoint ((waypoints (group _vehicle)) select 0);
 	sleep 0.01;
 	};
-	//[_vehicle,200,80] execVM "speedLimiter.sqf";
+	[_vehicle,200,80] execVM "paramsplus\speedLimiter.sqf";
 	(driver _vehicle) setBehaviour "AWARE";
 	_wp = (group _vehicle) addWaypoint [ position _vhome, 0];	
 	_wp setWaypointType "MOVE";
@@ -116,7 +118,7 @@ while {(count (waypoints (group _vehicle))) > 0} do {
 	deleteWaypoint ((waypoints (group _vehicle)) select 0);
 	sleep 0.01;
 	};
-	[_vehicle,200,80] execVM "speedLimiter.sqf";
+	[_vehicle,200,80] execVM "paramsplus\speedLimiter.sqf";
 	(driver _vehicle) setBehaviour "AWARE";
 	_wp = (group _vehicle) addWaypoint [ position _vhome, 0];	
 	_wp setWaypointType "MOVE";

@@ -12,7 +12,7 @@ switch (side _caller) do {
          case west:		{_vehicle = (_types select 0)};
          case east:		{_vehicle = (_types select 1)};
          case resistance:	{_vehicle = (_types select 1)};
-         case civilian:	{_vehicle = (_types select 0)};
+         case civilian:	{_vehicle = (_types select 1)};
 };
 
 _mrkrcolor 	= [];
@@ -24,72 +24,66 @@ switch (side _caller) do {
          case resistance:	{_mrkrcolor = "ColorGUER"};
          case civilian:	{_mrkrcolor = "ColorCIV"};
 };
-	
-switch (side _caller) do {
-	
-	case west: {
 				
-		if (_position isEqualTo []) then { 
+if (_position isEqualTo []) then { 
 
-			objective = false;
-			sleep 0.25;
-			openMap true;
-			sleep 0.25;
+	objective = false;
+	sleep 0.25;
+	openMap true;
+	sleep 0.25;
 
-			titleText["Map target", "PLAIN"];
-			onMapSingleClick "onMapSingleClick ''; mappos = _pos; objective = true";		
-			waitUntil {sleep 1; (!visiblemap OR objective OR !alive _caller)};
-				if (!objective OR !alive _caller) exitWith {
-				mappos = nil;
-				hint parseText format["<t size='1.25' color='#ff6161'>Map target canceled</t>"];
-				titletext ["","plain"];
-				};
-
-			if ((getMarkerPos "Artillery") isEqualTo [0,0,0]) then {deleteMarker "Artillery"};
-			if (!((getMarkerPos "Artillery") isEqualTo [0,0,0])) then {deleteMarker "Artillery"};
-				  
-			_hLand = createMarkerLocal ["Artillery", mappos];
-			_hLand setMarkerTypeLocal "mil_objective";
-			_hLand setMarkerShapeLocal "Icon";
-			_hLand setMarkerTextLocal " Artillery";
-			_hLand setMarkerSizeLocal [1,1];
-			_hLand setMarkerColorLocal _mrkrcolor;
-			
-			titletext ["","plain",0.2];
-			hint parseText format["<t size='1.25' color='#44ff00'>Map target successful</t>"];
-			
-			_position = getMarkerPos "Artillery";
-				
-			uisleep 1;
-			openmap false;
-
-		} else {
-
-			if ((getMarkerPos "Artillery") isEqualTo [0,0,0]) then {deleteMarker "Artillery"};
-			if (!((getMarkerPos "Artillery") isEqualTo [0,0,0])) then {deleteMarker "Artillery"};
-				  
-			_hLand = createMarkerLocal ["Artillery", _position];
-			_hLand setMarkerTypeLocal "mil_objective";
-			_hLand setMarkerShapeLocal "Icon";
-			_hLand setMarkerTextLocal " Artillery";
-			_hLand setMarkerSizeLocal [1,1];
-			_hLand setMarkerColorLocal _mrkrcolor;
-			
-			hint parseText format["<t size='1.25' color='#44ff00'>Map objective successful</t>"];
-			
-			_position = _position;
+	titleText["Map target", "PLAIN"];
+	onMapSingleClick "onMapSingleClick ''; mappos = _pos; objective = true";		
+	waitUntil {sleep 1; (!visiblemap OR objective OR !alive _caller)};
+		if (!objective OR !alive _caller) exitWith {
+		mappos = nil;
+		hint parseText format["<t size='1.25' color='#ff6161'>Map target canceled</t>"];
+		titletext ["","plain"];
 		};
-	};
+
+	if ((getMarkerPos "Artillery") isEqualTo [0,0,0]) then {deleteMarker "Artillery"};
+	if (!((getMarkerPos "Artillery") isEqualTo [0,0,0])) then {deleteMarker "Artillery"};
+		  
+	_hLand = createMarkerLocal ["Artillery", mappos];
+	_hLand setMarkerTypeLocal "mil_objective";
+	_hLand setMarkerShapeLocal "Icon";
+	_hLand setMarkerTextLocal " Artillery";
+	_hLand setMarkerSizeLocal [1,1];
+	_hLand setMarkerColorLocal _mrkrcolor;
+	
+	titletext ["","plain",0.2];
+	hint parseText format["<t size='1.25' color='#44ff00'>Map target successful</t>"];
+	
+	_position = getMarkerPos "Artillery";
+		
+	uisleep 1;
+	openmap false;
+
+} else {
+
+	if ((getMarkerPos "Artillery") isEqualTo [0,0,0]) then {deleteMarker "Artillery"};
+	if (!((getMarkerPos "Artillery") isEqualTo [0,0,0])) then {deleteMarker "Artillery"};
+		  
+	_hLand = createMarkerLocal ["Artillery", _position];
+	_hLand setMarkerTypeLocal "mil_objective";
+	_hLand setMarkerShapeLocal "Icon";
+	_hLand setMarkerTextLocal " Artillery";
+	_hLand setMarkerSizeLocal [1,1];
+	_hLand setMarkerColorLocal _mrkrcolor;
+	
+	hint parseText format["<t size='1.25' color='#44ff00'>Map objective successful</t>"];
+	
+	_position = _position;
 };
-//hint format ["%1",_position];
 
 _spawnPos = getPos respawn_vehicle_west;
 
-if (count _spawnPos == 0) then { _spawnPos = getPos respawn_vehicle_west };
-
-if (count _spawnPos == 0) then {_spawnPos = [getPos respawn_vehicle_west, 400] call BIS_fnc_nearestRoad};
-
 _virtualProvider = [_spawnPos, 0, _vehicle, side group player] call BIS_fnc_spawnVehicle;
+
+private _future = time + 2;
+waitUntil { time >= _future };
+
+hint format ["%1",fullCrew (_virtualProvider select 0)];
 
 if (getMarkerPos "Artillery" inRangeOfArtillery [[(_virtualProvider select 0)], currentMagazine (_virtualProvider select 0)]) then {
 

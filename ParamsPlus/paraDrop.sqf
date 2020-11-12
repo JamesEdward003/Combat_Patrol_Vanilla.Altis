@@ -17,12 +17,15 @@ switch (side player) do {
 		_position = [_position select 0, _position select 1, 200];
 	};
 
-	for "_i" from 0 to count _reUnits_w do {
+	for "_i" from 0 to count _reUnits_w -1 do {
 		_type = _reUnits_w select _i;
 		_rank = _unitrank select _i;
 		_displayname = gettext (configfile >> "CfgVehicles" >> _type >> "displayName");
 		_unit = (group player) createUnit [_type, _position, [], 0, "FORM"];
 		_unit allowDamage false;
+		[_unit, (group player)] remoteExec ["joinSilent", groupOwner (group player)];
+		[_unit, _rank] remoteExec ["setRank", groupOwner (group player)];
+		[_unit, _displayname] remoteExec ["setVehicleVarName", groupOwner (group player)];
 		_chute = createVehicle ["NonSteerable_Parachute_F", (getPos _unit), [], 0, "FLY"];
 		_chute setPos (getPos _unit);
 		_unit moveinDriver _chute;
@@ -33,12 +36,9 @@ switch (side player) do {
 		_unit execVM "ParamsPlus\silencers.sqf";
 		_unit execVM "ParamsPlus\regen_health.sqf";
 		_unit execVM "ParamsPlus\UnlimitedAmmo.sqf";
-		[_unit] joinSilent (group player);	
 		_unit execVM "ParamsPlus\markers.sqf";
 		_unit execVM "ParamsPlus\playerSettings.sqf";
 
-		[_unit, _displayname] remoteExec ["setVehicleVarName", groupOwner (group player)];
-		[_unit, _rank] remoteExec ["setRank", groupOwner (group player)];
 		_unit allowDamage true;
 	};
 	_box = createVehicle ["B_supplyCrate_F", _position, [], 0, "FLY"];
@@ -64,28 +64,28 @@ switch (side player) do {
 		_position = [_position select 0, _position select 1, 200];
 	};
 
-	for "_i" from 0 to count _reUnits_e do {
+	for "_i" from 0 to count _reUnits_e -1 do {
 		_type = _reUnits_e select _i;
 		_rank = _unitrank select _i;
 		_displayname = gettext (configfile >> "CfgVehicles" >> _type >> "displayName");
 		_unit = (group player) createUnit [_type, _position, [], 0, "FORM"];
 		_unit allowDamage false;
+		[_unit, (group player)] remoteExec ["joinSilent", groupOwner (group player)];
+		[_unit, _rank] remoteExec ["setRank", groupOwner (group player)];
+		[_unit, _displayname] remoteExec ["setVehicleVarName", groupOwner (group player)];
 		_chute = createVehicle ["NonSteerable_Parachute_F", (getPos _unit), [], 0, "FLY"];
 		_chute setPos (getPos _unit);
 		_unit moveinDriver _chute;
-
+		
 		_unit execVM "ParamsPlus\loadouts_e_diver.sqf";
 		_unit execVM "ParamsPlus\loadouts_e.sqf";	
 		_unit execVM "ParamsPlus\nightvision.sqf";
 		_unit execVM "ParamsPlus\silencers.sqf";
 		_unit execVM "ParamsPlus\regen_health.sqf";
 		_unit execVM "ParamsPlus\UnlimitedAmmo.sqf";
-		[_unit] joinSilent (group player);	
 		_unit execVM "ParamsPlus\markers.sqf";
 		_unit execVM "ParamsPlus\playerSettings.sqf";
 
-		[_unit, _displayname] remoteExec ["setVehicleVarName", groupOwner (group player)];
-		[_unit, _rank] remoteExec ["setRank", groupOwner (group player)];
 		_unit allowDamage true;
 	};
 	_box = createVehicle ["B_supplyCrate_F", _position, [], 0, "FLY"];
@@ -111,28 +111,28 @@ switch (side player) do {
 		_position = [_position select 0, _position select 1, 200];
 	};
 
-	for "_i" from 0 to count _reUnits_r do {
+	for "_i" from 0 to count _reUnits_r -1 do {
 		_type = _reUnits_r select _i;
 		_rank = _unitrank select _i;
 		_displayname = gettext (configfile >> "CfgVehicles" >> _type >> "displayName");
 		_unit = (group player) createUnit [_type, _position, [], 0, "FORM"];
 		_unit allowDamage false;
+		[_unit, (group player)] remoteExec ["joinSilent", groupOwner (group player)];
+		[_unit, _rank] remoteExec ["setRank", groupOwner (group player)];
+		[_unit, _displayname] remoteExec ["setVehicleVarName", groupOwner (group player)];
 		_chute = createVehicle ["NonSteerable_Parachute_F", (getPos _unit), [], 0, "FLY"];
 		_chute setPos (getPos _unit);
 		_unit moveinDriver _chute;
-
+		
 		_unit execVM "ParamsPlus\loadouts_r_diver.sqf";
 		_unit execVM "ParamsPlus\loadouts_r.sqf";	
 		_unit execVM "ParamsPlus\nightvision.sqf";
 		_unit execVM "ParamsPlus\silencers.sqf";
 		_unit execVM "ParamsPlus\regen_health.sqf";
 		_unit execVM "ParamsPlus\UnlimitedAmmo.sqf";
-		[_unit] joinSilent (group player);	
 		_unit execVM "ParamsPlus\markers.sqf";
 		_unit execVM "ParamsPlus\playerSettings.sqf";
 
-		[_unit, _displayname] remoteExec ["setVehicleVarName", groupOwner (group player)];
-		[_unit, _rank] remoteExec ["setRank", groupOwner (group player)];
 		_unit allowDamage true;
 	};
 	_box = createVehicle ["B_supplyCrate_F", _position, [], 0, "FLY"];

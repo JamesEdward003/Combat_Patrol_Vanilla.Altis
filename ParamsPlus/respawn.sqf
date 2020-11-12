@@ -33,11 +33,11 @@ playerRespawn = {
 		_className 	= _PlayerProfile select 1;
 		_displayName = _PlayerProfile select 2;
 		_unitname 	= _PlayerProfile select 3;
-		_unitrank   = _PlayerProfile select 4;
+		_unitrank   	= _PlayerProfile select 4;
 		_unitface	= _PlayerProfile select 5;
 		_unitvoice	= _PlayerProfile select 6;
 		_unitskill	= _PlayerProfile select 7;
-		_plyrgrp	= _PlayerProfile select 8;	
+		_plyrgrp		= _PlayerProfile select 8;	
 		_grpldr		= _PlayerProfile select 9;
 		_plyrlo		= _PlayerProfile select 10;
 		//_className createUnit [position, group, init, skill, rank]	getMarkerPos ["respawn_west", true];
@@ -60,7 +60,9 @@ playerRespawn = {
 								
 		[player] execVM "ParamsPlus\markers.sqf";
 		
-		[player] execVM "ParamsPlus\loadoutAdjustments.sqf";
+		[player] execVM "ParamsPlus\nightvision.sqf";
+		
+		[player] execVM "ParamsPlus\silencers.sqf";
 		
 		[player] execVM "initPlayerLocal.sqf";
 
@@ -78,7 +80,7 @@ playerRespawn = {
 //player setPos getMarkerPos _marker;
 
 _PLoadOut = "PLoadOut" call BIS_fnc_getParamValue;
-if (_PLoadOut isEqualTo 3) then 
+if (_PLoadOut isEqualTo 1) then 
 {
 	player setUnitLoadOut _plyrlo;
 };

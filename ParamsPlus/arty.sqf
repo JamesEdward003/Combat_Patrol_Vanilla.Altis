@@ -80,6 +80,8 @@ _spawnPos = getPos respawn_vehicle_west;
 
 _virtualProvider = [_spawnPos, 0, _vehicle, side group player] call BIS_fnc_spawnVehicle;
 
+(_virtualProvider select 0) setvehicleammo 1;
+
 private _future = time + 2;
 waitUntil { time >= _future };
 

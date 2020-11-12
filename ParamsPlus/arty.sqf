@@ -85,7 +85,9 @@ _virtualProvider = [_spawnPos, 0, _vehicle, side group player] call BIS_fnc_spaw
 private _future = time + 2;
 waitUntil { time >= _future };
 
-hint format ["%1",fullCrew (_virtualProvider select 0)];
+hint format ["%1",currentMagazine (_virtualProvider select 0)];
+
+//(_virtualProvider select 0) commandArtilleryFire [[3000, 120, 1000], "8Rnd_82mm_Mo_shells", 3];
 
 if (getMarkerPos "Artillery" inRangeOfArtillery [[(_virtualProvider select 0)], currentMagazine (_virtualProvider select 0)]) then {
 

@@ -87,7 +87,7 @@ waitUntil { time >= _future };
 
 hint format ["%1",currentMagazine (_virtualProvider select 0)];
 
-//(_virtualProvider select 0) commandArtilleryFire [[3000, 120, 1000], "8Rnd_82mm_Mo_shells", 3];
+(_virtualProvider select 0) commandArtilleryFire [[3000, 120, 1000], "32Rnd_155mm_Mo_shells", 8];
 
 if (getMarkerPos "Artillery" inRangeOfArtillery [[(_virtualProvider select 0)], currentMagazine (_virtualProvider select 0)]) then {
 

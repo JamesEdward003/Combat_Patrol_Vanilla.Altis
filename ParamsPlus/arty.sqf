@@ -76,6 +76,7 @@ if (_position isEqualTo []) then {
 	_position = _position;
 };
 
+if (isNull )
 _spawnPos = getPos respawn_vehicle_west;
 
 _virtualProvider = [_spawnPos, 0, _vehicle, side group player] call BIS_fnc_spawnVehicle;
@@ -86,38 +87,68 @@ private _future = time + 2;
 waitUntil { time >= _future };
 
 hint format ["%1",currentMagazine (_virtualProvider select 0)];
-
-(_virtualProvider select 0) commandArtilleryFire [[3000, 120, 1000], "32Rnd_155mm_Mo_shells", 8];
-
+private _future = time + 2;
+waitUntil { time >= _future };
+(_virtualProvider select 0) commandArtilleryFire [[getMarkerPos "Artillery"], "32Rnd_155mm_Mo_shells", 8];
+private _future = time + 2;
+waitUntil { time >= _future };
 if (getMarkerPos "Artillery" inRangeOfArtillery [[(_virtualProvider select 0)], currentMagazine (_virtualProvider select 0)]) then {
 
 ["[SUPPORTS] Spawned %1", typeOf (_virtualProvider select 0)] call BIS_fnc_logFormat;
-
+private _future = time + 2;
+waitUntil { time >= _future };
 _virtualProviderUnit = leader (_virtualProvider select 2);
-
+private _future = time + 2;
+waitUntil { time >= _future };
 _caller sidechat format["%1, %2",(_virtualProvider select 0),(_virtualProvider select 2)];
-
+private _future = time + 2;
+waitUntil { time >= _future };
 _caller sidechat format ["Target In Range: %1", getMarkerPos "Artillery" inRangeOfArtillery [[(_virtualProvider select 0)], currentMagazine (_virtualProvider select 0)]];
-
+private _future = time + 2;
+waitUntil { time >= _future };
 _caller sidechat format ["Artillery ETA Target: %1", (_virtualProvider select 0) getArtilleryETA [getMarkerPos "Artillery", getArtilleryAmmo [(_virtualProvider select 0)] select 0]];
-
+private _future = time + 2;
+waitUntil { time >= _future };
 _caller sidechat format ["Artillery Ammo: %1", getArtilleryAmmo [(_virtualProvider select 0)] select 0];
-
+private _future = time + 2;
+waitUntil { time >= _future };
 _virtualProviderUnit kbAddTopic ["BIS_SUPP_protocol", "A3\Modules_F\supports\kb\protocol.bikb", "A3\Modules_F\supports\kb\protocol.fsm", {call compile preprocessFileLineNumbers "A3\Modules_F\supports\kb\protocol.sqf"}];
-
+private _future = time + 2;
+waitUntil { time >= _future };
 _virtualProviderUnit setVariable ["BIS_SUPP_request", ["Artillery", getmarkerpos "Artillery"]];
+private _future = time + 2;
+waitUntil { time >= _future };
 _virtualProviderUnit setVariable ["BIS_SUPP_selectedProviderVeh", (_virtualProvider select 0)];
+private _future = time + 2;
+waitUntil { time >= _future };
 _virtualProviderUnit setVariable ["BIS_SUPP_supporting",true,true];
+private _future = time + 2;
+waitUntil { time >= _future };
 _virtualProviderUnit setVariable ["BIS_SUPP_requester",_caller,true];
+private _future = time + 2;
+waitUntil { time >= _future };
 _virtualProviderUnit setVariable ["BIS_SUPP_supportRunCoords", getmarkerpos "Artillery", true];
+private _future = time + 2;
+waitUntil { time >= _future };
 _virtualProviderUnit setVariable ["BIS_SUPP_ammoType", 0];
+private _future = time + 2;
+waitUntil { time >= _future };
 _virtualProviderUnit setVariable ["BIS_SUPP_burst", 12];
+private _future = time + 2;
+waitUntil { time >= _future };
 _virtualProviderUnit setVariable ["BIS_SUPP_supportType","Artillery",true];
+private _future = time + 2;
+waitUntil { time >= _future };
 _virtualProviderUnit execFSM "A3\modules_f\supports\fsms\artillery.fsm";
+private _future = time + 2;
+waitUntil { time >= _future };
 _virtualProviderUnit setVariable ["BIS_SUPP_virtual", true];
+private _future = time + 2;
+waitUntil { time >= _future };
 
 _caller setVariable ["BIS_SUPP_selectedProvider", _virtualProviderUnit];
-
+private _future = time + 2;
+waitUntil { time >= _future };
 deleteMarker "Artillery";
 
 _deleteVirtual = true;

@@ -54,7 +54,7 @@ if (_position isEqualTo []) then {
 	titletext ["","plain",0.2];
 	hint parseText format["<t size='1.25' color='#44ff00'>Map target successful</t>"];
 	
-	_position = getMarkerPos "Artillery";
+	_position = _position;
 		
 	uisleep 1;
 	openmap false;
@@ -76,24 +76,22 @@ if (_position isEqualTo []) then {
 	_position = _position;
 };
 
-if (isNull Arty_One) then {
+if (!alive Arty_One isEqualTo true) then {
 _spawnPos = getPos respawn_vehicle_west;
 _virtualProvider = [_spawnPos, 0, _vehicle, side group player] call BIS_fnc_spawnVehicle;
 Arty_One = _virtualProvider select 0;
 (_virtualProvider select 0) setVehicleVarname "Arty_One";
 (_virtualProvider select 0) setvehicleammo 1;
 Arty_One_Group = _virtualProvider select 2;
-private _future = time + 2;
-waitUntil { time >= _future };
-};
+uisleep 1;
 
 hint format ["%1",currentMagazine Arty_One]; //(_virtualProvider select 0)
-private _future = time + 2;
-waitUntil { time >= _future };
-Arty_One commandArtilleryFire [[getMarkerPos "Artillery"], "32Rnd_155mm_Mo_shells", 8];
-private _future = time + 2;
-waitUntil { time >= _future };
-if (getMarkerPos "Artillery" inRangeOfArtillery [[Arty_One], currentMagazine Arty_One]) then {
+uisleep 1;
+
+Arty_One commandArtilleryFire [[_position], "32Rnd_155mm_Mo_shells", 8];
+uisleep 1;
+
+if (_position inRangeOfArtillery [[Arty_One], currentMagazine Arty_One]) then {
 
 ["[SUPPORTS] Spawned %1", typeOf Arty_One] call BIS_fnc_logFormat;
 private _future = time + 2;
@@ -104,10 +102,10 @@ waitUntil { time >= _future };
 _caller sidechat format["%1, %2",Arty_One,Arty_One_Group];
 private _future = time + 2;
 waitUntil { time >= _future };
-_caller sidechat format ["Target In Range: %1", getMarkerPos "Artillery" inRangeOfArtillery [[Arty_One], currentMagazine Arty_One]];
+_caller sidechat format ["Target In Range: %1", _position inRangeOfArtillery [[Arty_One], currentMagazine Arty_One]];
 private _future = time + 2;
 waitUntil { time >= _future };
-_caller sidechat format ["Artillery ETA Target: %1", Arty_One getArtilleryETA [getMarkerPos "Artillery", getArtilleryAmmo [Arty_One] select 0]];
+_caller sidechat format ["Artillery ETA Target: %1", Arty_One getArtilleryETA [_position, getArtilleryAmmo [Arty_One] select 0]];
 private _future = time + 2;
 waitUntil { time >= _future };
 _caller sidechat format ["Artillery Ammo: %1", getArtilleryAmmo [Arty_One] select 0];
@@ -116,7 +114,7 @@ waitUntil { time >= _future };
 _virtualProviderUnit kbAddTopic ["BIS_SUPP_protocol", "A3\Modules_F\supports\kb\protocol.bikb", "A3\Modules_F\supports\kb\protocol.fsm", {call compile preprocessFileLineNumbers "A3\Modules_F\supports\kb\protocol.sqf"}];
 private _future = time + 2;
 waitUntil { time >= _future };
-_virtualProviderUnit setVariable ["BIS_SUPP_request", ["Artillery", getmarkerpos "Artillery"]];
+_virtualProviderUnit setVariable ["BIS_SUPP_request", ["Artillery", _position]];
 private _future = time + 2;
 waitUntil { time >= _future };
 _virtualProviderUnit setVariable ["BIS_SUPP_selectedProviderVeh", Arty_One];
@@ -128,7 +126,7 @@ waitUntil { time >= _future };
 _virtualProviderUnit setVariable ["BIS_SUPP_requester",_caller,true];
 private _future = time + 2;
 waitUntil { time >= _future };
-_virtualProviderUnit setVariable ["BIS_SUPP_supportRunCoords", getmarkerpos "Artillery", true];
+_virtualProviderUnit setVariable ["BIS_SUPP_supportRunCoords", _position, true];
 private _future = time + 2;
 waitUntil { time >= _future };
 _virtualProviderUnit setVariable ["BIS_SUPP_ammoType", 0];
@@ -171,9 +169,9 @@ _deleteVirtual = true;
 	};
 };
 
-//[(_virtualProvider select 0),getMarkerPos "Artillery","32Rnd_155mm_Mo_shells",100,24,10] spawn BIS_fnc_fireSupport;
+//[(_virtualProvider select 0),_position,"32Rnd_155mm_Mo_shells",100,24,10] spawn BIS_fnc_fireSupport;
 
-//[[getMarkerPos "Artillery", "32Rnd_155mm_Mo_shells", 100, 24, 10] spawn BIS_fnc_fireSupportVirtual;
+//[[_position, "32Rnd_155mm_Mo_shells", 100, 24, 10] spawn BIS_fnc_fireSupportVirtual;
 
-//[getMarkerPos "Artillery","AT_Mine_155mm_AMOS_range",300,6400,10,nil, 32,4900, 150] spawn BIS_fnc_fireSupportVirtual;
+//[_position,"AT_Mine_155mm_AMOS_range",300,6400,10,nil, 32,4900, 150] spawn BIS_fnc_fireSupportVirtual;
 

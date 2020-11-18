@@ -4,7 +4,7 @@ params ["_caller","_position","_target","_is3D","_id"];
 _caller = _this select 0;
 _position = _this select 1;
 
-switch (side player) do {
+switch (side _caller) do {
 	
 	case west: {
 		
@@ -17,39 +17,28 @@ switch (side player) do {
 		_position = [_position select 0, _position select 1, 0];
 	};
 
-	for "_i" from 0 to count _reUnits_w -1 do {
-		_type = _reUnits_w select _i;
-		_rank = _unitrank select _i;
-		_displayname = gettext (configfile >> "CfgVehicles" >> _type >> "displayName");
-		_unit = (group player) createUnit [_type, _position, [], 0, "FORM"];
-		_unit allowDamage false;
-		[_unit, (group player)] remoteExec ["joinSilent", groupOwner (group player)];
-		[_unit, _rank] remoteExec ["setRank", groupOwner (group player)];
-		[_unit, _displayname] remoteExec ["setVehicleVarName", groupOwner (group player)];
-		_chute = createVehicle ["NonSteerable_Parachute_F", (getPos _unit), [], 0, "FLY"];
-		_chute setPos (getPos _unit);
-		_unit moveinDriver _chute;
-		
-		_unit execVM "ParamsPlus\loadouts_diver.sqf";
-		_unit execVM "ParamsPlus\loadouts.sqf";	
-		_unit execVM "ParamsPlus\nightvision.sqf";
-		_unit execVM "ParamsPlus\silencers.sqf";
-		_unit execVM "ParamsPlus\regen_health.sqf";
-		_unit execVM "ParamsPlus\UnlimitedAmmo.sqf";
-		_unit execVM "ParamsPlus\markers.sqf";
-		_unit execVM "ParamsPlus\playerSettings.sqf";
+		for "_i" from 0 to count _reUnits_w -1 do {
+			_type = _reUnits_w select _i;
+			_rank = _unitrank select _i;
+			_displayname = gettext (configfile >> "CfgVehicles" >> _type >> "displayName");
+			_unit = (group _caller) createUnit [_type, _position, [], 0, "FORM"];
+			_unit allowDamage false;
+			
+//			[_unit, (group _caller)] remoteExec ["joinSilent", groupOwner (group _caller)];
+			[_unit, _rank] remoteExec ["setRank", groupOwner (group _caller)];
+			[_unit, _displayname] remoteExec ["setVehicleVarName", groupOwner (group _caller)];
+			
+			_unit execVM "ParamsPlus\loadouts_diver.sqf";
+			_unit execVM "ParamsPlus\loadouts.sqf";	
+			_unit execVM "ParamsPlus\nightvision.sqf";
+			_unit execVM "ParamsPlus\silencers.sqf";
+			_unit execVM "ParamsPlus\regen_health.sqf";
+			_unit execVM "ParamsPlus\UnlimitedAmmo.sqf";
+			_unit execVM "ParamsPlus\markers.sqf";
+			_unit execVM "ParamsPlus\playerSettings.sqf";
 
-		_unit allowDamage true;
-	};
-	_box = createVehicle ["B_supplyCrate_F", _position, [], 0, "FLY"];
-	_box setPos _position;
-//	_chute = createVehicle ["B_Parachute_02_F", (getPos _box), [], 0, "FLY"];
-//	_box attachto [_chute, [0, 0, 0]];
-	[objnull, _box] call BIS_fnc_curatorobjectedited;
-	waitUntil {((getPos _box) select 2) < 1};
-	detach _box;
-	"SmokeShellgreen" createVehicle getPos _box;
-	"F_40mm_White" createVehicle [getPos _box select 0,getPos _box select 1,+150];
+			_unit allowDamage true;
+		};
 	};
 	case east: {
 		
@@ -62,39 +51,28 @@ switch (side player) do {
 		_position = [_position select 0, _position select 1, 0];
 	};
 
-	for "_i" from 0 to count _reUnits_e -1 do {
-		_type = _reUnits_e select _i;
-		_rank = _unitrank select _i;
-		_displayname = gettext (configfile >> "CfgVehicles" >> _type >> "displayName");
-		_unit = (group player) createUnit [_type, _position, [], 0, "FORM"];
-		_unit allowDamage false;
-		[_unit, (group player)] remoteExec ["joinSilent", groupOwner (group player)];
-		[_unit, _rank] remoteExec ["setRank", groupOwner (group player)];
-		[_unit, _displayname] remoteExec ["setVehicleVarName", groupOwner (group player)];
-		_chute = createVehicle ["NonSteerable_Parachute_F", (getPos _unit), [], 0, "FLY"];
-		_chute setPos (getPos _unit);
-		_unit moveinDriver _chute;
-		
-		_unit execVM "ParamsPlus\loadouts_e_diver.sqf";
-		_unit execVM "ParamsPlus\loadouts_e.sqf";	
-		_unit execVM "ParamsPlus\nightvision.sqf";
-		_unit execVM "ParamsPlus\silencers.sqf";
-		_unit execVM "ParamsPlus\regen_health.sqf";
-		_unit execVM "ParamsPlus\UnlimitedAmmo.sqf";
-		_unit execVM "ParamsPlus\markers.sqf";
-		_unit execVM "ParamsPlus\playerSettings.sqf";
+		for "_i" from 0 to count _reUnits_e -1 do {
+			_type = _reUnits_e select _i;
+			_rank = _unitrank select _i;
+			_displayname = gettext (configfile >> "CfgVehicles" >> _type >> "displayName");
+			_unit = (group _caller) createUnit [_type, _position, [], 0, "FORM"];
+			_unit allowDamage false;
+			
+//			[_unit, (group _caller)] remoteExec ["joinSilent", groupOwner (group _caller)];
+			[_unit, _rank] remoteExec ["setRank", groupOwner (group _caller)];
+			[_unit, _displayname] remoteExec ["setVehicleVarName", groupOwner (group _caller)];
+			
+			_unit execVM "ParamsPlus\loadouts_e_diver.sqf";
+			_unit execVM "ParamsPlus\loadouts_e.sqf";	
+			_unit execVM "ParamsPlus\nightvision.sqf";
+			_unit execVM "ParamsPlus\silencers.sqf";
+			_unit execVM "ParamsPlus\regen_health.sqf";
+			_unit execVM "ParamsPlus\UnlimitedAmmo.sqf";
+			_unit execVM "ParamsPlus\markers.sqf";
+			_unit execVM "ParamsPlus\playerSettings.sqf";
 
-		_unit allowDamage true;
-	};
-	_box = createVehicle ["B_supplyCrate_F", _position, [], 0, "FLY"];
-	_box setPos _position;
-//	_chute = createVehicle ["B_Parachute_02_F", (getPos _box), [], 0, "FLY"];
-//	_box attachto [_chute, [0, 0, 0]];
-	[objnull, _box] call BIS_fnc_curatorobjectedited;
-	waitUntil {((getPos _box) select 2) < 1};
-	detach _box;
-	"SmokeShellgreen" createVehicle getPos _box;
-	"F_40mm_White" createVehicle [getPos _box select 0,getPos _box select 1,+150];
+			_unit allowDamage true;
+		};
 	};
 	case resistance: {
 		
@@ -107,40 +85,28 @@ switch (side player) do {
 		_position = [_position select 0, _position select 1, 0];
 	};
 
-	for "_i" from 0 to count _reUnits_r -1 do {
-		_type = _reUnits_r select _i;
-		_rank = _unitrank select _i;
-		_displayname = gettext (configfile >> "CfgVehicles" >> _type >> "displayName");
-		_unit = (group player) createUnit [_type, _position, [], 0, "FORM"];
-		_unit allowDamage false;
-		
-		[_unit, (group player)] remoteExec ["joinSilent", groupOwner (group player)];
-		[_unit, _rank] remoteExec ["setRank", groupOwner (group player)];
-		[_unit, _displayname] remoteExec ["setVehicleVarName", groupOwner (group player)];
-		_chute = createVehicle ["NonSteerable_Parachute_F", (getPos _unit), [], 0, "FLY"];
-		_chute setPos (getPos _unit);
-		_unit moveinDriver _chute;
-		
-		_unit execVM "ParamsPlus\loadouts_r_diver.sqf";
-		_unit execVM "ParamsPlus\loadouts_r.sqf";	
-		_unit execVM "ParamsPlus\nightvision.sqf";
-		_unit execVM "ParamsPlus\silencers.sqf";
-		_unit execVM "ParamsPlus\regen_health.sqf";
-		_unit execVM "ParamsPlus\UnlimitedAmmo.sqf";
-		_unit execVM "ParamsPlus\markers.sqf";
-		_unit execVM "ParamsPlus\playerSettings.sqf";
+		for "_i" from 0 to count _reUnits_r -1 do {
+			_type = _reUnits_r select _i;
+			_rank = _unitrank select _i;
+			_displayname = gettext (configfile >> "CfgVehicles" >> _type >> "displayName");
+			_unit = (group _caller) createUnit [_type, _position, [], 0, "FORM"];
+			_unit allowDamage false;
+			
+//			[_unit, (group _caller)] remoteExec ["joinSilent", groupOwner (group _caller)];
+			[_unit, _rank] remoteExec ["setRank", groupOwner (group _caller)];
+			[_unit, _displayname] remoteExec ["setVehicleVarName", groupOwner (group _caller)];
+			
+			_unit execVM "ParamsPlus\loadouts_r_diver.sqf";
+			_unit execVM "ParamsPlus\loadouts_r.sqf";	
+			_unit execVM "ParamsPlus\nightvision.sqf";
+			_unit execVM "ParamsPlus\silencers.sqf";
+			_unit execVM "ParamsPlus\regen_health.sqf";
+			_unit execVM "ParamsPlus\UnlimitedAmmo.sqf";
+			_unit execVM "ParamsPlus\markers.sqf";
+			_unit execVM "ParamsPlus\playerSettings.sqf";
 
-		_unit allowDamage true;
-	};
-	_box = createVehicle ["B_supplyCrate_F", _position, [], 0, "FLY"];
-	_box setPos _position;
-//	_chute = createVehicle ["B_Parachute_02_F", (getPos _box), [], 0, "FLY"];
-//	_box attachto [_chute, [0, 0, 0]];
-	[objnull, _box] call BIS_fnc_curatorobjectedited;
-	waitUntil {((getPos _box) select 2) < 1};
-	detach _box;
-	"SmokeShellgreen" createVehicle getPos _box;
-	"F_40mm_White" createVehicle [getPos _box select 0,getPos _box select 1,+150];
+			_unit allowDamage true;
+		};
 	};
 };
 

@@ -1,10 +1,11 @@
 ///////  [_unit] execVM "paramsplus\loadouts_e_diver.sqf";  ///////
+//_recruitableunits = ["O_diver_TL_F","O_diver_exp_F","O_diver_F","O_soldier_exp_F","O_medic_F","O_engineer_F","O_Story_CEO_F"];
+private ["_unit","_classname","_displayname","_PDiverEquip"];
 _PDiverEquip = "PDiverEquip" call BIS_fnc_getParamValue;
-if (_PDiverEquip isEqualTo 3) exitWith {};
+if (_PDiverEquip isEqualTo 1) exitWith {};
+
 _unit = _this;
 _typeUnit = typeOf _unit;
-
-//_recruitableunits = ["O_diver_TL_F","O_diver_exp_F","O_diver_F","O_soldier_exp_F","O_medic_F","O_engineer_F","O_Story_CEO_F"];
 
 switch (_typeUnit) do {
 

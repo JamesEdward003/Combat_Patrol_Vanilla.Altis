@@ -8,16 +8,17 @@ private _future = time + 1;
 waitUntil { time >= _future };
 
 //[1,1,1,1,0,20,0,1,-1,1,0,0,0,4,1,1,1,1,2,2,2,2,2,3,1,1,2,1,1,1,2,1,1,4,4,4,2]
-_puavhacker	= paramsArray select 27;
-_pengineer	= paramsArray select 28;
-_pexplspec	= paramsArray select 29;
-_pmedic		= paramsArray select 30;
-_precoil 	= paramsArray select 31;
-_psway   	= paramsArray select 32;
-_pload		= paramsArray select 33;
-_paudible	= paramsArray select 34;
-_pcamo		= paramsArray select 35;
-_psettings	= paramsarray select 36;
+//[1,1,1,1,0,20,0,1,-1,1,0,0,0,3,3,1,1,1,1,2,2,2,2,2,3,1,1,2,1,1,1,2,1,1,4,4,4,2], 38
+_puavhacker	= paramsArray select 28;
+_pengineer	= paramsArray select 29;
+_pexplspec	= paramsArray select 30;
+_pmedic		= paramsArray select 31;
+_precoil 	= paramsArray select 32;
+_psway   	= paramsArray select 33;
+_pload		= paramsArray select 34;
+_paudible	= paramsArray select 35;
+_pcamo		= paramsArray select 36;
+_psettings	= paramsarray select 37;
 
 _PSkill = _player execVM "ParamsPlus\GF_AiSkill.sqf";
 

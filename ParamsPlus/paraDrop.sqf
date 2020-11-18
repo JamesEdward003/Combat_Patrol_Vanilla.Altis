@@ -1,10 +1,10 @@
-////////////////  "misc\paraDrop.sqf"  //////////////////
+////////////////  "misc\paraTeamDrop.sqf"  //////////////////
 private ["_caller","_position","_target","_is3D","_id"];
 params ["_caller","_position","_target","_is3D","_id"];
 _caller = _this select 0;
 _position = _this select 1;
 
-switch (side player) do {
+switch (side _caller) do {
 	
 	case west: {
 			
@@ -21,11 +21,12 @@ switch (side player) do {
 		_type = _reUnits_w select _i;
 		_rank = _unitrank select _i;
 		_displayname = gettext (configfile >> "CfgVehicles" >> _type >> "displayName");
-		_unit = (group player) createUnit [_type, _position, [], 0, "FORM"];
+		_unit = (group _caller) createUnit [_type, _position, [], 0, "FORM"];
 		_unit allowDamage false;
-		[_unit, (group player)] remoteExec ["joinSilent", groupOwner (group player)];
-		[_unit, _rank] remoteExec ["setRank", groupOwner (group player)];
-		[_unit, _displayname] remoteExec ["setVehicleVarName", groupOwner (group player)];
+		
+//		[_unit, (group _caller)] remoteExec ["joinSilent", groupOwner (group _caller)];
+		[_unit, _rank] remoteExec ["setRank", groupOwner (group _caller)];
+		[_unit, _displayname] remoteExec ["setVehicleVarName", groupOwner (group _caller)];
 		_chute = createVehicle ["NonSteerable_Parachute_F", (getPos _unit), [], 0, "FLY"];
 		_chute setPos (getPos _unit);
 		_unit moveinDriver _chute;
@@ -68,11 +69,12 @@ switch (side player) do {
 		_type = _reUnits_e select _i;
 		_rank = _unitrank select _i;
 		_displayname = gettext (configfile >> "CfgVehicles" >> _type >> "displayName");
-		_unit = (group player) createUnit [_type, _position, [], 0, "FORM"];
+		_unit = (group _caller) createUnit [_type, _position, [], 0, "FORM"];
 		_unit allowDamage false;
-		[_unit, (group player)] remoteExec ["joinSilent", groupOwner (group player)];
-		[_unit, _rank] remoteExec ["setRank", groupOwner (group player)];
-		[_unit, _displayname] remoteExec ["setVehicleVarName", groupOwner (group player)];
+		
+//		[_unit, (group _caller)] remoteExec ["joinSilent", groupOwner (group _caller)];
+		[_unit, _rank] remoteExec ["setRank", groupOwner (group _caller)];
+		[_unit, _displayname] remoteExec ["setVehicleVarName", groupOwner (group _caller)];
 		_chute = createVehicle ["NonSteerable_Parachute_F", (getPos _unit), [], 0, "FLY"];
 		_chute setPos (getPos _unit);
 		_unit moveinDriver _chute;
@@ -115,11 +117,12 @@ switch (side player) do {
 		_type = _reUnits_r select _i;
 		_rank = _unitrank select _i;
 		_displayname = gettext (configfile >> "CfgVehicles" >> _type >> "displayName");
-		_unit = (group player) createUnit [_type, _position, [], 0, "FORM"];
+		_unit = (group _caller) createUnit [_type, _position, [], 0, "FORM"];
 		_unit allowDamage false;
-		[_unit, (group player)] remoteExec ["joinSilent", groupOwner (group player)];
-		[_unit, _rank] remoteExec ["setRank", groupOwner (group player)];
-		[_unit, _displayname] remoteExec ["setVehicleVarName", groupOwner (group player)];
+		
+//		[_unit, (group _caller)] remoteExec ["joinSilent", groupOwner (group _caller)];
+		[_unit, _rank] remoteExec ["setRank", groupOwner (group _caller)];
+		[_unit, _displayname] remoteExec ["setVehicleVarName", groupOwner (group _caller)];
 		_chute = createVehicle ["NonSteerable_Parachute_F", (getPos _unit), [], 0, "FLY"];
 		_chute setPos (getPos _unit);
 		_unit moveinDriver _chute;

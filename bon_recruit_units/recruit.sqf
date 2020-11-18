@@ -42,7 +42,7 @@ sleep 8.5;
 _unit = group player createUnit [_unittype, [(getPos bon_recruit_barracks select 0) + 10 - random 10,(getPos bon_recruit_barracks select 1) + 10 - random 20,0], [], 0, "FORM"];
 _unit setRank "SERGEANT";
 _unit setVariable ["codeName",_typename];
-[_unit] execVM (BON_RECRUIT_PATH+"init_newunit.sqf");
+_unit execVM (BON_RECRUIT_PATH+"init_newunit.sqf");
 /*******************************************************/
 
 hint parseText format["%1 <t size='1.0' font='PuristaMedium' color='#008aff'> code name %2 </t> has arrived.",name _unit,_typename];

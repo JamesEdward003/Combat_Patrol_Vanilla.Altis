@@ -149,6 +149,15 @@ class Params
        	file = "ParamsPlus\OpSkill.sqf";
         isGlobal = 0;
 	};
+    class PSymbols       
+	{
+        title = "Military Symbols";
+        values[] = {1, 2, 3, 4};
+        texts[] = {"Disabled","Map Only","3d Only","Both"};
+        default = 2;
+        file = "ParamsPlus\Military_Symbol_Module.sqf";
+        isGlobal = 0;
+    };
     class PIntro      
 	{ 
         title = "Intro";

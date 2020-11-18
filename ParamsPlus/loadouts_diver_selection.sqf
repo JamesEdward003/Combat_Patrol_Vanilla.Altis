@@ -40,22 +40,16 @@ switch (_this select 0) do
 				switch true do 
 					{
 						case (side _unit isEqualTo WEST) :  {
-						
-							_unit addEventHandler ["Respawn",{_this execVM "paramsplus\loadouts.sqf"}];
-							
+													
 							_unit execVM "paramsplus\loadouts.sqf";	
 						};
 						case (side _unit isEqualTo EAST) :  {
-
-							_unit addEventHandler ["Respawn",{_this execVM "paramsplus\loadouts_e.sqf"}];
 													
 							_unit execVM "paramsplus\loadouts_e.sqf";
 						};
 						case (side _unit isEqualTo RESISTANCE) :  {
-						
-							_unit addEventHandler ["Respawn",{_this execVM "paramsplus\loadouts_g.sqf"}];
-													
-							_unit execVM "paramsplus\loadouts_g.sqf";
+																			
+							_unit execVM "paramsplus\loadouts_r.sqf";
 						};
 						case (side _unit isEqualTo CIVILIAN) :  {
 						
@@ -72,22 +66,16 @@ switch (_this select 0) do
 				switch true do 
 					{
 						case (side _unit isEqualTo WEST) :  {
-						
-							_unit addEventHandler ["Respawn",{_this execVM "paramsplus\loadouts_diver.sqf"}];
-							
+													
 							_unit execVM "paramsplus\loadouts_diver.sqf";	
 						};
 						case (side _unit isEqualTo EAST) :  {
-						
-							_unit addEventHandler ["Respawn",{_this execVM "paramsplus\loadouts_e_diver.sqf"}];
-							
+													
 							_unit execVM "paramsplus\loadouts_e_diver.sqf";	
 						};
 						case (side _unit isEqualTo RESISTANCE) :  {
-						
-							_unit addEventHandler ["Respawn",{_this execVM "paramsplus\loadouts_g_diver.sqf"}];
-							
-							_unit execVM "paramsplus\loadouts_g_diver.sqf";
+													
+							_unit execVM "paramsplus\loadouts_r_diver.sqf";
 						};
 						case (side _unit isEqualTo CIVILIAN) :  {
 						

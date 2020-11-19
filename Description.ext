@@ -26,7 +26,7 @@ allowSubordinatesTakeWeapons = 1;
 enableTeamSwitch = 1;
 setGroupIconsSelectable = 1;
 
-respawnTemplates[] = {"MenuPosition", "Tickets"};
+respawnTemplates[] = { "MenuInventory", "MenuPosition", "Tickets" };
 
 class Header
 {
@@ -462,59 +462,166 @@ class CfgCommunicationMenu
 //		[player,"ZorilyasUnits"] call BIS_fnc_addCommMenuItem;
 	};
 };
-class Weapons
+class CfgRoles
 {
-	class arifle_MX_GL_F { count = 2; };
-	class arifle_MX_SW_F { count = 2; };
-	class arifle_MXC_F { count = 2; };
-	class arifle_TRG21_GL_F { count = 2; }; //arifle_TRG21_GL_F /30Rnd_556x45_Stanag /1Rnd_HE_Grenade_shell /optic_MRCO
-	
-	class srifle_DMR_01_F { count = 2; }; //srifle_DMR_01_F /10Rnd_762x54_Mag /optic_LRPS
-	class srifle_EBR_F { count = 2; }; //srifle_EBR_F /20Rnd_762x51_Mag /optic_Nightstalker 
-	class srifle_LRR_F { count = 2; }; //srifle_LRR_F /7Rnd_408_Mag /optic_SOS
-	class srifle_GM6_F { count = 2; }; //srifle_GM6_F /5Rnd_127x108_Mag /optic_NVS
-	
-	class LMG_Zafir_F { count = 2; }; //LMG_Zafir_F /150Rnd_762x54_Box /optic_tws_mg
-	
-	class optic_MRCO { count = 2; };
-	class optic_LRPS { count = 2; };
-	class optic_Nightstalker { count = 2; };
-//	class optic_DMS { count = 2; };
-//	class optic_SOS { count = 2; };
-//	class optic_NVS { count = 2; };
-//	class optic_tws { count = 2; };
-//	class optic_tws_mg { count = 2; };
+	class Assault // Class name used in CfgRespawnInventory
+	{
+		displayName = $STR_A3_Role_Assault; // Name of the role, displayed in the respawn menu
+		icon = "a3\missions_f_exp\data\img\classes\assault_ca.paa"; // Icon shown next to the role name in the respawn screen
+	};
+};
 
-	class launch_NLAW_F { count = 2; };
-	class launch_RPG32_F { count = 2; };
-	class launch_I_Titan_short_F { count = 2; };
-};
-class Magazines
+class CfgRespawnInventory
 {
-	class 5Rnd_127x108_Mag { count = 10; };
-	class 7Rnd_408_Mag { count = 10; };
-	
-	class 20Rnd_762x51_Mag { count = 10; };
-	class 10Rnd_762x54_Mag { count = 10; };
-	
-	class 30Rnd_65x39_caseless_green { count = 10; };
-	class 30Rnd_65x39_caseless_green_mag_Tracer { count = 10; };
-	class 30Rnd_65x39_caseless_mag { count = 10; };
-	class 30Rnd_65x39_caseless_mag_Tracer { count = 10; };
-	
-	class 20Rnd_556x45_UW_mag { count = 10; };
-	class 30Rnd_556x45_Stanag { count = 10; };	
-	
-	class 150Rnd_762x54_Box { count = 10; };
-	
-	class 1Rnd_HE_Grenade_shell { count = 10; };
-	
-//	class M_NLAW_AT_F { count = 5; };
-//	class R_TBG32V_F { count = 5; };
-//	class R_PG32V_F { count = 5; };
-//	class M_Titan_AP { count = 5; };
-//	class M_Titan_AT { count = 5; };
+	class SQUADLEADER
+	{
+		displayName = "SQUADLEADER";
+		icon = "\A3\Ui_f\data\GUI\Cfg\Ranks\sergeant_gs.paa";
+		role = "Default";
+		show = "true";
+		uniformClass = "U_B_CombatUniform_mcam";
+		backpack = "B_TacticalPack_mcamo";
+		weapons[] = {"arifle_MX_GL_F","hgun_Pistol_heavy_01_F","Laserdesignator","Throw","Put"};
+		magazines[] = {"11Rnd_45ACP_Mag","11Rnd_45ACP_Mag","11Rnd_45ACP_Mag","Chemlight_green","Chemlight_green","Chemlight_green","Chemlight_red","Chemlight_red","30Rnd_65x39_caseless_mag","30Rnd_65x39_caseless_mag","30Rnd_65x39_caseless_mag","30Rnd_65x39_caseless_mag","30Rnd_65x39_caseless_mag","30Rnd_65x39_caseless_mag","HandGrenade","HandGrenade","1Rnd_SmokeGreen_Grenade_shell","1Rnd_SmokeGreen_Grenade_shell","1Rnd_SmokeGreen_Grenade_shell","1Rnd_SmokeGreen_Grenade_shell","1Rnd_SmokeGreen_Grenade_shell","1Rnd_SmokeGreen_Grenade_shell","UGL_FlareGreen_F","UGL_FlareGreen_F","UGL_FlareRed_F","UGL_FlareRed_F","3Rnd_HE_Grenade_shell","3Rnd_HE_Grenade_shell","3Rnd_HE_Grenade_shell","3Rnd_HE_Grenade_shell","3Rnd_HE_Grenade_shell","3Rnd_HE_Grenade_shell","3Rnd_HE_Grenade_shell","SmokeShell","SmokeShell","SmokeShell","SmokeShell"};
+		items[] = {"FirstAidKit","B_UavTerminal","MineDetector","ToolKit"};
+		linkedItems[] = {"V_PlateCarrierSpec_mtp","H_Cap_usblack","G_Goggles_VR","ItemMap","ItemCompass","ItemWatch","ItemRadio","B_UavTerminal","","acc_pointer_IR","optic_Nightstalker","","","","",""};
+	};
+	class AUTORIFLEMAN
+	{
+		displayName = "AUTORIFLEMAN";
+		icon = "\A3\Ui_f\data\GUI\Cfg\Ranks\sergeant_gs.paa";
+		role = "Default";
+		show = "true";
+		uniformClass = "U_B_CombatUniform_mcam";
+		backpack = "B_Carryall_oli";
+		weapons[] = {"arifle_Katiba_GL_F","launch_NLAW_F","hgun_Pistol_heavy_01_F","Laserdesignator","Throw","Put"};
+		magazines[] = {"11Rnd_45ACP_Mag","11Rnd_45ACP_Mag","Chemlight_green","Chemlight_green","Chemlight_green","Chemlight_red","Chemlight_red","Chemlight_red","1Rnd_HE_Grenade_shell","30Rnd_65x39_caseless_mag_Tracer","30Rnd_65x39_caseless_mag_Tracer","30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green","NLAW_F","1Rnd_HE_Grenade_shell","1Rnd_HE_Grenade_shell","1Rnd_HE_Grenade_shell","1Rnd_HE_Grenade_shell","1Rnd_HE_Grenade_shell","1Rnd_HE_Grenade_shell","1Rnd_HE_Grenade_shell"};
+		items[] = {"FirstAidKit","B_UavTerminal","MineDetector"};
+		linkedItems[] = {"V_PlateCarrierSpec_mtp","H_Cap_usblack","G_Goggles_VR","ItemMap","ItemCompass","ItemWatch","ItemRadio","B_UavTerminal","","acc_pointer_IR","optic_Nightstalker","","","","",""};
+	};
+	class MARKSMAN
+	{
+		displayName = "MARKSMAN";
+		icon = "\A3\Ui_f\data\GUI\Cfg\Ranks\sergeant_gs.paa";
+		role = "Default";
+		show = "true";
+		uniformClass = "U_B_CombatUniform_mcam";
+		backpack = "B_TacticalPack_mcamo";
+		weapons[] = {"srifle_EBR_F","hgun_Pistol_heavy_01_F","Rangefinder","Throw","Put"};
+		magazines[] = {"11Rnd_45ACP_Mag","11Rnd_45ACP_Mag","11Rnd_45ACP_Mag","Chemlight_green","Chemlight_green","Chemlight_green","Chemlight_red","Chemlight_red","20Rnd_762x51_Mag","20Rnd_762x51_Mag","20Rnd_762x51_Mag","20Rnd_762x51_Mag","20Rnd_762x51_Mag","HandGrenade","HandGrenade","SmokeShell","SmokeShell","SmokeShell","SmokeShell","SmokeShell","SmokeShell","SmokeShell","SmokeShell","SmokeShell","SmokeShell"};
+		items[] = {"FirstAidKit","B_UavTerminal","MineDetector","ToolKit","Medikit","FirstAidKit","FirstAidKit"};
+		linkedItems[] = {"V_PlateCarrierSpec_mtp","H_Cap_usblack","G_Goggles_VR","ItemMap","ItemCompass","ItemWatch","ItemRadio","B_UavTerminal","","acc_pointer_IR","optic_Nightstalker","","","","",""};
+	};
+	class JTAC
+	{
+		displayName = "JTAC";
+		icon = "\A3\Ui_f\data\GUI\Cfg\Ranks\sergeant_gs.paa";
+		role = "Default";
+		show = "true";
+		uniformClass = "U_B_CombatUniform_mcam";
+		backpack = "";
+		weapons[] = {"arifle_MXM_Hamr_LP_BI_F","hgun_P07_F","Laserdesignator","Throw","Put"};
+		magazines[] = {"30Rnd_65x39_caseless_mag","30Rnd_65x39_caseless_mag","30Rnd_65x39_caseless_mag","Chemlight_green","30Rnd_65x39_caseless_mag","30Rnd_65x39_caseless_mag","30Rnd_65x39_caseless_mag","30Rnd_65x39_caseless_mag","30Rnd_65x39_caseless_mag","30Rnd_65x39_caseless_mag","30Rnd_65x39_caseless_mag","16Rnd_9x21_Mag","16Rnd_9x21_Mag","HandGrenade","HandGrenade","SmokeShell","SmokeShellGreen","Chemlight_green","Laserbatteries","Chemlight_green"};
+		items[] = {"FirstAidKit","MineDetector"};
+		linkedItems[] = {"V_PlateCarrier1_rgr","H_Cap_usblack","G_Goggles_VR","ItemMap","ItemCompass","ItemWatch","ItemRadio","ItemGPS","","acc_pointer_IR","optic_Nightstalker","bipod_01_F_snd","","","",""};
+	};
+	class GRENADIER
+	{
+		displayName = "GRENADIER";
+		icon = "\A3\Ui_f\data\GUI\Cfg\Ranks\sergeant_gs.paa";
+		role = "Default";
+		show = "true";
+		uniformClass = "U_B_CombatUniform_mcam";
+		backpack = "B_TacticalPack_mcamo";
+		weapons[] = {"arifle_MX_GL_F","hgun_Pistol_heavy_01_F","Laserdesignator","Throw","Put"};
+		magazines[] = {"11Rnd_45ACP_Mag","11Rnd_45ACP_Mag","11Rnd_45ACP_Mag","Chemlight_green","Chemlight_green","Chemlight_green","Chemlight_red","Chemlight_red","30Rnd_65x39_caseless_mag","30Rnd_65x39_caseless_mag","30Rnd_65x39_caseless_mag","30Rnd_65x39_caseless_mag","30Rnd_65x39_caseless_mag","30Rnd_65x39_caseless_mag","HandGrenade","HandGrenade","1Rnd_SmokeGreen_Grenade_shell","1Rnd_SmokeGreen_Grenade_shell","1Rnd_SmokeGreen_Grenade_shell","1Rnd_SmokeGreen_Grenade_shell","1Rnd_SmokeGreen_Grenade_shell","UGL_FlareGreen_F","UGL_FlareGreen_F","UGL_FlareRed_F","UGL_FlareRed_F","3Rnd_HE_Grenade_shell","3Rnd_HE_Grenade_shell","3Rnd_HE_Grenade_shell","3Rnd_HE_Grenade_shell","3Rnd_HE_Grenade_shell","3Rnd_HE_Grenade_shell","3Rnd_HE_Grenade_shell","SmokeShell","SmokeShell","SmokeShell","SmokeShell","1Rnd_SmokeGreen_Grenade_shell"};
+		items[] = {"FirstAidKit","B_UavTerminal","MineDetector","ToolKit"};
+		linkedItems[] = {"V_PlateCarrierSpec_mtp","H_Cap_usblack","G_Goggles_VR","ItemMap","ItemCompass","ItemWatch","ItemRadio","B_UavTerminal","","acc_pointer_IR","optic_Nightstalker","","","","",""};
+	};
+	class MEDIC
+	{
+		displayName = "MEDIC";
+		icon = "\A3\Ui_f\data\GUI\Cfg\Ranks\sergeant_gs.paa";
+		role = "Default";
+		show = "true";
+		uniformClass = "U_B_CombatUniform_mcam";
+		backpack = "";
+		weapons[] = {"arifle_MXM_Hamr_LP_BI_F","hgun_P07_F","Laserdesignator","Throw","Put"};
+		magazines[] = {"30Rnd_65x39_caseless_mag","30Rnd_65x39_caseless_mag","30Rnd_65x39_caseless_mag","Chemlight_green","30Rnd_65x39_caseless_mag","30Rnd_65x39_caseless_mag","30Rnd_65x39_caseless_mag","30Rnd_65x39_caseless_mag","30Rnd_65x39_caseless_mag","30Rnd_65x39_caseless_mag","30Rnd_65x39_caseless_mag","16Rnd_9x21_Mag","16Rnd_9x21_Mag","HandGrenade","HandGrenade","SmokeShell","SmokeShellGreen","Chemlight_green","Laserbatteries","Chemlight_green"};
+		items[] = {"FirstAidKit","MineDetector"};
+		linkedItems[] = {"V_PlateCarrier1_rgr","H_Cap_usblack","G_Goggles_VR","ItemMap","ItemCompass","ItemWatch","ItemRadio","ItemGPS","","acc_pointer_IR","optic_Nightstalker","bipod_01_F_snd","","","",""};
+	};
+	class MEDIC_ENGINEER
+	{
+		displayName = "MEDIC_ENGINEER";
+		icon = "\A3\Ui_f\data\GUI\Cfg\Ranks\sergeant_gs.paa";
+		role = "Default";
+		show = "true";
+		uniformClass = "U_B_CombatUniform_mcam";
+		backpack = "B_TacticalPack_mcamo";
+		weapons[] = {"srifle_EBR_F","hgun_Pistol_heavy_01_F","Rangefinder","Throw","Put"};
+		magazines[] = {"11Rnd_45ACP_Mag","11Rnd_45ACP_Mag","11Rnd_45ACP_Mag","Chemlight_green","Chemlight_green","Chemlight_green","Chemlight_red","Chemlight_red","20Rnd_762x51_Mag","20Rnd_762x51_Mag","20Rnd_762x51_Mag","20Rnd_762x51_Mag","20Rnd_762x51_Mag","HandGrenade","HandGrenade","SmokeShell","SmokeShell","SmokeShell","SmokeShell","SmokeShell","SmokeShell","SmokeShell","SmokeShell","SmokeShell","SmokeShell","Chemlight_green","Chemlight_red"};
+		items[] = {"FirstAidKit","B_UavTerminal","MineDetector","ToolKit","Medikit","FirstAidKit","FirstAidKit"};
+		linkedItems[] = {"V_PlateCarrierSpec_mtp","H_Cap_usblack","G_Goggles_VR","ItemMap","ItemCompass","ItemWatch","ItemRadio","B_UavTerminal","","acc_pointer_IR","optic_Nightstalker","","","","",""};
+	};
 };
+
+/*
+class CfgRespawnInventory
+{
+	class B_SquadLeader // Class of the respawn inventory, used by BIS_fnc_addRespawnInventory
+	{
+		displayName = $STR_b_soldier_sl_f0; // Name of the respawn inventory
+		role = "Assault"; // Role the respawn inventory is assigned to
+		icon = "\A3\ui_f\data\map\VehicleIcons\iconManLeader_ca.paa"; // Icon shown next to the role
+		show = "side group _this == west"; // Condition used to make specific respawn inventories only avaiable for specfic sides, must return [[Boolean]]
+		weapons[] = { // Weapons
+			"arifle_SPAR_01_khk_F",
+			"Rangefinder",
+			"hgun_P07_khk_F"
+		};
+		magazines[] = { // Magazines
+			"SmokeShell",
+			"SmokeShell",
+			"16Rnd_9x21_Mag",
+			"16Rnd_9x21_Mag",
+			"16Rnd_9x21_Mag",
+			"30Rnd_556x45_Stanag_Tracer_Red",
+			"30Rnd_556x45_Stanag_Tracer_Red",
+			"30Rnd_556x45_Stanag_Tracer_Red",
+			"30Rnd_556x45_Stanag_Tracer_Red",
+			"30Rnd_556x45_Stanag_Tracer_Red",
+			"30Rnd_556x45_Stanag_Tracer_Red",
+			"30Rnd_556x45_Stanag_Tracer_Red",
+			"30Rnd_556x45_Stanag_Tracer_Red",
+			"HandGrenade",
+			"HandGrenade"
+		};
+		items[] = { // Useable items
+			"FirstAidKit"
+		};
+		linkedItems[] = { // Linked items, also weapon items, helmet etc.
+			"V_PlateCarrierSpec_tna_F",
+			"H_HelmetB_Enh_tna_F",
+			"optic_ERCO_blk_F",
+			"acc_pointer_IR",
+			"NVGoggles_tna_F",
+			"ItemGPS",
+			"ItemMap",
+			"ItemCompass",
+			"ItemWatch",
+			"ItemRadio"
+		};
+		uniformClass = "U_B_T_Soldier_SL_F"; // uniform
+	};
+	class B_AutoRifleman
+	{
+		// Alternative configuration pointing to a CfgVehicles class. Loadout will be copied from it.
+		vehicle = "B_soldier_AR_F";
+	};
+};
+*/
+/*
 class CfgRespawnInventory
 {
 	class Blufor1
@@ -555,6 +662,8 @@ class CfgRespawnInventory
 		vehicle = "B_soldier_AR_F";
 	};
 };
+*/
+
 class CfgTaskEnhancements
 {
 	enable       = 1;	//0: disable new task features (default), 1: enable new task features & add new task markers and task widgets into the map

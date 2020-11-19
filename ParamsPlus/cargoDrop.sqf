@@ -110,11 +110,3 @@ waitUntil {((getPos _cargo) select 2) < 1};
 
 "Cargo" setMarkerPos getPos _cargo;
 
-
-
-
-
-
-
-
-

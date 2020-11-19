@@ -9,7 +9,7 @@ _marker = _chosenBuilding select 1;
 _PLoadOut = "PLoadOut" call BIS_fnc_getParamValue;
 if (_PLoadOut isEqualTo 1) then 
 	{ 
-		_unit setUnitLoadout {_unit getVariable "StoredUnitLoadOut"};
+		_newUnit setUnitLoadout {_newUnit getVariable "StoredUnitLoadOut"};
 	};
 	
 _newUnit setPos getMarkerPos _marker;

@@ -106,6 +106,8 @@ if (getMarkerPos "target" inRangeOfArtillery [[_virtualProvider], currentMagazin
 
 //	_ammo = ["32Rnd_155mm_Mo_shells","8Rnd_82mm_Mo_shells"];
 	
+	_virtualProvider call KS_fnc_vehicleRespawnNotification;
+	
 	for "_i" from 1 to 6 do {
 		_virtualProvider doArtilleryFire [getmarkerpos "target", "8Rnd_82mm_Mo_shells", 1];
 //		_virtualProvider commandArtilleryFire [getmarkerpos "target", "8Rnd_82mm_Mo_shells", 1];

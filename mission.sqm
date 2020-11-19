@@ -8,7 +8,7 @@ class EditorData
 	toggles=513;
 	class ItemIDProvider
 	{
-		nextID=108;
+		nextID=117;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={8935.3633,170.58182,7450.8301};
-		dir[]={-0.0029074892,-0.9859103,0.16725612};
-		up[]={-0.017134083,0.16727442,0.98576379};
-		aside[]={0.99985236,1.8154969e-007,0.017378002};
+		pos[]={8959.083,182.8987,7388.0493};
+		dir[]={0,-0.70710683,0.70710671};
+		up[]={0,0.70710665,0.70710677};
+		aside[]={0.99999994,0,0};
 	};
 };
 binarizationWanted=0;
@@ -1604,8 +1604,8 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={8913.0254,42.898247,7404.7192};
-				angles[]={5.7716827,0,5.9917288};
+				position[]={8913.2949,57.499672,7439.9541};
+				angles[]={5.8238144,0,6.0313168};
 			};
 			id=77;
 			type="SupportRequester";
@@ -1752,8 +1752,8 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={8976.3916,69.961792,7471.6455};
-				angles[]={6.1993828,0,6.2259154};
+				position[]={8976.3916,69.96183,7471.646};
+				angles[]={6.1993747,0,6.2259207};
 			};
 			id=103;
 			type="SupportProvider_Virtual_CAS_Bombing";
@@ -1793,7 +1793,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="";
+							value="_this call KS_fnc_vehicleRespawnNotification;";
 						};
 					};
 				};
@@ -1843,11 +1843,12 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={8970.4365,67.491013,7461.2651};
-				angles[]={6.041347,0,6.2272449};
+				position[]={8970.165,67.781776,7462.3809};
+				angles[]={6.035069,0,6.2338972};
 			};
 			id=104;
 			type="SupportProvider_Virtual_CAS_Heli";
+			atlOffset=-7.6293945e-006;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -1884,7 +1885,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="";
+							value="_this call KS_fnc_vehicleRespawnNotification;";
 						};
 					};
 				};
@@ -1934,8 +1935,8 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={8963.7168,63.48418,7450.5166};
-				angles[]={5.8520465,0,0.06258551};
+				position[]={8963.6113,64.748955,7453.2808};
+				angles[]={5.8520541,0,0.062587507};
 			};
 			id=105;
 			type="SupportProvider_Virtual_Transport";
@@ -1994,7 +1995,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="";
+							value="_this call KS_fnc_vehicleRespawnNotification;";
 						};
 					};
 				};
@@ -2025,8 +2026,8 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={8955.8408,60.586033,7439.0815};
-				angles[]={5.9447298,0,0.046634447};
+				position[]={8957.0576,61.793671,7444.3599};
+				angles[]={6.0986342,0,0.053284902};
 			};
 			id=106;
 			type="SupportProvider_Virtual_Drop";
@@ -2066,7 +2067,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="";
+							value="_this call KS_fnc_vehicleRespawnNotification;";
 						};
 					};
 				};
@@ -2123,7 +2124,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="";
+							value="_this spawn { waitUntil {getPosATL _this select 2 < 3};  [""AmmoboxInit"", [_this, true, {true}]] spawn BIS_fnc_arsenal; [_this] execVM ""paramsplus\vehicleMarker.sqf""; };";
 						};
 					};
 				};
@@ -2136,8 +2137,9 @@ class Mission
 			class PositionInfo
 			{
 				position[]={8982.3359,70.476204,7480.8618};
-				angles[]={6.259192,0,6.2698579};
+				angles[]={6.2591867,0,6.2698507};
 			};
+			name="arty_one";
 			id=107;
 			type="SupportProvider_Virtual_Artillery";
 			class CustomAttributes
@@ -2176,7 +2178,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="";
+							value="_this call KS_fnc_vehicleRespawnNotification;";
 						};
 					};
 				};

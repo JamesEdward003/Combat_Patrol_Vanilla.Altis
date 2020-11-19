@@ -9,6 +9,7 @@ waitUntil { time >= _future };
 
 //[1,1,1,1,0,20,0,1,-1,1,0,0,0,4,1,1,1,1,2,2,2,2,2,3,1,1,2,1,1,1,2,1,1,4,4,4,2]
 //[1,1,1,1,0,20,0,1,-1,1,0,0,0,3,3,1,1,1,1,2,2,2,2,2,3,1,1,2,1,1,1,2,1,1,4,4,4,2], 38
+//[1,1,1,1,0,20,0,1,-1,1,0,0,0,3,3,2,1,1,1,2,2,2,2,2,3,1,1,2,1,1,1,2,1,1,4,4,4,2], 38
 _puavhacker	= paramsArray select 28;
 _pengineer	= paramsArray select 29;
 _pexplspec	= paramsArray select 30;
@@ -107,4 +108,5 @@ if (isPlayer _player) then {
 [playerSide, "HQ"] commandChat format ["%1, Player Settings Installed!",name _player];
 
 };
+
 

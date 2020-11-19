@@ -79,9 +79,9 @@ _markertype = switch (side player) do
 }; 	
 	
 if (isMultiPlayer) then
-{	
+	{	
 		_vehicle addEventHandler ["Respawn",{_this execVM "paramsplus\vehicleMarker.sqf"}];
-};
+	};
 
 While {alive _vehicle} do {
 	_marker = createMarkerLocal [_mrkrName, position _vehicle];

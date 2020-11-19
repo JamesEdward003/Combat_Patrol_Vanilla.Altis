@@ -1,4 +1,4 @@
-_unit = _this select 0;
+_unit = _this;
 
 /*****************************************************************
 	following section to run only on server.

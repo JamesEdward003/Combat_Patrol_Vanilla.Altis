@@ -1,5 +1,5 @@
+//  "init_newunit.sqf"  //
 _unit = _this;
-
 /*****************************************************************
 	following section to run only on server.
 	Note: duplicate respective code in the pve in the init.sqf
@@ -10,7 +10,6 @@ if(isServer) then{
 	bon_recruit_newunit = _unit;
 	publicVariable "bon_recruit_newunit";
 };
-
 /*****************************************************************
 	Client Stuff
 ******************************************************************/

@@ -2,7 +2,7 @@
 //_loadOutArray = [Pettka_Special,NorthGate_TeamLeader,Kerry_Special,Explosives_Specialist,McKay_Special,Combat_Life_Saver];
 //_recruitableunits = ["B_Captain_Pettka_F","B_CTRG_soldier_GL_LAT_F","B_Story_Protagonist_F","B_CTRG_soldier_engineer_exp_F","B_CTRG_soldier_AR_A_F","B_CTRG_soldier_M_medic_F","B_Captain_Jay_F"];
 // B_Captain_Pettka_F-03-Pettka // B_CTRG_soldier_GL_LAT_F-09-Northgate // B_Story_Protagonist_F-04-Kerry // B_CTRG_soldier_AR_A_F-06-McKay // B_CTRG_soldier_M_medic_F-04-Combat_Life_Saver // B_CTRG_soldier_engineer_exp_F-06-Explosives_Specialist // B_Captain_Jay_F-06-Explosives_Specialist //
-private ["_unit","_classname","_displayname","_PDiverEquip"];
+private ["_unit","_typeUnit","_classname","_displayname","_PDiverEquip"];
 _PDiverEquip = "PDiverEquip" call BIS_fnc_getParamValue;
 if (_PDiverEquip isEqualTo 1) exitWith {};
 

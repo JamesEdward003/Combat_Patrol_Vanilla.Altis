@@ -51,7 +51,7 @@ switch (side _caller) do {
 			_hLand = createMarkerLocal ["target", mappos];
 			_hLand setMarkerTypeLocal "mil_objective";
 			_hLand setMarkerShapeLocal "Icon";
-			_hLand setMarkerTextLocal "target";
+			_hLand setMarkerTextLocal " target";
 			_hLand setMarkerSizeLocal [1,1];
 			_hLand setMarkerColorLocal _mrkrcolor;
 			
@@ -71,7 +71,7 @@ switch (side _caller) do {
 			_hLand = createMarkerLocal ["target", _position];
 			_hLand setMarkerTypeLocal "mil_objective";
 			_hLand setMarkerShapeLocal "Icon";
-			_hLand setMarkerTextLocal "target";
+			_hLand setMarkerTextLocal " target";
 			_hLand setMarkerSizeLocal [1,1];
 			_hLand setMarkerColorLocal _mrkrcolor;
 			

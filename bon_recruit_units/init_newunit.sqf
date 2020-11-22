@@ -77,3 +77,18 @@ switch (side _unit) do {
 
 _unit addAction ["<t color='#00FFFF'>Dismiss</t>",BON_RECRUIT_PATH+"dismiss.sqf",[],-100,false,true,""];
 
+//_displayNames = [];
+//for "_i" from 0 to (count (units group player)) -1 do {
+//_unit = (units group player) select _i;
+//_classname  = format ["%1", typeOf _unit];
+//_displayname = gettext (configfile >> "CfgVehicles" >> _className >> "displayName");
+//_displayNames = _displayNames + [_displayName];};
+//hint format ["%1",_displayNames]; copyToClipboard format ["%1",_displayNames];
+
+
+
+
+
+
+
+

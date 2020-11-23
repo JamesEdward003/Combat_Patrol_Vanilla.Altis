@@ -1,5 +1,6 @@
 ///////  _unit execVM "paramsplus\loadouts.sqf";  ///////
-//["Officer","Team Leader","Recon JTAC","Squad Leader","Autorifleman","Rifleman (AT)","Rifleman","Repair Specialist","Grenadier","Combat Life Saver","Marksman"];		
+//["Squad Leader","Autorifleman","Marksman","Grenadier","Combat Life Saver","Rifleman (AT)","Rifleman","Repair Specialist","Officer","Team Leader","Recon JTAC"];	
+//["Squad Leader","Autorifleman","Marksman","Grenadier","Combat Life Saver","Rifleman (AT)","Rifleman","Repair Specialist","B_officer_F","B_Soldier_TL_F","B_recon_JTAC_F"];	
 //					Pettka				 Northgate				Kerry				   	McKay				   James						Hardy						Jay				Dwarden				Miller				 Novak				Grover			   Larkin		   Larkin			Hutchison				Ivan						Rudwell						Homewood				Stype					Dillon					Kingsly
 //_recruitableunits = ["B_Captain_Pettka_F","B_CTRG_soldier_GL_LAT_F","B_Story_Protagonist_F","B_CTRG_soldier_AR_A_F","B_CTRG_soldier_M_medic_F","B_CTRG_soldier_engineer_exp_F","B_Captain_Jay_F","B_Captain_Dwarden_F","B_CTRG_Miller_F","B_Story_SF_Captain_F","B_Story_Engineer_F","B_Story_Colonel_F","B_Story_Pilot_F","B_Story_Tank_Commander_F","B_G_Captain_Ivan_F","B_W_Story_Protagonist_01_F","B_W_Story_Major_01_F","B_W_Story_Instructor_01_F","B_W_Story_Soldier_01_F","B_W_Story_Leader_01_F"];
 private ["_unit","_typeUnit","_classname","_displayname","_PLoadOut","_PDiverEquip"];

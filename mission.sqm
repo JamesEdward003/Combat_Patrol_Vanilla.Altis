@@ -8,7 +8,7 @@ class EditorData
 	toggles=513;
 	class ItemIDProvider
 	{
-		nextID=177;
+		nextID=187;
 	};
 	class MarkerIDProvider
 	{
@@ -16,7 +16,7 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={8908.1768,95.935646,7416.7803};
+		pos[]={8942.8545,93.458969,7462.7397};
 		dir[]={-1.4712525e-005,-0.70710683,0.70710671};
 		up[]={-1.4712525e-005,0.70710665,0.70710677};
 		aside[]={0.99999994,0,2.0806607e-005};
@@ -31,7 +31,7 @@ addons[]=
 	"A3_Modules_F_Multiplayer",
 	"A3_Modules_F_Marta",
 	"A3_Modules_F_Supports",
-	"A3_Characters_F_Patrol"
+	"A3_Characters_F_Mark"
 };
 class AddonsMetaData
 {
@@ -68,8 +68,8 @@ class AddonsMetaData
 		};
 		class Item4
 		{
-			className="A3_Characters_F_Patrol";
-			name="Arma 3 Patrol - Characters and Clothing";
+			className="A3_Characters_F_Mark";
+			name="Arma 3 Marksmen - Characters and Clothing";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
@@ -890,8 +890,8 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={8942.5605,67.174904,7476.7637};
-				angles[]={0.0066592805,0,0};
+				position[]={8947.0859,66.934914,7487.7393};
+				angles[]={0.055940546,0,0.0039967569};
 			};
 			id=27;
 			type="ModuleCombatPatrol_Init_F";
@@ -899,7 +899,7 @@ class Mission
 		class Item2
 		{
 			dataType="Marker";
-			position[]={8941.4668,67.193153,7474.7793};
+			position[]={8945.9922,67.046684,7485.7549};
 			name="respawn_west";
 			type="respawn_inf";
 			colorName="ColorWEST";
@@ -910,8 +910,8 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={8941.4619,67.193192,7474.7764};
-				angles[]={0.010664274,0,6.2791886};
+				position[]={8945.9873,67.046875,7485.752};
+				angles[]={0.062584557,0,6.2805109};
 			};
 			name="respawn_west";
 			id=37;
@@ -1019,7 +1019,7 @@ class Mission
 		class Item4
 		{
 			dataType="Marker";
-			position[]={8940.2959,67.219582,7472.7783};
+			position[]={8944.8213,67.110832,7483.7539};
 			name="respawn_east";
 			type="respawn_inf";
 			colorName="ColorEAST";
@@ -1031,8 +1031,8 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={8940.291,67.219223,7472.7754};
-				angles[]={0.010664274,0,6.2791886};
+				position[]={8944.8164,67.110474,7483.751};
+				angles[]={0.010664274,0,6.2805333};
 			};
 			name="respawn_east";
 			id=39;
@@ -1140,20 +1140,20 @@ class Mission
 		class Item6
 		{
 			dataType="Marker";
-			position[]={8939.1689,67.28186,7470.8726};
+			position[]={8943.6943,67.133965,7481.8481};
 			name="respawn_guerrila";
 			type="respawn_inf";
 			colorName="ColorGUER";
 			id=40;
-			atlOffset=0.00021362305;
+			atlOffset=0.00020599365;
 		};
 		class Item7
 		{
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={8939.0723,67.285599,7470.8989};
-				angles[]={6.2738566,0,6.253861};
+				position[]={8943.5977,67.133736,7481.8745};
+				angles[]={0.010664274,0,6.2805333};
 			};
 			name="respawn_guerrila";
 			id=41;
@@ -1261,7 +1261,7 @@ class Mission
 		class Item8
 		{
 			dataType="Marker";
-			position[]={8938.0176,67.205849,7468.9336};
+			position[]={8942.543,67.150772,7479.9092};
 			name="respawn_civilian";
 			type="respawn_inf";
 			colorName="ColorCIV";
@@ -1273,8 +1273,8 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={8938.0127,67.205658,7468.9307};
-				angles[]={6.1874781,0,6.253859};
+				position[]={8942.5381,67.150749,7479.9063};
+				angles[]={0.0079935296,0,0};
 			};
 			name="respawn_civilian";
 			id=43;
@@ -1384,8 +1384,8 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={8943.7393,67.160034,7478.7451};
-				angles[]={0.0079936078,0,0};
+				position[]={8948.2646,66.829704,7489.7207};
+				angles[]={0.055940546,0,0.0053265258};
 			};
 			name="Military_Symbol_Module";
 			id=65;
@@ -1394,23 +1394,25 @@ class Mission
 		class Item11
 		{
 			dataType="Marker";
-			position[]={8982.2158,70.477432,7480.8457};
+			position[]={8986.3789,70.578445,7491.4731};
 			name="respawn_vehicle_west";
 			type="respawn_armor";
 			colorName="ColorWEST";
 			id=68;
+			atlOffset=7.6293945e-006;
 		};
 		class Item12
 		{
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={8982.1982,70.477036,7480.8198};
-				angles[]={6.259192,0,6.2698579};
+				position[]={8986.3613,70.578468,7491.4473};
+				angles[]={6.276526,0,6.272521};
 			};
 			name="respawn_vehicle_west";
 			id=70;
 			type="ModuleRespawnVehicle_F";
+			atlOffset=7.6293945e-006;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -1611,7 +1613,7 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={8954.3984,68.427681,7491.936};
+				position[]={8949.3564,67.005775,7491.6963};
 				angles[]={6.0755548,0,0.26557523};
 			};
 			id=77;
@@ -1759,9 +1761,10 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={8976.3916,69.96183,7471.646};
-				angles[]={6.1993747,0,6.2259207};
+				position[]={8980.5547,70.533844,7482.2734};
+				angles[]={6.259192,0,6.2698579};
 			};
+			name="cas_one";
 			id=103;
 			type="SupportProvider_Virtual_CAS_Bombing";
 			class CustomAttributes
@@ -1850,12 +1853,12 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={8970.165,67.781776,7462.3809};
-				angles[]={6.035069,0,6.2338972};
+				position[]={8974.3281,70.17334,7473.0083};
+				angles[]={6.0717278,0,0.073203169};
 			};
+			name="cas_two";
 			id=104;
 			type="SupportProvider_Virtual_CAS_Heli";
-			atlOffset=-7.6293945e-006;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -1942,9 +1945,10 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={8963.6113,64.748955,7453.2808};
-				angles[]={5.8520541,0,0.062587507};
+				position[]={8967.7744,67.786827,7463.9082};
+				angles[]={6.1703339,0,0.086451322};
 			};
+			name="transport_one";
 			id=105;
 			type="SupportProvider_Virtual_Transport";
 			class CustomAttributes
@@ -2033,9 +2037,10 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={8957.0576,61.793671,7444.3599};
-				angles[]={6.0986342,0,0.053284902};
+				position[]={8961.2207,65.399513,7454.9873};
+				angles[]={5.8520465,0,0.050623242};
 			};
+			name="supply_drop_one";
 			id=106;
 			type="SupportProvider_Virtual_Drop";
 			class CustomAttributes
@@ -2143,12 +2148,13 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={8982.3359,70.476204,7480.8618};
-				angles[]={6.2591867,0,6.2698507};
+				position[]={8986.499,70.577271,7491.4893};
+				angles[]={6.276526,0,6.272521};
 			};
 			name="arty_one";
 			id=107;
 			type="SupportProvider_Virtual_Artillery";
+			atlOffset=7.6293945e-006;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -2236,28 +2242,27 @@ class Mission
 			side="West";
 			class Entities
 			{
-				items=10;
+				items=1;
 				class Item0
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={8981.957,70.637039,7492.4351};
+						position[]={8913.8896,67.210197,7475.0596};
 					};
 					side="West";
 					flags=7;
 					class Attributes
 					{
-						skill=0.89679605;
-						rank="MAJOR";
-						init="call{this setName [""Hank Pettka"",""Hank"",""Pettka""]; this setGroupID [""Nomad""];}";
-						name="NOMAD_1";
-						description="TEAM LEADER";
+						skill=0.9008469;
+						rank="SERGEANT";
+						init="call{this setName [""O Connor"",""O"",""Connor""]; this setGroupID [""Razer""];}";
+						name="O_Connor";
+						description="O Connor  -  Sharpshooter";
 						isPlayer=1;
 					};
-					id=149;
-					type="B_Patrol_Soldier_TL_F";
-					atlOffset=7.6293945e-006;
+					id=186;
+					type="B_CTRG_Sharphooter_F";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -2275,7 +2280,7 @@ class Mission
 											"STRING"
 										};
 									};
-									value="Nomad";
+									value="Razer";
 								};
 							};
 						};
@@ -2294,7 +2299,7 @@ class Mission
 											"STRING"
 										};
 									};
-									value="Male02ENG";
+									value="Male12ENG";
 								};
 							};
 						};
@@ -2332,7 +2337,7 @@ class Mission
 											"STRING"
 										};
 									};
-									value="Hank Pettka";
+									value="O Connor";
 								};
 							};
 						};
@@ -2370,1261 +2375,7 @@ class Mission
 											"STRING"
 										};
 									};
-									value="WhiteHead_01";
-								};
-							};
-						};
-						nAttributes=6;
-					};
-				};
-				class Item1
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={8986.9922,70.541641,7487.3989};
-					};
-					side="West";
-					flags=5;
-					class Attributes
-					{
-						skill=0.90129292;
-						rank="CAPTAIN";
-						init="call{this setName [""Hugh NorthGate"",""Hugh"",""NorthGate""]; this setGroupID [""Nomad""];}";
-						name="NOMAD_2";
-						description="AUTORIFLEMAN";
-						isPlayable=1;
-					};
-					id=151;
-					type="B_Patrol_Soldier_AR_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="NameSound";
-							expression="_this setNamesound _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Nomad";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Male05ENG";
-								};
-							};
-						};
-						class Attribute2
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"SCALAR"
-										};
-									};
-									value=1;
-								};
-							};
-						};
-						class Attribute3
-						{
-							property="unitName";
-							expression="_this setname _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Hugh NorthGate";
-								};
-							};
-						};
-						class Attribute4
-						{
-							property="unitInsignia";
-							expression="[_this,_value] call BIS_fnc_setUnitInsignia;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Curator";
-								};
-							};
-						};
-						class Attribute5
-						{
-							property="face";
-							expression="_this setface _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="WhiteHead_02";
-								};
-							};
-						};
-						nAttributes=6;
-					};
-				};
-				class Item2
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={8976.9229,70.691711,7487.3989};
-					};
-					side="West";
-					flags=5;
-					class Attributes
-					{
-						skill=0.89679605;
-						rank="LIEUTENANT";
-						init="call{this setName [""Hobo Kerry"",""Hobo"",""Kerry""]; this setGroupID [""Nomad""];}";
-						name="NOMAD_3";
-						description="MARKSMAN";
-						isPlayable=1;
-					};
-					id=153;
-					type="B_Patrol_Soldier_M_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="NameSound";
-							expression="_this setNamesound _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Nomad";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Male06ENG";
-								};
-							};
-						};
-						class Attribute2
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"SCALAR"
-										};
-									};
-									value=1;
-								};
-							};
-						};
-						class Attribute3
-						{
-							property="unitName";
-							expression="_this setname _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Hobo Kerry";
-								};
-							};
-						};
-						class Attribute4
-						{
-							property="unitInsignia";
-							expression="[_this,_value] call BIS_fnc_setUnitInsignia;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Curator";
-								};
-							};
-						};
-						class Attribute5
-						{
-							property="face";
-							expression="_this setface _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="WhiteHead_18";
-								};
-							};
-						};
-						nAttributes=6;
-					};
-				};
-				class Item3
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={8992.2139,70.43084,7482.5527};
-					};
-					side="West";
-					flags=5;
-					class Attributes
-					{
-						skill=0.90129292;
-						rank="SERGEANT";
-						init="call{this setName [""Harv McKay"",""Harv"",""McKay""]; this setGroupID [""Nomad""];}";
-						name="NOMAD_4";
-						description="MISSILE SPECIALIST AT";
-						isPlayable=1;
-					};
-					id=155;
-					type="B_Patrol_Soldier_AT_F";
-					atlOffset=7.6293945e-006;
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="NameSound";
-							expression="_this setNamesound _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Nomad";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Male06ENG";
-								};
-							};
-						};
-						class Attribute2
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"SCALAR"
-										};
-									};
-									value=1;
-								};
-							};
-						};
-						class Attribute3
-						{
-							property="unitName";
-							expression="_this setname _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Harv McKay";
-								};
-							};
-						};
-						class Attribute4
-						{
-							property="unitInsignia";
-							expression="[_this,_value] call BIS_fnc_setUnitInsignia;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Curator";
-								};
-							};
-						};
-						class Attribute5
-						{
-							property="face";
-							expression="_this setface _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="WhiteHead_05";
-								};
-							};
-						};
-						nAttributes=6;
-					};
-				};
-				class Item4
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={8972.6338,70.791473,7482.7378};
-					};
-					side="West";
-					flags=5;
-					class Attributes
-					{
-						skill=0.90354133;
-						rank="SERGEANT";
-						init="call{this setName [""Harry James"",""Harry"",""James""]; this setGroupID [""Nomad""];}";
-						name="NOMAD_5";
-						description="COMBAT LIFE SAVER";
-						isPlayable=1;
-					};
-					id=157;
-					type="B_Patrol_Medic_F";
-					atlOffset=7.6293945e-006;
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="NameSound";
-							expression="_this setNamesound _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Nomad";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Male10ENG";
-								};
-							};
-						};
-						class Attribute2
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"SCALAR"
-										};
-									};
-									value=1;
-								};
-							};
-						};
-						class Attribute3
-						{
-							property="unitName";
-							expression="_this setname _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Harry James";
-								};
-							};
-						};
-						class Attribute4
-						{
-							property="unitInsignia";
-							expression="[_this,_value] call BIS_fnc_setUnitInsignia;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Curator";
-								};
-							};
-						};
-						class Attribute5
-						{
-							property="face";
-							expression="_this setface _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="WhiteHead_09";
-								};
-							};
-						};
-						nAttributes=6;
-					};
-				};
-				class Item5
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={8996.875,70.093826,7477.5171};
-					};
-					side="West";
-					flags=5;
-					class Attributes
-					{
-						skill=0.90354133;
-						rank="SERGEANT";
-						init="call{this setName [""Howie Hardy"",""Howie"",""Hardy""]; this setGroupID [""Nomad""];}";
-						name="NOMAD_6";
-						description="HEAVY GUNNER";
-						isPlayable=1;
-					};
-					id=167;
-					type="B_Patrol_HeavyGunner_F";
-					atlOffset=7.6293945e-006;
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="NameSound";
-							expression="_this setNamesound _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Nomad";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Male08ENG";
-								};
-							};
-						};
-						class Attribute2
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"SCALAR"
-										};
-									};
-									value=1;
-								};
-							};
-						};
-						class Attribute3
-						{
-							property="unitName";
-							expression="_this setname _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Howie Hardy";
-								};
-							};
-						};
-						class Attribute4
-						{
-							property="unitInsignia";
-							expression="[_this,_value] call BIS_fnc_setUnitInsignia;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Curator";
-								};
-							};
-						};
-						class Attribute5
-						{
-							property="face";
-							expression="_this setface _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="WhiteHead_16";
-								};
-							};
-						};
-						nAttributes=6;
-					};
-				};
-				class Item6
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={8968.9043,70.579689,7477.8896};
-					};
-					side="West";
-					flags=5;
-					class Attributes
-					{
-						skill=0.90129292;
-						rank="CORPORAL";
-						init="call{this setName [""Tyler Kelly"",""Tyler"",""Kelly""]; this setGroupID [""Nomad""];}";
-						name="NOMAD_7";
-						description="MACHINE GUNNER";
-						isPlayable=1;
-					};
-					id=161;
-					type="B_Patrol_Soldier_MG_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="NameSound";
-							expression="_this setNamesound _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Nomad";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Male11ENG";
-								};
-							};
-						};
-						class Attribute2
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"SCALAR"
-										};
-									};
-									value=1;
-								};
-							};
-						};
-						class Attribute3
-						{
-							property="unitName";
-							expression="_this setname _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Tyler Kelly";
-								};
-							};
-						};
-						class Attribute4
-						{
-							property="unitInsignia";
-							expression="[_this,_value] call BIS_fnc_setUnitInsignia;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Curator";
-								};
-							};
-						};
-						class Attribute5
-						{
-							property="face";
-							expression="_this setface _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="WhiteHead_16";
-								};
-							};
-						};
-						nAttributes=6;
-					};
-				};
-				class Item7
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={9001.5361,69.572945,7472.2969};
-					};
-					side="West";
-					flags=5;
-					class Attributes
-					{
-						skill=0.89679605;
-						rank="CORPORAL";
-						init="call{this setName [""Lewis Kirby"",""Lewis"",""Kirby""]; this setGroupID [""Nomad""];}";
-						name="NOMAD_8";
-						description="ENGINEER";
-						isPlayable=1;
-					};
-					id=159;
-					type="B_Patrol_Engineer_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="NameSound";
-							expression="_this setNamesound _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Nomad";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Male11ENG";
-								};
-							};
-						};
-						class Attribute2
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"SCALAR"
-										};
-									};
-									value=1;
-								};
-							};
-						};
-						class Attribute3
-						{
-							property="unitName";
-							expression="_this setname _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Lewis Kirby";
-								};
-							};
-						};
-						class Attribute4
-						{
-							property="unitInsignia";
-							expression="[_this,_value] call BIS_fnc_setUnitInsignia;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Curator";
-								};
-							};
-						};
-						class Attribute5
-						{
-							property="face";
-							expression="_this setface _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="WhiteHead_11";
-								};
-							};
-						};
-						nAttributes=6;
-					};
-				};
-				class Item8
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={8964.8018,68.510124,7472.4839};
-					};
-					side="West";
-					flags=5;
-					class Attributes
-					{
-						skill=0.90354133;
-						rank="CORPORAL";
-						init="call{this setName [""Vic Santorum"",""Vic"",""Santorum""]; this setGroupID [""Nomad""];}";
-						name="NOMAD_9";
-						description="AMMO BEARER";
-						isPlayable=1;
-					};
-					id=165;
-					type="B_Patrol_Soldier_A_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="NameSound";
-							expression="_this setNamesound _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Nomad";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Male07ENG";
-								};
-							};
-						};
-						class Attribute2
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"SCALAR"
-										};
-									};
-									value=1;
-								};
-							};
-						};
-						class Attribute3
-						{
-							property="unitName";
-							expression="_this setname _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Vic Santorum";
-								};
-							};
-						};
-						class Attribute4
-						{
-							property="unitInsignia";
-							expression="[_this,_value] call BIS_fnc_setUnitInsignia;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Curator";
-								};
-							};
-						};
-						class Attribute5
-						{
-							property="face";
-							expression="_this setface _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="WhiteHead_13";
-								};
-							};
-						};
-						nAttributes=6;
-					};
-				};
-				class Item9
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={9006.1982,69.043709,7466.7007};
-					};
-					side="West";
-					flags=5;
-					class Attributes
-					{
-						skill=0.90129292;
-						rank="CORPORAL";
-						init="call{this setName [""Kyle Smith"",""Kyle"",""Smith""]; this setGroupID [""Nomad""];}";
-						name="NOMAD_10";
-						description="UAV OPERATOR";
-						isPlayable=1;
-					};
-					id=163;
-					type="B_Patrol_Soldier_UAV_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="NameSound";
-							expression="_this setNamesound _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Nomad";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Male04ENG";
-								};
-							};
-						};
-						class Attribute2
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"SCALAR"
-										};
-									};
-									value=1;
-								};
-							};
-						};
-						class Attribute3
-						{
-							property="unitName";
-							expression="_this setname _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Kyle Smith";
-								};
-							};
-						};
-						class Attribute4
-						{
-							property="unitInsignia";
-							expression="[_this,_value] call BIS_fnc_setUnitInsignia;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Curator";
-								};
-							};
-						};
-						class Attribute5
-						{
-							property="face";
-							expression="_this setface _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="WhiteHead_14";
+									value="WhiteHead_15";
 								};
 							};
 						};
@@ -3635,24 +2386,23 @@ class Mission
 			class Attributes
 			{
 			};
-			id=148;
-			atlOffset=7.6293945e-006;
+			id=185;
 		};
 	};
 	class Connections
 	{
 		class LinkIDProvider
 		{
-			nextID=7;
+			nextID=6;
 		};
 		class Links
 		{
-			items=7;
+			items=6;
 			class Item0
 			{
 				linkID=0;
-				item0=77;
-				item1=1;
+				item0=107;
+				item1=77;
 				class CustomData
 				{
 					type="Sync";
@@ -3661,7 +2411,7 @@ class Mission
 			class Item1
 			{
 				linkID=1;
-				item0=107;
+				item0=103;
 				item1=77;
 				class CustomData
 				{
@@ -3671,7 +2421,7 @@ class Mission
 			class Item2
 			{
 				linkID=2;
-				item0=103;
+				item0=104;
 				item1=77;
 				class CustomData
 				{
@@ -3681,7 +2431,7 @@ class Mission
 			class Item3
 			{
 				linkID=3;
-				item0=104;
+				item0=105;
 				item1=77;
 				class CustomData
 				{
@@ -3691,7 +2441,7 @@ class Mission
 			class Item4
 			{
 				linkID=4;
-				item0=105;
+				item0=106;
 				item1=77;
 				class CustomData
 				{
@@ -3701,18 +2451,8 @@ class Mission
 			class Item5
 			{
 				linkID=5;
-				item0=106;
-				item1=77;
-				class CustomData
-				{
-					type="Sync";
-				};
-			};
-			class Item6
-			{
-				linkID=6;
 				item0=77;
-				item1=149;
+				item1=1;
 				class CustomData
 				{
 					type="Sync";

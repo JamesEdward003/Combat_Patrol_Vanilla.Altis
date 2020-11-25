@@ -1703,6 +1703,19 @@ class CfgRespawnInventory
 		items[] = {"FirstAidKit","B_UavTerminal","MineDetector","ToolKit","Medikit","FirstAidKit","FirstAidKit"};
 		linkedItems[] = {"V_PlateCarrierSpec_mtp","H_Cap_usblack","G_Goggles_VR","ItemMap","ItemCompass","ItemWatch","ItemRadio","B_UavTerminal","","acc_pointer_IR","optic_Nightstalker","","","","",""};
 	};
+	class KELLY
+	{
+		displayName = "KELLY";
+		icon = "\A3\Ui_f\data\GUI\Cfg\Ranks\sergeant_gs.paa";
+		role = "Recon";
+		show = "true";
+		uniformClass = "U_B_CombatUniform_mcam";
+		backpack = "B_TacticalPack_mcamo";
+		weapons[] = {"srifle_EBR_F","hgun_Pistol_heavy_01_F","Rangefinder","Throw","Put"};
+		magazines[] = {"11Rnd_45ACP_Mag","11Rnd_45ACP_Mag","11Rnd_45ACP_Mag","Chemlight_green","Chemlight_green","Chemlight_green","Chemlight_red","Chemlight_red","20Rnd_762x51_Mag","20Rnd_762x51_Mag","20Rnd_762x51_Mag","20Rnd_762x51_Mag","20Rnd_762x51_Mag","HandGrenade","HandGrenade","SmokeShell","SmokeShell","SmokeShell","SmokeShell","SmokeShell","SmokeShell","SmokeShell","SmokeShell","SmokeShell","SmokeShell","Chemlight_green","Chemlight_red"};
+		items[] = {"FirstAidKit","B_UavTerminal","MineDetector","ToolKit","Medikit","FirstAidKit","FirstAidKit"};
+		linkedItems[] = {"V_PlateCarrierSpec_mtp","H_Cap_usblack","G_Goggles_VR","ItemMap","ItemCompass","ItemWatch","ItemRadio","B_UavTerminal","","acc_pointer_IR","optic_Nightstalker","","","","",""};
+	};
 	class JAY
 	{
 		displayName = "JAY";
@@ -1715,6 +1728,19 @@ class CfgRespawnInventory
 		magazines[] = {"11Rnd_45ACP_Mag","11Rnd_45ACP_Mag","11Rnd_45ACP_Mag","Chemlight_green","Chemlight_green","Chemlight_green","Chemlight_red","Chemlight_red","20Rnd_762x51_Mag","20Rnd_762x51_Mag","20Rnd_762x51_Mag","20Rnd_762x51_Mag","20Rnd_762x51_Mag","HandGrenade","HandGrenade","SmokeShell","SmokeShell","SmokeShell","SmokeShell","SmokeShell","SmokeShell","SmokeShell","SmokeShell","SmokeShell","SmokeShell","Chemlight_green","Chemlight_red"};
 		items[] = {"FirstAidKit","B_UavTerminal","MineDetector","ToolKit","Medikit","FirstAidKit","FirstAidKit"};
 		linkedItems[] = {"V_PlateCarrierSpec_mtp","H_Cap_usblack","G_Goggles_VR","ItemMap","ItemCompass","ItemWatch","ItemRadio","B_UavTerminal","","acc_pointer_IR","optic_Nightstalker","","","","",""};
+	};
+	class O_CONNOR
+	{
+		displayName = "O_CONNOR";
+		icon = "\A3\Ui_f\data\GUI\Cfg\Ranks\sergeant_gs.paa";
+		role = "Default";
+		show = "true";
+		uniformClass = "U_B_CTRG_1";
+		backpack = "";
+		weapons[] = {"srifle_LRR_camo_F","hgun_ACPC2_F","Laserdesignator","Throw","Put"};
+		magazines[] = {"SmokeShell","SmokeShell","SmokeShell","SmokeShell","Chemlight_green","7Rnd_408_Mag","SmokeShellGreen","SmokeShellGreen","SmokeShellGreen","SmokeShellGreen","SmokeShellGreen","SmokeShellGreen","7Rnd_408_Mag","7Rnd_408_Mag","MiniGrenade","MiniGrenade","MiniGrenade","MiniGrenade","MiniGrenade","MiniGrenade","7Rnd_408_Mag","7Rnd_408_Mag","9Rnd_45ACP_Mag","9Rnd_45ACP_Mag","9Rnd_45ACP_Mag","9Rnd_45ACP_Mag"};
+		items[] = {"FirstAidKit"};
+		linkedItems[] = {"V_PlateCarrierL_CTRG","H_HelmetB_light_snakeskin","G_Aviator","ItemMap","ItemCompass","ItemWatch","ItemRadio","B_UavTerminal","NVGoggles_INDEP","","","optic_MRCO","","","","",""};
 	};
 	class DWARDEN //MMG_01_hex_F
 	{

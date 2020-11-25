@@ -11,6 +11,12 @@ if (_PLoadOut isEqualTo 1) then
 	{ 
 		_newUnit setUnitLoadout {_newUnit getVariable "StoredUnitLoadOut"};
 	};
-	
+
+_PRespawnLoadOut = "PRespawnLoadOut" call BIS_fnc_getParamValue;
+if (_PRespawnLoadOut isEqualTo 2) then
+	{
+		_newUnit setUnitLoadout {_oldUnit getVariable "LoadoutDone"};
+	};
+
 _newUnit setPos getMarkerPos _marker;
 

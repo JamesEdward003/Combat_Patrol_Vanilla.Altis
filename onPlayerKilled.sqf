@@ -7,11 +7,12 @@ missionNamespace setVariable["choosenBuilding", nil];
 
 _PRespawnLoadOut = "PRespawnLoadOut" call BIS_fnc_getParamValue;
 
-if (_PRespawnLoadOut isEqualTo 2) then {
+if (_PRespawnLoadOut isEqualTo 2) then 
+	{
 
-_unitlo	= getUnitLoadout _oldUnit;
+		_unitlo	= getUnitLoadout _oldUnit;
 
-_oldUnit setVariable ["LoadoutDone", _unitlo, true];
+		_oldUnit setVariable ["LoadoutDone", _unitlo, true];
 
 };
 

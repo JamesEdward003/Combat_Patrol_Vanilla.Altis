@@ -1395,18 +1395,18 @@ _PRespawnLoadOut = "PRespawnLoadOut" call BIS_fnc_getParamValue;
 
 if (_PRespawnLoadOut isEqualTo 2) then {
 
-_unitlo	= getUnitLoadout _unit;
+	_unitlo	= getUnitLoadout _unit;
 
-_unit setVariable ["LoadoutDone", _unitlo, true];
+	_unit setVariable ["LoadoutDone", _unitlo, true];
 
 } else {
 
-_unit addEventHandler ["Respawn", {
+	_unit addEventHandler ["Respawn", {
 	params ["_unit", "_corpse"];
 	_unit execVM "ParamsPlus\loadouts.sqf";
-}];
+	}];
 
-_unit setVariable ["LoadoutDone", true];
+	_unit setVariable ["LoadoutDone", true];
 
 };
 

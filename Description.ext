@@ -25,7 +25,7 @@ allowSubordinatesTakeWeapons = 1;
 enableItemsDropping = 0;
 disabledAI = 0;
 
-respawnTemplates[] = { "MenuInventory", "MenuPosition", "Tickets" };
+respawnTemplates[] = { "MenuPosition", "Tickets" }; // "MenuInventory",
 
 class Header
 {

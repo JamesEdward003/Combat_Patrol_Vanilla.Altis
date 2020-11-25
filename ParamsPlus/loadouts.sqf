@@ -1391,15 +1391,7 @@ comment "Set identity";
 
 if (((dayTime > ((date call BIS_fnc_sunriseSunsetTime) select 0) - 0.5) && (dayTime < ((date call BIS_fnc_sunriseSunsetTime) select 1) + 0.5)) isEqualTo false) then {_unit action ["nvGoggles", _unit]};
 
-_PRespawnLoadOut = "PRespawnLoadOut" call BIS_fnc_getParamValue;
-
-if (_PRespawnLoadOut isEqualTo 2) then {
-
-	_unitlo	= getUnitLoadout _unit;
-
-	_unit setVariable ["LoadoutDone", _unitlo, true];
-
-} else {
+if ((_PLoadOut isEqualTo 2) or (_PLoadOut isEqualTo 3)) then {
 
 	_unit addEventHandler ["Respawn", {
 	params ["_unit", "_corpse"];

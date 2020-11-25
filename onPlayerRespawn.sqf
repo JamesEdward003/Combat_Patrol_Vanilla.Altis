@@ -6,17 +6,13 @@ _chosenBuilding = missionNamespace getVariable "choosenBuilding";
 _building = _chosenBuilding select 0;
 _marker = _chosenBuilding select 1;
 
-_PLoadOut = "PLoadOut" call BIS_fnc_getParamValue;
-if (_PLoadOut isEqualTo 1) then 
-	{ 
-		_newUnit setUnitLoadout {_newUnit getVariable "StoredUnitLoadOut"};
-	};
+_newUnit setPos getMarkerPos _marker;
 
 _PRespawnLoadOut = "PRespawnLoadOut" call BIS_fnc_getParamValue;
 if (_PRespawnLoadOut isEqualTo 2) then
 	{
-		_newUnit setUnitLoadout {_oldUnit getVariable "LoadoutDone"};
+		if (isNull _oldUnit) exitWith {};
+		_newUnit setUnitLoadout (getUnitLoadout _oldUnit);
 	};
 
-_newUnit setPos getMarkerPos _marker;
-
+	

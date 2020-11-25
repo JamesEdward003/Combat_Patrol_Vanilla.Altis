@@ -2259,6 +2259,7 @@ class Mission
 						init="call{this setName [""O Connor"",""O"",""Connor""]; this setGroupID [""Razer""];}";
 						name="O_Connor";
 						description="O Connor  -  Sharpshooter";
+						isPlayer=1;
 						isPlayable=1;
 					};
 					id=186;
@@ -2411,7 +2412,7 @@ class Mission
 						init="call{this setName [""Orville"",""Pettka"",""Orville Pettka""]; this setGroupID [""Razer""];}";
 						name="Pettka";
 						description="Pettka";
-						isPlayer=1;
+						isPlayable=1;
 					};
 					id=188;
 					type="B_Captain_Pettka_F";

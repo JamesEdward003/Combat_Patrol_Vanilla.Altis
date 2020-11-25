@@ -1391,15 +1391,19 @@ comment "Set identity";
 
 if (((dayTime > ((date call BIS_fnc_sunriseSunsetTime) select 0) - 0.5) && (dayTime < ((date call BIS_fnc_sunriseSunsetTime) select 1) + 0.5)) isEqualTo false) then {_unit action ["nvGoggles", _unit]};
 
-if ((_PLoadOut isEqualTo 2) or (_PLoadOut isEqualTo 3)) then {
+_PRespawnLoadOut = "PRespawnLoadOut" call BIS_fnc_getParamValue;
+if (_PRespawnLoadOut isEqualTo 1) then
+	{
+	if ((_PLoadOut isEqualTo 2) or (_PLoadOut isEqualTo 3)) then {
 
-	_unit addEventHandler ["Respawn", {
-	params ["_unit", "_corpse"];
-	_unit execVM "ParamsPlus\loadouts.sqf";
-	}];
+		_unit addEventHandler ["Respawn", {
+		params ["_unit", "_corpse"];
+		_unit execVM "ParamsPlus\loadouts.sqf";
+		}];
 
-	_unit setVariable ["LoadoutDone", true];
+		_unit setVariable ["LoadoutDone", true];
 
+	};
 };
 
 _unit action ["WEAPONONBACK", _unit];

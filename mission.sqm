@@ -8,7 +8,7 @@ class EditorData
 	toggles=513;
 	class ItemIDProvider
 	{
-		nextID=187;
+		nextID=189;
 	};
 	class MarkerIDProvider
 	{
@@ -16,7 +16,7 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={8942.8545,93.458969,7462.7397};
+		pos[]={8911.8164,80.023186,7461.1079};
 		dir[]={-1.4712525e-005,-0.70710683,0.70710671};
 		up[]={-1.4712525e-005,0.70710665,0.70710677};
 		aside[]={0.99999994,0,2.0806607e-005};
@@ -102,7 +102,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=20;
+		items=21;
 		class Item0
 		{
 			dataType="Group";
@@ -2259,7 +2259,7 @@ class Mission
 						init="call{this setName [""O Connor"",""O"",""Connor""]; this setGroupID [""Razer""];}";
 						name="O_Connor";
 						description="O Connor  -  Sharpshooter";
-						isPlayer=1;
+						isPlayable=1;
 					};
 					id=186;
 					type="B_CTRG_Sharphooter_F";
@@ -2387,6 +2387,158 @@ class Mission
 			{
 			};
 			id=185;
+		};
+		class Item20
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8909.4443,67.147125,7475.064};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						skill=0.89916098;
+						rank="CAPTAIN";
+						init="call{this setName [""Orville"",""Pettka"",""Orville Pettka""]; this setGroupID [""Razer""];}";
+						name="Pettka";
+						description="Captain Orville Pettka";
+						isPlayer=1;
+					};
+					id=188;
+					type="B_Captain_Pettka_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="NameSound";
+							expression="_this setNamesound _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Razer";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male11ENG";
+								};
+							};
+						};
+						class Attribute2
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1;
+								};
+							};
+						};
+						class Attribute3
+						{
+							property="unitName";
+							expression="_this setname _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Orville Pettka";
+								};
+							};
+						};
+						class Attribute4
+						{
+							property="unitInsignia";
+							expression="[_this,_value] call BIS_fnc_setUnitInsignia;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Curator";
+								};
+							};
+						};
+						class Attribute5
+						{
+							property="face";
+							expression="_this setface _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="";
+								};
+							};
+						};
+						nAttributes=6;
+					};
+				};
+			};
+			class Attributes
+			{
+			};
+			id=187;
 		};
 	};
 	class Connections

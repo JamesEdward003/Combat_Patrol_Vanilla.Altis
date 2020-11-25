@@ -2410,7 +2410,7 @@ class Mission
 						rank="CAPTAIN";
 						init="call{this setName [""Orville"",""Pettka"",""Orville Pettka""]; this setGroupID [""Razer""];}";
 						name="Pettka";
-						description="Captain Orville Pettka";
+						description="Pettka";
 						isPlayer=1;
 					};
 					id=188;

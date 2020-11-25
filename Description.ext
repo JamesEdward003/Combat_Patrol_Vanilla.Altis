@@ -172,7 +172,8 @@ class Params
        	values[] = {1, 2};
         texts[] = {"Disabled","Enabled"};
         default = 1;
-        isGlobal = 1;
+		file = "ParamsPlus\RespawnInventory.sqf";
+        isGlobal = 0;
 	};
 	class PDiverEquip       
 	{

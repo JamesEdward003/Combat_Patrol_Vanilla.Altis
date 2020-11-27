@@ -31,18 +31,18 @@ switch (_this select 0) do
 							_unit setDamage 0;
 								
 						};
-//						case (side _unit isEqualTo EAST) :  {
+						case (side _unit isEqualTo EAST) :  {
 												
-//							_unit execVM "paramsplus\loadouts_e.sqf";
-//						};
-//						case (side _unit isEqualTo RESISTANCE) :  {
+							_unit execVM "paramsplus\loadouts_e.sqf";
+						};
+						case (side _unit isEqualTo RESISTANCE) :  {
 													
-//							_unit execVM "paramsplus\loadouts_g.sqf";
-//						};
-//						case (side _unit isEqualTo CIVILIAN) :  {
-//						
-//							_unit setDamage 0;	
-//						};
+							_unit execVM "paramsplus\loadouts_g.sqf";
+						};
+						case (side _unit isEqualTo CIVILIAN) :  {
+						
+							_unit setDamage 0;	
+						};
 					};		
 				};						
 			};
@@ -60,18 +60,18 @@ switch (_this select 0) do
 							
 							_unit execVM "paramsplus\loadouts.sqf";	
 						};
-//						case (side _unit isEqualTo EAST) :  {
+						case (side _unit isEqualTo EAST) :  {
 													
-//							_unit execVM "paramsplus\loadouts_e.sqf";
-//						};
-//						case (side _unit isEqualTo RESISTANCE) :  {
+							_unit execVM "paramsplus\loadouts_e.sqf";
+						};
+						case (side _unit isEqualTo RESISTANCE) :  {
 												
-//							_unit execVM "paramsplus\loadouts_g.sqf";
-//						};
-//						case (side _unit isEqualTo CIVILIAN) :  {
-//						
-//							_unit setDamage 0;	
-//						};
+							_unit execVM "paramsplus\loadouts_g.sqf";
+						};
+						case (side _unit isEqualTo CIVILIAN) :  {
+						
+							_unit setDamage 0;	
+						};
 					};		
 				};						
 			};
@@ -89,18 +89,18 @@ switch (_this select 0) do
 													
 							_unit execVM "paramsplus\loadouts.sqf";	
 						};
-//						case (side _unit isEqualTo EAST) :  {
+						case (side _unit isEqualTo EAST) :  {
 						
-//							_unit execVM "paramsplus\loadouts_e_diver.sqf";	
-//						};
-//						case (side _unit isEqualTo RESISTANCE) :  {
+							_unit execVM "paramsplus\loadouts_e_diver.sqf";	
+						};
+						case (side _unit isEqualTo RESISTANCE) :  {
 						
-//							_unit execVM "paramsplus\loadouts_g_diver.sqf";
-//						};
-//						case (side _unit isEqualTo CIVILIAN) :  {
-//						
-//							_unit setDamage 0;	
-//						};
+							_unit execVM "paramsplus\loadouts_g_diver.sqf";
+						};
+						case (side _unit isEqualTo CIVILIAN) :  {
+						
+							_unit setDamage 0;	
+						};
 					};		
 				};	
 			};					

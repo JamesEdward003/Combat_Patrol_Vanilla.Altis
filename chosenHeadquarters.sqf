@@ -2,7 +2,7 @@
 //h = [] spawn {
 	_exister = _this select 0;
 	_radius = _this select 1;
-//	_radius = 1000;
+
 	availableBuildings = [];
 	
 	//Create building markers
@@ -14,21 +14,27 @@
 		_marker setMarkerTypeLocal "loc_Tourism";
 		_marker setMarkerSizeLocal[ 0.85, 0.85 ];
 		_marker setMarkerColorLocal "ColorOrange";
-//nearestObjects [player, ["house"], 200];		
+	
 		//Store building along with its marker
 		private _nul = availableBuildings pushBack [ _x, _marker ];
-//	} forEach ( [getPos player select 0, getPos player select 1, 0] nearObjects [ "House", _radius] );
-	} forEach ( nearestObjects [player, [ "Land_i_House_Small_01_V1_F","Land_i_House_Small_01_V2_F","Land_i_House_Small_01_V3_F","Land_i_House_Small_01_b_white_F","Land_i_House_Small_01_b_yellow_F","Land_i_House_Small_01_b_brown_F"], _radius] );
+//	} forEach ( [getPos _exister select 0, getPos _exister select 1, 0] nearObjects [ "House", _radius] );
+	} forEach ( nearestObjects [_exister, [ "Land_i_House_Small_01_V1_F","Land_i_House_Small_01_V2_F","Land_i_House_Small_01_V3_F","Land_i_House_Small_01_b_white_F","Land_i_House_Small_01_b_yellow_F","Land_i_House_Small_01_b_brown_F"], _radius] );
 	
 	//Force open users map
 	openMap[ true, false ];
   
 	//Display user instruction
-	hint "Double left click a marker to select base location";
+	hint "Double left click a marker to select headquarters";
 	
 	//Make sure map is open, before...
-	waitUntil{ !isNull findDisplay 12 };
-	
+//	waitUntil{ !isNull findDisplay 12 };
+	titleText["Map headquarters selection", "PLAIN"];
+	waitUntil {uisleep 1; (!visiblemap OR (!isNull findDisplay 12))};
+		if (isNull findDisplay 12) exitWith {
+		missionNamespace setVariable[ "choosenBuilding", nil];
+		hint parseText format["<t size='1.25' color='#ff6161'>Map headquarters selection canceled</t>"];
+		};
+			
 	//Add event to map ctrl for when DblClicked
 	CEH_MBDC = findDisplay 12 displayCtrl 51 ctrlAddEventHandler [ "MouseButtonDblClick", {
 		params[ "_map", "_button", "_mouseX", "_mouseY" ];
@@ -78,7 +84,9 @@
 	
 	//Wait for selection
 	waitUntil { !isNil "choosenBuilding" };
-	
+	openMap[ false, false ];
+	hint parseText format["<t size='1.25' color='#44ff00'>Map headquarters selection successful</t>"];
+	uisleep 5;	
 	//Remove hint
 	hint "";
 	

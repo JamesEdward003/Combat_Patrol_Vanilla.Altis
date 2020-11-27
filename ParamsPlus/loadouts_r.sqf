@@ -716,22 +716,16 @@ if (((dayTime > ((date call BIS_fnc_sunriseSunsetTime) select 0) - 0.5) && (dayT
 
 _PRespawnLoadOut = "PRespawnLoadOut" call BIS_fnc_getParamValue;
 
-if (_PRespawnLoadOut isEqualTo 2) then {
+if (_PRespawnLoadOut isEqualTo 1) then {
 
-_unitlo	= getUnitLoadout _unit;
-
-_unit setVariable ["LoadoutDone", _unitlo, true];
-
-} else {
-
-_unit addEventHandler ["Respawn", {
-	params ["_unit", "_corpse"];
-	_unit execVM "ParamsPlus\loadouts_r.sqf";
-}];
-
-_unit setVariable ["LoadoutDone", true];
+	_unit addEventHandler ["Respawn", {
+		params ["_unit", "_corpse"];
+		_unit execVM "ParamsPlus\loadouts_r.sqf";
+	}];
 
 };
+
+_unit setVariable ["LoadoutDone", true];
 
 _unit action ["WEAPONONBACK", _unit];
 

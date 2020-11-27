@@ -1,5 +1,5 @@
 //////	_player execVM "ParamsPlus\playerSettings.sqf";	//////
-private ["_player","_pskill","_puavhacker","_pengineer","_pexplspec","_pmedic","_precoil","_psway","_pload","_paudible","_pcamo","_psettings"];
+private ["_player","_pskill","_puavhacker","_pengineer","_pexplspec","_pmedic","_precoil","_psway","_pload","_paudible","_pcamo","_psettings","_psaves"];
 _player = _this;
 
 waitUntil { !(isNil {_player getVariable "LoadoutDone"}) };
@@ -7,9 +7,8 @@ waitUntil { !(isNil {_player getVariable "LoadoutDone"}) };
 private _future = time + 1;
 waitUntil { time >= _future };
 
-//[1,1,1,1,0,20,0,1,-1,1,0,0,0,4,1,1,1,1,2,2,2,2,2,3,1,1,2,1,1,1,2,1,1,4,4,4,2]
-//[1,1,1,1,0,20,0,1,-1,1,0,0,0,3,3,1,1,1,1,2,2,2,2,2,3,1,1,2,1,1,1,2,1,1,4,4,4,2], 38
 //[1,1,1,1,0,20,0,1,-1,1,0,0,0,3,3,2,1,1,1,2,2,2,2,2,3,1,1,2,1,1,1,2,1,1,4,4,4,2], 38
+
 _puavhacker	= paramsArray select 28;
 _pengineer	= paramsArray select 29;
 _pexplspec	= paramsArray select 30;
@@ -20,6 +19,7 @@ _pload		= paramsArray select 34;
 _paudible	= paramsArray select 35;
 _pcamo		= paramsArray select 36;
 _psettings	= paramsarray select 37;
+_psaves		= paramsarray select 38;
 
 _PSkill = _player execVM "ParamsPlus\GF_AiSkill.sqf";
 
@@ -96,6 +96,13 @@ _PSkill = _player execVM "ParamsPlus\GF_AiSkill.sqf";
 	};	 
 	_player setUnitTrait ["camouflageCoef",_pcamo];
 
+	switch (_psaves) do
+	{
+		case 1: {_psaves = false;};
+		case 2: {_psaves = true;};
+	};
+			enableSaving _psaves;
+	
 _player addEventHandler ["Respawn", {
 	params ["_unit", "_corpse"];
 

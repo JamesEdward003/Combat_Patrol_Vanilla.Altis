@@ -25,7 +25,32 @@ allowSubordinatesTakeWeapons = 1;
 enableItemsDropping = 0;
 disabledAI = 0;
 
-respawnTemplates[] = { "MenuPosition", "Tickets" }; // "MenuInventory",
+respawnTemplates[] = { "MenuInventory", "MenuPosition", "Tickets" }; // "MenuInventory",
+
+corpseManagerMode = 1;
+/*
+	Sets the mode for corpse removal manager.
+	0 = None, 1 = All, 2 = None_But_Respawned, 3 = All_But_Respawned
+	Default value: 0 for SP, 2 for MP 
+*/
+
+corpseLimit = 1;
+/*
+	Corpse limit before which ( <= ) corpseRemovalMaxTime applies and after which ( > ) corpseRemovalMinTime applies
+	Default value: 15 
+*/
+
+corpseRemovalMinTime = 5;
+/*
+	Remove all bodies that have been dead longer than corpseRemovalMinTime when corpseLimit is breached.  Time value is in Seconds.
+	Default value: 10
+*/
+
+corpseRemovalMaxTime = 15;
+/*
+	Maximum time a corpse can remain on the ground if total number of corpses is equal or under corpseLimit.
+	Default value: 3600
+*/
 
 class Header
 {
@@ -172,7 +197,7 @@ class Params
        	values[] = {1, 2};
         texts[] = {"Disabled","Enabled"};
         default = 1;
-		file = "ParamsPlus\RespawnInventory.sqf";
+	    file = "ParamsPlus\RespawnInventory.sqf";
         isGlobal = 0;
 	};
 	class PDiverEquip       
@@ -337,6 +362,23 @@ class Params
         file = "ParamsPlus\playerSettings_Group.sqf";
         isGlobal = 1;
 	};  
+    class PSaves      
+	{ 
+        title = "Saves";
+        values[] = {1, 2};
+        texts[] = {"Disabled","Enabled"};
+        default = 2;
+        isGlobal = 1;
+    };
+ 	class Param_Loadparams
+   	{
+		title = "Parameter Loading";
+		values[] = {1, 2, 4};
+		texts[] = {"Use above and save", "Load existing (Use above if not found)", "Use above without save"};
+		default = 1;
+		file = "ParamsPlus\parameterInit.sqf";
+		isGlobal = 0;
+	};
 };
 class CfgCommunicationMenu
 {

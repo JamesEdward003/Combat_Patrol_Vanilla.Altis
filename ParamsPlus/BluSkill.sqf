@@ -1,6 +1,9 @@
 /////--"ParamsPlus\BluSkill--///// BIS_fnc_EXP_camp_dynamicAISkill // BIS_fnc_EXP_camp_setSkill
 // [side,skillMin,skillAimMin,skillMax,skillAimMax] call BIS_fnc_EXP_camp_setSkill
-switch (_this select 0) do
+private ["_unit","_BSkill"];
+_BSkill = "BSkill" call BIS_fnc_getParamValue;
+
+switch (_BSkill) do
 {
 	case 1: {
 		

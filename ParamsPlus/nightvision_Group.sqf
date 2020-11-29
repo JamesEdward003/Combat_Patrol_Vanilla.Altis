@@ -1,9 +1,10 @@
 /////--"paramsplus\nightvision_group.sqf"--/////
+private ["_unit","_PNightVision"];
 _PNightVision = "PNightVision" call BIS_fnc_getParamValue;
 if (_PNightVision isEqualTo 1) exitWith {};
-private ["_unit","_PNightVision"];
+
 _nvList = ["NVGoggles","NVGoggles_INDEP","NVGoggles_OPFOR","NVGoggles_tna_F","NVGogglesB_blk_F","NVGogglesB_grn_F","NVGogglesB_gry_F","O_NVGoggles_ghex_F","O_NVGoggles_grn_F","O_NVGoggles_hex_F","O_NVGoggles_urb_F","Integrated_NVG_F","Integrated_NVG_TI_0_F","Integrated_NVG_TI_1_F"];
-switch (_this select 0) do
+switch (_PNightVision) do
 {
 	case 1: {
 				for "_i" from 0 to count (allUnits) - 1 do

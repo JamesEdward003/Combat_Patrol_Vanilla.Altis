@@ -258,7 +258,7 @@ class Params
 	{
     	title = "Health Regeneration";
         values[] = {1, 2, 3, 4};
-        texts[] = {"Fair","Middlin","Good","Disabled"};
+        texts[] = {"Disabled","Fair","Middlin","Good"};
         default = 3;
         file = "ParamsPlus\regen_health_Group.sqf";
         isGlobal = 1;
@@ -332,6 +332,13 @@ class Params
         texts[] = {"No sway","Poor sway","Standard sway","Intensive sway"};
         default = 1;
     };
+    class PStamina       
+	{
+        title = "Enable/Disable Player's Stamina System";
+        values[] = {1, 2};
+        texts[] = {"Disabled","Enabled"};
+        default = 1;
+    }; 
     class PLoadCoef       
 	{
         title = "Player's Load Carrying Ability";

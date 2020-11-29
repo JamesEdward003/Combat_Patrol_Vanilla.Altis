@@ -1,6 +1,8 @@
 /////--"paramsplus\loadouts_selection.sqf"--/////
 private ["_unit","_PLoadOut"];
-switch (_this select 0) do
+_PLoadOut = "PLoadOut" call BIS_fnc_getParamValue;
+
+switch (_PLoadOut) do
 {
 	case 1: {
 		

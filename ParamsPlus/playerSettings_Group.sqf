@@ -1,8 +1,9 @@
 /////--"paramsplus\playerSettings_Group.sqf"--/////
+private ["_unit","_PSettings"];
 _PSettings = "PSettings" call BIS_fnc_getParamValue;
 if (_PSettings isEqualTo 1) exitWith {};
-private ["_unit","_PSettings"];
-switch (_this select 0) do
+
+switch (_PSettings) do
 {
 	case 1: {
 		

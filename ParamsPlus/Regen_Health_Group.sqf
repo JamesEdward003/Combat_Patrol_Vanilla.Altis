@@ -1,21 +1,22 @@
 /////--"paramsplus\Regen_Health_Group.sqf"--/////
-_PRegenHealth = "PRegenHealth" call BIS_fnc_getParamValue;
-if (_PRegenHealth isEqualTo 4) exitWith {};
 private ["_unit","_PRegenHealth"];
-switch (_this select 0) do
+_PRegenHealth = "PRegenHealth" call BIS_fnc_getParamValue;
+if (_PRegenHealth isEqualTo 1) exitWith {};
+
+switch (_PRegenHealth) do
 {
 	case 1: 	{	
-				missionNameSpace setVariable ["RegenHealthVar",15];
-				
-				for "_i" from 0 to count (if ismultiplayer then {playableunits} else {switchableunits}) - 1 do
+	
+				for "_i" from 0 to (if ismultiplayer then {playableunits} else {switchableunits}) - 1 do
 				{
 					_unit = (if ismultiplayer then {playableunits} else {switchableunits}) select _i;
-										
-					_unit execVM "paramsplus\Regen_Health.sqf";			
-				};									
+					
+					_unit setDamage 0;		
+				};	
+												
 			};
 	case 2: 	{
-				missionNameSpace setVariable ["RegenHealthVar",25];
+				missionNameSpace setVariable ["RegenHealthVar",15];
 				
 				for "_i" from 0 to (if ismultiplayer then {playableunits} else {switchableunits}) - 1 do
 				{
@@ -25,7 +26,7 @@ switch (_this select 0) do
 				};			
 			};
 	case 3: 	{	
-				missionNameSpace setVariable ["RegenHealthVar",35];
+				missionNameSpace setVariable ["RegenHealthVar",25];
 				
 				for "_i" from 0 to count (if ismultiplayer then {playableunits} else {switchableunits}) - 1 do
 				{
@@ -35,11 +36,13 @@ switch (_this select 0) do
 				};									
 			};
 	case 4: 	{
-				for "_i" from 0 to (if ismultiplayer then {playableunits} else {switchableunits}) - 1 do
+				missionNameSpace setVariable ["RegenHealthVar",35];
+				
+				for "_i" from 0 to count (if ismultiplayer then {playableunits} else {switchableunits}) - 1 do
 				{
 					_unit = (if ismultiplayer then {playableunits} else {switchableunits}) select _i;
-					
-					_unit setDamage 0;		
+										
+					_unit execVM "paramsplus\Regen_Health.sqf";			
 				};			
 			};
 };

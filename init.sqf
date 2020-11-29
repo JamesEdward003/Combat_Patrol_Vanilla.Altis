@@ -27,10 +27,11 @@ addMissionEventHandler ["Map", {
 	{_x enableAi "MOVE"} forEach units group player;
 }];
 
-addMissionEventHandler ["MapSingleClick", {
-	params ["_units", "_pos", "_alt", "_shift"];
-	_units setPos _pos;
-}];
+//addMissionEventHandler ["MapSingleClick", {
+//	params ["_units", "_pos", "_alt", "_shift"];
+//	"respawn_west" setMarkerPos _pos;
+//	respawn_west setPos _pos;
+//}];
 
 addMissionEventHandler ["TeamSwitch", {
 	params ["_previousUnit", "_newUnit"];

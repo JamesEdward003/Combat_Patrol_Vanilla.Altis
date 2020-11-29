@@ -1,9 +1,8 @@
 // "Military_Symbol_Module.sqf" //
-//private ["_PSymbols"];
-//_PSymbols = "PSymbols" call BIS_fnc_getParamValue;
-//if (_PSymbols isEqualTo 1) exitWith {};
+private ["_PSymbols"];
+_PSymbols = "PSymbols" call BIS_fnc_getParamValue;
 
-switch (_this select 0) do
+switch (_PSymbols) do
 {
 	case 1: 	{
 		

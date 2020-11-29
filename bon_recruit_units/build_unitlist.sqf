@@ -42,6 +42,11 @@ if (bon_dynamic_list isEqualTo true) then {
 					_scripthandler =[] execVM "bon_recruit_units\recruitable_units_static_story.sqf";
 					waitUntil{ ScriptDone _scripthandler  };
 			};	
+			if (((typeOf player) == "B_CTRG_Sharphooter_F") isEqualTo true) then 
+				{
+					_scripthandler =[] execVM "bon_recruit_units\recruitable_units_static_story.sqf";
+					waitUntil{ ScriptDone _scripthandler  };
+			};
 		};
 
 		case EAST: {

@@ -1,8 +1,9 @@
 // "ParamsPlus\UnlimitedAmmo_Group.sqf" //
+private ["_unit","_PUA"];
 _PUA = "PUA" call BIS_fnc_getParamValue;
 if (_PUA isEqualTo 1) exitWith {};
 
-switch (_this select 0) do
+switch (_PUA) do
 {
 	case 1: {
 		

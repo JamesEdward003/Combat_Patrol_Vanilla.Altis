@@ -1,5 +1,5 @@
 //////	_player execVM "ParamsPlus\playerSettings.sqf";	//////
-private ["_player","_pskill","_puavhacker","_pengineer","_pexplspec","_pmedic","_precoil","_psway","_pload","_paudible","_pcamo","_psettings","_psaves"];
+private ["_player","_pskill","_puavhacker","_pengineer","_pexplspec","_pmedic","_precoil","_psway","_pstamina","_pload","_paudible","_pcamo","_psettings","_psaves"];
 _player = _this;
 
 waitUntil { !(isNil {_player getVariable "LoadoutDone"}) };
@@ -15,11 +15,12 @@ _pexplspec	= paramsArray select 30;
 _pmedic		= paramsArray select 31;
 _precoil 	= paramsArray select 32;
 _psway   	= paramsArray select 33;
-_pload		= paramsArray select 34;
-_paudible	= paramsArray select 35;
-_pcamo		= paramsArray select 36;
-_psettings	= paramsarray select 37;
-_psaves		= paramsarray select 38;
+_pstamina	= paramsArray select 34;
+_pload		= paramsArray select 35;
+_paudible	= paramsArray select 36;
+_pcamo		= paramsArray select 37;
+_psettings	= paramsarray select 38;
+_psaves		= paramsarray select 39;
 
 _PSkill = _player execVM "ParamsPlus\GF_AiSkill.sqf";
 
@@ -69,6 +70,13 @@ _PSkill = _player execVM "ParamsPlus\GF_AiSkill.sqf";
 	};	 
 	_player setCustomAimCoef _psway;
 
+	switch (_pstamina) do
+	{
+		case 1: {_pstamina = false};
+		case 2: {_pstamina = true};
+	};
+	_player enableStamina  _pstamina;
+	
 	switch (_pload) do
 	{
 		case 1: {_pload = 0.10};
@@ -101,7 +109,7 @@ _PSkill = _player execVM "ParamsPlus\GF_AiSkill.sqf";
 		case 1: {_psaves = false;};
 		case 2: {_psaves = true;};
 	};
-			enableSaving _psaves;
+		enableSaving _psaves;
 	
 _player addEventHandler ["Respawn", {
 	params ["_unit", "_corpse"];
@@ -115,5 +123,13 @@ if (isPlayer _player) then {
 [playerSide, "HQ"] commandChat format ["%1, Player Settings Installed!",name _player];
 
 };
+
+//waitUntil {(!isNull _player) and (alive _player)};
+
+//while {true} do 
+//{
+//_player enableFatigue false;
+//uiSleep 1;
+//};
 
 

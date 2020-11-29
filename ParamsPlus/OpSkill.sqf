@@ -1,6 +1,9 @@
 /////--"paramsplus\OpSkill--/////
 // [side,skillMin,skillAimMin,skillMax,skillAimMax] call BIS_fnc_EXP_camp_setSkill
-switch (_this select 0) do
+private ["_unit","_OSkill"];
+_OSkill = "OSkill" call BIS_fnc_getParamValue;
+
+switch (_OSkill) do
 {
 	case 1: {
 		

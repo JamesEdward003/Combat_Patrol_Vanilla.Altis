@@ -64,5 +64,5 @@ call fnc_ParamsToVar;
 ParamsParsed = true;
 publicVariable "ParamsParsed";
 
-execVM "ParamsPlus\parameterBriefing.sqf";
+//execVM "ParamsPlus\parameterBriefing.sqf";
 

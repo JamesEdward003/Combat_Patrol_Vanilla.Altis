@@ -159,7 +159,7 @@ _unit linkItem "B_UavTerminal";
 _unit linkItem "NVGoggles";
 
 comment "Set identity";
-[_unit,"WhiteHead_08","male10eng"] call BIS_fnc_setIdentity;
+[_unit,"WhiteHead_08","male09eng"] call BIS_fnc_setIdentity;
 [_unit,"111thID"] call BIS_fnc_setUnitInsignia;
 };
 
@@ -301,7 +301,7 @@ _unit linkItem "B_UavTerminal";
 _unit linkItem "NVGoggles";
 
 comment "Set identity";
-[_unit,"WhiteHead_19","male03eng"] call BIS_fnc_setIdentity;
+[_unit,"WhiteHead_19","male04eng"] call BIS_fnc_setIdentity;
 [_unit,"111thID"] call BIS_fnc_setUnitInsignia;
 };
 
@@ -774,7 +774,7 @@ _unit linkItem "ItemGPS";
 _unit linkItem "NVGoggles";
 
 comment "Set identity";
-[_unit,"WhiteHead_14","male10eng"] call BIS_fnc_setIdentity;
+[_unit,"WhiteHead_14","male09eng"] call BIS_fnc_setIdentity;
 [_unit,"111thID"] call BIS_fnc_setUnitInsignia;
 };
 
@@ -847,7 +847,7 @@ _unit linkItem "B_UavTerminal";
 _unit linkItem "NVGoggles";
 
 comment "Set identity";
-[_unit,"WhiteHead_01","male03eng",1,"Nomad"] call BIS_fnc_setIdentity;
+[_unit,"WhiteHead_01","male04eng",1,"Nomad"] call BIS_fnc_setIdentity;
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
 };
 
@@ -1387,6 +1387,65 @@ comment "Set identity";
 [_unit,"Dwarden","male11eng",1,"Nomad"] call BIS_fnc_setIdentity; // Dwarden // Default
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
 };
+
+	case "B_CTRG_Sharphooter_F": {	//  O_Connor_Sharpshooter
+
+comment "Exported from Arsenal by RENFRO";
+
+comment "[!] UNIT MUST BE LOCAL [!]";
+if (!local _unit) exitWith {};
+
+comment "Remove existing items";
+removeAllWeapons _unit;
+removeAllItems _unit;
+removeAllAssignedItems _unit;
+removeUniform _unit;
+removeVest _unit;
+removeBackpack _unit;
+removeHeadgear _unit;
+removeGoggles _unit;
+
+comment "Add weapons";
+_unit addWeapon "srifle_LRR_camo_F";
+_unit addPrimaryWeaponItem "optic_MRCO";
+_unit addPrimaryWeaponItem "7Rnd_408_Mag";
+_unit addWeapon "hgun_ACPC2_F";
+_unit addHandgunItem "muzzle_snds_acp";
+_unit addHandgunItem "acc_flashlight_pistol";
+_unit addHandgunItem "9Rnd_45ACP_Mag";
+
+comment "Add containers";
+_unit forceAddUniform "U_B_CTRG_1";
+_unit addVest "V_PlateCarrierL_CTRG";
+
+comment "Add binoculars";
+_unit addMagazine "Laserbatteries";
+_unit addWeapon "Laserdesignator";
+
+comment "Add items to containers";
+_unit addItemToUniform "FirstAidKit";
+for "_i" from 1 to 4 do {_unit addItemToUniform "SmokeShell";};
+_unit addItemToUniform "Chemlight_green";
+_unit addItemToUniform "7Rnd_408_Mag";
+for "_i" from 1 to 6 do {_unit addItemToVest "SmokeShellGreen";};
+for "_i" from 1 to 4 do {_unit addItemToVest "7Rnd_408_Mag";};
+for "_i" from 1 to 6 do {_unit addItemToVest "MiniGrenade";};
+for "_i" from 1 to 4 do {_unit addItemToVest "9Rnd_45ACP_Mag";};
+_unit addHeadgear "H_HelmetB_light_snakeskin";
+_unit addGoggles "G_Aviator";
+
+comment "Add items";
+_unit linkItem "ItemMap";
+_unit linkItem "ItemCompass";
+_unit linkItem "ItemWatch";
+_unit linkItem "ItemRadio";
+_unit linkItem "B_UavTerminal";
+_unit linkItem "NVGoggles_INDEP";
+
+comment "Set identity";
+[_unit,"WhiteHead_22_a","male11eng",1,"Ghost"] call BIS_fnc_setIdentity;
+[_unit,"Curator"] call BIS_fnc_setUnitInsignia;
+};
 };
 
 if (((dayTime > ((date call BIS_fnc_sunriseSunsetTime) select 0) - 0.5) && (dayTime < ((date call BIS_fnc_sunriseSunsetTime) select 1) + 0.5)) isEqualTo false) then {_unit action ["nvGoggles", _unit]};
@@ -1399,7 +1458,6 @@ if (_PRespawnLoadOut isEqualTo 1) then {
 		params ["_unit", "_corpse"];
 		_unit execVM "ParamsPlus\loadouts.sqf";
 	}];
-
 };
 
 _unit setVariable ["LoadoutDone", true];

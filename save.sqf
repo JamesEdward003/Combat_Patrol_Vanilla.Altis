@@ -43,11 +43,3 @@ functionName_keyDown = {
 	};
 	_handled;
 };
-
-{_x removePrimaryWeaponItem "muzzle_snds_H";
-_x removePrimaryWeaponItem "muzzle_snds_L";
-_x removePrimaryWeaponItem "muzzle_snds_M";
-_x removePrimaryWeaponItem "muzzle_snds_B";
-_x removePrimaryWeaponItem "muzzle_snds_H_MG";
-_x removePrimaryWeaponItem "muzzle_snds_H_SW";
-} forEach allUnits;

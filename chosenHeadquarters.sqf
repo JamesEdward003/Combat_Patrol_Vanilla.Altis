@@ -17,23 +17,20 @@
 	
 		//Store building along with its marker
 		private _nul = availableBuildings pushBack [ _x, _marker ];
-//	} forEach ( [getPos _exister select 0, getPos _exister select 1, 0] nearObjects [ "House", _radius] );
 	} forEach ( nearestObjects [_exister, [ "Land_i_House_Small_01_V1_F","Land_i_House_Small_01_V2_F","Land_i_House_Small_01_V3_F","Land_i_House_Small_01_b_white_F","Land_i_House_Small_01_b_yellow_F","Land_i_House_Small_01_b_brown_F"], _radius] );
 	
+	uisleep 1;
+	
+	missionNamespace setVariable ["availableBuildings",availableBuildings];
+
 	//Force open users map
 	openMap[ true, false ];
   
 	//Display user instruction
 	hint "Double left click a marker to select headquarters";
-	
+
 	//Make sure map is open, before...
-//	waitUntil{ !isNull findDisplay 12 };
-	titleText["Map headquarters selection", "PLAIN"];
-	waitUntil {uisleep 1; (!visiblemap OR (!isNull findDisplay 12))};
-		if (isNull findDisplay 12) exitWith {
-		missionNamespace setVariable[ "choosenBuilding", nil];
-		hint parseText format["<t size='1.25' color='#ff6161'>Map headquarters selection canceled</t>"];
-		};
+	waitUntil{ !isNull findDisplay 12 };
 			
 	//Add event to map ctrl for when DblClicked
 	CEH_MBDC = findDisplay 12 displayCtrl 51 ctrlAddEventHandler [ "MouseButtonDblClick", {
@@ -43,7 +40,7 @@
 		if ( _button isEqualTo 0 ) then {
 			
 			//Get a copy of availableBuildings
-			_buildings = +( missionNamespace getVariable "availableBuildings" );
+			_buildings = ( missionNamespace getVariable "availableBuildings" );
 			
 			//Change each array item to [ distance, building, marker ]
 			//Where distance is from mouse click
@@ -83,20 +80,48 @@
 	}];
 	
 	//Wait for selection
-	waitUntil { !isNil "choosenBuilding" };
-	openMap[ false, false ];
-	hint parseText format["<t size='1.25' color='#44ff00'>Map headquarters selection successful</t>"];
+waitUntil { !visibleMap OR !isNil "choosenBuilding" };
+			
+if (!isNil "choosenBuilding") then {
+	_chosenBuilding = missionNamespace getVariable "choosenBuilding";
+	_building = _chosenBuilding select 0;
+	_marker = _chosenBuilding select 1;
+	
+	waitUntil { alive player };
+	
+	uisleep 1;
+	
+	player setPos [(getMarkerPos _marker) select 0,(getMarkerPos _marker) select 1,0];
+	hint format ["%1,%2",_building,_marker];
+	
+	missionNamespace setVariable[ "choosenBuilding", nil];
+	
+	hint parseText format["<t size='1.25' color='#44ff00'>New headquarters selection successful</t>"];
 	uisleep 5;	
 	//Remove hint
 	hint "";
+} else {		
+	//Delete all markers
+	availableBuildings = ( missionNamespace getVariable "availableBuildings" );
+
+	waitUntil { alive player };
+
+	//Delete all markers
+	{
+		_x params["","_marker"];
+		deleteMarkerLocal _marker;
+	} forEach availableBuildings;
+
+	//Remove this event
+	//ctrlRemoveEventHandler[ "MouseButtonDblClick", CEH_MBDC ];
 	
-	//Close map
-//	openMap[ false, false ];
-//	_chosenBuilding = missionNamespace getVariable "choosenBuilding";
-//	_building = _chosenBuilding select 0;
-//	_marker = _chosenBuilding select 1;
-//	
-//	player setPos getMarkerPos _marker;
-//	hint format ["%1,%2",_building,_marker];
-//};
+	missionNamespace setVariable[ "choosenBuilding", nil];
+		
+	hint parseText format["<t size='1.25' color='#ff6161'>New headquarters selection canceled</t>"];
+	uisleep 5;
+	//Remove hint
+	hint "";
+};
+	
+
 

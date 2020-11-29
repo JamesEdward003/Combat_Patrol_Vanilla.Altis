@@ -1,7 +1,8 @@
 /////--"ParamsPlus\Rally.sqf--/////
 _PRallyPoint = "PRallyPoint" call BIS_fnc_getParamValue;
 if (_PRallyPoint isEqualTo 1) exitWith {};
-switch (_this select 0) do
+
+switch (_PRallyPoint) do
 {
 	case 1: {	
 				for "_i" from 0 to count (if ismultiplayer then {playableunits} else {switchableunits}) - 1 do

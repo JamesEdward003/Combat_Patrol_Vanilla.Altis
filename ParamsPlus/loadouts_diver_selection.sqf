@@ -1,10 +1,12 @@
 /////--"paramsplus\loadouts_diver_selection.sqf"--/////
+private ["_unit","_PDiverEquip","_PLoadOut"];
 _PDiverEquip = "PDiverEquip" call BIS_fnc_getParamValue;
+_PLoadOut = "PLoadOut" call BIS_fnc_getParamValue;
 if (_PDiverEquip isEqualTo 1) exitWith {};
 if (_PLoadOut isEqualTo 2) exitWith {};
 if (_PLoadOut isEqualTo 3) exitWith {};
-private ["_unit","_PDiverEquip"];
-switch (_this select 0) do
+
+switch (_PDiverEquip) do
 {				
 	case 1: {
 				for "_i" from 0 to count (units group player) - 1 do

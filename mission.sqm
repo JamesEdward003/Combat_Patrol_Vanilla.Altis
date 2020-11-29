@@ -8,7 +8,7 @@ class EditorData
 	toggles=513;
 	class ItemIDProvider
 	{
-		nextID=189;
+		nextID=191;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={8911.8164,80.023186,7461.1079};
-		dir[]={0.019019149,-0.55956435,0.82857299};
-		up[]={0.012840824,0.82878608,0.55941713};
-		aside[]={0.99974,3.3902325e-007,-0.022948312};
+		pos[]={8913.8896,92.208755,7450.0098};
+		dir[]={0,-0.70710683,0.70710683};
+		up[]={0,0.70710677,0.70710677};
+		aside[]={0.99999994,0,0};
 	};
 };
 binarizationWanted=0;
@@ -146,7 +146,7 @@ class Mission
 											"STRING"
 										};
 									};
-									value="Male09ENG";
+									value="Male04ENG";
 								};
 							};
 						};
@@ -2257,9 +2257,8 @@ class Mission
 						skill=0.9008469;
 						rank="SERGEANT";
 						init="call{this setName [""O Connor"",""O"",""Connor""]; this setGroupID [""Razer""];}";
-						name="O_Connor";
+						name="Ghost_1";
 						description="O Connor  -  Sharpshooter";
-						isPlayer=1;
 						isPlayable=1;
 					};
 					id=186;
@@ -2281,7 +2280,7 @@ class Mission
 											"STRING"
 										};
 									};
-									value="Razer";
+									value="Ghost";
 								};
 							};
 						};
@@ -2300,7 +2299,7 @@ class Mission
 											"STRING"
 										};
 									};
-									value="Male12ENG";
+									value="Male11ENG";
 								};
 							};
 						};
@@ -2386,8 +2385,32 @@ class Mission
 			};
 			class Attributes
 			{
+				name="Ghost";
 			};
 			id=185;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="groupID";
+					expression="[_this, _value] call CBA_fnc_setCallsign";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="Ghost";
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 		class Item20
 		{
@@ -2410,8 +2433,9 @@ class Mission
 						skill=0.89916098;
 						rank="CAPTAIN";
 						init="call{this setName [""Orville"",""Pettka"",""Orville Pettka""]; this setGroupID [""Razer""];}";
-						name="Pettka";
-						description="Pettka";
+						name="Razer_1";
+						description="Pettka  -  Grenadier";
+						isPlayer=1;
 						isPlayable=1;
 					};
 					id=188;
@@ -2538,8 +2562,32 @@ class Mission
 			};
 			class Attributes
 			{
+				name="Razer";
 			};
 			id=187;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="groupID";
+					expression="[_this, _value] call CBA_fnc_setCallsign";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="Razer";
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 	};
 	class Connections

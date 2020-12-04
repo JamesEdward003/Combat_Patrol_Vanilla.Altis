@@ -1,5 +1,5 @@
 //////	_player execVM "ParamsPlus\playerSettings.sqf";	//////
-private ["_player","_pskill","_puavhacker","_pengineer","_pexplspec","_pmedic","_precoil","_psway","_pstamina","_pload","_paudible","_pcamo","_psettings","_psaves"];
+private ["_player","_pskill","_puavhacker","_pengineer","_pexplspec","_pmedic","_precoil","_psway","_pstamina","_pload","_paudible","_pcamo","_psettings"];
 _player = _this;
 
 waitUntil { !(isNil {_player getVariable "LoadoutDone"}) };
@@ -7,20 +7,22 @@ waitUntil { !(isNil {_player getVariable "LoadoutDone"}) };
 private _future = time + 1;
 waitUntil { time >= _future };
 
-//[1,1,1,1,0,20,0,1,-1,1,0,0,0,3,3,2,1,1,1,2,2,2,2,2,3,1,1,2,1,1,1,2,1,1,4,4,4,2], 38
+//[1,1,1,1,0,20,0,1,-1,1,0,0,0,3,3,2,1,1,1,1,2,2,2,2,2,3,2,2,2,1,1,1,2,1,1,1,4,4,4,2,1,1], 42
+//[1,1,1,1,0,20,0,1,-1,1,0,0,0,3,3,2,1,1,1,1,1,2,2,2,2,2,1,2,2,2,1,1,1,2,1,1,1,4,4,4,2,4,1], 43
+//[1,1,1,1,0,20,0,1,-1,1,0,0,0,3,3,2,1,1,1,1,1,2,2,2,2,2,1,2,2,2,1,1,1,2,1,1,1,4,4,4,2,4,1], 43
+//[1,1,1,1,0,20,0,1,-1,1,0,0,0,3,3,2,1,1,1,1,1,2,2,2,2,2,4,2,2,2,1,1,1,2,3,3,1,4,4,4,2,4,1], 43
+//setPos
 
-_puavhacker	= paramsArray select 28;
-_pengineer	= paramsArray select 29;
-_pexplspec	= paramsArray select 30;
-_pmedic		= paramsArray select 31;
-_precoil 	= paramsArray select 32;
-_psway   	= paramsArray select 33;
-_pstamina	= paramsArray select 34;
-_pload		= paramsArray select 35;
-_paudible	= paramsArray select 36;
-_pcamo		= paramsArray select 37;
-_psettings	= paramsarray select 38;
-_psaves		= paramsarray select 39;
+_puavhacker	= paramsArray select 31;
+_pengineer	= paramsArray select 32;
+_pexplspec	= paramsArray select 33;
+_pmedic		= paramsArray select 34;
+_precoil 	= paramsArray select 35;
+_psway   	= paramsArray select 36;
+_pstamina	= paramsArray select 37;
+_pload		= paramsArray select 38;
+_paudible	= paramsArray select 39;
+_pcamo		= paramsArray select 40;
 
 _PSkill = _player execVM "ParamsPlus\GF_AiSkill.sqf";
 
@@ -103,13 +105,6 @@ _PSkill = _player execVM "ParamsPlus\GF_AiSkill.sqf";
 		case 4: {_pcamo =    1};
 	};	 
 	_player setUnitTrait ["camouflageCoef",_pcamo];
-
-	switch (_psaves) do
-	{
-		case 1: {_psaves = false;};
-		case 2: {_psaves = true;};
-	};
-		enableSaving _psaves;
 	
 _player addEventHandler ["Respawn", {
 	params ["_unit", "_corpse"];

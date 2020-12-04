@@ -9,7 +9,7 @@ _unit addEventHandler ["Respawn", {
 	_unit execVM "ParamsPlus\rallyPoint.sqf";
 }];
 
-_unit addEventHandler ["WeaponAssembled", { (_this select 1) allowDamage false }];
+_unit addEventHandler ["WeaponAssembled", { (_this select 1) setCaptive true;(_this select 1) allowDamage false }];
 
 for 	[{_i= (count _actions)-1},{_i>-1},{_i=_i-1}]
 do 	{
@@ -40,7 +40,8 @@ Rally_Point = _unit addAction ["<t color='#00FFFF'>Deploy Rally Point</t>", {(_t
 	switch (side _this) do {
 	case WEST: {_uavbpclass = "B_UAV_01_backpack_F";};
 	case EAST: {_uavbpclass = "O_UAV_01_backpack_F";};
-	case INDEPENDENT: {_uavbpclass = "I_UAV_01_backpack_F";};
+	case RESISTANCE: {_uavbpclass = "I_UAV_01_backpack_F";};
+	case CIVILIAN: {_uavbpclass = "B_UAV_01_backpack_F";};
 	};
 
 	_nos = nearestObjects [_this, ["GroundWeaponHolder_Scripted"], 10];

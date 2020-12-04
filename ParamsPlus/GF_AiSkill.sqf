@@ -11,6 +11,10 @@ _AiSkill = switch true do {
 
 		GF_Set_AISkill = "Oskill" call BIS_fnc_getParamValue;
 	};
+	case (side _unit isEqualTo RESISTANCE) :  {
+
+		GF_Set_AISkill = "Oskill" call BIS_fnc_getParamValue;
+	};
 };
 
 switch (GF_Set_AISkill) do  {

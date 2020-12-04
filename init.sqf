@@ -2,30 +2,30 @@
 [playerSide, "HQ"] commandChat "Initiating Init!";
 
 
-	addMissionEventHandler ["EntityKilled", { 
-		params ["_unit", "_killer", "_instigator", "_useEffects"];
-		removeAllActions _unit;
-	}];
-
-	addMissionEventHandler ["EntityRespawned", { 
-		params ["_entity", "_corpse"];
-		if (!isPlayer _entity) then {
-		_PRespawnLoadOut = "PRespawnLoadOut" call BIS_fnc_getParamValue;
-		if (_PRespawnLoadOut isEqualTo 2) then
-			{
-				if (isNull _corpse) exitWith {};
-				_entity setUnitLoadout (getUnitLoadout _corpse);
-			};
-			_droppedGear = nearestObjects [_corpse, ["WeaponHolder", "WeaponHolderSimulated", "GroundWeaponHolder"], 10];
-        	sleep 5;
-            {deleteVehicle _x} forEach _droppedGear + _corpse;
-		};
-	}]; 
-
-addMissionEventHandler ["Map", {
-	params ["_mapIsOpened", "_mapIsForced"];
-	{_x enableAi "MOVE"} forEach units group player;
+addMissionEventHandler ["EntityKilled", { 
+	params ["_unit", "_killer", "_instigator", "_useEffects"];
+	removeAllActions _unit;
 }];
+
+//addMissionEventHandler ["EntityRespawned", { 
+//	params ["_entity", "_corpse"];
+//	if (!isPlayer _entity) then {
+//	_PRespawnLoadOut = "PRespawnLoadOut" call BIS_fnc_getParamValue;
+//	if (_PRespawnLoadOut isEqualTo 2) then
+//		{
+//			if (isNull _corpse) exitWith {};
+//			_entity setUnitLoadout (getUnitLoadout _corpse);
+//		};
+//		_droppedGear = nearestObjects [_corpse, ["WeaponHolder", "WeaponHolderSimulated", "GroundWeaponHolder"], 10];
+//        	sleep 5;
+//            {deleteVehicle _x} forEach _droppedGear + [_corpse];
+//	};
+//}]; 
+
+//addMissionEventHandler ["Map", {
+//	params ["_mapIsOpened", "_mapIsForced"];
+//	{_x enableAi "MOVE"} forEach units group player;
+//}];
 
 //addMissionEventHandler ["MapSingleClick", {
 //	params ["_units", "_pos", "_alt", "_shift"];
@@ -81,4 +81,4 @@ KS_fnc_vehicleRespawnNotification =
 	};
 }] call BIS_fnc_addStackedEventHandler;
 
-     
+    

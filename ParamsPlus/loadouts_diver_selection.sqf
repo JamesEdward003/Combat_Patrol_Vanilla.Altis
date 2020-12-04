@@ -1,10 +1,7 @@
 /////--"paramsplus\loadouts_diver_selection.sqf"--/////
 private ["_unit","_PDiverEquip","_PLoadOut"];
 _PDiverEquip = "PDiverEquip" call BIS_fnc_getParamValue;
-_PLoadOut = "PLoadOut" call BIS_fnc_getParamValue;
 if (_PDiverEquip isEqualTo 1) exitWith {};
-if (_PLoadOut isEqualTo 2) exitWith {};
-if (_PLoadOut isEqualTo 3) exitWith {};
 
 switch (_PDiverEquip) do
 {				

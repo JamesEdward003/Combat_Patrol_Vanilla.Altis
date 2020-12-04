@@ -33,7 +33,7 @@ if (((dayTime > ((date call BIS_fnc_sunriseSunsetTime) select 0) - 0.5) && (dayT
 			_unit unassignItem _nv;	
 			_unit unLinkItem _nv;
 			_unit removeItem _nv;
-			_unit removeWeapon _nv;	
+			_unit removeWeaponGlobal _nv;	
 			
 		};	
 	};
@@ -46,8 +46,7 @@ if (!isPlayer _unit) then
 		_ld = _ldList select _i;
 		if (([_unit, _ld] call BIS_fnc_hasItem) isEqualTo true) then {
 					
-			_unit unassignItem _ld;
-			_unit removePrimaryWeaponItem _ld;			
+			_unit removeWeaponGlobal _ld;			
 		};	
 	};
 };

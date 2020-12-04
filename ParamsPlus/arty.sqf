@@ -3,7 +3,7 @@ private ["_caller","_position","_target","_is3D","_id"];
 params ["_caller","_position","_target","_is3D","_id"];
 _caller = _this select 0;
 _position = _this select 1;
-_types = ["B_MBT_01_arty_F","O_MBT_02_arty_F"];
+_types = ["B_MBT_01_arty_F","O_MBT_02_arty_F","I_Truck_02_MRL_F"];
 
 _vehicle = [];
 
@@ -11,11 +11,11 @@ switch (side _caller) do {
 
          case west:		{_vehicle = (_types select 0)};
          case east:		{_vehicle = (_types select 1)};
-         case resistance:	{_vehicle = (_types select 1)};
-         case civilian:	{_vehicle = (_types select 1)};
+         case resistance:	{_vehicle = (_types select 2)};
+         case civilian:	{_vehicle = (_types select 0)};
 };
 
-_mrkrcolor 	= [];
+_mrkrcolor = [];
 
 switch (side _caller) do {
 
@@ -23,6 +23,16 @@ switch (side _caller) do {
          case east:		{_mrkrcolor = "ColorOPFOR"};
          case resistance:	{_mrkrcolor = "ColorGUER"};
          case civilian:	{_mrkrcolor = "ColorCIV"};
+};
+
+_spawnPoint = [];
+
+switch (side _caller) do {
+
+         case west:		{_spawnPoint = respawn_vehicle_west};
+         case east:		{_spawnPoint = respawn_vehicle_east};
+         case resistance:	{_spawnPoint = respawn_vehicle_guer};
+         case civilian:	{_spawnPoint = respawn_vehicle_civ};
 };
 				
 if (_position isEqualTo []) then { 
@@ -77,7 +87,7 @@ if (_position isEqualTo []) then {
 };
 
 if (!alive Arty_One isEqualTo true) then {
-_spawnPos = getPos respawn_vehicle_west;
+_spawnPos = getPos _spawnPoint;
 _virtualProvider = [_spawnPos, 0, _vehicle, side group player] call BIS_fnc_spawnVehicle;
 Arty_One = _virtualProvider select 0;
 (_virtualProvider select 0) setVehicleVarname "Arty_One";

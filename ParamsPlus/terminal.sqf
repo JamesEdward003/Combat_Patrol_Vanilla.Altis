@@ -11,7 +11,8 @@ _terminalclass = [];
 switch (side player) do {
 case WEST: {_terminalclass = "B_UavTerminal";};
 case EAST: {_terminalclass = "O_UavTerminal";};
-case INDEPENDENT: {_terminalclass = "I_UavTerminal";};
+case RESISTANCE: {_terminalclass = "I_UavTerminal";};
+case CIVILIAN: {_terminalclass = "C_UavTerminal";};
 };
 if("ItemGPS" in assignedItems player OR "ItemGPS" in items player) then 
 {

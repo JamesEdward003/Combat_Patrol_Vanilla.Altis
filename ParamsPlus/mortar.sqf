@@ -3,7 +3,7 @@ private ["_caller","_position","_target","_is3D","_id"];
 params ["_caller","_position","_target","_is3D","_id"];
 _caller = _this select 0;
 _position = _this select 1;
-_types = ["B_Mortar_01_F","B_G_Mortar_01_F","B_T_Mortar_01_F"];  //"mortar_82mm","mortar_155mm_AMOS"];
+_types = ["B_Mortar_01_F","O_Mortar_01_F","I_Mortar_01_F"];  //"mortar_82mm","mortar_155mm_AMOS"];
 
 _mortar = [];
 
@@ -11,7 +11,7 @@ switch (side _caller) do {
 
          case west:		{_mortar = (_types select 0)};
          case east:		{_mortar = (_types select 1)};
-         case resistance:	{_mortar = (_types select 1)};
+         case resistance:	{_mortar = (_types select 2)};
          case civilian:	{_mortar = (_types select 0)};
 };
 

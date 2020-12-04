@@ -38,7 +38,7 @@ switch (side _unit) do {
 
          case west:			{_mrkrcolor = "ColorBlue"};
          case east:			{_mrkrcolor = "ColorRed"};
-         case resistance:	{_mrkrcolor = "ColorGreen"};
+         case resistance:		{_mrkrcolor = "ColorGreen"};
          case civilian:		{_mrkrcolor = "ColorYellow"};
 };
 

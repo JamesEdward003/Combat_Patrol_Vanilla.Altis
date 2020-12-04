@@ -39,7 +39,7 @@ switch (_PLoadOut) do
 						};
 						case (side _unit isEqualTo RESISTANCE) :  {
 													
-							_unit execVM "paramsplus\loadouts_g.sqf";
+							_unit execVM "paramsplus\loadouts_r.sqf";
 						};
 						case (side _unit isEqualTo CIVILIAN) :  {
 						
@@ -68,7 +68,7 @@ switch (_PLoadOut) do
 						};
 						case (side _unit isEqualTo RESISTANCE) :  {
 												
-							_unit execVM "paramsplus\loadouts_g.sqf";
+							_unit execVM "paramsplus\loadouts_r.sqf";
 						};
 						case (side _unit isEqualTo CIVILIAN) :  {
 						
@@ -97,7 +97,7 @@ switch (_PLoadOut) do
 						};
 						case (side _unit isEqualTo RESISTANCE) :  {
 						
-							_unit execVM "paramsplus\loadouts_g_diver.sqf";
+							_unit execVM "paramsplus\loadouts_r_diver.sqf";
 						};
 						case (side _unit isEqualTo CIVILIAN) :  {
 						

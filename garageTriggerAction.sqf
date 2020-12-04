@@ -10,8 +10,6 @@ player addAction [ '<t color=''#00FFFF''>Garage Action</t>',{
 	_id 		= _this select 2;
 	_unit removeAction _id;
 	
-BIS_fnc_garage_data = ( _this select 3 ) select ( side player call BIS_fnc_sideID );
-
 _pos = [ player, 20, getDir player ] call BIS_fnc_relPos;
 _spawnPos = createVehicle [ 'Land_HelipadEmpty_F', _pos, [], 0, 'CAN_COLLIDE' ];
 
@@ -48,4 +46,16 @@ _apc = createVehicle [ 'B_APC_Wheeled_01_cannon_F', _pos, [], 0, 'CAN_COLLIDE' ]
 	    '',
 	    ''
 	];", ""];
-	
+
+//BIS_fnc_garage_data = ( _this select 3 ) select ( side player call BIS_fnc_sideID );
+
+_trg9 = createTrigger ["EmptyDetector", [0,0,0]];
+_trg9 setTriggerActivation ["India", "PRESENT", true];
+_trg9 setTriggerText "LoadGame";
+_trg9 setTriggerStatements ["this", "LoadGame;", ""]; // enableSaving true; 
+
+_trg10 = createTrigger ["EmptyDetector", [0,0,0]];
+_trg10 setTriggerActivation ["Juliet", "PRESENT", true];
+_trg10 setTriggerText "SaveGame";
+_trg10 setTriggerStatements ["this", "enableSaving true; SaveGame;", ""];
+

@@ -61,7 +61,17 @@ if (bon_dynamic_list isEqualTo true) then {
 					_scripthandler =[] execVM "bon_recruit_units\recruitable_units_static_opfor.sqf";
 					waitUntil{ ScriptDone _scripthandler  };
 			};
+			if (((typeOf player) == "O_recon_TL_F") isEqualTo true) then
+				{
+					_scripthandler =[] execVM "bon_recruit_units\recruitable_units_static_opfor.sqf";
+					waitUntil{ ScriptDone _scripthandler  };
+			};
 			if (((typeOf player) == "O_Story_Colonel_F") isEqualTo true) then
+				{
+					_scripthandler =[] execVM "bon_recruit_units\recruitable_units_static_opfor_story.sqf";
+					waitUntil{ ScriptDone _scripthandler  };
+			};
+			if (((typeOf player) == "O_Story_CEO_F") isEqualTo true) then
 				{
 					_scripthandler =[] execVM "bon_recruit_units\recruitable_units_static_opfor_story.sqf";
 					waitUntil{ ScriptDone _scripthandler  };
@@ -76,6 +86,16 @@ if (bon_dynamic_list isEqualTo true) then {
 					waitUntil{ ScriptDone _scripthandler  };
 			};
 			if (((typeOf player) == "I_Story_Colonel_F") isEqualTo true) then
+				{
+					_scripthandler =[] execVM "bon_recruit_units\recruitable_units_static_resistance.sqf";
+					waitUntil{ ScriptDone _scripthandler  };
+			};
+			if (((typeOf player) == "I_Soldier_SL_F") isEqualTo true) then
+				{
+					_scripthandler =[] execVM "bon_recruit_units\recruitable_units_static_resistance.sqf";
+					waitUntil{ ScriptDone _scripthandler  };
+			};
+			if (((typeOf player) == "I_officer_F") isEqualTo true) then
 				{
 					_scripthandler =[] execVM "bon_recruit_units\recruitable_units_static_resistance.sqf";
 					waitUntil{ ScriptDone _scripthandler  };

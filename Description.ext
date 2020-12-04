@@ -120,6 +120,14 @@ class Params
 		texts[] = {$STR_A3_combatpatrol_params_21, $STR_A3_bis_fnc_respawnmenuposition_random};
 		default = 1;
 	};
+	class BI_CP_startLocation
+	{
+		title = "Start At Base Station";
+		values[] = {1, 2};
+        	texts[] = {"Disabled","Enabled"};
+        	default = 2;
+		isGlobal = 0;
+	};
 	class BIS_CP_objective
 	{
 		title = $STR_A3_combatpatrol_params_22;
@@ -166,12 +174,12 @@ class Params
 	};
 	class Oskill	 
 	{
-        title = "Opfor Skill";
-        values[] = {1, 2, 3, 4, 5};
-        texts[] = {"Rookie", "Recruit", "Veteran", "Expert", "Random"};
-        default = 3;
+        	title = "Opfor Skill";
+        	values[] = {1, 2, 3, 4, 5};
+        	texts[] = {"Rookie", "Recruit", "Veteran", "Expert", "Random"};
+        	default = 3;
        	file = "ParamsPlus\OpSkill.sqf";
-        isGlobal = 0;
+        	isGlobal = 0;
 	};
     class PSymbols       
 	{
@@ -184,21 +192,21 @@ class Params
     };
     class PIntro      
 	{ 
-        title = "Intro";
-        values[] = {1, 2};
-        texts[] = {"Disabled","Enabled"};
-        default = 1;
+        	title = "Intro";
+        	values[] = {1, 2};
+        	texts[] = {"Disabled","Enabled"};
+        	default = 1;
        	file = "ParamsPlus\Intro.sqf";
-        isGlobal = 0;
+        	isGlobal = 0;
     };
   	class PRespawnLoadOut
 	{
-        title = "Dead Loadouts on Respawn";
+        	title = "Dead Loadouts on Respawn";
        	values[] = {1, 2};
-        texts[] = {"Disabled","Enabled"};
-        default = 1;
-	    file = "ParamsPlus\RespawnInventory.sqf";
-        isGlobal = 0;
+        	texts[] = {"Disabled","Enabled"};
+        	default = 1;
+	    	file = "ParamsPlus\RespawnInventory.sqf";
+        	isGlobal = 0;
 	};
 	class PDiverEquip       
 	{
@@ -214,10 +222,28 @@ class Params
         title = "Custom Loadouts";
        	values[] = {1, 2, 3};
         texts[] = {"Disabled","Units Group Player","All Playable or Switchable Units"};
-        default = 2;
+        default = 1;
         file = "ParamsPlus\loadout_selection.sqf";
         isGlobal = 1;
 	};	
+  	class PLoadOutsGroupUnit
+	{
+        title = "Player Group Loadouts by Group Number";
+       	values[] = {1, 2, 3};
+        texts[] = {"Disabled","Units Group Player","All Playable or Switchable Units"};
+        default = 1;
+        file = "ParamsPlus\loadOut_group_selection.sqf";
+        isGlobal = 1;
+	};
+  	class PLoadOutsWeaponsUnit
+	{
+        title = "Player Group Weapons by Group Number";
+       	values[] = {1, 2, 3};
+        texts[] = {"Disabled","Units Group Player","All Playable or Switchable Units"};
+        default = 1;
+        file = "ParamsPlus\loadouts_weapons_selection.sqf";
+        isGlobal = 1;
+	};
     class PUA       
 	{
         title = "Unlimited Ammo";
@@ -259,7 +285,7 @@ class Params
     	title = "Health Regeneration";
         values[] = {1, 2, 3, 4};
         texts[] = {"Disabled","Fair","Middlin","Good"};
-        default = 3;
+        default = 4;
         file = "ParamsPlus\regen_health_Group.sqf";
         isGlobal = 1;
     };
@@ -362,20 +388,20 @@ class Params
     }; 
   	class PSettings
 	{
-        title = "Settings";
+        	title = "Settings";
        	values[] = {1, 2, 3};
-        texts[] = {"Disabled","Units Group Player","All Playable or Switchable Units"};
-        default = 2;
-        file = "ParamsPlus\playerSettings_Group.sqf";
-        isGlobal = 1;
+        	texts[] = {"Disabled","Units Group Player","All Playable or Switchable Units"};
+        	default = 2;
+        	file = "ParamsPlus\playerSettings_Group.sqf";
+        	isGlobal = 1;
 	};  
     class PSaves      
 	{ 
-        title = "Saves";
-        values[] = {1, 2};
-        texts[] = {"Disabled","Enabled"};
-        default = 2;
-        isGlobal = 1;
+        	title = "Saves";
+        	values[] = {1, 2, 3, 4};
+        	texts[] = {"Saving Disabled, No Autosave","Saving Disabled, Autosave","Saving Enabled, No Autosave","Saving Enabled, Autosave"};
+        	default = 4;
+		isGlobal = 0;
     };
  	class Param_Loadparams
    	{

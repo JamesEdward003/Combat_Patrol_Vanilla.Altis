@@ -14,7 +14,7 @@ if(isServer) then{
 	Client Stuff
 ******************************************************************/
 _group = group (leader _unit);
-_grpCount = count (units _group);
+_grpCount = (units group _unit) find _unit;
 //_typename = _unit getVariable "codeName";
 //_nameUnit = name _unit;
 //_typename = lbtext [BON_RECRUITING_UNITLIST,_unit];

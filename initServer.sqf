@@ -19,4 +19,14 @@ call compile preprocessFileLineNumbers "ParamsPlus\mortarBag.sqf";
 
 ["Preload"] call BIS_fnc_arsenal;
 
+Civilian setFriend [East, 0];
+East setFriend [Civilian, 0];
+Civilian setFriend [West, 0];
+West setFriend [Civilian, 0];
+Civilian setFriend [Resistance, 0];
+Resistance setFriend [Civilian, 0];
+West setFriend [East, 0];
+East setFriend [West, 0];
+West setFriend [Resistance, 0];
+Resistance setFriend [West, 0];
 

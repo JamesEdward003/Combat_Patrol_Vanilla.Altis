@@ -1,7 +1,6 @@
 /// init.sqf /// Test 11-23-2020 
 [playerSide, "HQ"] commandChat "Initiating Init!";
 
-
 addMissionEventHandler ["EntityKilled", { 
 	params ["_unit", "_killer", "_instigator", "_useEffects"];
 	removeAllActions _unit;
@@ -22,16 +21,26 @@ addMissionEventHandler ["EntityKilled", {
 //	};
 //}]; 
 
-//addMissionEventHandler ["Map", {
-//	params ["_mapIsOpened", "_mapIsForced"];
-//	{_x enableAi "MOVE"} forEach units group player;
-//}];
+addMissionEventHandler ["Map", {
+	params ["_mapIsOpened", "_mapIsForced"];
+	{_x enableAi "MOVE"} forEach units group player;
+}];
 
-//addMissionEventHandler ["MapSingleClick", {
-//	params ["_units", "_pos", "_alt", "_shift"];
-//	"respawn_west" setMarkerPos _pos;
-//	respawn_west setPos _pos;
-//}];
+addMissionEventHandler ["MapSingleClick", {
+	params ["_units", "_pos", "_alt", "_shift"];
+	if (_shift) then {
+	deleteVehicle lz;
+	if ((getMarkerPos "lz") isEqualTo [0,0,0]) then {deleteMarker "lz"};
+	if (!((getMarkerPos "lz") isEqualTo [0,0,0])) then {deleteMarker "lz"};
+	lz = "Land_HelipadEmpty_F" createVehicle _pos;		  
+	createMarkerLocal ["lz", _pos];
+	"lz" setMarkerTypeLocal "mil_objective";
+	"lz" setMarkerShapeLocal "Icon";
+	"lz" setMarkerTextLocal " LZ";
+	"lz" setMarkerSizeLocal [1,1];
+	"lz" setMarkerColorLocal "colorblack";	
+	hint parseText format["<t size='1.25' color='#44ff00'>Check Map Objective!</t>"];};
+}];
 
 addMissionEventHandler ["TeamSwitch", {
 	params ["_previousUnit", "_newUnit"];
@@ -48,12 +57,17 @@ addMissionEventHandler ["GroupIconClick", {
 	if (_alt) then {{_x allowDamage true} forEach units _group};
 }];
 
+//addMissionEventHandler ["Loaded", {
+//	params ["_saveType"];
+//	saveGame;
+//}];
+
 //_newVehicle call KS_fnc_vehicleRespawnNotification;
 //or
 //[_newVehicle] call KS_fnc_vehicleRespawnNotification;
 
 KS_fnc_vehicleRespawnNotification =
-{	// Ripped out of BIS_fnc_moduleRespawnVehicle by Karel Moricky
+{
 	params [ ["_vehicle", objNull, [objNull]] ];
 	
 	if ( isNull _vehicle ) exitWith {};

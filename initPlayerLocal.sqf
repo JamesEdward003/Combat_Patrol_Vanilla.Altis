@@ -5,6 +5,14 @@ waitUntil {!isNull player && alive player};
 
 if !isMultiplayer then { execVM "ParamsPlus\respawn.sqf"; };
 
+call compile preprocessFileLineNumbers "briefing.sqf";
+        	
+call compile preprocessFileLineNumbers "bon_recruit_units\init.sqf";
+
+call compile preprocessFileLineNumbers "ParamsPlus\mortarBag.sqf";
+
+//call compile preprocessFileLineNumbers "cos\cosInit.sqf";
+
 //call compile preprocessFileLineNumbers "zorilyas_random_loadout\fnc_randomWeapon.sqf";
 
 onTeamSwitch { [_from, _to] execVM "OnTeamSwitch.sqf"; };
@@ -14,8 +22,6 @@ onTeamSwitch { [_from, _to] execVM "OnTeamSwitch.sqf"; };
 call compile preprocessFileLineNumbers "arsenalTriggerAction.sqf";
 
 call compile preprocessFileLineNumbers "garageTriggerAction.sqf";
-
-call compile preprocessFileLineNumbers "SafeWeapon.sqf";
 
 //if ( isNil{player getVariable "CommAirLift"} ) then
 //{	
@@ -78,4 +84,9 @@ if ( isNil{player getVariable "CommGroupManager"} ) then
 	player setVariable ["CommGroupManager", true];	
 };
 
+call compile preprocessFileLineNumbers "ParamsPlus\SafeWeapon.sqf";
+
+player execVM "ParamsPlus\Holster_Weapon.sqf";
+
+["BIS_CP_taskExfil", position player] call BIS_fnc_taskSetDestination;
 

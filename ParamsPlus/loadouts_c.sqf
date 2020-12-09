@@ -1,5 +1,5 @@
-///////  [_unit] execVM "paramsplus\loadouts_r.sqf";  ///////
-//_recruitableunits = ["I_diver_TL_F","I_diver_exp_F","I_diver_F","I_medic_F","I_engineer_F","I_soldier_mine_F","I_Story_Colonel_F","I_Captain_Hladas_F","I_Story_Officer_01_F","I_Story_Crew_F"];
+///////  [_unit] execVM "paramsplus\loadouts_c.sqf";  ///////
+//_recruitableunits = ["C_Nikos_aged","C_Orestes","C_man_p_fugitive_F","C_man_p_fugitive_F_euro","C_man_p_beggar_F_euro","C_man_p_beggar_F_asia","C_man_p_beggar_F_afro","C_man_w_worker_F","C_man_polo_2_F","C_man_p_shorts_1_F"];
 private ["_unit","_typeUnit","_classname","_displayname","_PLoadOut","_PDiverEquip"];
 _PLoadOut = "PLoadOut" call BIS_fnc_getParamValue;
 _PDiverEquip = "PDiverEquip" call BIS_fnc_getParamValue;
@@ -12,7 +12,7 @@ _typeUnit = typeOf _unit;
 
 switch (_typeUnit) do {
 
-	case "I_diver_TL_F": { 		//  (REVOLUTION_1)
+	case "C_Nikos_aged": {
 
 comment "Exported from Arsenal by DIEHARD";
 
@@ -80,12 +80,12 @@ _unit linkItem "I_UavTerminal";
 _unit linkItem "NVGoggles_INDEP";
 
 comment "Set identity";
-_unit setName ["Lazaros Elias","Lazaros","Elias"]; 
+_unit setName ["Constantine Nikos","Constantine","Nikos"]; 
 [_unit,"GreekHead_A3_03","male03gre",1,"Revolution"] call BIS_fnc_setIdentity;
-[_unit,"Curator"] call BIS_fnc_setUnitInsignia;
+[_unit,"BI"] call BIS_fnc_setUnitInsignia;
 };
 
-	case "I_diver_exp_F": {		// (REVOLUTION_2)
+	case "C_Orestes": {
 
 comment "Exported from Arsenal by DIEHARD";
 
@@ -153,12 +153,12 @@ _unit linkItem "I_UavTerminal";
 _unit linkItem "NVGoggles_INDEP";
 
 comment "Set identity";
-_unit setName ["Stefanos Petridish","Stefanos","Petridish"];
-[_unit,"GreekHead_A3_09","male06gre",1,"Revolution"] call BIS_fnc_setIdentity;
-[_unit,"Curator"] call BIS_fnc_setUnitInsignia;
+_unit setName ["Panos Mylonaki","Panos","Mylonaki"];
+[_unit,"GreekHead_A3_03","male03gre",1,"Jester"] call BIS_fnc_setIdentity;
+[_unit,"BI"] call BIS_fnc_setUnitInsignia;
 };
 
-	case "I_diver_F": {	//  (REVOLUTION_3)
+	case "C_man_p_fugitive_F_euro": {
 
 comment "Exported from Arsenal by DIEHARD";
 
@@ -231,7 +231,7 @@ _unit setName ["Satiris Rumpesi","Satiris","Rumpesi"];
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
 };
 
-	case "I_medic_F": {		//  (REVOLUTION_4) 
+	case "C_man_p_beggar_F_euro": {
 
 comment "Exported from Arsenal by DIEHARD";
 
@@ -304,7 +304,7 @@ _unit setName ["Michalis Costas","Michalis","Costas"];
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
 };
 
-	case "I_engineer_F": {		//  (REVOLUTION_5) 
+	case "C_man_p_beggar_F_asia": {
 
 comment "Exported from Arsenal by DIEHARD";
 
@@ -377,7 +377,7 @@ _unit setName ["Papa Papadopolis","Papa","Papadopolis"];
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
 };
 
-	case "I_soldier_mine_F": {	//  (REVOLUTION_6) 
+	case "C_man_p_beggar_F_afro": {	
 
 comment "Exported from Arsenal by DIEHARD";
 
@@ -450,7 +450,7 @@ _unit setName ["Dimitrias Dukas","Dimitrias","Dukas"];
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
 };
 
-	case "I_Story_Colonel_F": {	//  (REVOLUTION_7) 
+	case "C_man_w_worker_F": {
 
 comment "Exported from Arsenal by DIEHARD";
 
@@ -523,7 +523,7 @@ _unit setName ["Athanasiadis Akhanteros","Athanasiadis","Akhanteros"];
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
 };
 
-	case "I_Captain_Hladas_F": {	//  (REVOLUTION_8) 
+	case "C_man_polo_2_F": {
 
 comment "Exported from Arsenal by DIEHARD";
 
@@ -570,7 +570,7 @@ _unit setName ["Harvey Hladik","Harvey","Hladik"];
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
 };
 
-	case "I_Story_Officer_01_F": {	//  (REVOLUTION_9) 
+	case "C_man_p_shorts_1_F": {	
 
 comment "Exported from Arsenal by DIEHARD";
 
@@ -642,7 +642,7 @@ _unit setName ["Panas Gavras","Panas","Gavras"];
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
 };
 
-	case "I_Story_Crew_F": {	//  (REVOLUTION_10) 
+	case "C_man_p_fugitive_F": {
 
 comment "Exported from Arsenal by DIEHARD";
 

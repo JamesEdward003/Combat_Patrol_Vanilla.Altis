@@ -1,5 +1,6 @@
 // initPlayerServer.sqf //
 [playerSide, "HQ"] commandChat "Initiating InitPlayerServer!";
+
 private["_paramsArray","_settings"];
 _paramsArray = paramsArray;
 _settings = "Parameters:<br/>";
@@ -24,10 +25,18 @@ if(!isNull player) then {
     hint format["Player is null"];
 };
 
-//[] spawn {
-//	while {true} do {
-//		sleep 2;
-//		player setVariable [ "MARTA_REVEAL", allGroups select {side _x != playerSide && leader _x distance2D player < 300}];
-//		player setVariable [ "MARTA_HIDE", allGroups select {side _x == playerSide or side _x == civilian or (leader _x distance2D player >= 300)}];
-//	}
-//};
+_BI_CP_startLocation = "BI_CP_startLocation" call BIS_fnc_getParamValue;	
+if (_BI_CP_startLocation isEqualTo 1) exitWith {};
+if (_BI_CP_startLocation isEqualTo 2) then {
+	_pos = getPos leader player;
+	waitUntil {!isNil "BIS_CP_initDone"};
+	{
+	if ( _x != leader player) then {
+		_relDis = _x distance leader player;
+		_relDir = [leader player, _x] call BIS_fnc_relativeDirTo;
+		_x setPos ([_pos, _relDis, _relDir] call BIS_fnc_relPos);
+	}; 
+	}forEach units group player;
+	leader player setPos _pos;
+};	
+

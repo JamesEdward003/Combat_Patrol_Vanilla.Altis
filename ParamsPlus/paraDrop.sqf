@@ -8,8 +8,8 @@ switch (side _caller) do {
 	
 	case west: {
 			
-	_reUnits_w = ["B_Captain_Pettka_F","B_Captain_Jay_F","B_CTRG_soldier_AR_A_F","B_CTRG_soldier_GL_LAT_F","B_Story_Protagonist_F","B_CTRG_soldier_engineer_exp_F","B_CTRG_soldier_M_medic_F"];
-	_unitrank = ["captain","captain","lieutenant","sergeant","sergeant","corporal","corporal"];
+	_reUnits_w = ["B_Captain_Jay_F","B_CTRG_soldier_AR_A_F","B_CTRG_soldier_GL_LAT_F","B_Story_Protagonist_F","B_CTRG_soldier_engineer_exp_F","B_CTRG_soldier_M_medic_F"];
+	_unitrank = ["captain","lieutenant","sergeant","sergeant","sergeant","corporal","corporal"];
 		
 	if (_position isEqualTo []) then { 
 		_position = (screenToWorld [0.5,0.5]);
@@ -67,8 +67,8 @@ switch (side _caller) do {
 	};
 	case east: {
 			
-	_reUnits_e = ["O_Story_Colonel_F","O_Story_CEO_F","O_officer_F","O_A_soldier_TL_F","O_Soldier_GL_F","O_Soldier_AT_F","O_soldier_M_F","O_A_soldier_F","O_soldier_exp_F","O_engineer_F","O_soldier_mine_F","O_medic_F"];
-	_unitrank = ["Colonel","Major","Captain","Captain","Lieutenant","Lieutenant","Lieutenant","Sergeant","Sergeant","Sergeant","Corporal","Corporal"];
+	_reUnits_e = ["O_Soldier_GL_F","O_Soldier_AT_F","O_soldier_M_F","O_soldier_exp_F","O_engineer_F","O_soldier_mine_F","O_medic_F"];
+	_unitrank = ["captain","lieutenant","sergeant","sergeant","sergeant","corporal","corporal"];
 		
 	if (_position isEqualTo []) then { 
 		_position = (screenToWorld [0.5,0.5]);
@@ -126,8 +126,8 @@ switch (side _caller) do {
 	};
 	case resistance: {
 			
-	_reUnits_r = ["I_Story_Colonel_F","I_Captain_Hladas_F","I_Story_Officer_01_F","I_engineer_F","I_soldier_mine_F","I_medic_F"];
-	_unitrank = ["Colonel","Captain","Lieutenant","Sergeant","Sergeant","Corporal","Corporal"];
+	_reUnits_r = ["I_Story_Colonel_F","I_Captain_Hladas_F","I_Story_Officer_01_F","I_Soldier_LAT_F","I_engineer_F","I_soldier_mine_F","I_medic_F"];
+	_unitrank = ["captain","lieutenant","sergeant","sergeant","sergeant","corporal","corporal"];
 		
 	if (_position isEqualTo []) then { 
 		_position = (screenToWorld [0.5,0.5]);
@@ -185,9 +185,9 @@ switch (side _caller) do {
 	};
 	case civilian: {
 			
-	_reUnits_c = ["C_Nikos_aged","C_Orestes","C_man_p_fugitive_F_euro","C_man_p_beggar_F_euro","C_man_p_beggar_F_asia","C_man_p_beggar_F_afro","C_man_w_worker_F","C_man_polo_2_F"];
+	_reUnits_c = ["C_Orestes","C_man_p_fugitive_F_euro","C_man_p_beggar_F_euro","C_man_p_beggar_F_asia","C_man_p_beggar_F_afro","C_man_w_worker_F","C_man_polo_2_F"];
 
-	_unitrank = ["Colonel","Captain","Lieutenant","Sergeant","Sergeant","Corporal","Corporal"];
+	_unitrank = ["captain","lieutenant","sergeant","sergeant","sergeant","corporal","corporal"];
 		
 	if (_position isEqualTo []) then { 
 		_position = (screenToWorld [0.5,0.5]);

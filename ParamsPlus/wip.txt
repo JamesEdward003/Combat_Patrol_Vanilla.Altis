@@ -24,3 +24,8 @@ lockIdentity _unit;
 [_unit,(face _unitToCopy)] remoteExec ["setFace",0,true];
 
 _this setUnitLoadout (configfile >> "CfgVehicles" >> "");
+
+12-7-2020
+
+MP-[1,1,1,1,0,20,0,1,2,-1,1,0,0,0,3,3,2,1,1,1,1,1,1,2,2,2,2,4,2,2,2,1,1,1,2,1,1,1,4,4,4,2,4,1], 44
+

@@ -1539,6 +1539,8 @@ _unit action ["WEAPONONBACK", _unit];
 
 if (isPlayer _unit) then {
 
+execVM "SafeWeapon.sqf";
+
 [playerSide, "HQ"] commandChat "Loadouts Done!";
 
 };

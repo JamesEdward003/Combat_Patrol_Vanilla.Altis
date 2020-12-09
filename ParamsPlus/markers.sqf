@@ -82,9 +82,9 @@ switch (side _unit) do {
 	if (_grp isEqualTo "Rambo") then {
 		_mrkr setMarkerColor "Color4_FD_F";
 	};
-//	if (_grp isEqualTo "Jester") then {
-//		_mrkr setMarkerColor "ColorKhaki";
-//	};
+	if (_grp isEqualTo "Jester") then {
+		_mrkr setMarkerColor "ColorKhaki";
+	};
 //	if (_grp isEqualTo "Revolution") then {
 //		_mrkr setMarkerColor "ColorGreen";
 //	}; 

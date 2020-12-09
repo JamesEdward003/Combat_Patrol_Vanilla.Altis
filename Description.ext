@@ -62,6 +62,11 @@ class Header
 #include "bon_recruit_units\dialog\common.hpp"
 #include "bon_recruit_units\dialog\recruitment.hpp"
 
+class CfgFunctions
+{
+
+};
+
 class Params
 {
 	class BIS_CP_startingDaytime
@@ -111,8 +116,17 @@ class Params
 		title = $STR_A3_combatpatrol_params_19;
 		values[] = {0, 1, 2};
 		texts[] = {$STR_A3_cfgfactionclasses_opf_f0, $STR_A3_cfgfactionclasses_ind_f0, $STR_A3_bis_fnc_respawnmenuposition_random};
-		default = 0;
+		default = 2;
 	};
+    class PCivilians      
+	{ 
+        	title = "Civilians";
+        	values[] = {1, 2};
+        	texts[] = {"Disabled","Enabled"};
+        	default = 1;
+       	file = "cos\cosInit.sqf";
+        	isGlobal = 0;
+    };
 	class BIS_CP_locationSelection
 	{
 		title = $STR_A3_combatpatrol_params_20;

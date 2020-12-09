@@ -35,15 +35,60 @@ switch (_PLoadOut) do
 						};
 						case (side _unit isEqualTo EAST) :  {
 												
-							_unit execVM "paramsplus\loadouts_e.sqf";
+							if (((dayTime > ((date call BIS_fnc_sunriseSunsetTime) select 0) - 0.5) && (dayTime < ((date call BIS_fnc_sunriseSunsetTime) select 1) + 0.5)) isEqualTo false) then {_unit action ["nvGoggles", _unit]};
+
+							_unitlo	= getUnitLoadout _unit;
+
+							_unit setVariable ["LoadoutDone", _unitlo, true];
+
+							_unit action ["WEAPONONBACK", _unit];
+
+							if (isPlayer _unit) then {
+
+							[playerSide, "HQ"] commandChat "Loadouts Done!";
+
+							};
+
+							_unit setDamage 0;
+							
 						};
 						case (side _unit isEqualTo RESISTANCE) :  {
 													
-							_unit execVM "paramsplus\loadouts_r.sqf";
+							if (((dayTime > ((date call BIS_fnc_sunriseSunsetTime) select 0) - 0.5) && (dayTime < ((date call BIS_fnc_sunriseSunsetTime) select 1) + 0.5)) isEqualTo false) then {_unit action ["nvGoggles", _unit]};
+
+							_unitlo	= getUnitLoadout _unit;
+
+							_unit setVariable ["LoadoutDone", _unitlo, true];
+
+							_unit action ["WEAPONONBACK", _unit];
+
+							if (isPlayer _unit) then {
+
+							[playerSide, "HQ"] commandChat "Loadouts Done!";
+
+							};
+
+							_unit setDamage 0;
+							
 						};
 						case (side _unit isEqualTo CIVILIAN) :  {
 						
-							_unit setDamage 0;	
+							if (((dayTime > ((date call BIS_fnc_sunriseSunsetTime) select 0) - 0.5) && (dayTime < ((date call BIS_fnc_sunriseSunsetTime) select 1) + 0.5)) isEqualTo false) then {_unit action ["nvGoggles", _unit]};
+
+							_unitlo	= getUnitLoadout _unit;
+
+							_unit setVariable ["LoadoutDone", _unitlo, true];
+
+							_unit action ["WEAPONONBACK", _unit];
+
+							if (isPlayer _unit) then {
+
+							[playerSide, "HQ"] commandChat "Loadouts Done!";
+
+							};
+
+							_unit setDamage 0;
+								
 						};
 					};		
 				};						
@@ -72,7 +117,7 @@ switch (_PLoadOut) do
 						};
 						case (side _unit isEqualTo CIVILIAN) :  {
 						
-							_unit setDamage 0;	
+							_unit execVM "paramsplus\loadouts_c.sqf";	
 						};
 					};		
 				};						
@@ -101,7 +146,7 @@ switch (_PLoadOut) do
 						};
 						case (side _unit isEqualTo CIVILIAN) :  {
 						
-							_unit setDamage 0;	
+							_unit execVM "paramsplus\loadouts_c.sqf";	
 						};
 					};		
 				};	

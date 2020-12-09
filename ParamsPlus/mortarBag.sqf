@@ -1,5 +1,6 @@
 // execVM "mortarBag.sqf"; //
 KK_playerAddMortarBag = {
+	if ((faction player) isEqualTo "CIV_F") exitWith {hint parseText format["<t size='1.25' color='#ff6161'>Mortar Bag Not Available To Civilians!</t>"];};
     removeBackpack player;
     KK_mortarBag = toString [
         (toArray faction player) select 0
@@ -15,7 +16,7 @@ KK_playerAddMortarBag = {
             removeBackpack player;
             player removeAction (_this select 2);
             KK_mortar = toString [
-        	   (toArray faction player) select 0] + "_Mortar_01_F";
+        	   (toArray faction player) select 0] + "_Mortar_01_F";        
             KK_mortar createVehicle (player modelToWorld [0,1,0]);
         },
         [],

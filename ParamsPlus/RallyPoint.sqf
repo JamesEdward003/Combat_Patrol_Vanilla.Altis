@@ -41,7 +41,7 @@ Rally_Point = _unit addAction ["<t color='#00FFFF'>Deploy Rally Point</t>", {(_t
 	case WEST: {_uavbpclass = "B_UAV_01_backpack_F";};
 	case EAST: {_uavbpclass = "O_UAV_01_backpack_F";};
 	case RESISTANCE: {_uavbpclass = "I_UAV_01_backpack_F";};
-	case CIVILIAN: {_uavbpclass = "B_UAV_01_backpack_F";};
+	case CIVILIAN: {_uavbpclass = "C_IDAP_UAV_01_backpack_F";};
 	};
 
 	_nos = nearestObjects [_this, ["GroundWeaponHolder_Scripted"], 10];

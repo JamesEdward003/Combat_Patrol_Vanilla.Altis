@@ -73,6 +73,18 @@ switch (side _unit) do {
 		_unit execVM "ParamsPlus\playerSettings.sqf";
 			
 	};
+	case civilian: {
+
+		_unit execVM "ParamsPlus\loadouts_c_diver.sqf";
+		_unit execVM "ParamsPlus\loadouts_c.sqf";	
+		_unit execVM "ParamsPlus\nightvision.sqf";
+		_unit execVM "ParamsPlus\silencers.sqf";
+		_unit execVM "ParamsPlus\regen_health.sqf";
+		_unit execVM "ParamsPlus\UnlimitedAmmo.sqf";
+		_unit execVM "ParamsPlus\markers.sqf";
+		_unit execVM "ParamsPlus\playerSettings.sqf";
+			
+	};
 };
 
 _unit addAction ["<t color='#00FFFF'>Dismiss</t>",BON_RECRUIT_PATH+"dismiss.sqf",[],-100,false,true,""];

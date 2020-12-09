@@ -24,62 +24,56 @@ switch (side _caller) do {
          case resistance:	{_mrkrcolor = "ColorGUER"};
          case civilian:	{_mrkrcolor = "ColorCIV"};
 };
-	
-switch (side _caller) do {
-	
-	case west: {
-				
-		if (_position isEqualTo []) then { 
+					
+if (_position isEqualTo []) then { 
 
-			objective = false;
-			sleep 0.25;
-			openMap true;
-			sleep 0.25;
+	objective = false;
+	sleep 0.25;
+	openMap true;
+	sleep 0.25;
 
-			titleText["Map target", "PLAIN"];
-			onMapSingleClick "onMapSingleClick ''; mappos = _pos; objective = true";		
-			waitUntil {sleep 1; (!visiblemap OR objective OR !alive _caller)};
-				if (!objective OR !alive _caller) exitWith {
-				mappos = nil;
-				hint parseText format["<t size='1.25' color='#ff6161'>Map target cancelled</t>"];
-				titletext ["","plain"];
-				};
-
-			if ((getMarkerPos "target") isEqualTo [0,0,0]) then {deleteMarker "target"};
-			if (!((getMarkerPos "target") isEqualTo [0,0,0])) then {deleteMarker "target"};
-				  
-			_hLand = createMarkerLocal ["target", mappos];
-			_hLand setMarkerTypeLocal "mil_objective";
-			_hLand setMarkerShapeLocal "Icon";
-			_hLand setMarkerTextLocal " target";
-			_hLand setMarkerSizeLocal [1,1];
-			_hLand setMarkerColorLocal _mrkrcolor;
-			
-			titletext ["","plain",0.2];
-			hint parseText format["<t size='1.25' color='#44ff00'>Map objective successful</t>"];
-			
-			_position = getMarkerPos "target";
-				
-			uisleep 1;
-			openmap false;
-
-		} else {
-
-			if ((getMarkerPos "target") isEqualTo [0,0,0]) then {deleteMarker "target"};
-			if (!((getMarkerPos "target") isEqualTo [0,0,0])) then {deleteMarker "target"};
-				  
-			_hLand = createMarkerLocal ["target", _position];
-			_hLand setMarkerTypeLocal "mil_objective";
-			_hLand setMarkerShapeLocal "Icon";
-			_hLand setMarkerTextLocal " target";
-			_hLand setMarkerSizeLocal [1,1];
-			_hLand setMarkerColorLocal _mrkrcolor;
-			
-			hint parseText format["<t size='1.25' color='#44ff00'>Map objective successful</t>"];
-			
-			_position = _position;
+	titleText["Map target", "PLAIN"];
+	onMapSingleClick "onMapSingleClick ''; mappos = _pos; objective = true";		
+	waitUntil {sleep 1; (!visiblemap OR objective OR !alive _caller)};
+		if (!objective OR !alive _caller) exitWith {
+		mappos = nil;
+		hint parseText format["<t size='1.25' color='#ff6161'>Map target cancelled</t>"];
+		titletext ["","plain"];
 		};
-	};
+
+	if ((getMarkerPos "target") isEqualTo [0,0,0]) then {deleteMarker "target"};
+	if (!((getMarkerPos "target") isEqualTo [0,0,0])) then {deleteMarker "target"};
+		  
+	_hLand = createMarkerLocal ["target", mappos];
+	_hLand setMarkerTypeLocal "mil_objective";
+	_hLand setMarkerShapeLocal "Icon";
+	_hLand setMarkerTextLocal " target";
+	_hLand setMarkerSizeLocal [1,1];
+	_hLand setMarkerColorLocal _mrkrcolor;
+	
+	titletext ["","plain",0.2];
+	hint parseText format["<t size='1.25' color='#44ff00'>Map objective successful</t>"];
+	
+	_position = getMarkerPos "target";
+		
+	uisleep 1;
+	openmap false;
+
+} else {
+
+	if ((getMarkerPos "target") isEqualTo [0,0,0]) then {deleteMarker "target"};
+	if (!((getMarkerPos "target") isEqualTo [0,0,0])) then {deleteMarker "target"};
+		  
+	_hLand = createMarkerLocal ["target", _position];
+	_hLand setMarkerTypeLocal "mil_objective";
+	_hLand setMarkerShapeLocal "Icon";
+	_hLand setMarkerTextLocal " target";
+	_hLand setMarkerSizeLocal [1,1];
+	_hLand setMarkerColorLocal _mrkrcolor;
+	
+	hint parseText format["<t size='1.25' color='#44ff00'>Map objective successful</t>"];
+	
+	_position = _position;
 };
 
 _spawnPos = (position player) findEmptyPosition [20, 50, _mortar];

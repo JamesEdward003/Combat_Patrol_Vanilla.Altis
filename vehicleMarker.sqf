@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////
-// "vehicleMarker.sqf"
+// [] execVM "vehicleMarker.sqf";
 //////////////////////////////////////////////////////////////////
 private ["_unit","_marker"];
 _unit = _this select 0;
@@ -18,11 +18,7 @@ switch (playerSide) do {
 
 if (isMultiPlayer) then
 {
-	if ( isNil{_unit getVariable "vehicleMrkrMP"} ) then 
-	{	
-		_unit addEventHandler ["Respawn",{_this execVM "vehicleMarker.sqf"}];
-		_unit setVariable ["vehicleMrkrMP", true];
-	};
+	_unit addEventHandler ["Respawn",{_this execVM "vehicleMarker.sqf"}];
 };
 		
 While {alive _unit} do {

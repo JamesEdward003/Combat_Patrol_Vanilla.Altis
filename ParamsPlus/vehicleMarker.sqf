@@ -2,7 +2,7 @@
 // 		[PWNR_Taxi_B] execVM "paramsplus\vehicleMarker.sqf";
 //////////////////////////////////////////////////////////////////
 private ["_vehicle","_vehType","_marker","_mrkrName","_mrkrcolor","_markertype"];
-_vehicle = _this select 0;
+_vehicle = _this;
 
 //_vehType = typeOf _vehicle;  //getText (configFile >> "CfgVehicles" >> (typeOf _vehicle) >> "displayName");
 _classname 	= format ["%1", typeOf _vehicle];

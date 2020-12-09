@@ -100,6 +100,18 @@ if (bon_dynamic_list isEqualTo true) then {
 					_scripthandler =[] execVM "bon_recruit_units\recruitable_units_static_resistance.sqf";
 					waitUntil{ ScriptDone _scripthandler  };
 			};
+		case CIVILIAN: {
+
+			if (((typeOf player) == "C_Nikos_aged") isEqualTo true) then
+				{
+					_scripthandler =[] execVM "bon_recruit_units\recruitable_units_static_civilian.sqf";
+					waitUntil{ ScriptDone _scripthandler  };
+			};
+			if (((typeOf player) == "C_man_p_shorts_1_F") isEqualTo true) then
+				{
+					_scripthandler =[] execVM "bon_recruit_units\recruitable_units_static_civilian.sqf";
+					waitUntil{ ScriptDone _scripthandler  };
+			};
 		};
 	};
 };

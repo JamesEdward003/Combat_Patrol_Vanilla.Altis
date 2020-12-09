@@ -13,18 +13,18 @@ waitUntil { time >= _future };
 //[1,1,1,1,0,20,0,1,-1,1,0,0,0,3,3,2,1,1,1,1,1,2,2,2,2,2,4,2,2,2,1,1,1,2,3,3,1,4,4,4,2,4,1], 43
 //setPos
 
-_puavhacker	= paramsArray select 31;
-_pengineer	= paramsArray select 32;
-_pexplspec	= paramsArray select 33;
-_pmedic		= paramsArray select 34;
-_precoil 	= paramsArray select 35;
-_psway   	= paramsArray select 36;
-_pstamina	= paramsArray select 37;
-_pload		= paramsArray select 38;
-_paudible	= paramsArray select 39;
-_pcamo		= paramsArray select 40;
+_puavhacker	= paramsArray select 32;
+_pengineer	= paramsArray select 33;
+_pexplspec	= paramsArray select 34;
+_pmedic		= paramsArray select 35;
+_precoil 	= paramsArray select 36;
+_psway   	= paramsArray select 37;
+_pstamina	= paramsArray select 38;
+_pload		= paramsArray select 39;
+_paudible	= paramsArray select 40;
+_pcamo		= paramsArray select 41;
 
-_PSkill = _player execVM "ParamsPlus\GF_AiSkill.sqf";
+//_PSkill = _player execVM "ParamsPlus\GF_AiSkill.sqf";
 
 	switch (_puavhacker) do
 	{

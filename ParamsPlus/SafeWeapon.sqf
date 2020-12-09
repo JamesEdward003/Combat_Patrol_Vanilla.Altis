@@ -1,5 +1,5 @@
 /////	execVM "SafeWeapon.sqf";	 /////
 ////////////////////////////////
-waitUntil ( !isNull player );
+waitUntil { !isNull player };
 player action ["WEAPONONBACK", player];
 

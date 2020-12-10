@@ -14,23 +14,21 @@ case EAST: {_terminalclass = "O_UavTerminal";};
 case RESISTANCE: {_terminalclass = "I_UavTerminal";};
 case CIVILIAN: {_terminalclass = "C_UavTerminal";};
 };
-if("ItemGPS" in assignedItems player OR "ItemGPS" in items player) then 
-{
-player unassignitem "ItemGPS";
-player removeItem "ItemGPS";
-};
 if(!(_terminalclass in assignedItems player)) then 
 {
-player addWeapon _terminalclass;
-player assignItem _terminalclass;
-player addItem _terminalclass;
-};
+	player unassignitem "ItemGPS";
+	player removeItem "ItemGPS";
 
-//WaitUntil {!isNull uavbp};
-//if (_terminalclass in assignedItems player) then 
-//{
-//player action ["UAVTerminalOpen", player];
-//};
+	player addWeapon _terminalclass;
+	player assignItem _terminalclass;
+	player addItem _terminalclass;
+};
+/*
+WaitUntil {!isNull uavbp};
+if (_terminalclass in assignedItems player) then 
+{
+player action ["UAVTerminalOpen", player];
+};
 
 WaitUntil {(player distance (getMarkerPos _marker) > 10) || (!alive player)};
 if (_terminalclass in assignedItems player) then 
@@ -47,4 +45,4 @@ player addWeapon "ItemGPS";
 player addItem "ItemGPS";
 player assignItem "ItemGPS";
 };
-
+*/

@@ -5,10 +5,10 @@ class EditorData
 	angleGridStep=0.2617994;
 	scaleGridStep=10;
 	autoGroupingDist=10;
-	toggles=513;
+	toggles=641;
 	class ItemIDProvider
 	{
-		nextID=379;
+		nextID=394;
 	};
 	class MarkerIDProvider
 	{
@@ -16,7 +16,7 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={20828.414,56.866562,7277.4761};
+		pos[]={20881.68,147.44086,7191.7202};
 		dir[]={-0.2415123,-0.7520653,0.61324519};
 		up[]={-0.27558219,0.65908867,0.69975501};
 		aside[]={0.93044454,-7.4505806e-009,0.36643395};
@@ -33,14 +33,13 @@ addons[]=
 	"A3_Modules_F_Supports",
 	"A3_Characters_F_Mark",
 	"A3_Modules_F_Tacops",
-	"A3_Modules_F",
-	"A3_Soft_F_MRAP_01"
+	"A3_Modules_F"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=7;
+		items=6;
 		class Item0
 		{
 			className="A3_Characters_F";
@@ -83,13 +82,6 @@ class AddonsMetaData
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item6
-		{
-			className="A3_Soft_F";
-			name="Arma 3 Alpha - Unarmored Land Vehicles";
-			author="Bohemia Interactive";
-			url="https://www.arma3.com";
-		};
 	};
 };
 randomSeed=15867596;
@@ -119,7 +111,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=65;
+		items=64;
 		class Item0
 		{
 			dataType="Group";
@@ -8101,12 +8093,11 @@ class Mission
 		class Item52
 		{
 			dataType="Marker";
-			position[]={9162.1689,14.847,21617.289};
+			position[]={9163.5801,14.836944,21617.762};
 			name="respawn_guer";
 			type="respawn_inf";
 			colorName="ColorGUER";
 			id=337;
-			atlOffset=-6.6757202e-006;
 		};
 		class Item53
 		{
@@ -9015,22 +9006,6 @@ class Mission
 			};
 			id=366;
 			type="EmptyDetector";
-		};
-		class Item64
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={20817.828,29.760775,7292.4126};
-				angles[]={6.2818413,2.565634,6.2778621};
-			};
-			side="Empty";
-			flags=4;
-			class Attributes
-			{
-			};
-			id=367;
-			type="B_MRAP_01_F";
 		};
 	};
 	class Connections

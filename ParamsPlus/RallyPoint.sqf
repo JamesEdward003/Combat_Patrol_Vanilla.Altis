@@ -30,8 +30,8 @@ Rally_Point = _unit addAction ["<t color='#00FFFF'>Deploy Rally Point</t>", {(_t
 	 respawn_west setPos (_this modeltoworld [0,3,_height]);};
 	case EAST: {"respawn_east" setMarkerPos (_this modeltoworld [0,3,_height]);	
 	 respawn_east setPos (_this modeltoworld [0,3,_height]);};	 
-	case INDEPENDENT: {"respawn_guerrila" setMarkerPos (_this modeltoworld [0,3,_height]);	
-	 respawn_guerrila setPos (_this modeltoworld [0,3,_height]);};	
+	case RESISTANCE: {"respawn_guer" setMarkerPos (_this modeltoworld [0,3,_height]);	
+	 respawn_guer setPos (_this modeltoworld [0,3,_height]);};	
 	case CIVILIAN: {"respawn_civilian" setMarkerPos (_this modeltoworld [0,3,_height]);	
 	 respawn_civilian setPos (_this modeltoworld [0,3,_height]);}; 
 	};
@@ -46,7 +46,6 @@ Rally_Point = _unit addAction ["<t color='#00FFFF'>Deploy Rally Point</t>", {(_t
 
 	_nos = nearestObjects [_this, ["GroundWeaponHolder_Scripted"], 10];
 	uisleep 0.1;
-//	hint format ["%1",count _nos];
 			
 	if (count _nos > 0) then {
 	{clearBackpackCargoGlobal _x; deleteVehicle _x;} forEach _nos;
@@ -57,7 +56,6 @@ Rally_Point = _unit addAction ["<t color='#00FFFF'>Deploy Rally Point</t>", {(_t
 	_this playMove "AmovPknlMstpSrasWrflDnon_AinvPknlMstpSrasWrflDnon_Putdown";
 	uisleep 0.3;
 	uavbp = "GroundWeaponHolder_Scripted" createVehicle _location;
-//	uavbp = createVehicle ["GroundWeaponHolder_Scripted", _location, [], 0, "CAN_COLLIDE"];
 	uavbp setVehiclePosition [_this modelToWorld [0,1.25,_height], [], 0, "CAN_COLLIDE"];
 
 	uisleep 0.1;

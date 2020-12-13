@@ -13,7 +13,7 @@ switch (typeOf _unit) do {
 
 	case "C_Nikos_aged" : {
 
-comment "Exported from Arsenal by DIEHARD";
+comment "Exported from Arsenal by RENFRO";
 
 comment "[!] UNIT MUST BE LOCAL [!]";
 if (!local _unit) exitWith {};
@@ -37,7 +37,6 @@ _unit addPrimaryWeaponItem "30Rnd_65x39_caseless_black_mag";
 _unit addPrimaryWeaponItem "1Rnd_HE_Grenade_shell";
 _unit addWeapon "hgun_Pistol_heavy_02_F";
 _unit addHandgunItem "acc_flashlight_pistol";
-_unit addHandgunItem "optic_Yorris";
 _unit addHandgunItem "6Rnd_45ACP_Cylinder";
 
 comment "Add containers";
@@ -80,7 +79,7 @@ _unit linkItem "NVGoggles_INDEP";
 
 comment "Set identity";
 _unit setName ["Constantine Nikos","Constantine","Nikos"]; 
-[_unit,"GreekHead_A3_03","male03gre",1,"Revolution"] call BIS_fnc_setIdentity;
+[_unit,"GreekHead_A3_04","male03gre",1,"Revolution"] call BIS_fnc_setIdentity;
 [_unit,"BI"] call BIS_fnc_setUnitInsignia;
 };
 
@@ -152,8 +151,8 @@ _unit linkItem "I_UavTerminal";
 _unit linkItem "NVGoggles_INDEP";
 
 comment "Set identity";
-_unit setName ["Panos Mylonaki","Panos","Mylonaki"];
-[_unit,"GreekHead_A3_03","male03gre",1,"Jester"] call BIS_fnc_setIdentity;
+_unit setName ["Cranius Orestes","Cranius","Orestes"];
+[_unit,"GreekHead_A3_09","male06gre",1,"Revolution"] call BIS_fnc_setIdentity;
 [_unit,"BI"] call BIS_fnc_setUnitInsignia;
 };
 
@@ -445,7 +444,7 @@ _unit linkItem "NVGoggles_INDEP";
 
 comment "Set identity";
 _unit setName ["Dimitrias Dukas","Dimitrias","Dukas"];
-[_unit,"GreekHead_A3_03","male01gre",1,"Revolution"] call BIS_fnc_setIdentity;
+[_unit,"AfricanHead_03","male01gre",1,"Revolution"] call BIS_fnc_setIdentity;
 [_unit,"BI"] call BIS_fnc_setUnitInsignia;
 };
 
@@ -647,70 +646,70 @@ _unit setName ["Panos Mylonaki","Panos","Mylonaki"];
 comment "Exported from Arsenal by RENFRO";
 
 comment "[!] UNIT MUST BE LOCAL [!]";
-if (!local this) exitWith {};
+if (!local _unit) exitWith {};
 
 comment "Remove existing items";
-removeAllWeapons this;
-removeAllItems this;
-removeAllAssignedItems this;
-removeUniform this;
-removeVest this;
-removeBackpack this;
-removeHeadgear this;
-removeGoggles this;
+removeAllWeapons _unit;
+removeAllItems _unit;
+removeAllAssignedItems _unit;
+removeUniform _unit;
+removeVest _unit;
+removeBackpack _unit;
+removeHeadgear _unit;
+removeGoggles _unit;
 
 comment "Add weapons";
-this addWeapon "arifle_Katiba_GL_F";
-this addPrimaryWeaponItem "muzzle_snds_H";
-this addPrimaryWeaponItem "acc_pointer_IR";
-this addPrimaryWeaponItem "optic_MRCO";
-this addPrimaryWeaponItem "30Rnd_65x39_caseless_green";
-this addPrimaryWeaponItem "1Rnd_HE_Grenade_shell";
-this addWeapon "hgun_Pistol_heavy_02_F";
-this addHandgunItem "muzzle_snds_L";
-this addHandgunItem "acc_flashlight_pistol";
-this addHandgunItem "6Rnd_45ACP_Cylinder";
+_unit addWeapon "arifle_Katiba_GL_F";
+_unit addPrimaryWeaponItem "muzzle_snds_H";
+_unit addPrimaryWeaponItem "acc_pointer_IR";
+_unit addPrimaryWeaponItem "optic_MRCO";
+_unit addPrimaryWeaponItem "30Rnd_65x39_caseless_green";
+_unit addPrimaryWeaponItem "1Rnd_HE_Grenade_shell";
+_unit addWeapon "hgun_Pistol_heavy_02_F";
+_unit addHandgunItem "muzzle_snds_L";
+_unit addHandgunItem "acc_flashlight_pistol";
+_unit addHandgunItem "6Rnd_45ACP_Cylinder";
 
 comment "Add containers";
-this forceAddUniform "U_I_OfficerUniform";
-this addVest "V_BandollierB_oli";
-this addBackpack "B_TacticalPack_oli";
+_unit forceAddUniform "U_I_OfficerUniform";
+_unit addVest "V_BandollierB_oli";
+_unit addBackpack "B_TacticalPack_oli";
 
 comment "Add binoculars";
-this addMagazine "Laserbatteries";
-this addWeapon "Laserdesignator";
+_unit addMagazine "Laserbatteries";
+_unit addWeapon "Laserdesignator";
 
 comment "Add items to containers";
-this addItemToUniform "FirstAidKit";
-for "_i" from 1 to 3 do {this addItemToUniform "30Rnd_65x39_caseless_green";};
-this addItemToVest "MineDetector";
-this addItemToVest "SmokeShell";
-for "_i" from 1 to 3 do {this addItemToVest "6Rnd_45ACP_Cylinder";};
-for "_i" from 1 to 2 do {this addItemToVest "30Rnd_65x39_caseless_green";};
-for "_i" from 1 to 4 do {this addItemToVest "Chemlight_green";};
-for "_i" from 1 to 2 do {this addItemToVest "SmokeShellGreen";};
-this addItemToBackpack "MineDetector";
-this addItemToBackpack "Medikit";
-for "_i" from 1 to 4 do {this addItemToBackpack "1Rnd_SmokeGreen_Grenade_shell";};
-for "_i" from 1 to 4 do {this addItemToBackpack "UGL_FlareGreen_F";};
-for "_i" from 1 to 12 do {this addItemToBackpack "1Rnd_HE_Grenade_shell";};
-for "_i" from 1 to 6 do {this addItemToBackpack "SmokeShellGreen";};
-for "_i" from 1 to 10 do {this addItemToBackpack "Chemlight_green";};
-this addItemToBackpack "Laserbatteries";
-this addHeadgear "H_HelmetIA";
-this addGoggles "G_Tactical_Black";
+_unit addItemToUniform "FirstAidKit";
+for "_i" from 1 to 3 do {_unit addItemToUniform "30Rnd_65x39_caseless_green";};
+_unit addItemToVest "MineDetector";
+_unit addItemToVest "SmokeShell";
+for "_i" from 1 to 3 do {_unit addItemToVest "6Rnd_45ACP_Cylinder";};
+for "_i" from 1 to 2 do {_unit addItemToVest "30Rnd_65x39_caseless_green";};
+for "_i" from 1 to 4 do {_unit addItemToVest "Chemlight_green";};
+for "_i" from 1 to 2 do {_unit addItemToVest "SmokeShellGreen";};
+_unit addItemToBackpack "MineDetector";
+_unit addItemToBackpack "Medikit";
+for "_i" from 1 to 4 do {_unit addItemToBackpack "1Rnd_SmokeGreen_Grenade_shell";};
+for "_i" from 1 to 4 do {_unit addItemToBackpack "UGL_FlareGreen_F";};
+for "_i" from 1 to 12 do {_unit addItemToBackpack "1Rnd_HE_Grenade_shell";};
+for "_i" from 1 to 6 do {_unit addItemToBackpack "SmokeShellGreen";};
+for "_i" from 1 to 10 do {_unit addItemToBackpack "Chemlight_green";};
+_unit addItemToBackpack "Laserbatteries";
+_unit addHeadgear "H_HelmetIA";
+_unit addGoggles "G_Tactical_Black";
 
 comment "Add items";
-this linkItem "ItemMap";
-this linkItem "ItemCompass";
-this linkItem "ItemWatch";
-this linkItem "ItemRadio";
-this linkItem "I_UavTerminal";
-this linkItem "NVGoggles_INDEP";
+_unit linkItem "ItemMap";
+_unit linkItem "ItemCompass";
+_unit linkItem "ItemWatch";
+_unit linkItem "ItemRadio";
+_unit linkItem "I_UavTerminal";
+_unit linkItem "NVGoggles_INDEP";
 
 comment "Set identity";
-[this,"GreekHead_A3_06","male03gre"] call BIS_fnc_setIdentity;
-[this,"BI"] call BIS_fnc_setUnitInsignia;
+[_unit,"GreekHead_A3_06","male03gre"] call BIS_fnc_setIdentity;
+[_unit,"BI"] call BIS_fnc_setUnitInsignia;
 	
 comment "Set identity";
 _unit setName ["Evangelos Cosmos","Evangelos","Cosmos"];

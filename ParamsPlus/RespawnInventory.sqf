@@ -3,47 +3,12 @@ _PRespawnLoadOut = "PRespawnLoadOut" call BIS_fnc_getParamValue;
 
 if (_PRespawnLoadOut isEqualTo 2) exitWith {};
 
-//Assault
-[west, "B_SquadLeader"] call BIS_fnc_addRespawnInventory;
-[west, "B_Autorifleman"] call BIS_fnc_addRespawnInventory;
-[west, "B_Marksman"] call BIS_fnc_addRespawnInventory;
-[west, "B_Grenadier"] call BIS_fnc_addRespawnInventory;
-[west, "B_Rifleman"] call BIS_fnc_addRespawnInventory;
-[west, "B_AT"] call BIS_fnc_addRespawnInventory;
-[west, "B_Engineer"] call BIS_fnc_addRespawnInventory;
-[west, "B_CombatLifesaver"] call BIS_fnc_addRespawnInventory;
+_classname 	= format ["%1", typeOf player];
+_displayname = gettext (configfile >> "CfgVehicles" >> _className >> "displayName");
 
-//Limited Equipment
-[west, "B_SquadLeader_L"] call BIS_fnc_addRespawnInventory;
-[west, "B_Marksman_L"] call BIS_fnc_addRespawnInventory;
-[west, "B_Autorifleman_L"] call BIS_fnc_addRespawnInventory;
-[west, "B_Grenadier_L"] call BIS_fnc_addRespawnInventory;
-[west, "B_Rifleman_L"] call BIS_fnc_addRespawnInventory;
-[west, "B_AT_L"] call BIS_fnc_addRespawnInventory;
-[west, "B_Engineer_L"] call BIS_fnc_addRespawnInventory;
-[west, "B_CombatLifesaver_L"] call BIS_fnc_addRespawnInventory;
+[west, _displayname] call BIS_fnc_addRespawnInventory;
 
-//Survivor
-[west, "B_SquadLeader_S"] call BIS_fnc_addRespawnInventory;
-[west, "B_Marksman_S"] call BIS_fnc_addRespawnInventory;
-[west, "B_Autorifleman_S"] call BIS_fnc_addRespawnInventory;
-[west, "B_Grenadier_S"] call BIS_fnc_addRespawnInventory;
-[west, "B_Rifleman_S"] call BIS_fnc_addRespawnInventory;
-[west, "B_AT_S"] call BIS_fnc_addRespawnInventory;
-[west, "B_Engineer_S"] call BIS_fnc_addRespawnInventory;
-[west, "B_CombatLifesaver_S"] call BIS_fnc_addRespawnInventory;
-
-//Recon
-[missionNamespace,["PETTKA",0,1]] call BIS_fnc_addRespawnInventory;
-[missionNamespace,["NORTHGATE",0,1]] call BIS_fnc_addRespawnInventory;
-[missionNamespace,["KERRY",0,1]] call BIS_fnc_addRespawnInventory;
-[missionNamespace,["MCKAY",0,1]] call BIS_fnc_addRespawnInventory;
-[missionNamespace,["JAMES",0,1]] call BIS_fnc_addRespawnInventory;
-[missionNamespace,["HARDY",0,1]] call BIS_fnc_addRespawnInventory;
-[missionNamespace,["JAY",0,1]] call BIS_fnc_addRespawnInventory;
-[missionNamespace,["DWARDEN",0,1]] call BIS_fnc_addRespawnInventory;
-[missionNamespace,["DWARDEN_SCOUT",0,1]] call BIS_fnc_addRespawnInventory;
-[missionNamespace,["DWARDEN_DRESS",0,1]] call BIS_fnc_addRespawnInventory;
+[missionNamespace,[_displayname,0,1]] call BIS_fnc_addRespawnInventory;
 
 //[west, "PETTKA"] call BIS_fnc_addRespawnInventory;
 //[west, "NORTHGATE"] call BIS_fnc_addRespawnInventory;

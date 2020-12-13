@@ -11,7 +11,6 @@
 
 //copyToClipboard format ["%1",_types];
 
-//["usm_marine_90s_w_h_nco","usm_marine_90s_w_h_amg","usm_marine_90s_w_h_mg","usm_marine_90s_w_h_mgab","usm_marine_90s_w_h_amg","usm_marine_90s_w_h_mg","usm_marine_90s_w_h_mgab","usm_marine_90s_w_h_medic",string]
 
 
 

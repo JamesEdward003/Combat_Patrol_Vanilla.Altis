@@ -8,9 +8,8 @@ if (_PDiverEquip isEqualTo 2) exitWith {};
 if (_PDiverEquip isEqualTo 3) exitWith {};
 
 _unit = _this;
-_typeUnit = typeOf _unit;
 
-switch (_typeUnit) do {
+switch (typeOf _unit) do {
 
 	case "O_diver_TL_F": { 		//  (GREYWOLF_1) TeamLeader-Diver
 

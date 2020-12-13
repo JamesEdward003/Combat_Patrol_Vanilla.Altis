@@ -5,9 +5,8 @@ _PDiverEquip = "PDiverEquip" call BIS_fnc_getParamValue;
 if (_PDiverEquip isEqualTo 1) exitWith {};
 
 _unit = _this;
-_typeUnit = typeOf _unit;
 
-switch (_typeUnit) do {
+switch (typeOf _unit) do {
 
 	case "O_diver_TL_F": { 		//  (GREYWOLF_1)
 

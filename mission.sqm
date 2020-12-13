@@ -16,7 +16,7 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={20998.418,319.80685,7100.0371};
+		pos[]={20875.537,98.331642,7246.7798};
 		dir[]={-0.34135944,-0.7520653,0.56380105};
 		up[]={-0.3895146,0.65908867,0.64333588};
 		aside[]={0.85542554,-7.4505806e-009,0.51792663};
@@ -7131,6 +7131,7 @@ class Mission
 						rank="MAJOR";
 						name="Revolution_1";
 						description="Revolution_1  -  Commander In Chief";
+						isPlayer=1;
 						isPlayable=1;
 					};
 					id=322;
@@ -7159,6 +7160,25 @@ class Mission
 						};
 						class Attribute1
 						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male03GRE";
+								};
+							};
+						};
+						class Attribute2
+						{
 							property="pitch";
 							expression="_this setpitch _value;";
 							class Value
@@ -7176,7 +7196,7 @@ class Mission
 								};
 							};
 						};
-						class Attribute2
+						class Attribute3
 						{
 							property="unitName";
 							expression="_this setname _value;";
@@ -7195,7 +7215,7 @@ class Mission
 								};
 							};
 						};
-						class Attribute3
+						class Attribute4
 						{
 							property="unitInsignia";
 							expression="[_this,_value] call BIS_fnc_setUnitInsignia;";
@@ -7214,7 +7234,7 @@ class Mission
 								};
 							};
 						};
-						class Attribute4
+						class Attribute5
 						{
 							property="face";
 							expression="_this setface _value;";
@@ -7229,11 +7249,11 @@ class Mission
 											"STRING"
 										};
 									};
-									value="";
+									value="GreekHead_A3_04";
 								};
 							};
 						};
-						nAttributes=5;
+						nAttributes=6;
 					};
 				};
 				class Item1
@@ -7318,6 +7338,25 @@ class Mission
 						};
 						class Attribute3
 						{
+							property="unitName";
+							expression="_this setname _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Cranius Orestes";
+								};
+							};
+						};
+						class Attribute4
+						{
 							property="unitInsignia";
 							expression="[_this,_value] call BIS_fnc_setUnitInsignia;";
 							class Value
@@ -7335,7 +7374,26 @@ class Mission
 								};
 							};
 						};
-						nAttributes=4;
+						class Attribute5
+						{
+							property="face";
+							expression="_this setface _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="GreekHead_A3_09";
+								};
+							};
+						};
+						nAttributes=6;
 					};
 				};
 				class Item2
@@ -7650,6 +7708,25 @@ class Mission
 						};
 						class Attribute1
 						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male01GRE";
+								};
+							};
+						};
+						class Attribute2
+						{
 							property="pitch";
 							expression="_this setpitch _value;";
 							class Value
@@ -7667,7 +7744,26 @@ class Mission
 								};
 							};
 						};
-						class Attribute2
+						class Attribute3
+						{
+							property="unitName";
+							expression="_this setname _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Dimitrias Dukas";
+								};
+							};
+						};
+						class Attribute4
 						{
 							property="unitInsignia";
 							expression="[_this,_value] call BIS_fnc_setUnitInsignia;";
@@ -7686,7 +7782,7 @@ class Mission
 								};
 							};
 						};
-						nAttributes=3;
+						nAttributes=5;
 					};
 				};
 				class Item6
@@ -8066,7 +8162,6 @@ class Mission
 						rank="COLONEL";
 						name="Mylonaki";
 						description="Jester  -  CEO Civilian Union Altis";
-						isPlayer=1;
 						isPlayable=1;
 					};
 					id=343;

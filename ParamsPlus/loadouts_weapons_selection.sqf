@@ -1,6 +1,7 @@
 /////--"paramsplus\loadouts_weapons_selection.sqf"--/////
 private ["_unit","_PLoadOutsWeaponsUnit"];
 _PLoadOutsWeaponsUnit = "PLoadOutsWeaponsUnit" call BIS_fnc_getParamValue;
+if (_PLoadOutsWeaponsUnit isEqualTo 1) exitWith {};
 
 switch (_PLoadOutsWeaponsUnit) do
 {

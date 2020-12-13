@@ -566,7 +566,7 @@ _unit linkItem "ItemRadio";
 
 comment "Set identity";
 _unit setName ["Harvey Hladik","Harvey","Hladik"];
-[_unit,"","male01gre",1,"Revolution"] call BIS_fnc_setIdentity;
+[_unit,"GreekHead_A3_05","male01gre",1,"Revolution"] call BIS_fnc_setIdentity;
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
 };
 
@@ -730,8 +730,6 @@ _unit setVariable ["LoadoutDone", true];
 _unit action ["WEAPONONBACK", _unit];
 
 if (isPlayer _unit) then {
-
-execVM "SafeWeapon.sqf";
 
 [playerSide, "HQ"] commandChat "Loadouts Done!"
 

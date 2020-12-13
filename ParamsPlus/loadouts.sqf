@@ -14,9 +14,8 @@ if (_PDiverEquip isEqualTo 2) exitWith {};
 if (_PDiverEquip isEqualTo 3) exitWith {};
 
 _unit = _this;
-_typeUnit = typeOf _unit;
 
-switch (_typeUnit) do {
+switch (typeOf _unit) do {
 
 	case "B_officer_F": {	//	GRENADE LAUNCHER/LASERDESIGNATOR EQUIPPED OFFICER
 
@@ -239,7 +238,7 @@ comment "Set identity";
 
 case "B_Soldier_SL_F": {	//	GRENADE LAUNCHER/LASERDESIGNATOR EQUIPPED SQUAD LEADER
 
-comment "Exported from Arsenal by DIEHARD";
+comment "Exported from Arsenal by RENFRO";
 
 comment "[!] UNIT MUST BE LOCAL [!]";
 if (!local _unit) exitWith {};
@@ -255,12 +254,13 @@ removeHeadgear _unit;
 removeGoggles _unit;
 
 comment "Add weapons";
-_unit addWeapon "arifle_MX_GL_F";
+_unit addWeapon "arifle_MX_GL_Black_F";
 _unit addPrimaryWeaponItem "muzzle_snds_H";
 _unit addPrimaryWeaponItem "acc_pointer_IR";
 _unit addPrimaryWeaponItem "optic_Nightstalker";
-_unit addPrimaryWeaponItem "30Rnd_65x39_caseless_mag";
-_unit addWeapon "hgun_Pistol_heavy_01_F";
+_unit addPrimaryWeaponItem "30Rnd_65x39_caseless_black_mag";
+_unit addPrimaryWeaponItem "3Rnd_HE_Grenade_shell";
+_unit addWeapon "hgun_Pistol_heavy_01_MRD_F";
 _unit addHandgunItem "muzzle_snds_acp";
 _unit addHandgunItem "acc_flashlight_pistol";
 _unit addHandgunItem "optic_MRD";
@@ -277,19 +277,20 @@ _unit addWeapon "Laserdesignator";
 
 comment "Add items to containers";
 _unit addItemToUniform "FirstAidKit";
-for "_i" from 1 to 3 do {_unit addItemToUniform "11Rnd_45ACP_Mag";};
-for "_i" from 1 to 3 do {_unit addItemToUniform "Chemlight_green";};
+for "_i" from 1 to 2 do {_unit addItemToUniform "11Rnd_45ACP_Mag";};
+for "_i" from 1 to 2 do {_unit addItemToUniform "Chemlight_green";};
 for "_i" from 1 to 2 do {_unit addItemToUniform "Chemlight_red";};
 _unit addItemToVest "B_UavTerminal";
 _unit addItemToVest "MineDetector";
-for "_i" from 1 to 6 do {_unit addItemToVest "30Rnd_65x39_caseless_mag";};
+for "_i" from 1 to 5 do {_unit addItemToVest "30Rnd_65x39_caseless_black_mag";};
 _unit addItemToBackpack "ToolKit";
-for "_i" from 1 to 2 do {_unit addItemToBackpack "HandGrenade";};
-for "_i" from 1 to 6 do {_unit addItemToBackpack "1Rnd_SmokeGreen_Grenade_shell";};
-for "_i" from 1 to 2 do {_unit addItemToBackpack "UGL_FlareGreen_F";};
-for "_i" from 1 to 2 do {_unit addItemToBackpack "UGL_FlareRed_F";};
-for "_i" from 1 to 7 do {_unit addItemToBackpack "3Rnd_HE_Grenade_shell";};
-for "_i" from 1 to 4 do {_unit addItemToBackpack "SmokeShell";};
+for "_i" from 1 to 5 do {_unit addItemToBackpack "3Rnd_HE_Grenade_shell";};
+for "_i" from 1 to 4 do {_unit addItemToBackpack "SmokeShellGreen";};
+for "_i" from 1 to 4 do {_unit addItemToBackpack "HandGrenade";};
+for "_i" from 1 to 4 do {_unit addItemToBackpack "DemoCharge_Remote_Mag";};
+_unit addItemToBackpack "30Rnd_65x39_caseless_black_mag";
+_unit addItemToBackpack "11Rnd_45ACP_Mag";
+_unit addItemToBackpack "Laserbatteries";
 _unit addHeadgear "H_Cap_usblack";
 _unit addGoggles "G_Goggles_VR";
 
@@ -299,10 +300,10 @@ _unit linkItem "ItemCompass";
 _unit linkItem "ItemWatch";
 _unit linkItem "ItemRadio";
 _unit linkItem "B_UavTerminal";
-_unit linkItem "NVGoggles";
+_unit linkItem "NVGoggles_OPFOR";
 
 comment "Set identity";
-[_unit,"WhiteHead_19","male04eng"] call BIS_fnc_setIdentity;
+[_unit,"WhiteHead_19","male02eng"] call BIS_fnc_setIdentity;
 [_unit,"111thID"] call BIS_fnc_setUnitInsignia;
 };
 
@@ -779,9 +780,9 @@ comment "Set identity";
 [_unit,"111thID"] call BIS_fnc_setUnitInsignia;
 };
 
-	case "B_Captain_Pettka_F": { 		//  Pettka_Special
+	case "B_Captain_Pettka_F": { 		//  Pettka Grenadier
 
-comment "Exported from Arsenal by DIEHARD";
+comment "Exported from Arsenal by RENFRO";
 
 comment "[!] UNIT MUST BE LOCAL [!]";
 if (!local _unit) exitWith {};
@@ -797,12 +798,12 @@ removeHeadgear _unit;
 removeGoggles _unit;
 
 comment "Add weapons";
-_unit addWeapon "arifle_Katiba_GL_F";
+_unit addWeapon "arifle_MX_GL_Black_F";
 _unit addPrimaryWeaponItem "muzzle_snds_H";
 _unit addPrimaryWeaponItem "acc_pointer_IR";
 _unit addPrimaryWeaponItem "optic_Nightstalker";
-_unit addPrimaryWeaponItem "30Rnd_65x39_caseless_green";
-_unit addPrimaryWeaponItem "1Rnd_HE_Grenade_shell";
+_unit addPrimaryWeaponItem "30Rnd_65x39_caseless_black_mag";
+_unit addPrimaryWeaponItem "3Rnd_HE_Grenade_shell";
 _unit addWeapon "hgun_Pistol_heavy_01_MRD_F";
 _unit addHandgunItem "muzzle_snds_acp";
 _unit addHandgunItem "acc_flashlight_pistol";
@@ -820,22 +821,19 @@ _unit addWeapon "Laserdesignator";
 
 comment "Add items to containers";
 _unit addItemToUniform "FirstAidKit";
-_unit addItemToUniform "Laserbatteries";
 for "_i" from 1 to 2 do {_unit addItemToUniform "11Rnd_45ACP_Mag";};
-for "_i" from 1 to 3 do {_unit addItemToUniform "Chemlight_green";};
-for "_i" from 1 to 3 do {_unit addItemToUniform "Chemlight_red";};
+for "_i" from 1 to 2 do {_unit addItemToUniform "Chemlight_green";};
+for "_i" from 1 to 2 do {_unit addItemToUniform "Chemlight_red";};
 _unit addItemToVest "B_UavTerminal";
 _unit addItemToVest "MineDetector";
-for "_i" from 1 to 2 do {_unit addItemToVest "30Rnd_65x39_caseless_mag_Tracer";};
-for "_i" from 1 to 4 do {_unit addItemToVest "30Rnd_65x39_caseless_green";};
+for "_i" from 1 to 5 do {_unit addItemToVest "30Rnd_65x39_caseless_black_mag";};
 _unit addItemToBackpack "ToolKit";
-for "_i" from 1 to 2 do {_unit addItemToBackpack "HandGrenade";};
-for "_i" from 1 to 2 do {_unit addItemToBackpack "SmokeShellGreen";};
-for "_i" from 1 to 6 do {_unit addItemToBackpack "1Rnd_HE_Grenade_shell";};
-for "_i" from 1 to 6 do {_unit addItemToBackpack "1Rnd_SmokeGreen_Grenade_shell";};
-for "_i" from 1 to 4 do {_unit addItemToBackpack "UGL_FlareGreen_F";};
-for "_i" from 1 to 2 do {_unit addItemToBackpack "UGL_FlareRed_F";};
-for "_i" from 1 to 6 do {_unit addItemToBackpack "30Rnd_65x39_caseless_green";};
+for "_i" from 1 to 5 do {_unit addItemToBackpack "3Rnd_HE_Grenade_shell";};
+for "_i" from 1 to 5 do {_unit addItemToBackpack "SmokeShellGreen";};
+for "_i" from 1 to 5 do {_unit addItemToBackpack "HandGrenade";};
+_unit addItemToBackpack "30Rnd_65x39_caseless_black_mag";
+_unit addItemToBackpack "11Rnd_45ACP_Mag";
+_unit addItemToBackpack "Laserbatteries";
 _unit addHeadgear "H_Beret_Colonel";
 _unit addGoggles "G_Aviator";
 
@@ -845,16 +843,16 @@ _unit linkItem "ItemCompass";
 _unit linkItem "ItemWatch";
 _unit linkItem "ItemRadio";
 _unit linkItem "B_UavTerminal";
-_unit linkItem "NVGoggles";
+_unit linkItem "NVGoggles_OPFOR";
 
 comment "Set identity";
-[_unit,"WhiteHead_01","male04eng",1,"Nomad"] call BIS_fnc_setIdentity;
+[_unit,"Whitehead_02","male11eng",1,"Snake"] call BIS_fnc_setIdentity;
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
 };
 
-	case "B_CTRG_soldier_GL_LAT_F": {		// NorthGate_TeamLeader
-
-comment "Exported from Arsenal by DIEHARD";
+	case "B_CTRG_soldier_GL_LAT_F": {		// NorthGate GL-LAT
+	
+comment "Exported from Arsenal by RENFRO";
 
 comment "[!] UNIT MUST BE LOCAL [!]";
 if (!local _unit) exitWith {};
@@ -870,14 +868,15 @@ removeHeadgear _unit;
 removeGoggles _unit;
 
 comment "Add weapons";
-_unit addWeapon "arifle_Katiba_GL_F";
+_unit addWeapon "arifle_MX_GL_Black_F";
 _unit addPrimaryWeaponItem "muzzle_snds_H";
 _unit addPrimaryWeaponItem "acc_pointer_IR";
 _unit addPrimaryWeaponItem "optic_Nightstalker";
-_unit addPrimaryWeaponItem "30Rnd_65x39_caseless_green";
+_unit addPrimaryWeaponItem "30Rnd_65x39_caseless_black_mag";
+_unit addPrimaryWeaponItem "3Rnd_HE_Grenade_shell";
 _unit addWeapon "launch_NLAW_F";
 _unit addSecondaryWeaponItem "NLAW_F";
-_unit addWeapon "hgun_Pistol_heavy_01_F";
+_unit addWeapon "hgun_Pistol_heavy_01_MRD_F";
 _unit addHandgunItem "muzzle_snds_acp";
 _unit addHandgunItem "acc_flashlight_pistol";
 _unit addHandgunItem "optic_MRD";
@@ -886,7 +885,7 @@ _unit addHandgunItem "11Rnd_45ACP_Mag";
 comment "Add containers";
 _unit forceAddUniform "U_B_CombatUniform_mcam";
 _unit addVest "V_PlateCarrierSpec_mtp";
-_unit addBackpack "B_Carryall_mcamo";
+_unit addBackpack "B_TacticalPack_mcamo";
 
 comment "Add binoculars";
 _unit addMagazine "Laserbatteries";
@@ -895,17 +894,19 @@ _unit addWeapon "Laserdesignator";
 comment "Add items to containers";
 _unit addItemToUniform "FirstAidKit";
 for "_i" from 1 to 2 do {_unit addItemToUniform "11Rnd_45ACP_Mag";};
-for "_i" from 1 to 3 do {_unit addItemToUniform "Chemlight_green";};
-for "_i" from 1 to 3 do {_unit addItemToUniform "Chemlight_red";};
+for "_i" from 1 to 2 do {_unit addItemToUniform "Chemlight_green";};
+for "_i" from 1 to 2 do {_unit addItemToUniform "Chemlight_red";};
 _unit addItemToVest "B_UavTerminal";
 _unit addItemToVest "MineDetector";
-for "_i" from 1 to 2 do {_unit addItemToVest "30Rnd_65x39_caseless_mag_Tracer";};
-for "_i" from 1 to 4 do {_unit addItemToVest "30Rnd_65x39_caseless_green";};
+for "_i" from 1 to 5 do {_unit addItemToVest "30Rnd_65x39_caseless_black_mag";};
 _unit addItemToBackpack "ToolKit";
-for "_i" from 1 to 2 do {_unit addItemToBackpack "HandGrenade";};
-for "_i" from 1 to 4 do {_unit addItemToBackpack "1Rnd_HE_Grenade_shell";};
-for "_i" from 1 to 4 do {_unit addItemToBackpack "30Rnd_65x39_caseless_green";};
+for "_i" from 1 to 5 do {_unit addItemToBackpack "3Rnd_HE_Grenade_shell";};
+for "_i" from 1 to 5 do {_unit addItemToBackpack "SmokeShellGreen";};
+for "_i" from 1 to 5 do {_unit addItemToBackpack "HandGrenade";};
 for "_i" from 1 to 2 do {_unit addItemToBackpack "NLAW_F";};
+_unit addItemToBackpack "30Rnd_65x39_caseless_black_mag";
+_unit addItemToBackpack "11Rnd_45ACP_Mag";
+_unit addItemToBackpack "Laserbatteries";
 _unit addHeadgear "H_Beret_02";
 _unit addGoggles "G_Goggles_VR";
 
@@ -915,16 +916,16 @@ _unit linkItem "ItemCompass";
 _unit linkItem "ItemWatch";
 _unit linkItem "ItemRadio";
 _unit linkItem "B_UavTerminal";
-_unit linkItem "NVGoggles";
+_unit linkItem "NVGoggles_OPFOR";
 
 comment "Set identity";
-[_unit,"WhiteHead_02","male04eng",1,"Nomad"] call BIS_fnc_setIdentity;
+[_unit,"WhiteHead_18","male01eng","Viper"] call BIS_fnc_setIdentity;
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
 };
 
-	case "B_Story_Protagonist_F": {	//  Kerry_Special
+	case "B_Story_Protagonist_F": {	//  Kerry 
 
-comment "Exported from Arsenal by DIEHARD";
+comment "Exported from Arsenal by RENFRO";
 
 comment "[!] UNIT MUST BE LOCAL [!]";
 if (!local _unit) exitWith {};
@@ -940,12 +941,13 @@ removeHeadgear _unit;
 removeGoggles _unit;
 
 comment "Add weapons";
-_unit addWeapon "arifle_MX_GL_F";
+_unit addWeapon "arifle_MX_GL_Black_F";
 _unit addPrimaryWeaponItem "muzzle_snds_H";
 _unit addPrimaryWeaponItem "acc_pointer_IR";
 _unit addPrimaryWeaponItem "optic_Nightstalker";
-_unit addPrimaryWeaponItem "30Rnd_65x39_caseless_mag";
-_unit addWeapon "hgun_Pistol_heavy_01_F";
+_unit addPrimaryWeaponItem "30Rnd_65x39_caseless_black_mag";
+_unit addPrimaryWeaponItem "3Rnd_HE_Grenade_shell";
+_unit addWeapon "hgun_Pistol_heavy_01_MRD_F";
 _unit addHandgunItem "muzzle_snds_acp";
 _unit addHandgunItem "acc_flashlight_pistol";
 _unit addHandgunItem "optic_MRD";
@@ -962,19 +964,20 @@ _unit addWeapon "Laserdesignator";
 
 comment "Add items to containers";
 _unit addItemToUniform "FirstAidKit";
-for "_i" from 1 to 3 do {_unit addItemToUniform "11Rnd_45ACP_Mag";};
-for "_i" from 1 to 3 do {_unit addItemToUniform "Chemlight_green";};
+for "_i" from 1 to 2 do {_unit addItemToUniform "11Rnd_45ACP_Mag";};
+for "_i" from 1 to 2 do {_unit addItemToUniform "Chemlight_green";};
 for "_i" from 1 to 2 do {_unit addItemToUniform "Chemlight_red";};
 _unit addItemToVest "B_UavTerminal";
 _unit addItemToVest "MineDetector";
-for "_i" from 1 to 6 do {_unit addItemToVest "30Rnd_65x39_caseless_mag";};
+for "_i" from 1 to 5 do {_unit addItemToVest "30Rnd_65x39_caseless_black_mag";};
 _unit addItemToBackpack "ToolKit";
-for "_i" from 1 to 2 do {_unit addItemToBackpack "HandGrenade";};
-for "_i" from 1 to 6 do {_unit addItemToBackpack "1Rnd_SmokeGreen_Grenade_shell";};
-for "_i" from 1 to 2 do {_unit addItemToBackpack "UGL_FlareGreen_F";};
-for "_i" from 1 to 2 do {_unit addItemToBackpack "UGL_FlareRed_F";};
-for "_i" from 1 to 7 do {_unit addItemToBackpack "3Rnd_HE_Grenade_shell";};
-for "_i" from 1 to 4 do {_unit addItemToBackpack "SmokeShell";};
+for "_i" from 1 to 5 do {_unit addItemToBackpack "3Rnd_HE_Grenade_shell";};
+for "_i" from 1 to 4 do {_unit addItemToBackpack "SmokeShellGreen";};
+for "_i" from 1 to 4 do {_unit addItemToBackpack "HandGrenade";};
+for "_i" from 1 to 4 do {_unit addItemToBackpack "DemoCharge_Remote_Mag";};
+_unit addItemToBackpack "30Rnd_65x39_caseless_black_mag";
+_unit addItemToBackpack "11Rnd_45ACP_Mag";
+_unit addItemToBackpack "Laserbatteries";
 _unit addHeadgear "H_Beret_02";
 _unit addGoggles "G_Goggles_VR";
 
@@ -984,16 +987,16 @@ _unit linkItem "ItemCompass";
 _unit linkItem "ItemWatch";
 _unit linkItem "ItemRadio";
 _unit linkItem "B_UavTerminal";
-_unit linkItem "NVGoggles";
+_unit linkItem "NVGoggles_OPFOR";
 
 comment "Set identity";
-[_unit,"WhiteHead_03","male05eng",1,"Nomad"] call BIS_fnc_setIdentity;
+[_unit,"WhiteHead_03","male05eng",1,"Viper"] call BIS_fnc_setIdentity;
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
 };
 
-	case "B_CTRG_soldier_AR_A_F": {	//  McKay_Special
+	case "B_CTRG_soldier_AR_A_F": {	//  McKay - Autorifleman
 
-comment "Exported from Arsenal by DIEHARD";
+comment "Exported from Arsenal by RENFRO";
 
 comment "[!] UNIT MUST BE LOCAL [!]";
 if (!local _unit) exitWith {};
@@ -1009,12 +1012,13 @@ removeHeadgear _unit;
 removeGoggles _unit;
 
 comment "Add weapons";
-_unit addWeapon "arifle_MX_GL_F";
+_unit addWeapon "arifle_MX_GL_Black_F";
 _unit addPrimaryWeaponItem "muzzle_snds_H";
 _unit addPrimaryWeaponItem "acc_pointer_IR";
 _unit addPrimaryWeaponItem "optic_Nightstalker";
-_unit addPrimaryWeaponItem "30Rnd_65x39_caseless_mag";
-_unit addWeapon "hgun_Pistol_heavy_01_F";
+_unit addPrimaryWeaponItem "30Rnd_65x39_caseless_black_mag";
+_unit addPrimaryWeaponItem "3Rnd_HE_Grenade_shell";
+_unit addWeapon "hgun_Pistol_heavy_01_MRD_F";
 _unit addHandgunItem "muzzle_snds_acp";
 _unit addHandgunItem "acc_flashlight_pistol";
 _unit addHandgunItem "optic_MRD";
@@ -1031,19 +1035,20 @@ _unit addWeapon "Laserdesignator";
 
 comment "Add items to containers";
 _unit addItemToUniform "FirstAidKit";
-for "_i" from 1 to 3 do {_unit addItemToUniform "11Rnd_45ACP_Mag";};
-for "_i" from 1 to 3 do {_unit addItemToUniform "Chemlight_green";};
+for "_i" from 1 to 2 do {_unit addItemToUniform "11Rnd_45ACP_Mag";};
+for "_i" from 1 to 2 do {_unit addItemToUniform "Chemlight_green";};
 for "_i" from 1 to 2 do {_unit addItemToUniform "Chemlight_red";};
 _unit addItemToVest "B_UavTerminal";
 _unit addItemToVest "MineDetector";
-for "_i" from 1 to 6 do {_unit addItemToVest "30Rnd_65x39_caseless_mag";};
+for "_i" from 1 to 5 do {_unit addItemToVest "30Rnd_65x39_caseless_black_mag";};
 _unit addItemToBackpack "ToolKit";
-for "_i" from 1 to 2 do {_unit addItemToBackpack "HandGrenade";};
-for "_i" from 1 to 6 do {_unit addItemToBackpack "1Rnd_SmokeGreen_Grenade_shell";};
-for "_i" from 1 to 2 do {_unit addItemToBackpack "UGL_FlareGreen_F";};
-for "_i" from 1 to 2 do {_unit addItemToBackpack "UGL_FlareRed_F";};
-for "_i" from 1 to 7 do {_unit addItemToBackpack "3Rnd_HE_Grenade_shell";};
-for "_i" from 1 to 4 do {_unit addItemToBackpack "SmokeShell";};
+for "_i" from 1 to 5 do {_unit addItemToBackpack "3Rnd_HE_Grenade_shell";};
+for "_i" from 1 to 4 do {_unit addItemToBackpack "SmokeShellGreen";};
+for "_i" from 1 to 4 do {_unit addItemToBackpack "HandGrenade";};
+for "_i" from 1 to 4 do {_unit addItemToBackpack "DemoCharge_Remote_Mag";};
+_unit addItemToBackpack "30Rnd_65x39_caseless_black_mag";
+_unit addItemToBackpack "11Rnd_45ACP_Mag";
+_unit addItemToBackpack "Laserbatteries";
 _unit addHeadgear "H_Beret_02";
 _unit addGoggles "G_Goggles_VR";
 
@@ -1053,16 +1058,16 @@ _unit linkItem "ItemCompass";
 _unit linkItem "ItemWatch";
 _unit linkItem "ItemRadio";
 _unit linkItem "B_UavTerminal";
-_unit linkItem "NVGoggles";
+_unit linkItem "NVGoggles_OPFOR";
 
 comment "Set identity";
-[_unit,"WhiteHead_04","male06eng",1,"Nomad"] call BIS_fnc_setIdentity;
+[_unit,"WhiteHead_04","male06eng",1,"Viper"] call BIS_fnc_setIdentity;
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
 };
 
 	case "B_CTRG_soldier_M_medic_F": {		//  James - Combat_Life_Saver
 
-comment "Exported from Arsenal by DIEHARD";
+comment "Exported from Arsenal by RENFRO";
 
 comment "[!] UNIT MUST BE LOCAL [!]";
 if (!local _unit) exitWith {};
@@ -1078,12 +1083,13 @@ removeHeadgear _unit;
 removeGoggles _unit;
 
 comment "Add weapons";
-_unit addWeapon "srifle_EBR_F";
-_unit addPrimaryWeaponItem "muzzle_snds_B";
+_unit addWeapon "arifle_MX_GL_Black_F";
+_unit addPrimaryWeaponItem "muzzle_snds_H";
 _unit addPrimaryWeaponItem "acc_pointer_IR";
 _unit addPrimaryWeaponItem "optic_Nightstalker";
-_unit addPrimaryWeaponItem "20Rnd_762x51_Mag";
-_unit addWeapon "hgun_Pistol_heavy_01_F";
+_unit addPrimaryWeaponItem "30Rnd_65x39_caseless_black_mag";
+_unit addPrimaryWeaponItem "3Rnd_HE_Grenade_shell";
+_unit addWeapon "hgun_Pistol_heavy_01_MRD_F";
 _unit addHandgunItem "muzzle_snds_acp";
 _unit addHandgunItem "acc_flashlight_pistol";
 _unit addHandgunItem "optic_MRD";
@@ -1095,21 +1101,25 @@ _unit addVest "V_PlateCarrierSpec_mtp";
 _unit addBackpack "B_TacticalPack_mcamo";
 
 comment "Add binoculars";
-_unit addWeapon "Rangefinder";
+_unit addMagazine "Laserbatteries";
+_unit addWeapon "Laserdesignator";
 
 comment "Add items to containers";
 _unit addItemToUniform "FirstAidKit";
-for "_i" from 1 to 3 do {_unit addItemToUniform "11Rnd_45ACP_Mag";};
-for "_i" from 1 to 3 do {_unit addItemToUniform "Chemlight_green";};
+for "_i" from 1 to 2 do {_unit addItemToUniform "11Rnd_45ACP_Mag";};
+for "_i" from 1 to 2 do {_unit addItemToUniform "Chemlight_green";};
 for "_i" from 1 to 2 do {_unit addItemToUniform "Chemlight_red";};
 _unit addItemToVest "B_UavTerminal";
 _unit addItemToVest "MineDetector";
-for "_i" from 1 to 5 do {_unit addItemToVest "20Rnd_762x51_Mag";};
+for "_i" from 1 to 5 do {_unit addItemToVest "30Rnd_65x39_caseless_black_mag";};
 _unit addItemToBackpack "ToolKit";
 _unit addItemToBackpack "Medikit";
-for "_i" from 1 to 2 do {_unit addItemToBackpack "FirstAidKit";};
-for "_i" from 1 to 2 do {_unit addItemToBackpack "HandGrenade";};
-for "_i" from 1 to 10 do {_unit addItemToBackpack "SmokeShell";};
+for "_i" from 1 to 5 do {_unit addItemToBackpack "3Rnd_HE_Grenade_shell";};
+for "_i" from 1 to 5 do {_unit addItemToBackpack "SmokeShellGreen";};
+for "_i" from 1 to 5 do {_unit addItemToBackpack "HandGrenade";};
+_unit addItemToBackpack "30Rnd_65x39_caseless_black_mag";
+_unit addItemToBackpack "11Rnd_45ACP_Mag";
+_unit addItemToBackpack "Laserbatteries";
 _unit addHeadgear "H_Beret_02";
 _unit addGoggles "G_Goggles_VR";
 
@@ -1119,16 +1129,16 @@ _unit linkItem "ItemCompass";
 _unit linkItem "ItemWatch";
 _unit linkItem "ItemRadio";
 _unit linkItem "B_UavTerminal";
-_unit linkItem "NVGoggles";
+_unit linkItem "NVGoggles_OPFOR";
 
 comment "Set identity";
-[_unit,"WhiteHead_06","male07eng",1,"Nomad"] call BIS_fnc_setIdentity;
+[_unit,"WhiteHead_06","male07eng",1,"Viper"] call BIS_fnc_setIdentity;
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
 };
 
 	case "B_CTRG_soldier_engineer_exp_F": {		//  Hardy - Explosives_Specialist
 
-comment "Exported from Arsenal by DIEHARD";
+comment "Exported from Arsenal by RENFRO";
 
 comment "[!] UNIT MUST BE LOCAL [!]";
 if (!local _unit) exitWith {};
@@ -1144,12 +1154,13 @@ removeHeadgear _unit;
 removeGoggles _unit;
 
 comment "Add weapons";
-_unit addWeapon "arifle_MX_GL_F";
+_unit addWeapon "arifle_MX_GL_Black_F";
 _unit addPrimaryWeaponItem "muzzle_snds_H";
 _unit addPrimaryWeaponItem "acc_pointer_IR";
 _unit addPrimaryWeaponItem "optic_Nightstalker";
-_unit addPrimaryWeaponItem "30Rnd_65x39_caseless_mag";
-_unit addWeapon "hgun_Pistol_heavy_01_F";
+_unit addPrimaryWeaponItem "30Rnd_65x39_caseless_black_mag";
+_unit addPrimaryWeaponItem "3Rnd_HE_Grenade_shell";
+_unit addWeapon "hgun_Pistol_heavy_01_MRD_F";
 _unit addHandgunItem "muzzle_snds_acp";
 _unit addHandgunItem "acc_flashlight_pistol";
 _unit addHandgunItem "optic_MRD";
@@ -1166,19 +1177,20 @@ _unit addWeapon "Laserdesignator";
 
 comment "Add items to containers";
 _unit addItemToUniform "FirstAidKit";
-for "_i" from 1 to 3 do {_unit addItemToUniform "11Rnd_45ACP_Mag";};
-for "_i" from 1 to 3 do {_unit addItemToUniform "Chemlight_green";};
+for "_i" from 1 to 2 do {_unit addItemToUniform "11Rnd_45ACP_Mag";};
+for "_i" from 1 to 2 do {_unit addItemToUniform "Chemlight_green";};
 for "_i" from 1 to 2 do {_unit addItemToUniform "Chemlight_red";};
 _unit addItemToVest "B_UavTerminal";
 _unit addItemToVest "MineDetector";
-for "_i" from 1 to 6 do {_unit addItemToVest "30Rnd_65x39_caseless_mag";};
+for "_i" from 1 to 5 do {_unit addItemToVest "30Rnd_65x39_caseless_black_mag";};
 _unit addItemToBackpack "ToolKit";
-for "_i" from 1 to 2 do {_unit addItemToBackpack "HandGrenade";};
-for "_i" from 1 to 2 do {_unit addItemToBackpack "UGL_FlareGreen_F";};
-for "_i" from 1 to 2 do {_unit addItemToBackpack "UGL_FlareRed_F";};
-for "_i" from 1 to 2 do {_unit addItemToBackpack "3Rnd_HE_Grenade_shell";};
-for "_i" from 1 to 4 do {_unit addItemToBackpack "SmokeShell";};
+for "_i" from 1 to 5 do {_unit addItemToBackpack "3Rnd_HE_Grenade_shell";};
+for "_i" from 1 to 4 do {_unit addItemToBackpack "SmokeShellGreen";};
+for "_i" from 1 to 4 do {_unit addItemToBackpack "HandGrenade";};
 for "_i" from 1 to 4 do {_unit addItemToBackpack "DemoCharge_Remote_Mag";};
+_unit addItemToBackpack "30Rnd_65x39_caseless_black_mag";
+_unit addItemToBackpack "11Rnd_45ACP_Mag";
+_unit addItemToBackpack "Laserbatteries";
 _unit addHeadgear "H_Beret_02";
 _unit addGoggles "G_Goggles_VR";
 
@@ -1188,16 +1200,16 @@ _unit linkItem "ItemCompass";
 _unit linkItem "ItemWatch";
 _unit linkItem "ItemRadio";
 _unit linkItem "B_UavTerminal";
-_unit linkItem "NVGoggles";
+_unit linkItem "NVGoggles_OPFOR";
 
 comment "Set identity";
-[_unit,"WhiteHead_07","male08eng",1,"Nomad"] call BIS_fnc_setIdentity;
+[_unit,"WhiteHead_07","male08eng",1,"Viper"] call BIS_fnc_setIdentity;
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
 };
 
-	case "B_Captain_Jay_F": {	//  Jay_Special
+	case "B_Captain_Jay_F": {	//  Captain Jay
 
-comment "Exported from Arsenal by DIEHARD";
+comment "Exported from Arsenal by RENFRO";
 
 comment "[!] UNIT MUST BE LOCAL [!]";
 if (!local _unit) exitWith {};
@@ -1213,12 +1225,13 @@ removeHeadgear _unit;
 removeGoggles _unit;
 
 comment "Add weapons";
-_unit addWeapon "arifle_MX_GL_F";
+_unit addWeapon "arifle_MX_GL_Black_F";
 _unit addPrimaryWeaponItem "muzzle_snds_H";
 _unit addPrimaryWeaponItem "acc_pointer_IR";
 _unit addPrimaryWeaponItem "optic_Nightstalker";
-_unit addPrimaryWeaponItem "30Rnd_65x39_caseless_mag";
-_unit addWeapon "hgun_Pistol_heavy_01_F";
+_unit addPrimaryWeaponItem "30Rnd_65x39_caseless_black_mag";
+_unit addPrimaryWeaponItem "3Rnd_HE_Grenade_shell";
+_unit addWeapon "hgun_Pistol_heavy_01_MRD_F";
 _unit addHandgunItem "muzzle_snds_acp";
 _unit addHandgunItem "acc_flashlight_pistol";
 _unit addHandgunItem "optic_MRD";
@@ -1235,21 +1248,22 @@ _unit addWeapon "Laserdesignator";
 
 comment "Add items to containers";
 _unit addItemToUniform "FirstAidKit";
-for "_i" from 1 to 3 do {_unit addItemToUniform "11Rnd_45ACP_Mag";};
-for "_i" from 1 to 3 do {_unit addItemToUniform "Chemlight_green";};
+for "_i" from 1 to 2 do {_unit addItemToUniform "11Rnd_45ACP_Mag";};
+for "_i" from 1 to 2 do {_unit addItemToUniform "Chemlight_green";};
 for "_i" from 1 to 2 do {_unit addItemToUniform "Chemlight_red";};
 _unit addItemToVest "B_UavTerminal";
 _unit addItemToVest "MineDetector";
-for "_i" from 1 to 6 do {_unit addItemToVest "30Rnd_65x39_caseless_mag";};
+for "_i" from 1 to 5 do {_unit addItemToVest "30Rnd_65x39_caseless_black_mag";};
 _unit addItemToBackpack "ToolKit";
-for "_i" from 1 to 2 do {_unit addItemToBackpack "HandGrenade";};
-for "_i" from 1 to 6 do {_unit addItemToBackpack "1Rnd_SmokeGreen_Grenade_shell";};
-for "_i" from 1 to 2 do {_unit addItemToBackpack "UGL_FlareGreen_F";};
-for "_i" from 1 to 2 do {_unit addItemToBackpack "UGL_FlareRed_F";};
-for "_i" from 1 to 7 do {_unit addItemToBackpack "3Rnd_HE_Grenade_shell";};
-for "_i" from 1 to 4 do {_unit addItemToBackpack "SmokeShell";};
+for "_i" from 1 to 5 do {_unit addItemToBackpack "3Rnd_HE_Grenade_shell";};
+for "_i" from 1 to 4 do {_unit addItemToBackpack "SmokeShellGreen";};
+for "_i" from 1 to 4 do {_unit addItemToBackpack "HandGrenade";};
+for "_i" from 1 to 4 do {_unit addItemToBackpack "DemoCharge_Remote_Mag";};
+_unit addItemToBackpack "30Rnd_65x39_caseless_black_mag";
+_unit addItemToBackpack "11Rnd_45ACP_Mag";
+_unit addItemToBackpack "Laserbatteries";
 _unit addHeadgear "H_Beret_02";
-_unit addGoggles "G_Aviator";
+_unit addGoggles "G_Goggles_VR";
 
 comment "Add items";
 _unit linkItem "ItemMap";
@@ -1257,10 +1271,10 @@ _unit linkItem "ItemCompass";
 _unit linkItem "ItemWatch";
 _unit linkItem "ItemRadio";
 _unit linkItem "B_UavTerminal";
-_unit linkItem "NVGoggles";
+_unit linkItem "NVGoggles_OPFOR";
 
 comment "Set identity";
-[_unit,"WhiteHead_08","male09eng",1,"Nomad"] call BIS_fnc_setIdentity;
+[_unit,"WhiteHead_08","male09eng",1,"Viper"] call BIS_fnc_setIdentity;
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
 };
 /*
@@ -1389,7 +1403,7 @@ comment "Set identity";
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
 };
 
-	case "B_CTRG_Sharphooter_F": {	//  O_Connor_Sharpshooter
+	case "B_Story_SF_Captain_F": {	//  Captain Miller  -  Sharpshooter
 
 comment "Exported from Arsenal by RENFRO";
 
@@ -1457,7 +1471,7 @@ if (_PRespawnLoadOut isEqualTo 1) then {
 
 	_unit addEventHandler ["Respawn", {
 		params ["_unit", "_corpse"];
-		_unit execVM "ParamsPlus\loadout.sqf";
+		_unit execVM "ParamsPlus\loadouts.sqf";
 	}];
 };
 
@@ -1466,8 +1480,6 @@ _unit setVariable ["LoadoutDone", true];
 _unit action ["WEAPONONBACK", _unit];
 
 if (isPlayer _unit) then {
-
-execVM "SafeWeapon.sqf";
 
 [playerSide, "HQ"] commandChat "Loadouts Done!";
 

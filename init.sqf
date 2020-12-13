@@ -1,6 +1,37 @@
 /// init.sqf /// Test 11-23-2020 
 [playerSide, "HQ"] commandChat "Initiating Init!";
 
+addMissionEventHandler ["Loaded", {
+	params ["_saveType"];
+	"save"
+}];
+addMissionEventHandler ["Loaded", {
+	params ["_saveType"];
+	"autoSave"
+}];
+addMissionEventHandler ["Loaded", {
+	params ["_saveType"];
+	"continue"
+}];
+
+if ( isNil { missionNamespace getVariable "StoryLines" } ) then {
+_texts = [ 
+["Ask and it shall be told.", "In the old days citizens felt relatively safe.", "The wives and children came outside and enjoyed life.", "Only hiding inside now days."],
+["Strife is everywhere.", "The men love to play with their weapons.", "They all have access to weapons.", "Staying alive becomes a challenge."]
+];
+	missionNamespace setVariable ["StoryLines",_texts];
+};
+
+addMissionEventHandler ["HandleChatMessage", {
+	params ["_channel", "_owner", "_from", "_text", "_person", "_name", "_strID", "_forcedDisplay", "_isPlayerMessage", "_sentenceType", "_chatMessageType"];
+	copyToClipboard format ["%1,%2,%3,%4,%5,%6,%7,%8,%9,%10,%11", _channel, _owner, _from, _text, _person, _name, _strID, _forcedDisplay, _isPlayerMessage, _sentenceType, _chatMessageType];
+	_texts = missionNamespace getVariable "StoryLines"; 
+	_txts = _texts select 0;                                  
+	[[(_txts select 0),1,4,1],[(_txts select 1),1,4,1],[(_txts select 2),1,4,1],[(_txts select 3),1,4,1]] spawn BIS_fnc_EXP_camp_SITREP;
+	_texts = _texts - [_txts]; 
+	missionNamespace setVariable ["StoryLines",_texts];	
+}];
+
 addMissionEventHandler ["EntityKilled", { 
 	params ["_unit", "_killer", "_instigator", "_useEffects"];
 	removeAllActions _unit;
@@ -29,16 +60,16 @@ addMissionEventHandler ["Map", {
 addMissionEventHandler ["MapSingleClick", {
 	params ["_units", "_pos", "_alt", "_shift"];
 	if (_shift) then {
-	deleteVehicle lz;
-	if ((getMarkerPos "lz") isEqualTo [0,0,0]) then {deleteMarker "lz"};
-	if (!((getMarkerPos "lz") isEqualTo [0,0,0])) then {deleteMarker "lz"};
-	lz = "Land_HelipadEmpty_F" createVehicle _pos;		  
-	createMarkerLocal ["lz", _pos];
-	"lz" setMarkerTypeLocal "mil_objective";
-	"lz" setMarkerShapeLocal "Icon";
-	"lz" setMarkerTextLocal " LZ";
-	"lz" setMarkerSizeLocal [1,1];
-	"lz" setMarkerColorLocal "colorblack";	
+	deleteVehicle LZ;
+	if ((getMarkerPos "LZ") isEqualTo [0,0,0]) then {deleteMarker "LZ"};
+	if (!((getMarkerPos "LZ") isEqualTo [0,0,0])) then {deleteMarker "LZ"};
+	LZ = "Land_HelipadEmpty_F" createVehicle _pos;		  
+	createMarkerLocal ["LZ", _pos];
+	"LZ" setMarkerTypeLocal "mil_objective";
+	"LZ" setMarkerShapeLocal "Icon";
+	"LZ" setMarkerTextLocal " LZ";
+	"LZ" setMarkerSizeLocal [1,1];
+	"LZ" setMarkerColorLocal "colorblack";	
 	hint parseText format["<t size='1.25' color='#44ff00'>Check Map Objective!</t>"];};
 }];
 
@@ -56,11 +87,6 @@ addMissionEventHandler ["GroupIconClick", {
 	if (_shift) then {{_x allowDamage false} forEach units _group};
 	if (_alt) then {{_x allowDamage true} forEach units _group};
 }];
-
-//addMissionEventHandler ["Loaded", {
-//	params ["_saveType"];
-//	saveGame;
-//}];
 
 //_newVehicle call KS_fnc_vehicleRespawnNotification;
 //or

@@ -62,8 +62,8 @@ waitUntil {sleep 1; (!visiblemap OR location OR !alive player)};
 	if ((getMarkerPos "LZ") isEqualTo [0,0,0]) then {deleteMarker "LZ"};
 	if !((getMarkerPos "LZ") isEqualTo [0,0,0]) then {deleteMarker "LZ"};
 
-	if ((getPos lzPickup) isEqualTo [0,0,0]) then {deleteVehicle lzPickup};
-	if !((getPos lzPickup) isEqualTo [0,0,0]) then {deleteVehicle lzPickup};
+	if (!isNull lzPickup) then {deleteVehicle lzPickup};
+//	if !((getPos lzPickup) isEqualTo [0,0,0]) then {deleteVehicle lzPickup};
 
 	if ((getPos lzDropoff) isEqualTo [0,0,0]) then {deleteVehicle lzDropoff};
 	if !((getPos lzDropoff) isEqualTo [0,0,0]) then {deleteVehicle lzDropoff};
@@ -99,7 +99,7 @@ openmap [false,false];
 			hint parseText format ["<t size = '1.5' color = '#FF0000'>Transport Not Available!</t><br/><br/>Enemies are too close! (100m)<br/><br/>Secure the area before requesting transport!"];
 
 			deleteMarker "LZ";
-	    	deleteVehicle lzDropOff;
+	    		deleteVehicle lzDropOff;
 		};
 	
 	_flightPath = _airStart getDir _airEnd;		

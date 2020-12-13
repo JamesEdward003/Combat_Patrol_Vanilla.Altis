@@ -1,5 +1,9 @@
 /////////	 execVM "HolsterAction.sqf";		///////////
-if (!isPlayer _this) exitWith {};
+private ["_params","_array","_actions","_weaponActionText","_weaponTextAction"];
+player addEventHandler ["Respawn", {
+	params ["_unit", "_corpse"];
+	execVM "ParamsPlus\HolsterAction.sqf";
+}];
 
 while {alive player} do {
 	

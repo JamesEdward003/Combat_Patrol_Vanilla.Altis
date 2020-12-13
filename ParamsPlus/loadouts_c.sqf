@@ -8,11 +8,10 @@ if (_PDiverEquip isEqualTo 2) exitWith {};
 if (_PDiverEquip isEqualTo 3) exitWith {};
 
 _unit = _this;
-_typeUnit = typeOf _unit;
 
-switch (_typeUnit) do {
+switch (typeOf _unit) do {
 
-	case "C_Nikos_aged": {
+	case "C_Nikos_aged" : {
 
 comment "Exported from Arsenal by DIEHARD";
 
@@ -85,7 +84,7 @@ _unit setName ["Constantine Nikos","Constantine","Nikos"];
 [_unit,"BI"] call BIS_fnc_setUnitInsignia;
 };
 
-	case "C_Orestes": {
+	case "C_Orestes" : {
 
 comment "Exported from Arsenal by DIEHARD";
 
@@ -158,7 +157,7 @@ _unit setName ["Panos Mylonaki","Panos","Mylonaki"];
 [_unit,"BI"] call BIS_fnc_setUnitInsignia;
 };
 
-	case "C_man_p_fugitive_F_euro": {
+	case "C_man_p_fugitive_F_euro" : {
 
 comment "Exported from Arsenal by DIEHARD";
 
@@ -228,7 +227,7 @@ _unit linkItem "NVGoggles_INDEP";
 comment "Set identity";
 _unit setName ["Satiris Rumpesi","Satiris","Rumpesi"];
 [_unit,"GreekHead_A3_04","male01gre",1,"Revolution"] call BIS_fnc_setIdentity;
-[_unit,"Curator"] call BIS_fnc_setUnitInsignia;
+[_unit,"BI"] call BIS_fnc_setUnitInsignia;
 };
 
 	case "C_man_p_beggar_F_euro": {
@@ -301,10 +300,10 @@ _unit linkItem "NVGoggles_INDEP";
 comment "Set identity";
 _unit setName ["Michalis Costas","Michalis","Costas"];
 [_unit,"GreekHead_A3_04","male05gre",1,"Revolution"] call BIS_fnc_setIdentity;
-[_unit,"Curator"] call BIS_fnc_setUnitInsignia;
+[_unit,"BI"] call BIS_fnc_setUnitInsignia;
 };
 
-	case "C_man_p_beggar_F_asia": {
+	case "C_man_p_beggar_F_asia" : {
 
 comment "Exported from Arsenal by DIEHARD";
 
@@ -374,10 +373,10 @@ _unit linkItem "NVGoggles_INDEP";
 comment "Set identity";
 _unit setName ["Papa Papadopolis","Papa","Papadopolis"];
 [_unit,"GreekHead_A3_09","male03gre",1,"Revolution"] call BIS_fnc_setIdentity;
-[_unit,"Curator"] call BIS_fnc_setUnitInsignia;
+[_unit,"BI"] call BIS_fnc_setUnitInsignia;
 };
 
-	case "C_man_p_beggar_F_afro": {	
+	case "C_man_p_beggar_F_afro" : {	
 
 comment "Exported from Arsenal by DIEHARD";
 
@@ -447,10 +446,10 @@ _unit linkItem "NVGoggles_INDEP";
 comment "Set identity";
 _unit setName ["Dimitrias Dukas","Dimitrias","Dukas"];
 [_unit,"GreekHead_A3_03","male01gre",1,"Revolution"] call BIS_fnc_setIdentity;
-[_unit,"Curator"] call BIS_fnc_setUnitInsignia;
+[_unit,"BI"] call BIS_fnc_setUnitInsignia;
 };
 
-	case "C_man_w_worker_F": {
+	case "C_man_w_worker_F" : {
 
 comment "Exported from Arsenal by DIEHARD";
 
@@ -520,10 +519,10 @@ _unit linkItem "NVGoggles_INDEP";
 comment "Set identity";
 _unit setName ["Athanasiadis Akhanteros","Athanasiadis","Akhanteros"];
 [_unit,"GreekHead_A3_01","male02gre",1,"Revolution"] call BIS_fnc_setIdentity;
-[_unit,"Curator"] call BIS_fnc_setUnitInsignia;
+[_unit,"BI"] call BIS_fnc_setUnitInsignia;
 };
 
-	case "C_man_polo_2_F": {
+	case "C_man_polo_2_F" : {
 
 comment "Exported from Arsenal by DIEHARD";
 
@@ -567,10 +566,10 @@ _unit linkItem "ItemRadio";
 comment "Set identity";
 _unit setName ["Harvey Hladik","Harvey","Hladik"];
 [_unit,"","male01gre",1,"Revolution"] call BIS_fnc_setIdentity;
-[_unit,"Curator"] call BIS_fnc_setUnitInsignia;
+[_unit,"BI"] call BIS_fnc_setUnitInsignia;
 };
 
-	case "C_man_p_shorts_1_F": {	
+	case "C_man_p_shorts_1_F" : {	
 
 comment "Exported from Arsenal by DIEHARD";
 
@@ -637,12 +636,89 @@ _unit linkItem "I_UavTerminal";
 _unit linkItem "NVGoggles_INDEP";
 	
 comment "Set identity";
-_unit setName ["Panas Gavras","Panas","Gavras"];
-[_unit,"GreekHead_A3_05","male02gre",1,"Revolution"] call BIS_fnc_setIdentity;
-[_unit,"Curator"] call BIS_fnc_setUnitInsignia;
+_unit setName ["Panos Mylonaki","Panos","Mylonaki"];
+[_unit,"GreekHead_A3_05","male02gre",1,"Jester"] call BIS_fnc_setIdentity;
+[_unit,"BI"] call BIS_fnc_setUnitInsignia;
 };
 
-	case "C_man_p_fugitive_F": {
+	case "C_man_pilot_F" : {	
+
+
+comment "Exported from Arsenal by RENFRO";
+
+comment "[!] UNIT MUST BE LOCAL [!]";
+if (!local this) exitWith {};
+
+comment "Remove existing items";
+removeAllWeapons this;
+removeAllItems this;
+removeAllAssignedItems this;
+removeUniform this;
+removeVest this;
+removeBackpack this;
+removeHeadgear this;
+removeGoggles this;
+
+comment "Add weapons";
+this addWeapon "arifle_Katiba_GL_F";
+this addPrimaryWeaponItem "muzzle_snds_H";
+this addPrimaryWeaponItem "acc_pointer_IR";
+this addPrimaryWeaponItem "optic_MRCO";
+this addPrimaryWeaponItem "30Rnd_65x39_caseless_green";
+this addPrimaryWeaponItem "1Rnd_HE_Grenade_shell";
+this addWeapon "hgun_Pistol_heavy_02_F";
+this addHandgunItem "muzzle_snds_L";
+this addHandgunItem "acc_flashlight_pistol";
+this addHandgunItem "6Rnd_45ACP_Cylinder";
+
+comment "Add containers";
+this forceAddUniform "U_I_OfficerUniform";
+this addVest "V_BandollierB_oli";
+this addBackpack "B_TacticalPack_oli";
+
+comment "Add binoculars";
+this addMagazine "Laserbatteries";
+this addWeapon "Laserdesignator";
+
+comment "Add items to containers";
+this addItemToUniform "FirstAidKit";
+for "_i" from 1 to 3 do {this addItemToUniform "30Rnd_65x39_caseless_green";};
+this addItemToVest "MineDetector";
+this addItemToVest "SmokeShell";
+for "_i" from 1 to 3 do {this addItemToVest "6Rnd_45ACP_Cylinder";};
+for "_i" from 1 to 2 do {this addItemToVest "30Rnd_65x39_caseless_green";};
+for "_i" from 1 to 4 do {this addItemToVest "Chemlight_green";};
+for "_i" from 1 to 2 do {this addItemToVest "SmokeShellGreen";};
+this addItemToBackpack "MineDetector";
+this addItemToBackpack "Medikit";
+for "_i" from 1 to 4 do {this addItemToBackpack "1Rnd_SmokeGreen_Grenade_shell";};
+for "_i" from 1 to 4 do {this addItemToBackpack "UGL_FlareGreen_F";};
+for "_i" from 1 to 12 do {this addItemToBackpack "1Rnd_HE_Grenade_shell";};
+for "_i" from 1 to 6 do {this addItemToBackpack "SmokeShellGreen";};
+for "_i" from 1 to 10 do {this addItemToBackpack "Chemlight_green";};
+this addItemToBackpack "Laserbatteries";
+this addHeadgear "H_HelmetIA";
+this addGoggles "G_Tactical_Black";
+
+comment "Add items";
+this linkItem "ItemMap";
+this linkItem "ItemCompass";
+this linkItem "ItemWatch";
+this linkItem "ItemRadio";
+this linkItem "I_UavTerminal";
+this linkItem "NVGoggles_INDEP";
+
+comment "Set identity";
+[this,"GreekHead_A3_06","male03gre"] call BIS_fnc_setIdentity;
+[this,"BI"] call BIS_fnc_setUnitInsignia;
+	
+comment "Set identity";
+_unit setName ["Evangelos Cosmos","Evangelos","Cosmos"];
+[_unit,"GreekHead_A3_06","male03gre",1,"Cosmos"] call BIS_fnc_setIdentity;
+[_unit,"BI"] call BIS_fnc_setUnitInsignia;
+};
+
+	case "C_man_p_fugitive_F" : {
 
 comment "Exported from Arsenal by DIEHARD";
 
@@ -708,7 +784,7 @@ _unit linkItem "NVGoggles_INDEP";
 comment "Set identity";
 _unit setName ["Kyros Kalogeros","Kyros","Kalogeros"];
 [_unit,"GreekHead_A3_08","male06gre",1,"Revolution"] call BIS_fnc_setIdentity;
-[_unit,"Curator"] call BIS_fnc_setUnitInsignia;
+[_unit,"BI"] call BIS_fnc_setUnitInsignia;
 };	
 };
 
@@ -720,7 +796,7 @@ if (_PRespawnLoadOut isEqualTo 1) then {
 
 	_unit addEventHandler ["Respawn", {
 		params ["_unit", "_corpse"];
-		_unit execVM "ParamsPlus\loadouts_r.sqf";
+		_unit execVM "ParamsPlus\loadouts_c.sqf";
 	}];
 
 };
@@ -730,8 +806,6 @@ _unit setVariable ["LoadoutDone", true];
 _unit action ["WEAPONONBACK", _unit];
 
 if (isPlayer _unit) then {
-
-execVM "SafeWeapon.sqf";
 
 [playerSide, "HQ"] commandChat "Loadouts Done!"
 

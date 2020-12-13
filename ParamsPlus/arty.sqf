@@ -12,7 +12,7 @@ switch (side _caller) do {
          case west:		{_vehicle = (_types select 0)};
          case east:		{_vehicle = (_types select 1)};
          case resistance:	{_vehicle = (_types select 2)};
-         case civilian:	{_vehicle = (_types select 0)};
+         case civilian:	{_vehicle = (_types select 2)};
 };
 
 _mrkrcolor = [];

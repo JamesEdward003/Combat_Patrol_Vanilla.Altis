@@ -15,6 +15,10 @@ call compile preprocessFileLineNumbers "ParamsPlus\mortarBag.sqf";
 
 //call compile preprocessFileLineNumbers "zorilyas_random_loadout\fnc_randomWeapon.sqf";
 
+execVM "ParamsPlus\HolsterAction.sqf";
+
+execVM "ParamsPlus\SafeWeapon.sqf";
+
 onTeamSwitch { [_from, _to] execVM "OnTeamSwitch.sqf"; };
 
 [playerSide, "HQ"] commandChat "Team Switch Enabled!";
@@ -23,31 +27,31 @@ call compile preprocessFileLineNumbers "arsenalTriggerAction.sqf";
 
 call compile preprocessFileLineNumbers "garageTriggerAction.sqf";
 
-//if ( isNil{player getVariable "CommAirLift"} ) then
-//{	
-//    [player,"AirLift"] call BIS_fnc_addCommMenuItem;
-//	 player setVariable ["CommAirLift", true];	
-//};
-//if ( isNil{player getVariable "CommHeliCAS"} ) then
-//{	
-//    [player,"HeliSupport"] call BIS_fnc_addCommMenuItem;
-//	 player setVariable ["CommHeliCAS", true];	
-//};
-//if ( isNil{player getVariable "CommArty"} ) then
-//{	
-//	[player,"Artillery"] call BIS_fnc_addCommMenuItem;
-//	 player setVariable ["CommArty", true];	
-//};
+if ( isNil{player getVariable "CommAirLift"} ) then
+{	
+    [player,"AirLift"] call BIS_fnc_addCommMenuItem;
+	 player setVariable ["CommAirLift", true];	
+};
+if ( isNil{player getVariable "CommHeliCAS"} ) then
+{	
+    [player,"HeliSupport"] call BIS_fnc_addCommMenuItem;
+	 player setVariable ["CommHeliCAS", true];	
+};
+if ( isNil{player getVariable "CommArty"} ) then
+{	
+	[player,"Artillery"] call BIS_fnc_addCommMenuItem;
+	 player setVariable ["CommArty", true];	
+};
 if ( isNil{player getVariable "CommHalo"} ) then
 {	
 	[player,"HaloJump"] call BIS_fnc_addCommMenuItem;
 	 player setVariable ["CommHalo", true];	
 };
-//if ( isNil{player getVariable "CommCargo"} ) then
-//{	
-//	[player,"SpawnCargoDrop"] call BIS_fnc_addCommMenuItem;
-//	 player setVariable ["CommCargo", true];	
-//};
+if ( isNil{player getVariable "CommCargo"} ) then
+{	
+	[player,"SpawnCargoDrop"] call BIS_fnc_addCommMenuItem;
+	 player setVariable ["CommCargo", true];	
+};
 if ( isNil{player getVariable "CommMortar"} ) then
 {	
 	[player,"SpawnMortar"] call BIS_fnc_addCommMenuItem;
@@ -68,11 +72,11 @@ if ( isNil{player getVariable "CommReenforcements"} ) then
 	[player,"SpawnReenforcements"] call BIS_fnc_addCommMenuItem;
 	 player setVariable ["CommReenforcements", true];	
 };
-//if ( isNil{player getVariable "CommWindSpeed"} ) then
-//{	
-//	[player,"WindSpeed"] call BIS_fnc_addCommMenuItem;
-//	 player setVariable ["CommWindSpeed", true];	
-//};
+if ( isNil{player getVariable "CommWindSpeed"} ) then
+{	
+	[player,"WindSpeed"] call BIS_fnc_addCommMenuItem;
+	 player setVariable ["CommWindSpeed", true];	
+};
 //if ( isNil{player getVariable "CommZorilya"} ) then
 //{	
 //	[player,"ZorilyasUnits"] call BIS_fnc_addCommMenuItem;
@@ -83,10 +87,6 @@ if ( isNil{player getVariable "CommGroupManager"} ) then
 	execVM "Group_Manager.sqf";
 	player setVariable ["CommGroupManager", true];	
 };
-
-call compile preprocessFileLineNumbers "ParamsPlus\SafeWeapon.sqf";
-
-player execVM "ParamsPlus\Holster_Weapon.sqf";
 
 ["BIS_CP_taskExfil", position player] call BIS_fnc_taskSetDestination;
 

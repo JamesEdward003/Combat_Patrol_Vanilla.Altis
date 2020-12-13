@@ -40,21 +40,20 @@ switch (_PDiverEquip) do
 					{
 						case (side _unit isEqualTo WEST) :  {
 													
-							_unit execVM "paramsplus\loadouts.sqf";	
+							_unit execVM "paramsplus\loadouts_diver.sqf";	
 						};
 						case (side _unit isEqualTo EAST) :  {
 													
-							_unit execVM "paramsplus\loadouts_e.sqf";
+							_unit execVM "paramsplus\loadouts_e_diver.sqf";	
 						};
 						case (side _unit isEqualTo RESISTANCE) :  {
-																			
-							_unit execVM "paramsplus\loadouts_r.sqf";
+													
+							_unit execVM "paramsplus\loadouts_r_diver.sqf";
 						};
 						case (side _unit isEqualTo CIVILIAN) :  {
 						
-							_unit setDamage 0;	
-						};
-					};		
+							_unit execVM "paramsplus\loadouts_c_diver.sqf";	
+						};	
 				};						
 			};
 	case 3: {		
@@ -78,7 +77,7 @@ switch (_PDiverEquip) do
 						};
 						case (side _unit isEqualTo CIVILIAN) :  {
 						
-							_unit setDamage 0;	
+							_unit execVM "paramsplus\loadouts_c_diver.sqf";	
 						};
 					};		
 				};	

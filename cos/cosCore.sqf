@@ -86,7 +86,7 @@ for "_i" from 1 to _civilians do {
 		_unit = _grp createUnit [_tempUnit, _tempPos, [], 0, "NONE"];	
 		_civilianArray set [count _civilianArray,_grp];
 									
-				null =[_unit] execVM "cos\addScript_Unit.sqf";
+				_unit execVM "cos\addScript_Unit.sqf";
 					
 					IF (debugCOS) then {
 				_txt=format["INF%1,MKR%2",_i,_mkr];
@@ -150,8 +150,8 @@ if (!(server getvariable _trigID)) exitwith {_isActive=false;};
 				_vehicleArray set [count _vehicleArray,_vehPack];
 
 								
-null =[_veh] execVM "cos\addScript_Vehicle.sqf";
-null =[_unit] execVM "cos\addScript_Unit.sqf";
+	_veh execVM "cos\addScript_Vehicle.sqf";
+	_unit execVM "cos\addScript_Unit.sqf";
 										
 		IF (debugCOS) then {
 			_txt=format["veh%1,mkr%2",_i,_mkr];
@@ -192,7 +192,7 @@ if (!(server getvariable _trigID)) exitwith {_isActive=false;};
 		_ParkedArray set [count _ParkedArray,_veh];
 
 		
-null =[_veh] execVM "cos\addScript_Vehicle.sqf";
+	_veh execVM "cos\addScript_Vehicle.sqf";
 
 	IF (debugCOS) then {
 		_txt=format["Park%1,mkr%2",_i,_mkr];

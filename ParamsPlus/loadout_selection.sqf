@@ -1,6 +1,9 @@
 /////--"paramsplus\loadouts_selection.sqf"--/////
 private ["_unit","_PLoadOut"];
 _PLoadOut = "PLoadOut" call BIS_fnc_getParamValue;
+_PDiverEquip = "PDiverEquip" call BIS_fnc_getParamValue;
+if (_PDiverEquip isEqualTo 2) exitWith {};
+if (_PDiverEquip isEqualTo 3) exitWith {};
 
 switch (_PLoadOut) do
 {

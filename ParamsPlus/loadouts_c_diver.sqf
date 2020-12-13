@@ -69,7 +69,7 @@ _unit linkItem "NVGoggles_OPFOR";
 comment "Set identity";
 _unit setName ["Lazaros Elias","Lazaros","Elias"]; 
 [_unit,"GreekHead_A3_03","male03gre",1,"Revolution"] call BIS_fnc_setIdentity;
-[_unit,"Curator"] call BIS_fnc_setUnitInsignia;
+[_unit,"BI"] call BIS_fnc_setUnitInsignia;
 };
 
 	case "C_Orestes" : {
@@ -128,7 +128,7 @@ _unit linkItem "NVGoggles_OPFOR";
 comment "Set identity";
 _unit setName ["Stefanos Petridish","Stefanos","Petridish"];
 [_unit,"GreekHead_A3_09","male06gre",1,"Revolution"] call BIS_fnc_setIdentity;
-[_unit,"Curator"] call BIS_fnc_setUnitInsignia;
+[_unit,"BI"] call BIS_fnc_setUnitInsignia;
 };
 
 	case "C_man_p_fugitive_F" : {
@@ -191,7 +191,7 @@ _unit linkItem "NVGoggles_OPFOR";
 comment "Set identity";
 _unit setName ["Satiris Rumpesi","Satiris","Rumpesi"];
 [_unit,"GreekHead_A3_04","male01gre",1,"Revolution"] call BIS_fnc_setIdentity;
-[_unit,"Curator"] call BIS_fnc_setUnitInsignia;
+[_unit,"BI"] call BIS_fnc_setUnitInsignia;
 };
 
 	case "C_man_p_fugitive_F_euro" : {
@@ -254,7 +254,7 @@ _unit linkItem "NVGoggles_OPFOR";
 comment "Set identity";
 _unit setName ["Michalis Costas","Michalis","Costas"];
 [_unit,"GreekHead_A3_04","male05gre",1,"Revolution"] call BIS_fnc_setIdentity;
-[_unit,"Curator"] call BIS_fnc_setUnitInsignia;
+[_unit,"BI"] call BIS_fnc_setUnitInsignia;
 };
 
 	case "C_man_p_beggar_F_euro" : {
@@ -316,7 +316,7 @@ _unit linkItem "NVGoggles_OPFOR";
 comment "Set identity";
 _unit setName ["Papa Papadopolis","Papa","Papadopolis"];
 [_unit,"GreekHead_A3_09","male03per",1,"Revolution"] call BIS_fnc_setIdentity;
-[_unit,"Curator"] call BIS_fnc_setUnitInsignia;
+[_unit,"BI"] call BIS_fnc_setUnitInsignia;
 };
 
 	case "C_man_p_beggar_F_asia" : {
@@ -378,7 +378,7 @@ _unit linkItem "NVGoggles_OPFOR";
 comment "Set identity";
 _unit setName ["Dimitrias Dukas","Dimitrias","Dukas"];
 [_unit,"GreekHead_A3_03","male01gre",1,"Revolution"] call BIS_fnc_setIdentity;
-[_unit,"Curator"] call BIS_fnc_setUnitInsignia;
+[_unit,"BI"] call BIS_fnc_setUnitInsignia;
 };
 
 	case "C_man_p_beggar_F_afro" : {
@@ -441,7 +441,7 @@ _unit linkItem "NVGoggles_OPFOR";
 comment "Set identity";
 _unit setName ["Athanasiadis Akhanteros","Athanasiadis","Akhanteros"];
 [_unit,"GreekHead_A3_01","male02gre",1,"Revolution"] call BIS_fnc_setIdentity;
-[_unit,"Curator"] call BIS_fnc_setUnitInsignia;
+[_unit,"BI"] call BIS_fnc_setUnitInsignia;
 };
 
 	case "C_man_w_worker_F" : {
@@ -504,7 +504,7 @@ _unit linkItem "NVGoggles_OPFOR";
 comment "Set identity";
 _unit setName ["Harvey Hladik","Harvey","Hladik"];
 [_unit,"","male01gre",1,"Revolution"] call BIS_fnc_setIdentity;
-[_unit,"Curator"] call BIS_fnc_setUnitInsignia;
+[_unit,"BI"] call BIS_fnc_setUnitInsignia;
 };
 
 	case "C_man_polo_2_F" : {
@@ -567,7 +567,7 @@ _unit linkItem "NVGoggles_OPFOR";
 comment "Set identity";
 _unit setName ["Panas Gavras","Panas","Gavras"];
 [_unit,"GreekHead_A3_05","male02gre",1,"Revolution"] call BIS_fnc_setIdentity;
-[_unit,"Curator"] call BIS_fnc_setUnitInsignia;
+[_unit,"BI"] call BIS_fnc_setUnitInsignia;
 };
 
 	case "C_man_p_shorts_1_F" : {
@@ -630,7 +630,7 @@ _unit linkItem "NVGoggles_OPFOR";
 comment "Set identity";
 _unit setName ["Kyros Kalogeros","Kyros","Kalogeros"];
 [_unit,"GreekHead_A3_08","male06gre",1,"Revolution"] call BIS_fnc_setIdentity;
-[_unit,"Curator"] call BIS_fnc_setUnitInsignia;
+[_unit,"BI"] call BIS_fnc_setUnitInsignia;
 };
 };
 
@@ -642,7 +642,7 @@ if (_PRespawnLoadOut isEqualTo 1) then {
 
 	_unit addEventHandler ["Respawn", {
 		params ["_unit", "_corpse"];
-		_unit execVM "ParamsPlus\loadouts_r_diver.sqf";
+		_unit execVM "ParamsPlus\loadouts_c_diver.sqf";
 	}];
 
 };
@@ -652,8 +652,6 @@ _unit setVariable ["LoadoutDone", true];
 _unit action ["WEAPONONBACK", _unit];
 
 if (isPlayer _unit) then {
-
-execVM "SafeWeapon.sqf";
 
 [playerSide, "HQ"] commandChat "Diver Loadouts Done!"
 

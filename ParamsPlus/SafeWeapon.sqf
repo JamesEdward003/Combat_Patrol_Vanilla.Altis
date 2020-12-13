@@ -1,5 +1,9 @@
 /////	execVM "SafeWeapon.sqf";	 /////
 ////////////////////////////////
-waitUntil { !isNull player };
 player action ["WEAPONONBACK", player];
+
+player addEventHandler ["Respawn", {
+	params ["_unit", "_corpse"];
+	execVM "ParamsPlus\SafeWeapon.sqf";
+}];
 

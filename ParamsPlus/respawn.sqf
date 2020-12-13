@@ -77,7 +77,9 @@ execVM "ParamsPlus\CtrlM_Medic.sqf";
 execVM "ParamsPlus\GiGoEH_Group.sqf";
 execVM "ParamsPlus\RallyPoint_Group.sqf";
 
-player action ["WEAPONONBACK", player];
+execVM "ParamsPlus\HolsterAction.sqf";
+
+execVM "ParamsPlus\SafeWeapon.sqf";
 
 execVM  "briefing.sqf";
 

@@ -6,25 +6,27 @@ _unit = unit. Refer to Unit as _unit.
 */
 
 _unit =_this;
+_unit execVM "ParamsPlus\Civilian_Presense.sqf";
 _unit addAction ["Hello", {
 _message = selectRandom [ 
-"Hello ?", 
-"You kidding me, man?", 
-"Think of a voice, any voice. Clint Eastwood...Sylvester Stallone...Jerry Lewis...Doris Day...fill in the blank...wing it.", 
+"I’d kill for a Nobel Peace Prize.", 
+"Just because I don’t care doesn’t mean I don’t understand.", 
+"I like you. You remind me of when I was young and stupid.", 
 "Have you been vaccinated?", 
-"Remember Jackie Mason? Didn't he do voice acting? The aardvark I think...in The Ant and the Aardvark.", 
-"Do yourself a favor...go to the end of the world and jump off.", 
-"There's trouble EVERYWHERE...this place ain't no different.", 
-"Remember the asteroid from space that's going to hit the earth and trigger the next ice age?", 
-"Come on man, get with it!", 
-"You notice there aren't any chicks in this movie? Probably made by a bunch of you-know-whats.", 
-"Crawl under a rock and sleep for a year or two or twenty.", 
-"Hello...again ?", 
-"Goodbye !" 
+"Don’t take life too seriously, you won’t get out alive.", 
+"Honesty is the best policy but insanity is the best defense.", 
+"I never admit or deny anything, it makes things more interesting.", 
+"I didn’t say it was your fault, I said I was blaming you.", 
+"If I promise to miss you, will you go away?", 
+"I’m smiling. This should scare you.", 
+"It takes patience to listen.. it takes skill to pretend you’re listening.", 
+"No Déjà vu please...I Don’t want to go through that again", 
+"Oh... I didn’t tell you... Then It must be none of your business...",
+"Think I'm Sarcastic? Watch Me Pretend To Care!"
 ];
 [_this select 0,_message] remoteExec ["globalChat",0];
 }];
-
+/*
 player addEventHandler ["GetInMan", {
 	params ["_unit", "_role", "_vehicle", "_turret"];
 	if !(isPlayer _unit) exitWith {];
@@ -41,4 +43,6 @@ player addEventHandler ["GetOutMan", {
 	_texts = _texts - [_txts]; 
 	missionNamespace setVariable ["StoryLines",_texts];	
 }];
+*/
+
 

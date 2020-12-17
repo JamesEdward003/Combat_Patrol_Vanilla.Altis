@@ -40,13 +40,13 @@ corpseLimit = 1;
 	Default value: 15 
 */
 
-corpseRemovalMinTime = 5;
+corpseRemovalMinTime = 35;
 /*
 	Remove all bodies that have been dead longer than corpseRemovalMinTime when corpseLimit is breached.  Time value is in Seconds.
 	Default value: 10
 */
 
-corpseRemovalMaxTime = 15;
+corpseRemovalMaxTime = 45;
 /*
 	Maximum time a corpse can remain on the ground if total number of corpses is equal or under corpseLimit.
 	Default value: 3600
@@ -120,10 +120,10 @@ class Params
 	};
     class PCivilians      
 	{ 
-        	title = "Civilians";
+        	title = "Civilians Have Weapons";
         	values[] = {1, 2};
         	texts[] = {"Disabled","Enabled"};
-        	default = 2;
+        	default = 1;
        	file = "cos\cosInit.sqf";
         	isGlobal = 0;
     };
@@ -236,7 +236,7 @@ class Params
         title = "Custom Loadouts";
        	values[] = {1, 2, 3};
         texts[] = {"Disabled","Units Group Player","All Playable or Switchable Units"};
-        default = 3;
+        default = 2;
         file = "ParamsPlus\loadout_selection.sqf";
         isGlobal = 1;
 	};	
@@ -263,7 +263,7 @@ class Params
         title = "Unlimited Ammo";
         values[] = {1, 2, 3};
         texts[] = {"Disabled","Units Group Player","All Playable or Switchable Units"};
-        default = 1;
+        default = 2;
 		file = "ParamsPlus\UnlimitedAmmo_Group.sqf";
 		isGlobal = 1;
     };		
@@ -272,7 +272,7 @@ class Params
         title = "Night Vision Adjustments";
         values[] = {1, 2, 3, 4};
         texts[] = {"Disabled","Units Group Player","All Playable or Switchable Units","All Units None"};
-        default = 1;
+        default = 2;
         file = "ParamsPlus\nightvision_Group.sqf";
         isGlobal = 1;
     };
@@ -281,7 +281,7 @@ class Params
         title = "Silencer Adjustments";
         values[] = {1, 2, 3, 4};
         texts[] = {"Disabled","Units Group Player","All Playable or Switchable Units","All Units None"};
-        default = 1;
+        default = 2;
         file = "ParamsPlus\silencers_Group.sqf";
         isGlobal = 1;
     };

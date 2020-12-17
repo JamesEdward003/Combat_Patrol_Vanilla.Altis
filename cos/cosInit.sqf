@@ -17,6 +17,10 @@ if (isnil "SERVER") then {Hint "You must ADD a object named SERVER";Player Sidec
 if (isServer) then {
 IF (!isnil ("COScomplete")) then {Hint "Check your call. COS was called twice!";}else{
 
+_tLoading = 30;
+waitUntil {!isNil "BIS_CP_initDone"};
+waitUntil {time > _tLoading};
+
 COS_distance=500;//Set spawn distance
 _aerielActivation=true;// Set if flying units can activate civilian Zones
 
@@ -190,3 +194,100 @@ null=[] execVM "COS\localScript.sqf";// This shows messages for players during m
 
 };
 };
+
+switch (side player) do 
+{
+	case WEST: // BLUFOR task notice goes here
+		{
+			0 = [] spawn {
+			[player,["task1"],["Covert civilian interrogation","Covert civilian interrogation",""], BIS_CP_targetLocationPos ,1,2,true,"Infiltrate"] call BIS_fnc_taskCreate;
+			["task1", "CREATED",true] spawn BIS_fnc_taskSetState;
+			waitUntil{ ((missionNamespace getVariable "StoryLines") isEqualTo []) };
+			["task1", "SUCCEEDED",true] spawn BIS_fnc_taskSetState;
+				Civilian setFriend [East, 1];
+				East setFriend [Civilian, 1];
+				Civilian setFriend [West, 1];
+				West setFriend [Civilian, 1];
+				Civilian setFriend [Resistance, 1];
+				Resistance setFriend [Civilian, 1];
+			};
+
+			waitUntil { sleep 1; (("task1" call BIS_fnc_taskState == "SUCCEEDED") isEqualTo true) };
+							
+			[player,["task2"],[format["Civil cooperation obtained by %1",name player],format["Civil cooperation obtained by %1",name player],""], BIS_CP_targetLocationPos,1,2,true,"Complete Objectives"] call BIS_fnc_taskCreate;
+			["task2", "CREATED",true] spawn BIS_fnc_taskSetState;
+			waitUntil{!(alive player)};
+			["task2", "FAILED",true] spawn BIS_fnc_taskSetState;
+		};
+	case EAST: // OPFOR task notice goes here
+		{ 
+			0 = [] spawn {
+			[player,["task1"],["Covert civilian interrogation","Covert civilian interrogation",""], BIS_CP_targetLocationPos ,1,2,true,"Infiltrate"] call BIS_fnc_taskCreate;
+			["task1", "CREATED",true] spawn BIS_fnc_taskSetState;
+			waitUntil{ ((missionNamespace getVariable "StoryLines") isEqualTo []) };
+			["task1", "SUCCEEDED",true] spawn BIS_fnc_taskSetState;
+				Civilian setFriend [East, 1];
+				East setFriend [Civilian, 1];
+				Civilian setFriend [West, 1];
+				West setFriend [Civilian, 1];
+				Civilian setFriend [Resistance, 1];
+				Resistance setFriend [Civilian, 1];
+			};
+
+			waitUntil { sleep 1; (("task1" call BIS_fnc_taskState == "SUCCEEDED") isEqualTo true) };
+							
+			[player,["task2"],[format["Civil cooperation obtained by %1",name player],format["Civil cooperation obtained by %1",name player],""], BIS_CP_targetLocationPos,1,2,true,"Complete Objectives"] call BIS_fnc_taskCreate;
+			["task2", "CREATED",true] spawn BIS_fnc_taskSetState;
+			waitUntil{!(alive player)};
+			["task2", "FAILED",true] spawn BIS_fnc_taskSetState;
+		};
+	case RESISTANCE: // RESISTANCE task notice goes here
+		{ 
+			0 = [] spawn {
+			[player,["task1"],["Covert civilian interrogation","Covert civilian interrogation",""], BIS_CP_targetLocationPos ,1,2,true,"Infiltrate"] call BIS_fnc_taskCreate;
+			["task1", "CREATED",true] spawn BIS_fnc_taskSetState;
+			waitUntil{ ((missionNamespace getVariable "StoryLines") isEqualTo []) };
+			["task1", "SUCCEEDED",true] spawn BIS_fnc_taskSetState;
+				Civilian setFriend [East, 1];
+				East setFriend [Civilian, 1];
+				Civilian setFriend [West, 1];
+				West setFriend [Civilian, 1];
+				Civilian setFriend [Resistance, 1];
+				Resistance setFriend [Civilian, 1];
+			};
+
+			waitUntil { sleep 1; (("task1" call BIS_fnc_taskState == "SUCCEEDED") isEqualTo true) };
+							
+			[player,["task2"],[format["Civil cooperation obtained by %1",name player],format["Civil cooperation obtained by %1",name player],""], BIS_CP_targetLocationPos,1,2,true,"Complete Objectives"] call BIS_fnc_taskCreate;
+			["task2", "CREATED",true] spawn BIS_fnc_taskSetState;
+			waitUntil{!(alive player)};
+			["task2", "FAILED",true] spawn BIS_fnc_taskSetState;
+		};
+	case CIVILIAN: // CIVILIAN task notice goes here
+		{ 
+			0 = [] spawn {
+			[player,["task1"],["Covert civilian spies!","Covert civilian spies!",""], BIS_CP_targetLocationPos ,1,2,true,"Caution!"] call BIS_fnc_taskCreate;
+			["task1", "CREATED",true] spawn BIS_fnc_taskSetState;
+			waitUntil{ ((missionNamespace getVariable "StoryLines") isEqualTo []) };
+			["task1", "CANCELED",true] spawn BIS_fnc_taskSetState;
+				Civilian setFriend [East, 1];
+				East setFriend [Civilian, 1];
+				Civilian setFriend [West, 1];
+				West setFriend [Civilian, 1];
+				Civilian setFriend [Resistance, 1];
+				Resistance setFriend [Civilian, 1];
+			};
+
+			waitUntil { sleep 1; (("task1" call BIS_fnc_taskState == "CANCELED") isEqualTo true) };
+					
+			[player,["task2"],[format["Defend your location %1",name player],format["Defend your location %1",name player],""], BIS_CP_targetLocationPos,1,2,true,"Complete Objectives"] call BIS_fnc_taskCreate;
+			["task2", "CREATED",true] spawn BIS_fnc_taskSetState;
+			waitUntil{!(alive player)};
+			["task2", "CANCELED",true] spawn BIS_fnc_taskSetState;
+		};
+};
+
+
+
+
+

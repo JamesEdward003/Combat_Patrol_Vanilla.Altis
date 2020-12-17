@@ -11,7 +11,7 @@
 // Headquarters Entity module
 //  BIS_hqWest, BIS_hqEast, BIS_hqGuer
 
-//{if (!( isPlayer _x ) and !(_x in (units group player))) then  {deleteVehicle _x}} forEach (if ismultiplayer then {playableunits} else {switchableunits});
+{if (!( isPlayer _x ) and !(_x in (units group player))) then  {deleteVehicle _x}} forEach (if ismultiplayer then {playableunits} else {switchableunits});
 
 {if (!( isPlayer _x ) and (_x in (units group player))) then  {_x addAction ["<t color='#00FFFF'>Dismiss</t>","ParamsPlus\dismiss.sqf",[],-100,false,true,""];}} forEach (if ismultiplayer then {playableunits} else {switchableunits});
 
@@ -71,13 +71,41 @@ switch (playerSide) do {
 	};
 };
 
+_Griffin = [playerSide, "OPF"] commandChat "Initiated Sides!";
+
+_pos = getPos leader player;
+
+_startLocation = {
+	
+	_BI_CP_startLocation = "BI_CP_startLocation" call BIS_fnc_getParamValue;	
+
+	if (_BI_CP_startLocation isEqualTo 2) then {
+		
+		waitUntil { (player distance2d BIS_CP_targetLocationPos) < 1500 };
+		{
+		if ( _x != leader player) then {
+			_relDis = _x distance leader player;
+			_relDir = [leader player, _x] call BIS_fnc_relativeDirTo;
+			_x setPos ([_pos, _relDis, _relDir] call BIS_fnc_relPos);
+		}; 
+		}forEach units group player;
+		leader player setPos _pos;
+		BIS_CP_exfilPos = _pos;
+		["BIS_CP_taskExfil", position player] call BIS_fnc_taskSetDestination;
+
+	};	
+};
+call _startLocation;
+
+_PCivilians = "PCivilians" call BIS_fnc_getParamValue;
+
+if (_PCivilians isEqualTo 2) then {
+
+_tLoading = 30;
+
 waitUntil {!isNil "BIS_CP_initDone"};
-
+waitUntil {time > _tLoading};
 waitUntil {!isNil "BIS_CP_targetLocationID"};
-
-waitUntil {BIS_CP_targetLocationID >= 0};
-
-BIS_CP_exfilPos = position player;
 
 _startpos = [BIS_CP_targetLocationPos, 300, (0 + random 90)] call BIS_fnc_relPos;
 
@@ -113,9 +141,6 @@ _civilianBuildingStart call placetwoSpots;
 _cen = getpos _civilianBuildingStart;
 
 _m = _grp createUnit ["ModuleCivilianPresence_F", [0,0,0], [], 0, "NONE"];
-//_m setVariable ["#init",_this execVM "ParamsPlus\Civilian_Presense.sqf"];
-[_m, "_this execVM 'ParamsPlus\Civilian_Presense.sqf'"] remoteExec ["setVehicleInit", groupOwner _grp];
-remoteExecCall ["processInitCommands"];
 
 _m setVariable ["#area",[_cen,1000,1000,0,true,-1]];  // Fixed! this gets passed to https://community.bistudio.com/wiki/inAreaArray 
 
@@ -126,6 +151,11 @@ _m setVariable ["#usepanicmode",false];
 
 _m setVariable ["#unitcount",10];
 
+//_m setVariable ["#unitinit",_this addaction [];
+};
+
+["Preload"] call BIS_fnc_arsenal;
+
 //Adjust MARTA MILITARY ICONS distance to be seen from stock distance	
 //[] spawn {
 //	while {true} do {
@@ -135,8 +165,6 @@ _m setVariable ["#unitcount",10];
 //	}
 //};
 
-["Preload"] call BIS_fnc_arsenal;
 
-_Slingshot = [playerSide, "IND"] commandChat "Initiated Sides!";
 
 

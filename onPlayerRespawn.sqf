@@ -47,3 +47,61 @@ if (!isNil "choosenBuilding") then {
 	//Remove hint
 	hint "";
 };
+/*
+while {alive player} do {
+uisleep 20;
+private ["_strikeTarget","_dummy"];
+_strikeTarget = cursorObject;
+_strikeLoc =  (getPos _strikeTarget);
+if (_strikeLoc isequalto [0,0,0]) then {
+hint "!";
+}else{
+
+[_strikeTarget,nil,true] call BIS_fnc_moduleLightning;
+
+hint "";
+	};
+};
+*/
+
+if !(player getVariable ["civSuitPowers_eh",false]) then
+{
+	[
+		"checkEquippedUniform",
+		"onEachFrame",
+		{
+			params ["_unit"];
+			_civSuitArray = [U_NikosAgedBody,U_OrestesBody,U_C_Poor_1,U_C_Poor_2,U_C_Poloshirt_burgundy,U_C_WorkerCoveralls,U_C_Poor_shorts_1];
+			if (uniform _unit in _civSuitArray) then
+			{
+				[ [], "fnc_civSuitPowers", _unit ] call BIS_fnc_MP;
+				Civilian setFriend [East, 1];
+				East setFriend [Civilian, 1];
+				Civilian setFriend [West, 1];
+				West setFriend [Civilian, 1];
+				Civilian setFriend [Resistance, 1];
+				Resistance setFriend [Civilian, 1];
+			}
+			else
+			{
+				Civilian setFriend [East, 0];
+				East setFriend [Civilian, 0];
+				Civilian setFriend [West, 0];
+				West setFriend [Civilian, 0];
+				Civilian setFriend [Resistance, 0];
+				Resistance setFriend [Civilian, 0];
+			};
+		},
+		[player]
+	] call BIS_fnc_addStackedEventHandler;
+	player setVariable ["civSuitPowers_eh",true];
+};
+
+
+
+
+
+
+
+
+

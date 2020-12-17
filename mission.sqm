@@ -8,7 +8,7 @@ class EditorData
 	toggles=513;
 	class ItemIDProvider
 	{
-		nextID=408;
+		nextID=409;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={20875.537,98.331642,7246.7798};
-		dir[]={-0.34135944,-0.7520653,0.56380105};
-		up[]={-0.3895146,0.65908867,0.64333588};
-		aside[]={0.85542554,-7.4505806e-009,0.51792663};
+		pos[]={8960.4277,150.09137,7399.29};
+		dir[]={-0.1579631,-0.70710683,0.68923712};
+		up[]={-0.1579631,0.70710677,0.68923706};
+		aside[]={0.97472835,0,0.22339351};
 	};
 };
 binarizationWanted=0;
@@ -126,6 +126,7 @@ class Mission
 						rank="MAJOR";
 						name="Rambo_1";
 						description="Rambo_1  SquadLeader";
+						isPlayer=1;
 						isPlayable=1;
 					};
 					id=1;
@@ -216,7 +217,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={8916.6357,67.375656,7485.7266};
+						position[]={8916.6387,67.375816,7485.7231};
 					};
 					side="West";
 					flags=5;
@@ -297,7 +298,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={8931.6357,67.487129,7470.7266};
+						position[]={8931.6377,67.48996,7470.7251};
 					};
 					side="West";
 					flags=5;
@@ -311,6 +312,7 @@ class Mission
 					};
 					id=8;
 					type="B_medic_F";
+					atlOffset=0.0028610229;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -378,7 +380,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={8906.6357,67.077446,7485.728};
+						position[]={8906.6357,67.07592,7485.728};
 					};
 					side="West";
 					flags=4;
@@ -392,6 +394,7 @@ class Mission
 					};
 					id=29;
 					type="B_soldier_M_F";
+					atlOffset=-0.0015258789;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -478,7 +481,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={8901.6357,66.956291,7480.728};
+						position[]={8901.6348,66.95739,7480.7275};
 					};
 					side="West";
 					flags=4;
@@ -492,6 +495,7 @@ class Mission
 					};
 					id=30;
 					type="B_Soldier_GL_F";
+					atlOffset=0.0010604858;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -559,7 +563,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={8921.6357,67.528336,7480.728};
+						position[]={8921.6396,67.531754,7480.7241};
 					};
 					side="West";
 					flags=4;
@@ -573,6 +577,7 @@ class Mission
 					};
 					id=31;
 					type="B_Soldier_GL_F";
+					atlOffset=0.003326416;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -659,7 +664,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={8926.6357,67.593819,7475.728};
+						position[]={8926.6396,67.596588,7475.7241};
 						angles[]={6.2685246,0,6.2765183};
 					};
 					side="West";
@@ -674,6 +679,7 @@ class Mission
 					};
 					id=32;
 					type="B_soldier_M_F";
+					atlOffset=0.0028533936;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -760,7 +766,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={8896.6357,66.895515,7475.728};
+						position[]={8896.6348,66.899864,7475.7271};
 						angles[]={6.2365503,0,0.066566855};
 					};
 					side="West";
@@ -775,6 +781,7 @@ class Mission
 					};
 					id=33;
 					type="B_medic_F";
+					atlOffset=0.0044555664;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -1273,25 +1280,23 @@ class Mission
 		class Item9
 		{
 			dataType="Marker";
-			position[]={8986.3789,70.578445,7491.4731};
+			position[]={8979.7949,70.528069,7481.917};
 			name="respawn_vehicle_west";
 			type="respawn_armor";
 			colorName="ColorWEST";
 			id=68;
-			atlOffset=7.6293945e-006;
 		};
 		class Item10
 		{
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={8986.3613,70.578468,7491.4473};
-				angles[]={6.276526,0,6.272521};
+				position[]={8979.793,70.528122,7481.9185};
+				angles[]={6.249866,0,6.2791886};
 			};
 			name="respawn_vehicle_west";
 			id=70;
 			type="ModuleRespawnVehicle_F";
-			atlOffset=7.6293945e-006;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -1642,8 +1647,8 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={8980.5547,70.533844,7482.2734};
-				angles[]={6.259192,0,6.2698579};
+				position[]={8985.9561,70.586632,7492.0259};
+				angles[]={6.276526,0,6.272521};
 			};
 			name="cas_one";
 			id=103;
@@ -2029,13 +2034,12 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={8986.499,70.577271,7491.4893};
-				angles[]={6.276526,0,6.272521};
+				position[]={8980.0645,70.546524,7482.5298};
+				angles[]={6.259192,0,6.2698579};
 			};
 			name="arty_one";
 			id=107;
 			type="SupportProvider_Virtual_Artillery";
-			atlOffset=7.6293945e-006;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -7131,7 +7135,6 @@ class Mission
 						rank="MAJOR";
 						name="Revolution_1";
 						description="Revolution_1  -  Commander In Chief";
-						isPlayer=1;
 						isPlayable=1;
 					};
 					id=322;
@@ -8534,7 +8537,7 @@ class Mission
 			flags=1;
 			id=348;
 			type="ModuleCivilianPresenceUnit_F";
-			atlOffset=1.5258789e-005;
+			atlOffset=0.21199989;
 		};
 		class Item57
 		{

@@ -14,23 +14,39 @@ addMissionEventHandler ["Loaded", {
 	"continue"
 }];
 
-if ( isNil { missionNamespace getVariable "StoryLines" } ) then {
-_texts = [ 
-["Ask and it shall be told.", "In the old days citizens felt relatively safe.", "The wives and children came outside and enjoyed life.", "Only hiding inside now days."],
-["Strife is everywhere.", "The men love to play with their weapons.", "They all have access to weapons.", "Staying alive becomes a challenge."]
-];
-	missionNamespace setVariable ["StoryLines",_texts];
-};
+//_PCivilians = "PCivilians" call BIS_fnc_getParamValue;
 
-addMissionEventHandler ["HandleChatMessage", {
-	params ["_channel", "_owner", "_from", "_text", "_person", "_name", "_strID", "_forcedDisplay", "_isPlayerMessage", "_sentenceType", "_chatMessageType"];
-	copyToClipboard format ["%1,%2,%3,%4,%5,%6,%7,%8,%9,%10,%11", _channel, _owner, _from, _text, _person, _name, _strID, _forcedDisplay, _isPlayerMessage, _sentenceType, _chatMessageType];
-	_texts = missionNamespace getVariable "StoryLines"; 
-	_txts = _texts select 0;                                  
-	[[(_txts select 0),1,4,1],[(_txts select 1),1,4,1],[(_txts select 2),1,4,1],[(_txts select 3),1,4,1]] spawn BIS_fnc_EXP_camp_SITREP;
-	_texts = _texts - [_txts]; 
-	missionNamespace setVariable ["StoryLines",_texts];	
-}];
+//if (_PCivilians isEqualTo 2) then {
+
+//	if ( isNil { missionNamespace getVariable "StoryLines" } ) then {
+//	_texts = [ 
+//	["One...Ask and it shall be told.", "In the old days citizens felt relatively safe.", "The wives and children came outside and enjoyed life.", "Only hiding inside now days."],
+//	["Strife is everywhere.", "The men love to play with their weapons.", "They all have access to weapons.", "Staying alive becomes a challenge."],
+//	["Two...Ask and it shall be told.", "In the old days citizens felt relatively safe.", "The wives and children came outside and enjoyed life.", "Only hiding inside now days."],
+//	["Strife is everywhere.", "The men love to play with their weapons.", "They all have access to weapons.", "Staying alive becomes a challenge."],
+//	["Three...Ask and it shall be told.", "In the old days citizens felt relatively safe.", "The wives and children came outside and enjoyed life.", "Only hiding inside now days."],
+//	["Strife is everywhere.", "The men love to play with their weapons.", "They all have access to weapons.", "Staying alive becomes a challenge."],
+//	["Four...Ask and it shall be told.", "In the old days citizens felt relatively safe.", "The wives and children came outside and enjoyed life.", "Only hiding inside now days."],
+//	["Strife is everywhere.", "The men love to play with their weapons.", "They all have access to weapons.", "Staying alive becomes a challenge."],
+//	["Five...Ask and it shall be told.", "In the old days citizens felt relatively safe.", "The wives and children came outside and enjoyed life.", "Only hiding inside now days."],
+//	["Strife is everywhere.", "The men love to play with their weapons.", "They all have access to weapons.", "Staying alive becomes a challenge."],
+//	["Six...Ask and it shall be told.", "In the old days citizens felt relatively safe.", "The wives and children came outside and enjoyed life.", "Only hiding inside now days."],
+//	["Strife is everywhere.", "The men love to play with their weapons.", "They all have access to weapons.", "Staying alive becomes a challenge."]
+//	];
+//		missionNamespace setVariable ["StoryLines",_texts];
+//	};
+
+//	addMissionEventHandler ["HandleChatMessage", {
+//		params ["_channel", "_owner", "_from", "_text", "_person", "_name", "_strID", "_forcedDisplay", "_isPlayerMessage", "_sentenceType", "_chatMessageType"];
+//		copyToClipboard format ["%1,%2,%3,%4,%5,%6,%7,%8,%9,%10,%11", _channel, _owner, _from, _text, _person, _name, _strID, _forcedDisplay, _isPlayerMessage, _sentenceType, _chatMessageType];
+//		if (_chatMessageType isEqualTo 0) then {
+//		_texts = missionNamespace getVariable "StoryLines"; 
+//		_txts = _texts select 0;                                  
+//		[[(_txts select 0),1,4,1],[(_txts select 1),1,4,1],[(_txts select 2),1,4,1],[(_txts select 3),1,4,1]] spawn BIS_fnc_EXP_camp_SITREP;
+//		_texts = _texts - [_txts]; 
+//		missionNamespace setVariable ["StoryLines",_texts];};
+//	}];
+//};
 
 addMissionEventHandler ["EntityKilled", { 
 	params ["_unit", "_killer", "_instigator", "_useEffects"];
@@ -120,5 +136,38 @@ KS_fnc_vehicleRespawnNotification =
 		hint parseText format["<t size='1.25' color='#44ff00'>Artillery Support Called!</t>"];
 	};
 }] call BIS_fnc_addStackedEventHandler;
+
+if !(player getVariable ["civSuitPowers_eh",false]) then
+{
+	[
+		"checkEquippedUniform",
+		"onEachFrame",
+		{
+			params ["_unit"];
+			_civSuitArray = [U_NikosAgedBody,U_OrestesBody,U_C_Poor_1,U_C_Poor_2,U_C_Poloshirt_burgundy,U_C_WorkerCoveralls,U_C_Poor_shorts_1];
+			if (uniform _unit in _civSuitArray) then
+			{
+				[ [], "fnc_civSuitPowers", _unit ] call BIS_fnc_MP;
+				Civilian setFriend [East, 1];
+				East setFriend [Civilian, 1];
+				Civilian setFriend [West, 1];
+				West setFriend [Civilian, 1];
+				Civilian setFriend [Resistance, 1];
+				Resistance setFriend [Civilian, 1];
+			}
+			else
+			{
+				Civilian setFriend [East, 0];
+				East setFriend [Civilian, 0];
+				Civilian setFriend [West, 0];
+				West setFriend [Civilian, 0];
+				Civilian setFriend [Resistance, 0];
+				Resistance setFriend [Civilian, 0];
+			};
+		},
+		[player]
+	] call BIS_fnc_addStackedEventHandler;
+	player setVariable ["civSuitPowers_eh",true];
+};
 
     

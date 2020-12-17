@@ -1,32 +1,11 @@
+//  execVM "bis_fnc_garage.sqf";  //
 
-
-Your garage ({
 	private _fnc_scriptNameParent = if (isNil '_fnc_scriptName') then {'BIS_fnc_garage'} else {_fnc_scriptName};
 	private _fnc_scriptName = 'BIS_fnc_garage';
 	scriptName _fnc_scriptName;
 
-#line 1 "A3\functions_f_mark\Vehicles\fn_garage.sqf [BIS_fnc_garage]"
+#line 1 "A3\functions_f_mark\Vehicles\fn_garage.sqf [BIS_fnc_garage]";
 if (is3DEN && {_fnc_scriptName == "bis_fnc_garage"}) exitwith {_this call bis_fnc_garage3DEN;};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

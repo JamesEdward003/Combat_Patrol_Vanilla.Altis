@@ -1,2 +1,0 @@
-
-"str_customcombatpatrol_mission_1", "str_customcombatpatrol_mission_2", "str_customcombatpatrol_mission_3", "str_customcombatpatrol_mission_4", "str_customcombatpatrol_mission_5", "str_customcombatpatrol_mission_6", "str_customcombatpatrol_mission_7", "str_customcombatpatrol_mission_8", "str_customcombatpatrol_mission_9", "str_customcombatpatrol_mission_10", 

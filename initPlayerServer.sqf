@@ -25,18 +25,3 @@ if(!isNull player) then {
     hint format["Player is null"];
 };
 
-_BI_CP_startLocation = "BI_CP_startLocation" call BIS_fnc_getParamValue;	
-if (_BI_CP_startLocation isEqualTo 1) exitWith {};
-if (_BI_CP_startLocation isEqualTo 2) then {
-	_pos = getPos leader player;
-	waitUntil {!isNil "BIS_CP_initDone"};
-	{
-	if ( _x != leader player) then {
-		_relDis = _x distance leader player;
-		_relDir = [leader player, _x] call BIS_fnc_relativeDirTo;
-		_x setPos ([_pos, _relDis, _relDir] call BIS_fnc_relPos);
-	}; 
-	}forEach units group player;
-	leader player setPos _pos;
-};	
-

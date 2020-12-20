@@ -27,7 +27,11 @@
 	openMap[ true, false ];
   
 	//Display user instruction
-	hint "Double left click a marker to select headquarters";
+	if (availableBuildings isEqualTo []) then {
+		hint "No buildings to select headquarters";
+	} else {
+		hint "Double left click a marker to select new spawn headquarters";
+	};
 
 	//Make sure map is open, before...
 	waitUntil{ !isNull findDisplay 12 };

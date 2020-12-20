@@ -5,63 +5,35 @@ waitUntil {!isNull player && alive player};
 
 if !isMultiplayer then { execVM "ParamsPlus\respawn.sqf"; };
 
+if !isMultiplayer then { 
+	onTeamSwitch { [_from, _to] execVM "OnTeamSwitch.sqf"; }; 
+	[playerSide, "HQ"] commandChat "Team Switch Enabled!";
+};
+	
 call compile preprocessFileLineNumbers "briefing.sqf";
         	
 call compile preprocessFileLineNumbers "bon_recruit_units\init.sqf";
 
 call compile preprocessFileLineNumbers "ParamsPlus\mortarBag.sqf";
 
-//call compile preprocessFileLineNumbers "cos\cosInit.sqf";
-
-//call compile preprocessFileLineNumbers "zorilyas_random_loadout\fnc_randomWeapon.sqf";
-
-player execVM "ParamsPlus\HolsterWeapon.sqf";
+player execVM "ParamsPlus\HolsterAction.sqf";
 
 player execVM "ParamsPlus\SafeWeapon.sqf";
-
-onTeamSwitch { [_from, _to] execVM "OnTeamSwitch.sqf"; };
-
-[playerSide, "HQ"] commandChat "Team Switch Enabled!";
 
 call compile preprocessFileLineNumbers "arsenalTriggerAction.sqf";
 
 call compile preprocessFileLineNumbers "garageTriggerAction.sqf";
 
-//if ( isNil{player getVariable "CommAirLift"} ) then
-//{	
-//    [player,"AirLift"] call BIS_fnc_addCommMenuItem;
-//	 player setVariable ["CommAirLift", true];	
-//};
-//if ( isNil{player getVariable "CommHeliCAS"} ) then
-//{	
-//    [player,"HeliSupport"] call BIS_fnc_addCommMenuItem;
-//	 player setVariable ["CommHeliCAS", true];	
-//};
-//if ( isNil{player getVariable "CommArty"} ) then
-//{	
-//	[player,"Artillery"] call BIS_fnc_addCommMenuItem;
-//	 player setVariable ["CommArty", true];	
-//};
 if ( isNil{player getVariable "CommHalo"} ) then
 {	
 	[player,"HaloJump"] call BIS_fnc_addCommMenuItem;
 	 player setVariable ["CommHalo", true];	
 };
-//if ( isNil{player getVariable "CommCargo"} ) then
-//{	
-//	[player,"SpawnCargoDrop"] call BIS_fnc_addCommMenuItem;
-//	 player setVariable ["CommCargo", true];	
-//};
-//if ( isNil{player getVariable "CommMortar"} ) then
-//{	
-//	[player,"SpawnMortar"] call BIS_fnc_addCommMenuItem;
-//	 player setVariable ["CommMortar", true];	
-//};
-//if ( isNil{player getVariable "CommMortarBag"} ) then
-//{	
-//	[player,"SpawnMortarBag"] call BIS_fnc_addCommMenuItem;
-//	 player setVariable ["CommMortarBag", true];	
-//};
+if ( isNil{player getVariable "CommMortar"} ) then
+{	
+	[player,"SpawnMortar"] call BIS_fnc_addCommMenuItem;
+	 player setVariable ["CommMortar", true];	
+};
 if ( isNil{player getVariable "CommParaDrop"} ) then
 {	
 	[player,"SpawnParaDrop"] call BIS_fnc_addCommMenuItem;
@@ -77,22 +49,46 @@ if ( isNil{player getVariable "CommWindSpeed"} ) then
 	[player,"WindSpeed"] call BIS_fnc_addCommMenuItem;
 	 player setVariable ["CommWindSpeed", true];	
 };
-//if ( isNil{player getVariable "CommZorilya"} ) then
-//{	
-//	[player,"ZorilyasUnits"] call BIS_fnc_addCommMenuItem;
-//	 player setVariable ["CommZorilya", true];	
-//};
 if ( isNil{player getVariable "CommGroupManager"} ) then
 {	
 	execVM "Group_Manager.sqf";
 	player setVariable ["CommGroupManager", true];	
 };
-
+//if ( isNil{player getVariable "CommAirLift"} ) then
+//{	
+//    [player,"AirLift"] call BIS_fnc_addCommMenuItem;
+//	 player setVariable ["CommAirLift", true];	
+//};
+//if ( isNil{player getVariable "CommHeliCAS"} ) then
+//{	
+//    [player,"HeliSupport"] call BIS_fnc_addCommMenuItem;
+//	 player setVariable ["CommHeliCAS", true];	
+//};
+//if ( isNil{player getVariable "CommArty"} ) then
+//{	
+//	[player,"Artillery"] call BIS_fnc_addCommMenuItem;
+//	 player setVariable ["CommArty", true];	
+//};
+//if ( isNil{player getVariable "CommMortarBag"} ) then
+//{	
+//	[player,"SpawnMortarBag"] call BIS_fnc_addCommMenuItem;
+//	 player setVariable ["CommMortarBag", true];	
+//};
+//if ( isNil{player getVariable "CommCargo"} ) then
+//{	
+//	[player,"SpawnCargoDrop"] call BIS_fnc_addCommMenuItem;
+//	 player setVariable ["CommCargo", true];	
+//};
+//if ( isNil{player getVariable "CommZorilya"} ) then
+//{	
+//	[player,"ZorilyasUnits"] call BIS_fnc_addCommMenuItem;
+//	 player setVariable ["CommZorilya", true];	
+//};
 
 action_interrogate = player addAction["Interrogate", { 
 	0 = cursorTarget spawn interrogate
 }, nil, 1.5, false, true, "", " 
-	(alive cursorTarget && side cursorTarget == civilian && {player distance cursorTarget < 3})
+	(alive cursorTarget && side cursorTarget == sideEnemy && {player distance cursorTarget < 3})
 "];
 
 directionText = {
@@ -107,7 +103,7 @@ directionText = {
 };
 
 interrogate = {
-	if (random 100 > 5) exitWith {systemChat "I don't feel like talking..."};
+	if (random 100 > 1) exitWith {systemChat "I don't feel like talking..."};
 
     private "_enemy";
 	_enemy = { if (side _x == east || side _x == independent) exitWith {_x}; objNull } forEach (_this nearEntities [["Man", "Air", "Car", "Motorcycle", "Tank"],1000] - [player]);
@@ -128,6 +124,49 @@ interrogate = {
 	];
 };
 
+_PLightning = "PLightning" call BIS_fnc_getParamValue;
+
+if (_PLightning isEqualTo 1) exitWith {};
+
+tempctrlz = true;
+LIGTNING_KEYDOWN_FNC = {
+private["_ctrl", "_dikCode", "_shift", "_ctrlKey", "_alt", "_handled"];
+params ["_ctrl", "_dikCode", "_shift", "_ctrlKey", "_alt", ["_handled", false, [false]]];
+//params["_ctrl","_dikCode","_shift","_ctrlKey", "_alt", ["_handled",false], ["_display", displayNull, [displayNull]]];
+    	
+	switch (_dikCode) do {
+	
+			//Ctrl-Z
+		case 44 : {
+        
+			if (_ctrl) then {
+        
+     			if (tempctrlz) then {
+     				tempctrlz = false;    
+					private ["_strikeTarget","_dummy"];
+					_strikeTarget = cursorObject;
+					_strikeLoc =  (getPos _strikeTarget);
+						if (_strikeLoc isequalto [0,0,0]) then {	
+							hint "!";
+						}else{
+							[_strikeTarget,nil,true] call BIS_fnc_moduleLightning;
+							hint "";
+						};	     
+					};	     	     
+			_handled = true;		
+		};	
+            	
+	};
+     
+}; 
+        
+//==And the key EventHandler to execute the script...
+waituntil {!isnull (finddisplay 46)};
+(findDisplay 46) displayAddEventHandler ["KeyDown","_this call LIGTNING_KEYDOWN_FNC;false;"];
+
+waitUntil {!(isNull (findDisplay 46))};
+(findDisplay 46) displayAddEventHandler ["KeyUp", "tempctrlz = true;false;"];
+
 //while {alive player} do {
 //uisleep 20;
 //private ["_strikeTarget","_dummy"];
@@ -143,117 +182,3 @@ interrogate = {
 //	};
 //};
 
-///*
-
-//if !(player getVariable ["bluSuitPowers_eh",false]) then
-//{
-//	[
-//		"checkEquippedUniform",
-//		"onEachFrame",
-//		{
-//			params ["_unit"];
-//			if (uniform _unit isEqualTo "U_B_Soldier_VR") then 
-//			{
-//				if ( !(_unit getVariable ["powers", false]) ) then 
-//				{ 
-//					
-//					[ [], "fnc_bluSuitPowers", _unit ] call BIS_fnc_MP; 
-//				};
-//                                _unit setVariable ["powers", true];
-//			} 
-//                        else 
-//			{
-//				 
-//					_skillA = player getVariable ["skillA",-1];
-//					_skillB = player getVariable ["skillB",-1];
-//					_skillC = player getVariable ["skillC",-1];
-//					_skillD = player getVariable ["skillD",-1];
-//					player removeAction _skillA;
-//					player removeAction _skillB;
-//					player removeAction _skillC;
-//					player removeAction _skillD;
-//						
-//                    _unit setVariable ["powers", false];
-//			};
-//		},
-//		[player]
-//	] call BIS_fnc_addStackedEventHandler;
-//	player setVariable ["bluSuitPowers_eh",true];
-//};
-
-//fnc_bluSuitPowers = {
-//_skillA = [
-///* 0 object */				player,
-///* 1 action title */			"Blink",
-///* 2 idle icon */				"images\blinkicon.paa",
-///* 3 progress icon */			"images\blinkicon.paa",
-///* 4 condition to show */		"true",
-///* 5 condition for action */		"true",
-///* 6 code executed on start */		{["Suit", "Preparing Blink"] call BIS_fnc_showSubtitle},
-///* 7 code executed per tick */		{hint "Blink Charging"},
-///* 8 code executed on completion */	{execVM "blinkJump.sqf"},
-///* 9 code executed on interruption */	{hint ""},
-///* 10 arguments */			["Blink"],
-///* 11 action duration */		3,
-///* 12 priority */			0,
-///* 13 remove on completion */		false,
-///* 14 show unconscious */		false
-//] call bis_fnc_holdActionAdd;
-//_skillB = [
-///* 0 object */				player,
-///* 1 action title */			"Sprint 1",
-///* 2 idle icon */				"images\sprinticonA.paa",
-///* 3 progress icon */			"images\sprinticonA.paa",
-///* 4 condition to show */		"true",
-///* 5 condition for action */		"true",
-///* 6 code executed on start */		{player setAnimSpeedCoef 1.50},
-///* 7 code executed per tick */		{player setAnimSpeedCoef 2},
-///* 8 code executed on completion */	{player setAnimSpeedCoef 1},
-///* 9 code executed on interruption */	{player setAnimSpeedCoef 1},
-///* 10 arguments */			["Sprint"],
-///* 11 action duration */		6,
-///* 12 priority */			0,
-///* 13 remove on completion */		false,
-///* 14 show unconscious */		false
-//] call bis_fnc_holdActionAdd;
-//_skillC = [
-///* 0 object */				player,
-///* 1 action title */			"Sprint 2",
-///* 2 idle icon */				"images\sprinticonB.paa",
-///* 3 progress icon */			"images\sprinticonB.paa",
-///* 4 condition to show */		"true",
-///* 5 condition for action */		"true",
-///* 6 code executed on start */		{player setAnimSpeedCoef 1.50},
-///* 7 code executed per tick */		{player setAnimSpeedCoef 4},
-///* 8 code executed on completion */	{player setAnimSpeedCoef 1},
-///* 9 code executed on interruption */	{player setAnimSpeedCoef 1},
-///* 10 arguments */			["Sprint"],
-///* 11 action duration */		6,
-///* 12 priority */			0,
-///* 13 remove on completion */		false,
-///* 14 show unconscious */		false
-//] call bis_fnc_holdActionAdd;
-//_skillD = [
-///* 0 object */				player,
-///* 1 action title */			"Lightning",
-///* 2 idle icon */				"images\blinkicon.paa",
-///* 3 progress icon */			"images\blinkicon.paa",
-///* 4 condition to show */		"true",
-///* 5 condition for action */		"true",
-///* 6 code executed on start */		{["Suit", "Preparing Lightning"] call BIS_fnc_showSubtitle},
-///* 7 code executed per tick */		{hint "Lightning Charging"},
-///* 8 code executed on completion */	{execVM "strikeLight.sqf"},
-///* 9 code executed on interruption */	{hint ""},
-///* 10 arguments */			["Lightning"],
-///* 11 action duration */		3,
-///* 12 priority */			0,
-///* 13 remove on completion */		false,
-///* 14 show unconscious */		false
-//] call bis_fnc_holdActionAdd;
-// player setVariable ["skillA", _skillA];
-// player setVariable ["skillB", _skillB];
-// player setVariable ["skillC", _skillC];
-// player setVariable ["skillD", _skillD];
-//};
-
-//*/

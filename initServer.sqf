@@ -71,100 +71,28 @@ switch (playerSide) do {
 	};
 };
 
-_Griffin = [playerSide, "OPF"] commandChat "Initiated Sides!";
-
-_pos = getPos leader player;
-
-_startLocation = {
+_CROSSROAD = [playerSide, "HQ"] commandChat "Initiated Sides!";
 	
-	_BI_CP_startLocation = "BI_CP_startLocation" call BIS_fnc_getParamValue;	
+_BI_CP_startLocation = "BI_CP_startLocation" call BIS_fnc_getParamValue;	
 
-	if (_BI_CP_startLocation isEqualTo 2) then {
-		
-		waitUntil { (player distance2d BIS_CP_targetLocationPos) < 1500 };
-		{
-		if ( _x != leader player) then {
-			_relDis = _x distance leader player;
-			_relDir = [leader player, _x] call BIS_fnc_relativeDirTo;
-			_x setPos ([_pos, _relDis, _relDir] call BIS_fnc_relPos);
-		}; 
-		}forEach units group player;
-		leader player setPos _pos;
-		BIS_CP_exfilPos = _pos;
-		["BIS_CP_taskExfil", position player] call BIS_fnc_taskSetDestination;
+if (_BI_CP_startLocation isEqualTo 2) then {
+	
+	_pos = getPos leader player;
+	
+	_tLoading = 0;
+	waitUntil {!isNil "BIS_CP_initDone"};
+	waitUntil {time > _tLoading};
+	
+	waitUntil { (player distance2d BIS_CP_targetLocationPos) < 1500 };
+	{
+	if ( _x != leader player) then {
+		_relDis = _x distance leader player;
+		_relDir = [leader player, _x] call BIS_fnc_relativeDirTo;
+		_x setPos ([_pos, _relDis, _relDir] call BIS_fnc_relPos);
+	}; 
+	} forEach units group player;
+	leader player setPos _pos;
+	BIS_CP_exfilPos = _pos;
+	["BIS_CP_taskExfil", position player] call BIS_fnc_taskSetDestination;
 
-	};	
-};
-call _startLocation;
-
-_PCivilians = "PCivilians" call BIS_fnc_getParamValue;
-
-if (_PCivilians isEqualTo 2) then {
-
-_tLoading = 30;
-
-waitUntil {!isNil "BIS_CP_initDone"};
-waitUntil {time > _tLoading};
-waitUntil {!isNil "BIS_CP_targetLocationID"};
-
-_startpos = [BIS_CP_targetLocationPos, 300, (0 + random 90)] call BIS_fnc_relPos;
-
-_civilianBuildingStart = nearestBuilding _startpos;
-
-_grp = createGroup civilian;
-
-placetwoSpots = 
-{
-_startpos = getpos _this;
-
-_m1 = _grp createUnit ["ModuleCivilianPresenceSafeSpot_F", _startpos, [], 0, "NONE"];
-_m1 setVariable ["#capacity",5];
-_m1 setVariable ["#usebuilding",true];
-_m1 setVariable ["#terminal",false];
-_m1 setVariable ["#type",5];
-
-_m2 = _grp createUnit ["ModuleCivilianPresenceUnit_F", _startpos, [], 0, "NONE"];
-
-_endpos = [BIS_CP_targetLocationPos, 300, (180 + random 90)] call BIS_fnc_relPos;
-
-_civilianBuildingEnd = nearestBuilding _endpos;
-
-_m3 = _grp createUnit ["ModuleCivilianPresenceSafeSpot_F", _endpos, [], 0, "NONE"];
-_m3 setVariable ["#capacity",5];
-_m3 setVariable ["#usebuilding",true];
-_m3 setVariable ["#terminal",false];
-_m3 setVariable ["#type",5];
-};
-
-_civilianBuildingStart call placetwoSpots;
-
-_cen = getpos _civilianBuildingStart;
-
-_m = _grp createUnit ["ModuleCivilianPresence_F", [0,0,0], [], 0, "NONE"];
-
-_m setVariable ["#area",[_cen,1000,1000,0,true,-1]];  // Fixed! this gets passed to https://community.bistudio.com/wiki/inAreaArray 
-
-_m setVariable ["#debug",false]; // Debug mode on
-
-_m setVariable ["#useagents",true];
-_m setVariable ["#usepanicmode",false];
-
-_m setVariable ["#unitcount",10];
-
-//_m setVariable ["#unitinit",_this addaction [];
-};
-
-["Preload"] call BIS_fnc_arsenal;
-
-//Adjust MARTA MILITARY ICONS distance to be seen from stock distance	
-//[] spawn {
-//	while {true} do {
-//		sleep 2;
-//		player setVariable [ "MARTA_REVEAL", allGroups select {side _x != playerSide && leader _x distance2D player < 300}];
-//		player setVariable [ "MARTA_HIDE", allGroups select {side _x == playerSide or side _x == civilian or (leader _x distance2D player >= 300)}];
-//	}
-//};
-
-
-
-
+};	

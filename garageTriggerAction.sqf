@@ -10,7 +10,7 @@ player addAction [ '<t color=''#00FFFF''>Garage Action</t>',{
 	_id 		= _this select 2;
 	_unit removeAction _id;
 
-	execVM 'VG_Vehicle.sqf';
+	execVM 'Vehicle.sqf';
 },
 	    [],
 	    1, 

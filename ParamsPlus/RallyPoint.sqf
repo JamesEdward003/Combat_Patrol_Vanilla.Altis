@@ -52,16 +52,20 @@ Rally_Point = _unit addAction ["<t color='#00FFFF'>Deploy Rally Point</t>", {(_t
 	if (getMarkerType "uav" == "n_uav") then {deleteMarker "uav"};
 };
 	uisleep 0.1;
-	_location = _this modelToWorld [0,1.25,_height];
+	_location = _this modelToWorld [0,2,_height];
 	_this playMove "AmovPknlMstpSrasWrflDnon_AinvPknlMstpSrasWrflDnon_Putdown";
-	uisleep 0.3;
+	uisleep 0.5;
 	uavbp = "GroundWeaponHolder_Scripted" createVehicle _location;
-	uavbp setVehiclePosition [_this modelToWorld [0,1.25,_height], [], 0, "CAN_COLLIDE"];
+	uavbp setVehiclePosition [_this modelToWorld [0,2,_height], [], 0, "CAN_COLLIDE"];
 
 	uisleep 0.1;
 	uavbp addBackpackCargoGlobal [_uavbpclass, 1];
 	uisleep 0.1;
+																				//	uavbp action ['AddBag', sourceUnit, _uavbpclass];
+	uavbp addAction ["<t color='#40e0d0'>Take Pack</t>","params ['_target','_caller']; _caller action ['AddBag', 'GroundWeaponHolder_Scripted', typeOf firstBackpack uavbp];","",10,false,true,"","_this distance _target<10"];
+	uisleep 0.1;
 	[uavbp] execVM "ParamsPlus\terminal.sqf";
+	uisleep 0.1;
 	uavbp addAction ["<t color='#40e0d0'>Recruit Units</t>","bon_recruit_units\open_dialog.sqf",[],10,false,true,"","_this distance _target<10"];
 	
 	switch true do 

@@ -1,6 +1,6 @@
-// execVM "VG_Vehicle.sqf";
+// execVM "Vehicle.sqf";
 
-VG_map_click = {
+map_click = {
 	if (count _this > 1) then {
 		(_this select 0) removeaction (_this select 2);
 	};
@@ -12,7 +12,7 @@ VG_map_click = {
 	GetClick1 = true;
 	openMap true;
 	[] spawn {[format ["MapClick for %1 Positioning", GarageMkrName],0,.1,3,.005,.1] call bis_fnc_dynamictext;};
-	["VGarage_mapclick","onMapSingleClick", {
+	["Garage_mapclick","onMapSingleClick", {
 
 		private ["_nearestRoad","_roads","_marker","_dir"];
 		if (isOnRoad _pos) then {
@@ -39,7 +39,7 @@ VG_map_click = {
 	}] call BIS_fnc_addStackedEventHandler;
 
 	waitUntil {!GetClick1 or !(visiblemap)};
-	["VGarage_mapclick", "onMapSingleClick"] call BIS_fnc_removeStackedEventHandler;
+	["Garage_mapclick", "onMapSingleClick"] call BIS_fnc_removeStackedEventHandler;
 
 	if (!visibleMap) exitWith {};
 	mapAnimAdd [0.5, 0.1, markerPos GarageMkrName];
@@ -52,21 +52,21 @@ VG_map_click = {
 		private _m = GarageMkrName;
 		sleep 30;
 
-		private _VG_open = player getVariable ["VGopen", true];
-		if (_VG_open) then {
-			waitUntil {sleep 30; !(player getVariable "VGopen")};
+		private _open = player getVariable ["open", true];
+		if (_open) then {
+			waitUntil {sleep 30; !(player getVariable "open")};
 		};
 		if !(getMarkerType _m isEqualTo "") then {deleteMarkerLocal _m};
 	};
 
-	if (GarageMkrName isEqualTo "VG_Vehicle") exitWith {
+	if (GarageMkrName isEqualTo "Vehicle") exitWith {
 		null =[(GarageMkrName)] call opec_fnc_garageNew
 	};
 
 	GarageMkrName
 };
 
-Prep_VG_Aquisitions = {
+Prep_Aquisitions = {
 	params ["_veh_list", "_textures", "_cc", "_veh"];
 	private ["_mcMkr", "_wGrp", "_speed", "_height", "_grgMkrPos", "_desMkrPos", "_relDir", "_vehDir", "_vel", "_bellDir", "_mrkDis", "_midLength", "_midPos", "_pointC", "_wpArray", "_i", "_wp0", "_wp1", "_wp2", "_patrol", "_count"];
 
@@ -90,7 +90,7 @@ Prep_VG_Aquisitions = {
 				};
 
 				private ["_mcMkr","_wGrp"];
-				_mcMkr = [] call VG_map_click;
+				_mcMkr = [] call map_click;
 				_wGrp = (group (crew _veh select 0));
 
 				switch (true) do {
@@ -105,7 +105,7 @@ Prep_VG_Aquisitions = {
 							_height = 2000;
 						};
 
-						_grgMkrPos = getmarkerPos "VG_Vehicle";
+						_grgMkrPos = getmarkerPos "Vehicle";
 						_desMkrPos = getmarkerPos "Destination";
 						_relDir = [ _grgMkrPos, _desMkrPos ] call BIS_fnc_dirTo;
 						_vehDir = direction _veh;
@@ -149,7 +149,7 @@ Prep_VG_Aquisitions = {
 					};
 
 					case (_veh isKindOf "StaticWeapon")	: {
-						private _relDir = [ ( getmarkerPos "VG_Vehicle"), (getmarkerPos "Direction") ] call BIS_fnc_dirTo;
+						private _relDir = [ ( getmarkerPos "Vehicle"), (getmarkerPos "Direction") ] call BIS_fnc_dirTo;
 						_veh setDir _relDir;
 						_wGrp setBehaviour "COMBAT";
 						_wGrp setCombatMode "RED";
@@ -173,8 +173,8 @@ Prep_VG_Aquisitions = {
 		if ((_cc isEqualTo 0) && (_veh isKindOf "StaticWeapon")) then {
 			if (GarageMkrName isEqualTo "Destination") then {deleteMarkerLocal GarageMkrName};
 			GarageMkrName = "Direction";
-			private _mcMkr = [] call VG_map_click;
-			private _relDir = [ ( getmarkerPos "VG_Vehicle"), (getmarkerPos _mcMkr) ] call BIS_fnc_dirTo;
+			private _mcMkr = [] call map_click;
+			private _relDir = [ ( getmarkerPos "Vehicle"), (getmarkerPos _mcMkr) ] call BIS_fnc_dirTo;
 			_veh setDir _relDir;
 		} else {
 			if ((!isOnRoad _veh) && _cc isEqualTo 0) then {
@@ -194,7 +194,7 @@ opec_fnc_garageNew = {
 	uiNamespace setVariable [ "current_garage", ( _this select 0 ) ];
 	_fullVersion = missionNamespace getVariable [ "BIS_fnc_arsenal_fullGarage", false ];
 	if !( isNull ( uiNamespace getVariable [ "BIS_fnc_arsenal_cam", objNull ] ) ) exitwith { "Garage Viewer is already running" call bis_fnc_logFormat; };
-	player setVariable ["VGopen", true];
+	player setVariable ["open", true];
 	{ deleteVehicle _x; } forEach nearestObjects [ getMarkerPos ( _this select 0 ), [ "AllVehicles" ], 10 ];
 	_veh = createVehicle [ "Land_HelipadEmpty_F", getMarkerPos ( _this select 0 ), [], 0, "CAN_COLLIDE" ];
 	uiNamespace setVariable [ "garage_pad", _veh ];
@@ -234,13 +234,13 @@ opec_fnc_garageNew = {
 			};
 			_vehDir = markerDir _marker;
 			_veh setDir _vehDir;
-			player setVariable [ "VGopen", false ];
+			player setVariable [ "open", false ];
 
-			[_veh_list, _textures, _cc, _veh] spawn Prep_VG_Aquisitions;
+			[_veh_list, _textures, _cc, _veh] spawn Prep_Aquisitions;
 
 		} forEach _veh_list;
 	};
 };
 
-(vehicle player) addaction ["<t color='#FFFF00'>Virtual Garage Mod</t>", {GarageMkrName = "VG_Vehicle"; call VG_map_click}];
+(vehicle player) addaction ["<t color='#FFFF00'>Virtual Garage Mod</t>", {GarageMkrName = "Vehicle"; call map_click}];
 

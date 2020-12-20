@@ -2,16 +2,18 @@
 _PRespawnLoadOut = "PRespawnLoadOut" call BIS_fnc_getParamValue;
 
 if (_PRespawnLoadOut isEqualTo 2) exitWith {};
++++++
+//_classname 	= format ["%1", typeOf player];
+//_displayname = gettext (configfile >> "CfgVehicles" >> _className >> "displayName");
 
-_classname 	= format ["%1", typeOf player];
-_displayname = gettext (configfile >> "CfgVehicles" >> _className >> "displayName");
+//[west, _displayname] call BIS_fnc_addRespawnInventory;
 
-[west, _displayname] call BIS_fnc_addRespawnInventory;
+//[missionNamespace,[_displayname,0,1]] call BIS_fnc_addRespawnInventory;
+
+[west, "Squadleader"] call BIS_fnc_addRespawnInventory;
 
 [west, "Marksman"] call BIS_fnc_addRespawnInventory;
-
-[missionNamespace,[_displayname,0,1]] call BIS_fnc_addRespawnInventory;
-
+++
 //[west, "PETTKA"] call BIS_fnc_addRespawnInventory;
 //[west, "NORTHGATE"] call BIS_fnc_addRespawnInventory;
 //[west, "KERRY"] call BIS_fnc_addRespawnInventory;

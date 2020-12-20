@@ -23,7 +23,7 @@ switch (_PUA) do
 
 							if (isPlayer _unit) then {
 
-							[playerSide, "HQ"] commandChat "Loadouts Done!";
+							[playerSide, "HQ"] commandChat format ["%1, Unlimited Ammo Not Installed!",name _player];
 
 							};
 

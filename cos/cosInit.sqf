@@ -1,25 +1,12 @@
-/*
- Civilian Occupation System (COS)
- By BangaBob v0.5
- 
- null=[] execVM "cos/cosInit.sqf";
- 
- IMPORTANT: BEFORE PROCEEDING ADD AN OBJECT NAMED SERVER INTO THE EDITOR.
- 
- To edit population of zones browse to line 95
- Open COS/AddScript_Unit.sqf to apply scripts to spawned units.
- Open COS/AddScript_Vehicle.sqf to apply scripts to spawned vehicles.
- To get Array of COS markers use _allMarkers=SERVER getvariable "COSmarkers";
-*/
+// "cos/cosInit.sqf" //
 _PCivilians = "PCivilians" call BIS_fnc_getParamValue;
 if (_PCivilians isEqualTo 1) exitWith {};
+waitUntil { !isNil "BIS_CP_initDone" };
+_startTime = time;
+waitUntil {_startTime + 100 > time};
 if (isnil "SERVER") then {Hint "You must ADD a object named SERVER";Player Sidechat "You must ADD a object named SERVER";}else{
 if (isServer) then {
-IF (!isnil ("COScomplete")) then {Hint "Check your call. COS was called twice!";}else{
-
-_tLoading = 30;
-waitUntil {!isNil "BIS_CP_initDone"};
-waitUntil {time > _tLoading};
+if (!isnil ("COScomplete")) then {Hint "Check your call. COS was called twice!";}else{
 
 COS_distance=500;//Set spawn distance
 _aerielActivation=true;// Set if flying units can activate civilian Zones
@@ -194,6 +181,52 @@ null=[] execVM "COS\localScript.sqf";// This shows messages for players during m
 
 };
 };
+
+_startpos = [BIS_CP_targetLocationPos, 300, (0 + random 90)] call BIS_fnc_relPos;
+
+_civilianBuildingStart = nearestBuilding _startpos;
+
+_grp = createGroup civilian;
+
+placetwoSpots = 
+{
+_startpos = getpos _this;
+
+_m1 = _grp createUnit ["ModuleCivilianPresenceSafeSpot_F", _startpos, [], 0, "NONE"];
+_m1 setVariable ["#capacity",5];
+_m1 setVariable ["#usebuilding",true];
+_m1 setVariable ["#terminal",false];
+_m1 setVariable ["#type",5];
+
+_m2 = _grp createUnit ["ModuleCivilianPresenceUnit_F", _startpos, [], 0, "NONE"];
+
+_endpos = [BIS_CP_targetLocationPos, 300, (180 + random 90)] call BIS_fnc_relPos;
+
+_civilianBuildingEnd = nearestBuilding _endpos;
+
+_m3 = _grp createUnit ["ModuleCivilianPresenceSafeSpot_F", _endpos, [], 0, "NONE"];
+_m3 setVariable ["#capacity",5];
+_m3 setVariable ["#usebuilding",true];
+_m3 setVariable ["#terminal",false];
+_m3 setVariable ["#type",5];
+};
+
+_civilianBuildingStart call placetwoSpots;
+
+_cen = getpos _civilianBuildingStart;
+
+_m = _grp createUnit ["ModuleCivilianPresence_F", [0,0,0], [], 0, "NONE"];
+
+_m setVariable ["#area",[_cen,1000,1000,0,true,-1]];  // Fixed! this gets passed to https://community.bistudio.com/wiki/inAreaArray 
+
+_m setVariable ["#debug",false]; // Debug mode on
+
+_m setVariable ["#useagents",true];
+_m setVariable ["#usepanicmode",false];
+
+_m setVariable ["#unitcount",10];
+
+//_m setVariable ["#unitinit",_this addaction [];
 
 switch (side player) do 
 {

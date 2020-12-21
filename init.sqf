@@ -137,45 +137,7 @@ if !(player getVariable ["civSuitPowers_eh",false]) then
 };
 
 ["Preload"] call BIS_fnc_arsenal;
-
-waitUntil { !isNil "BIS_CP_initDone" };
-_startTime = time;
-waitUntil {_startTime + 100 > time};
 	
-_PCivilians = "PCivilians" call BIS_fnc_getParamValue;
-
-if (_PCivilians isEqualTo 2) then {
-	
-	if ( isNil { missionNamespace getVariable "StoryLines" } ) then {
-	_texts = [ 
-	["One...Ask and it shall be told.", "In the old days citizens felt relatively safe.", "The wives and children came outside and enjoyed life.", "Only hiding inside now days."],
-	["Strife is everywhere.", "The men love to play with their weapons.", "They all have access to weapons.", "Staying alive becomes a challenge."],
-	["Two...Ask and it shall be told.", "In the old days citizens felt relatively safe.", "The wives and children came outside and enjoyed life.", "Only hiding inside now days."],
-	["Strife is everywhere.", "The men love to play with their weapons.", "They all have access to weapons.", "Staying alive becomes a challenge."],
-	["Three...Ask and it shall be told.", "In the old days citizens felt relatively safe.", "The wives and children came outside and enjoyed life.", "Only hiding inside now days."],
-	["Strife is everywhere.", "The men love to play with their weapons.", "They all have access to weapons.", "Staying alive becomes a challenge."],
-	["Four...Ask and it shall be told.", "In the old days citizens felt relatively safe.", "The wives and children came outside and enjoyed life.", "Only hiding inside now days."],
-	["Strife is everywhere.", "The men love to play with their weapons.", "They all have access to weapons.", "Staying alive becomes a challenge."],
-	["Five...Ask and it shall be told.", "In the old days citizens felt relatively safe.", "The wives and children came outside and enjoyed life.", "Only hiding inside now days."],
-	["Strife is everywhere.", "The men love to play with their weapons.", "They all have access to weapons.", "Staying alive becomes a challenge."],
-	["Six...Ask and it shall be told.", "In the old days citizens felt relatively safe.", "The wives and children came outside and enjoyed life.", "Only hiding inside now days."],
-	["Strife is everywhere.", "The men love to play with their weapons.", "They all have access to weapons.", "Staying alive becomes a challenge."]
-	];
-		missionNamespace setVariable ["StoryLines",_texts];
-	};
-
-	addMissionEventHandler ["HandleChatMessage", {
-		params ["_channel", "_owner", "_from", "_text", "_person", "_name", "_strID", "_forcedDisplay", "_isPlayerMessage", "_sentenceType", "_chatMessageType"];
-		copyToClipboard format ["%1,%2,%3,%4,%5,%6,%7,%8,%9,%10,%11", _channel, _owner, _from, _text, _person, _name, _strID, _forcedDisplay, _isPlayerMessage, _sentenceType, _chatMessageType];
-		if (_chatMessageType isEqualTo 0) then {
-		_texts = missionNamespace getVariable "StoryLines"; 
-		_txts = _texts select 0;                                  
-		[[(_txts select 0),1,4,1],[(_txts select 1),1,4,1],[(_txts select 2),1,4,1],[(_txts select 3),1,4,1]] spawn BIS_fnc_EXP_camp_SITREP;
-		_texts = _texts - [_txts]; 
-		missionNamespace setVariable ["StoryLines",_texts];};
-	}];
-};
-
 //Adjust MARTA MILITARY ICONS distance to be seen from stock distance	
 //[] spawn {
 //	while {true} do {
@@ -184,5 +146,7 @@ if (_PCivilians isEqualTo 2) then {
 //		player setVariable [ "MARTA_HIDE", allGroups select {side _x == playerSide or side _x == civilian or (leader _x distance2D player >= 300)}];
 //	}
 //};
+
+
 
     

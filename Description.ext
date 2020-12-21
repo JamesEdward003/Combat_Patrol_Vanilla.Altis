@@ -253,14 +253,6 @@ class Params
         file = "ParamsPlus\loadouts_weapons_selection.sqf";
         isGlobal = 1;
 	};
-    class PLightning       
-	{
-        title = "Lightning Strike";
-        values[] = {1, 2};
-        texts[] = {"Disabled","Enabled"};
-        default = 2;
-		isGlobal = 1;
-    };
     class PUA       
 	{
         title = "Unlimited Ammo";
@@ -308,11 +300,20 @@ class Params
     };
     class PAiMedic       
 	{
-        title = "Ctrl-M Medic";
+        title = "Ctrl-Z Medic";
         values[] = {1, 2};
         texts[] = {"Disabled","Enabled"};
         default = 2;
-        file = "ParamsPlus\CtrlM_Medic.sqf";
+        file = "ParamsPlus\CtrlZ_Medic.sqf";
+        isGlobal = 1;
+    };
+    class PLightning       
+	{
+        title = "Ctrl-Z Lightning";
+        values[] = {1, 2};
+        texts[] = {"Disabled","Enabled"};
+        default = 1;
+        file = "ParamsPlus\CtrlZ_Lightning.sqf";
         isGlobal = 1;
     };
     class PGiGoEH       
@@ -443,9 +444,9 @@ class CfgCommunicationMenu
 		removeAfterExpressionCall = 0;
 //		[player,"AirLift"] call BIS_fnc_addCommMenuItem;
 	};
-	class HeliSupport
+	class AirSupport
 	{
-		text = "Helicopter Air Support";
+		text = "Helicopter AirSupport";
 		submenu = "";
 		expression = "_this execVM 'ParamsPlus\HeliCAS.sqf'"; // [caller, pos, target, is3D, id]
 		icon = "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\transport_ca.paa";
@@ -458,7 +459,7 @@ class CfgCommunicationMenu
 	{
 		text = "Artillery Strike";		// Text displayed in the menu and in a notification
 		submenu = "";					// Submenu opened upon activation (expression is ignored when submenu is not empty.)
-		expression = "_this execVM 'ParamsPlus\arty2.sqf'"; // [caller, pos, target, is3D, id]
+		expression = "_this execVM 'ParamsPlus\arty.sqf'"; // [caller, pos, target, is3D, id]
 		icon = "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\artillery_ca.paa";	// Icon displayed permanently next to the command menu
 		cursor = "\a3\Ui_f\data\IGUI\Cfg\Cursors\iconCursorSupport_ca.paa";	// Custom cursor displayed when the item is selected
 		enable = "1";					// Simple expression condition for enabling the item
@@ -542,17 +543,6 @@ class CfgCommunicationMenu
 		removeAfterExpressionCall = 0;
 //		[player,"WindSpeed"] call BIS_fnc_addCommMenuItem;
 	};	
-	class ZorilyasUnits
-	{
-		text = "Zorilyas Units";
-		submenu = "";
-		expression = "_this execVM 'zorilyas_random_loadout\zorilyas_units.sqf'"; // [caller, pos, target, is3D, id]
-		icon = "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa";
-		cursor = "\a3\Ui_f\data\IGUI\Cfg\Cursors\iconCursorSupport_ca.paa";
-		enable = "1";
-		removeAfterExpressionCall = 0;
-//		[player,"ZorilyasUnits"] call BIS_fnc_addCommMenuItem;
-	};
 };
 class CfgRoles
 {

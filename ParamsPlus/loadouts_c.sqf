@@ -1,5 +1,13 @@
 ///////  [_unit] execVM "paramsplus\loadouts_c.sqf";  ///////
 //_recruitableunits = ["C_Nikos_aged","C_Orestes","C_man_p_fugitive_F","C_man_p_fugitive_F_euro","C_man_p_beggar_F_euro","C_man_p_beggar_F_asia","C_man_p_beggar_F_afro","C_man_w_worker_F","C_man_polo_2_F","C_man_p_shorts_1_F"];
+//C_Nikos_aged (Revolution_1)
+//C_Orestes (Revolution_2)
+//C_man_p_fugitive_F_euro (Revolution_3)
+//C_man_p_beggar_F_euro (Revolution_4)
+//C_man_p_beggar_F_asia (Revolution_5)
+//C_man_p_beggar_F_afro (Revolution_6)
+//C_man_w_worker_F (Revolution_7)
+//C_man_polo_2_F (Revolution_8)
 private ["_unit","_typeUnit","_classname","_displayname","_PLoadOut","_PDiverEquip"];
 _PLoadOut = "PLoadOut" call BIS_fnc_getParamValue;
 _PDiverEquip = "PDiverEquip" call BIS_fnc_getParamValue;

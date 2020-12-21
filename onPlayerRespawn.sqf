@@ -47,22 +47,6 @@ if (!isNil "choosenBuilding") then {
 	//Remove hint
 	hint "";
 };
-/*
-while {alive player} do {
-uisleep 20;
-private ["_strikeTarget","_dummy"];
-_strikeTarget = cursorObject;
-_strikeLoc =  (getPos _strikeTarget);
-if (_strikeLoc isequalto [0,0,0]) then {
-hint "!";
-}else{
-
-[_strikeTarget,nil,true] call BIS_fnc_moduleLightning;
-
-hint "";
-	};
-};
-*/
 
 if !(player getVariable ["civSuitPowers_eh",false]) then
 {

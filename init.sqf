@@ -139,13 +139,14 @@ if !(player getVariable ["civSuitPowers_eh",false]) then
 ["Preload"] call BIS_fnc_arsenal;
 	
 //Adjust MARTA MILITARY ICONS distance to be seen from stock distance	
-//[] spawn {
-//	while {true} do {
-//		sleep 2;
-//		player setVariable [ "MARTA_REVEAL", allGroups select {side _x != playerSide && leader _x distance2D player < 300}];
-//		player setVariable [ "MARTA_HIDE", allGroups select {side _x == playerSide or side _x == civilian or (leader _x distance2D player >= 300)}];
-//	}
-//};
+
+[] spawn {
+	while {true} do {
+		sleep 2;
+		player setVariable [ "MARTA_REVEAL", allGroups select {side _x != playerSide && leader _x distance2D player < 300}];
+		player setVariable [ "MARTA_HIDE", allGroups select {side _x == playerSide or side _x == civilian or (leader _x distance2D player >= 300)}];
+	}
+};
 
 
 

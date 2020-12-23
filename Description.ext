@@ -1,9 +1,9 @@
-onLoadMission = Combat Patrol Vanilla;
-onLoadName = Combat Patrol Vanilla;
-briefingName = Combat Patrol Vanilla;
+onLoadMission = Combat Altis;
+onLoadName = Combat Altis;
+briefingName = Combat Altis;
 loadScreen = __EVAL(["\a3\Missions_F_EPA\data\img\B_skirmish02_overview_CA.paa", "\a3\missions_f_patrol\data\img\mp_moutm_ca.paa", "\a3\Missions_F_EPA\data\img\B_skirmish03_overview_CA.paa", "\a3\Missions_F_EPA\data\img\C_EB_overview_CA.paa", "\a3\Missions_F_EPA\data\img\C_in1_overview_CA.paa"] select floor random 5); 
 overviewPicture = "a3\missions_f_patrol\data\img\mp_moutm_ca.paa";
-overviewText = Combat Patrol Vanilla;
+overviewText = Combat Altis;
 author = "DIEHARD";
 saving = 1;
 respawn = 3;

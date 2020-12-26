@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////
-/***********************************************************************************************
+/*************************************************************************************************
 Zorilya's Units
 
 -- Anyone for random units ???		
@@ -35,7 +35,7 @@ class CfgCommunicationMenu
 //		[player,"ZorilyasUnits"] call BIS_fnc_addCommMenuItem;
 	};
 };
-  and to trigger On Activation or initPlayerLocal:
+  and to activate by trigger or initPlayerLocal:
     [player,"ZorilyasUnits"] call BIS_fnc_addCommMenuItem;
 ***********************************************************************************************************************/
 params ["_caller","_position","_target","_is3D","_id"];

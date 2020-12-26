@@ -6,7 +6,7 @@ _array = [];
 
 _unit addEventHandler ["Respawn", {
 	params ["_unit", "_corpse"];
-	_unit execVM "ParamsPlus\rallyPoint.sqf";
+	_unit execVM "ParamsPlus\RallyPoint.sqf";
 }];
 
 _unit addEventHandler ["WeaponAssembled", { (_this select 1) setCaptive true;(_this select 1) allowDamage false }];
@@ -21,8 +21,13 @@ if !(("<t color='#00FFFF'>Deploy Rally Point</t>") in _array) then {
 
 Rally_Point = _unit addAction ["<t color='#00FFFF'>Deploy Rally Point</t>", {(_this select 0) call
 {
+	switch true do 
+		{
+		case (_this == leader group _this && {((units group _this) findIf {_x distance _this < 50}) == -1}): {hintSilent parsetext format ["<t size='0.85' color='#00bbff' align='left'>No group members closer than 50m, </t><t size='0.85' color='#00bbff' align='left'> %1</t>", name _this];};
+		case (_this == leader group _this && {allUnits findIf {side _x getFriend side _this <0.6 && _x distance _this < 100} == -1}): {hintSilent parsetext format ["<t size='0.85' color='#00bbff' align='left'>No enemy closer than 100m, </t><t size='0.85' color='#00bbff' align='left'> %1</t>", name _this];};
+		case (_this == leader group _this && {((units group _this) findIf {_x distance _this < 50}) == -1} && {allUnits findIf {side _x getFriend side _this <0.6 && _x distance _this < 100} == -1}): {hintSilent parsetext format ["<t size='0.85' color='#00bbff' align='left'>No group members closer than 50m and no enemy closer than 100m, </t><t size='0.85' color='#00bbff' align='left'> %1</t>", name _this];};
+		};
 
-//	_height = ((getPosASLW _this) select 2);
 	_height = ((getPosATLVisual _this) select 2);
 
 	switch (side _this) do {		
@@ -57,23 +62,10 @@ Rally_Point = _unit addAction ["<t color='#00FFFF'>Deploy Rally Point</t>", {(_t
 	uisleep 0.5;
 	uavbp = "GroundWeaponHolder_Scripted" createVehicle _location;
 	uavbp setVehiclePosition [_this modelToWorld [0,2,_height], [], 0, "CAN_COLLIDE"];
-
-	uisleep 0.1;
 	uavbp addBackpackCargoGlobal [_uavbpclass, 1];
-	uisleep 0.1;
-																				//	uavbp action ['AddBag', sourceUnit, _uavbpclass];
-	uavbp addAction ["<t color='#40e0d0'>Take Pack</t>","params ['_target','_caller']; _caller action ['AddBag', 'GroundWeaponHolder_Scripted', typeOf firstBackpack uavbp];","",10,false,true,"","_this distance _target<10"];
-	uisleep 0.1;
+	uavbp addAction ["<t color='#40e0d0'>Take BackPack</t>","params ['_target','_caller']; _caller action ['AddBag', uavbp, typeOf firstBackpack uavbp];","",10,false,true,"","_this distance _target<10"];
 	[uavbp] execVM "ParamsPlus\terminal.sqf";
-	uisleep 0.1;
-	uavbp addAction ["<t color='#40e0d0'>Recruit Units</t>","bon_recruit_units\open_dialog.sqf",[],10,false,true,"","_this distance _target<10"];
-	
-	switch true do 
-		{
-		case (_this == leader group _this && {((units group _this) findIf {_x distance _this < 25}) > -1} && { allUnits findIf {side _x getFriend side _this <0.6 && _x distance _this < 50} == -1}): {hintSilent parsetext format ["<t size='0.85' color='#00bbff' align='left'>Rallypoint set with group members farther than 25m, </t><t size='0.85' color='#00bbff' align='left'> %1</t>", name _this];};
-		case (_this == leader group _this && {((units group _this) findIf {_x distance _this < 25}) > -1} && { allUnits findIf {side _x getFriend side _this <0.6 && _x distance _this < 50} > -1}): {hintSilent parsetext format ["<t size='0.85' color='#00bbff' align='left'>Rallypoint set with enemy closer than 50m, </t><t size='0.85' color='#00bbff' align='left'> %1</t>", name _this];};
-		case (_this == leader group _this && {((units group _this) findIf {_x distance _this < 25}) > -1} && { allUnits findIf {side _x getFriend side _this <0.6 && _x distance _this < 50} == -1}): {hintSilent parsetext format ["<t size='0.85' color='#00bbff' align='left'>Rallypoint placed for: </t><t size='0.85' color='#00bbff' align='left'> %1</t>", name _this];};
-		};	
+	uavbp addAction ["<t color='#40e0d0'>Recruit Units</t>","bon_recruit_units\open_dialog.sqf",[],10,false,true,"","_this distance _target<10"];	
 	};
 	},
   	[],
@@ -94,4 +86,14 @@ if (isPlayer _unit) then {
 
 };
 	
-			
+//	switch true do 
+//		{
+//		case (_this == leader group _this && {((units group _this) findIf {_x distance _this < 25}) < 1}): {hintSilent parsetext format ["<t size='0.85' color='#00bbff' align='left'>No rally set, no group members closer than 25m, </t><t size='0.85' color='#00bbff' align='left'> %1</t>", name _this];};
+//		case (_this == leader group _this && {allUnits findIf {side _x getFriend side _this <0.6 && _x distance _this < 50} > 0}): {hintSilent parsetext format ["<t size='0.85' color='#00bbff' align='left'>No rally set, enemy closer than 50m, </t><t size='0.85' color='#00bbff' align='left'> %1</t>", name _this];};
+//		case (_this == leader group _this && {((units group _this) findIf {_x distance _this < 25}) > 0} && {allUnits findIf {side _x getFriend side _this <0.6 && _x distance _this < 50} > 1}): {hintSilent parsetext format ["<t size='0.85' color='#00bbff' align='left'>Rallypoint set, </t><t size='0.85' color='#00bbff' align='left'> %1</t>", name _this];};
+////		case (_this == leader group _this && {((units group _this) findIf {_x distance _this < 25}) > -1} && { allUnits findIf {side _x getFriend side _this <0.6 && _x distance _this < 50} == -1}): {hintSilent parsetext format ["<t size='0.85' color='#00bbff' align='left'>Rallypoint set with group members farther than 25m, </t><t size='0.85' color='#00bbff' align='left'> %1</t>", name _this];};
+////		case (_this == leader group _this && {((units group _this) findIf {_x distance _this < 25}) > -1} && { allUnits findIf {side _x getFriend side _this <0.6 && _x distance _this < 50} > -1}): {hintSilent parsetext format ["<t size='0.85' color='#00bbff' align='left'>Rallypoint set with enemy closer than 50m, </t><t size='0.85' color='#00bbff' align='left'> %1</t>", name _this];};
+////		case (_this == leader group _this && {((units group _this) findIf {_x distance _this < 25}) > -1} && { allUnits findIf {side _x getFriend side _this <0.6 && _x distance _this < 50} == -1}): {hintSilent parsetext format ["<t size='0.85' color='#00bbff' align='left'>Rallypoint placed for: </t><t size='0.85' color='#00bbff' align='left'> %1</t>", name _this];};
+//		};
+		
+					

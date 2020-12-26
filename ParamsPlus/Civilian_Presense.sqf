@@ -13,3 +13,48 @@ _unit execVM "ParamsPlus\markers.sqf";
 _unit execVM "ParamsPlus\playerSettings.sqf";
 _unit addAction ["<t color='#00FFFF'>Dismiss</t>","ParamsPlus\dismiss.sqf",[],-100,false,true,""];
 
+//_civSuitArray = ["U_NikosAgedBody","U_OrestesBody","U_C_Poor_1","U_C_Poor_2","U_C_Poloshirt_burgundy","U_C_WorkerCoveralls","U_C_Poor_shorts_1"];
+//			
+//player addEventHandler ["InventoryOpened", {
+//  	if (uniform player in _civSuitArray) then {
+//		player forceAddUniform "U_B_CombatUniform_mcam";
+//       	hint "Regulation uniform!";
+//   	} else {
+//       	player forceAddUniform random _civSuitArray;
+//        	hint "Non-regulation uniform!";			  
+//	};
+//}];
+
+//if !(player getVariable ["civSuitPowers_eh",false]) then
+//{
+//	[
+//		"checkEquippedUniform",
+//		"onEachFrame",
+//		{
+//			params ["_unit"];
+//			_civSuitArray = [U_NikosAgedBody,U_OrestesBody,U_C_Poor_1,U_C_Poor_2,U_C_Poloshirt_burgundy,U_C_WorkerCoveralls,U_C_Poor_shorts_1];
+//			if (uniform _unit in _civSuitArray) then
+//			{
+//				[ [], "fnc_civSuitPowers", _unit ] call BIS_fnc_MP;
+//				Civilian setFriend [East, 1];
+//				East setFriend [Civilian, 1];
+//				Civilian setFriend [West, 1];
+//				West setFriend [Civilian, 1];
+//				Civilian setFriend [Resistance, 1];
+//				Resistance setFriend [Civilian, 1];
+//			}
+//			else
+//			{
+//				Civilian setFriend [East, 0];
+//				East setFriend [Civilian, 0];
+//				Civilian setFriend [West, 0];
+//				West setFriend [Civilian, 0];
+//				Civilian setFriend [Resistance, 0];
+//				Resistance setFriend [Civilian, 0];
+//			};
+//		},
+//		[player]
+//	] call BIS_fnc_addStackedEventHandler;
+//	player setVariable ["civSuitPowers_eh",true];
+//};
+

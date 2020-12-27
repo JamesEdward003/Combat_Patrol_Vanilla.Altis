@@ -16,7 +16,7 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=46;
+		nextID=50;
 	};
 	class Camera
 	{
@@ -1285,26 +1285,24 @@ class Mission
 		class Item8
 		{
 			dataType="Marker";
-			position[]={14680.896,17.994074,16772.17};
+			position[]={14679.873,17.91,16783.283};
 			name="respawn_vehicle_west";
 			type="respawn_armor";
 			colorName="ColorWEST";
 			angle=316.61014;
 			id=68;
-			atlOffset=0.08407402;
 		};
 		class Item9
 		{
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={14680.916,17.987896,16770.406};
-				angles[]={0,5.5259051,0};
+				position[]={14679.878,17.91,16783.275};
+				angles[]={-0,5.5259051,0};
 			};
 			name="respawn_vehicle_west";
 			id=70;
 			type="ModuleRespawnVehicle_F";
-			atlOffset=0.077896118;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -1655,13 +1653,12 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={14678.681,17.962763,16781.281};
-				angles[]={0,5.5258765,0};
+				position[]={14681.792,17.91,16770.369};
+				angles[]={-0,5.5258765,0};
 			};
 			name="cas_one";
 			id=103;
 			type="SupportProvider_Virtual_CAS_Bombing";
-			atlOffset=0.052762985;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -2044,13 +2041,12 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={14680.931,17.987659,16770.326};
-				angles[]={0,5.5259051,0};
+				position[]={14680.02,17.91,16781.178};
+				angles[]={0,5.5259042,0};
 			};
 			name="arty_one";
 			id=107;
 			type="SupportProvider_Virtual_Artillery";
-			atlOffset=0.077659607;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -2087,7 +2083,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="_this call KS_fnc_vehicleRespawnNotification; this setDamage 0; _this allowDamage false;";
+							value="_this call KS_fnc_vehicleRespawnNotification; _this setDamage 0; _this allowDamage false;";
 						};
 					};
 				};
@@ -8385,7 +8381,7 @@ class Mission
 			flags=1;
 			id=348;
 			type="ModuleCivilianPresenceUnit_F";
-			atlOffset=0.21199989;
+			atlOffset=1.5258789e-005;
 		};
 		class Item53
 		{

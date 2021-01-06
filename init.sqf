@@ -36,7 +36,9 @@ addMissionEventHandler ["EntityKilled", {
 
 addMissionEventHandler ["Map", {
 	params ["_mapIsOpened", "_mapIsForced"];
+	if (_mapIsForced) then {
 	{_x enableAi "MOVE"} forEach units group player;
+	player action ["WEAPONONBACK", player];};
 }];
 
 addMissionEventHandler ["MapSingleClick", {
@@ -96,6 +98,7 @@ KS_fnc_vehicleRespawnNotification =
 	};
 }] call BIS_fnc_addStackedEventHandler;
 
+<<<<<<< HEAD
 //if !(player getVariable ["civSuitPowers_eh",false]) then
 //{
 //	[
@@ -129,16 +132,19 @@ KS_fnc_vehicleRespawnNotification =
 //	player setVariable ["civSuitPowers_eh",true];
 //};
 
+=======
+>>>>>>> 3b4f390dd2378f749fb2b9652006e484006c4c41
 ["Preload"] call BIS_fnc_arsenal;
 	
 //Adjust MARTA MILITARY ICONS distance to be seen from stock distance	
-//[] spawn {
-//	while {true} do {
-//		sleep 2;
-//		player setVariable [ "MARTA_REVEAL", allGroups select {side _x != playerSide && leader _x distance2D player < 300}];
-//		player setVariable [ "MARTA_HIDE", allGroups select {side _x == playerSide or side _x == civilian or (leader _x distance2D player >= 300)}];
-//	}
-//};
+
+[] spawn {
+	while {true} do {
+		sleep 2;
+		player setVariable [ "MARTA_REVEAL", allGroups select {side _x != playerSide && leader _x distance2D player < 300}];
+		player setVariable [ "MARTA_HIDE", allGroups select {side _x == playerSide or side _x == civilian or (leader _x distance2D player >= 300)}];
+	}
+};
 
 
 

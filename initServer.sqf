@@ -11,10 +11,11 @@
 // Headquarters Entity module
 //  BIS_hqWest, BIS_hqEast, BIS_hqGuer
 
-{if (!( isPlayer _x ) and !(_x in (units group player))) then  {deleteVehicle _x}} forEach (if ismultiplayer then {playableunits} else {switchableunits});
+//{if (!( isPlayer _x ) and !(_x in (units group player))) then  {deleteVehicle _x}} forEach (if ismultiplayer then {playableunits} else {switchableunits});
 
 {if (!( isPlayer _x ) and (_x in (units group player))) then  {_x addAction ["<t color='#00FFFF'>Dismiss</t>","ParamsPlus\dismiss.sqf",[],-100,false,true,""];}} forEach (if ismultiplayer then {playableunits} else {switchableunits});
 
+<<<<<<< HEAD
 //switch (playerSide) do {
 //	
 //	case west: {
@@ -70,6 +71,63 @@
 //		Resistance setFriend [West, 0];
 //	};
 //};
+=======
+switch (playerSide) do {
+	
+	case west: {
+		
+		Civilian setFriend [East, 0];
+		East setFriend [Civilian, 0];
+		Civilian setFriend [West, 1];
+		West setFriend [Civilian, 1];
+		Civilian setFriend [Resistance, 0];
+		Resistance setFriend [Civilian, 0];
+		West setFriend [East, 0];
+		East setFriend [West, 0];
+		West setFriend [Resistance, 0];
+		Resistance setFriend [West, 0];
+	};
+	case east: {
+		
+		Civilian setFriend [East, 1];
+		East setFriend [Civilian, 1];
+		Civilian setFriend [West, 0];
+		West setFriend [Civilian, 0];
+		Civilian setFriend [Resistance, 0];
+		Resistance setFriend [Civilian, 0];
+		West setFriend [East, 0];
+		East setFriend [West, 0];
+		West setFriend [Resistance, 0];
+		Resistance setFriend [West, 0];
+	};
+	case resistance: {
+		
+		Civilian setFriend [East, 0];
+		East setFriend [Civilian, 0];
+		Civilian setFriend [West, 0];
+		West setFriend [Civilian, 0];
+		Civilian setFriend [Resistance, 1];
+		Resistance setFriend [Civilian, 1];
+		West setFriend [East, 0];
+		East setFriend [West, 0];
+		West setFriend [Resistance, 0];
+		Resistance setFriend [West, 0];
+	};
+	case civilian: {
+		
+		Civilian setFriend [East, 0];
+		East setFriend [Civilian, 0];
+		Civilian setFriend [West, 0];
+		West setFriend [Civilian, 0];
+		Civilian setFriend [Resistance, 0];
+		Resistance setFriend [Civilian, 0];
+		West setFriend [East, 0];
+		East setFriend [West, 0];
+		West setFriend [Resistance, 0];
+		Resistance setFriend [West, 0];
+	};
+};
+>>>>>>> 3b4f390dd2378f749fb2b9652006e484006c4c41
 
 //_CROSSROAD = [playerSide, "HQ"] commandChat "Initiated Sides!";
 	
@@ -89,10 +147,15 @@ if (_BI_CP_startLocation isEqualTo 2) then {
 		_relDis = _x distance leader player;
 		_relDir = [leader player, _x] call BIS_fnc_relativeDirTo;
 		_x setPos ([_pos, _relDis, _relDir] call BIS_fnc_relPos);
+		_x action ["WEAPONONBACK", _x];
 	}; 
 	} forEach units group player;
 	leader player setPos _pos;
+	player action ["WEAPONONBACK", player];
+	player execVM "ParamsPlus\SafeWeapon.sqf";
 	BIS_CP_exfilPos = _pos;
 	["BIS_CP_taskExfil", position player] call BIS_fnc_taskSetDestination;
 
 };	
+
+

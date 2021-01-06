@@ -5,7 +5,11 @@ waitUntil {!isNull player && alive player};
 
 if !isMultiplayer then { execVM "ParamsPlus\respawn.sqf"; };
 
+<<<<<<< HEAD
 if !isMultiplayer then { onTeamSwitch { [_from, _to] execVM "OnTeamSwitch.sqf"; }; [playerSide, "HQ"] commandChat "Team Switch Enabled!";};
+=======
+if !isMultiplayer then { onTeamSwitch { [_from, _to] execVM "OnTeamSwitch.sqf"; }; [playerSide, "HQ"] commandChat "Team Switch Enabled!"; };
+>>>>>>> 3b4f390dd2378f749fb2b9652006e484006c4c41
 	
 call compile preprocessFileLineNumbers "briefing.sqf";
         	

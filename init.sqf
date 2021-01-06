@@ -1,18 +1,18 @@
 /// init.sqf /// Test 11-23-2020 
 [playerSide, "HQ"] commandChat "Initiating Init!";
 
-addMissionEventHandler ["Loaded", {
-	params ["_saveType"];
-	"save"
-}];
-addMissionEventHandler ["Loaded", {
-	params ["_saveType"];
-	"autoSave"
-}];
-addMissionEventHandler ["Loaded", {
-	params ["_saveType"];
-	"continue"
-}];
+//addMissionEventHandler ["Loaded", {
+//	params ["_saveType"];
+//	"save"
+//}];
+//addMissionEventHandler ["Loaded", {
+//	params ["_saveType"];
+//	"autoSave"
+//}];
+//addMissionEventHandler ["Loaded", {
+//	params ["_saveType"];
+//	"continue"
+//}];
 
 addMissionEventHandler ["EntityKilled", { 
 	params ["_unit", "_killer", "_instigator", "_useEffects"];
@@ -70,10 +70,6 @@ addMissionEventHandler ["GroupIconClick", {
 	if (_alt) then {{_x allowDamage true} forEach units _group};
 }];
 
-//_newVehicle call KS_fnc_vehicleRespawnNotification;
-//or
-//[_newVehicle] call KS_fnc_vehicleRespawnNotification;
-
 KS_fnc_vehicleRespawnNotification =
 {
 	params [ ["_vehicle", objNull, [objNull]] ];
@@ -88,53 +84,50 @@ KS_fnc_vehicleRespawnNotification =
 	[["RespawnVehicle",[_displayName, _respawnName, _picture]], "BIS_fnc_showNotification", _vehicleSide] call bis_fnc_mp;
 };
 
-[ "supportCalled", "onEachFrame",
-{
+[ "supportCalled", "onEachFrame", {
 	if ((player getVariable "BIS_SUPP_request") select 0 != "" && count ((player getVariable "BIS_SUPP_request") select 1) == 3 && (player getVariable "BIS_SUPP_selectedProvider") getVariable "BIS_SUPP_supporting") then {
 		hint parseText format["<t size='1.25' color='#44ff00'>Support Called!</t>"];
 	};
-}
-] call BIS_fnc_addStackedEventHandler;
+}] call BIS_fnc_addStackedEventHandler;
 
 [ "supportCalled", "onEachFrame", {
 	if ( ( player getVariable "BIS_SUPP_request" ) select 0 == "Artillery" && ( player getVariable "bis_supp_selectedmodule" ) == arty_one && ( player getVariable "BIS_SUPP_selectedProvider" ) getVariable[ "BIS_SUPP_supporting", false ] ) then {
-		//do what ever here
 		hint parseText format["<t size='1.25' color='#44ff00'>Artillery Support Called!</t>"];
 	};
 }] call BIS_fnc_addStackedEventHandler;
 
-if !(player getVariable ["civSuitPowers_eh",false]) then
-{
-	[
-		"checkEquippedUniform",
-		"onEachFrame",
-		{
-			params ["_unit"];
-			_civSuitArray = [U_NikosAgedBody,U_OrestesBody,U_C_Poor_1,U_C_Poor_2,U_C_Poloshirt_burgundy,U_C_WorkerCoveralls,U_C_Poor_shorts_1];
-			if (uniform _unit in _civSuitArray) then
-			{
-				[ [], "fnc_civSuitPowers", _unit ] call BIS_fnc_MP;
-				Civilian setFriend [East, 1];
-				East setFriend [Civilian, 1];
-				Civilian setFriend [West, 1];
-				West setFriend [Civilian, 1];
-				Civilian setFriend [Resistance, 1];
-				Resistance setFriend [Civilian, 1];
-			}
-			else
-			{
-				Civilian setFriend [East, 0];
-				East setFriend [Civilian, 0];
-				Civilian setFriend [West, 0];
-				West setFriend [Civilian, 0];
-				Civilian setFriend [Resistance, 0];
-				Resistance setFriend [Civilian, 0];
-			};
-		},
-		[player]
-	] call BIS_fnc_addStackedEventHandler;
-	player setVariable ["civSuitPowers_eh",true];
-};
+//if !(player getVariable ["civSuitPowers_eh",false]) then
+//{
+//	[
+//		"checkEquippedUniform",
+//		"onEachFrame",
+//		{
+//			params ["_unit"];
+//			_civSuitArray = [U_NikosAgedBody,U_OrestesBody,U_C_Poor_1,U_C_Poor_2,U_C_Poloshirt_burgundy,U_C_WorkerCoveralls,U_C_Poor_shorts_1];
+//			if (uniform _unit in _civSuitArray) then
+//			{
+//				[ [], "fnc_civSuitPowers", _unit ] call BIS_fnc_MP;
+//				Civilian setFriend [East, 1];
+//				East setFriend [Civilian, 1];
+//				Civilian setFriend [West, 1];
+//				West setFriend [Civilian, 1];
+//				Civilian setFriend [Resistance, 1];
+//				Resistance setFriend [Civilian, 1];
+//			}
+//			else
+//			{
+//				Civilian setFriend [East, 0];
+//				East setFriend [Civilian, 0];
+//				Civilian setFriend [West, 0];
+//				West setFriend [Civilian, 0];
+//				Civilian setFriend [Resistance, 0];
+//				Resistance setFriend [Civilian, 0];
+//			};
+//		},
+//		[player]
+//	] call BIS_fnc_addStackedEventHandler;
+//	player setVariable ["civSuitPowers_eh",true];
+//};
 
 ["Preload"] call BIS_fnc_arsenal;
 	

@@ -2,14 +2,13 @@
 // =======================================================================================
 // SCRIPT INTENT: CIVILIANS WILL CONGREGATE AND MOVE AT SELECTED AREA
 // =======================================================================================
+waitUntil { !isNil "BIS_CP_initDone" };
+private _future = time + 120; 
+waitUntil { time >= _future };
 _PCivilians = "PCivilians" call BIS_fnc_getParamValue;
 if (_PCivilians isEqualTo 1) exitWith {};
 	
 if (_PCivilians isEqualTo 2) then {
-
-	waitUntil { !isNil "BIS_CP_initDone" };
-	private _future = time + 120; 
-	waitUntil { time >= _future };
 	
 	if ( isNil { missionNamespace getVariable "StoryLines" } ) then {
 	_texts = [ 

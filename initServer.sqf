@@ -15,63 +15,63 @@
 
 {if (!( isPlayer _x ) and (_x in (units group player))) then  {_x addAction ["<t color='#00FFFF'>Dismiss</t>","ParamsPlus\dismiss.sqf",[],-100,false,true,""];}} forEach (if ismultiplayer then {playableunits} else {switchableunits});
 
-switch (playerSide) do {
-	
-	case west: {
-		
-		Civilian setFriend [East, 1];
-		East setFriend [Civilian, 1];
-		Civilian setFriend [West, 0];
-		West setFriend [Civilian, 0];
-		Civilian setFriend [Resistance, 1];
-		Resistance setFriend [Civilian, 1];
-		West setFriend [East, 0];
-		East setFriend [West, 0];
-		West setFriend [Resistance, 0];
-		Resistance setFriend [West, 0];
-	};
-	case east: {
-		
-		Civilian setFriend [East, 0];
-		East setFriend [Civilian, 0];
-		Civilian setFriend [West, 1];
-		West setFriend [Civilian, 1];
-		Civilian setFriend [Resistance, 1];
-		Resistance setFriend [Civilian, 1];
-		West setFriend [East, 0];
-		East setFriend [West, 0];
-		West setFriend [Resistance, 0];
-		Resistance setFriend [West, 0];
-	};
-	case resistance: {
-		
-		Civilian setFriend [East, 1];
-		East setFriend [Civilian, 1];
-		Civilian setFriend [West, 1];
-		West setFriend [Civilian, 1];
-		Civilian setFriend [Resistance, 0];
-		Resistance setFriend [Civilian, 0];
-		West setFriend [East, 0];
-		East setFriend [West, 0];
-		West setFriend [Resistance, 0];
-		Resistance setFriend [West, 0];
-	};
-	case civilian: {
-		
-		Civilian setFriend [East, 0];
-		East setFriend [Civilian, 0];
-		Civilian setFriend [West, 0];
-		West setFriend [Civilian, 0];
-		Civilian setFriend [Resistance, 0];
-		Resistance setFriend [Civilian, 0];
-		West setFriend [East, 0];
-		East setFriend [West, 0];
-		West setFriend [Resistance, 0];
-		Resistance setFriend [West, 0];
-	};
-};
+//switch (playerSide) do {
+//	
+//	case west: {
+//		
+//		Civilian setFriend [East, 1];
+//		East setFriend [Civilian, 1];
+//		Civilian setFriend [West, 0];
+//		West setFriend [Civilian, 0];
+//		Civilian setFriend [Resistance, 1];
+//		Resistance setFriend [Civilian, 1];
+//		West setFriend [East, 0];
+//		East setFriend [West, 0];
+//		West setFriend [Resistance, 0];
+//		Resistance setFriend [West, 0];
+//	};
+//	case east: {
+//		
+//		Civilian setFriend [East, 0];
+//		East setFriend [Civilian, 0];
+//		Civilian setFriend [West, 1];
+//		West setFriend [Civilian, 1];
+//		Civilian setFriend [Resistance, 1];
+//		Resistance setFriend [Civilian, 1];
+//		West setFriend [East, 0];
+//		East setFriend [West, 0];
+//		West setFriend [Resistance, 0];
+//		Resistance setFriend [West, 0];
+//	};
+//	case resistance: {
+//		
+//		Civilian setFriend [East, 1];
+//		East setFriend [Civilian, 1];
+//		Civilian setFriend [West, 1];
+//		West setFriend [Civilian, 1];
+//		Civilian setFriend [Resistance, 0];
+//		Resistance setFriend [Civilian, 0];
+//		West setFriend [East, 0];
+//		East setFriend [West, 0];
+//		West setFriend [Resistance, 0];
+//		Resistance setFriend [West, 0];
+//	};
+//	case civilian: {
+//		
+//		Civilian setFriend [East, 0];
+//		East setFriend [Civilian, 0];
+//		Civilian setFriend [West, 0];
+//		West setFriend [Civilian, 0];
+//		Civilian setFriend [Resistance, 0];
+//		Resistance setFriend [Civilian, 0];
+//		West setFriend [East, 0];
+//		East setFriend [West, 0];
+//		West setFriend [Resistance, 0];
+//		Resistance setFriend [West, 0];
+//	};
+//};
 
-_CROSSROAD = [playerSide, "HQ"] commandChat "Initiated Sides!";
+//_CROSSROAD = [playerSide, "HQ"] commandChat "Initiated Sides!";
 	
 _BI_CP_startLocation = "BI_CP_startLocation" call BIS_fnc_getParamValue;	
 
@@ -79,9 +79,9 @@ if (_BI_CP_startLocation isEqualTo 2) then {
 	
 	_pos = getPos leader player;
 	
-	_tLoading = 0;
-	waitUntil {!isNil "BIS_CP_initDone"};
-	waitUntil {time > _tLoading};
+	waitUntil { !isNil "BIS_CP_initDone" };
+	private _future = time + 10; 
+	waitUntil { time >= _future };
 	
 	waitUntil { (player distance2d BIS_CP_targetLocationPos) < 1500 };
 	{

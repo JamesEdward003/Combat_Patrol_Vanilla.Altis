@@ -97,7 +97,7 @@ class Params
 		title = $STR_A3_combatpatrol_params_17;
 		values[] = {0, 1};
 		texts[] = {$STR_A3_cfgvehicles_modulestrategicmapimage_f_arguments_shadow_values_no_0, $STR_A3_cfgvehicles_modulestrategicmapimage_f_arguments_shadow_values_yes_0};
-		default = 0;
+		default = 1;
 	};
 	class BIS_CP_tickets
 	{
@@ -294,7 +294,7 @@ class Params
     	title = "Health Regeneration";
         values[] = {1, 2, 3, 4};
         texts[] = {"Disabled","Fair","Middlin","Good"};
-        default = 4;
+        default = 1;
         file = "ParamsPlus\regen_health_Group.sqf";
         isGlobal = 1;
     };

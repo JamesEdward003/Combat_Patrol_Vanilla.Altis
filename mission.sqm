@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={8938.5498,217.93748,7454.5815};
-		dir[]={-0.0027400106,-0.98266953,0.18539283};
-		up[]={-0.014521558,0.18537919,0.98255974};
-		aside[]={0.99989939,2.9547664e-008,0.014777511};
+		pos[]={8954.3203,179.81364,7470.1646};
+		dir[]={-0.027984206,-0.9902848,0.13628764};
+		up[]={-0.19918083,0.13906366,0.97004545};
+		aside[]={0.97957426,2.3836037e-008,0.20113707};
 	};
 };
 binarizationWanted=0;
@@ -2078,7 +2078,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="_this call KS_fnc_vehicleRespawnNotification; this setDamage 0; _this allowDamage false;";
+							value="_this call KS_fnc_vehicleRespawnNotification; _this setDamage 0; _this allowDamage false;";
 						};
 					};
 				};

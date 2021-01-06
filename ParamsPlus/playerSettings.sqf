@@ -18,6 +18,13 @@ _pload		= paramsArray select 40;
 _paudible	= paramsArray select 41;
 _pcamo		= paramsArray select 42;
 
+//_PSettings	= paramsArray select 43;
+//_PSaves		= paramsArray select 44;
+//_Param_Loadparams	= paramsArray select 45;
+
+//[1,1,1,1,1,20,2,1,1,2,-1,1,0,0,0,3,3,2,1,1,1,2,1,1,2,2,2,2,1,2,1,2,2,1,1,1,2,1,1,1,4,4,4,2,4,1], 46
+
+
 //_PSkill = _player execVM "ParamsPlus\AiSkill.sqf";
 
 	switch (_puavhacker) do

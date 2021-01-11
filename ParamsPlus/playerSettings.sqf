@@ -7,24 +7,25 @@ waitUntil { !(isNil {_player getVariable "LoadoutDone"}) };
 private _future = time + 1;
 waitUntil { time >= _future };
 
-//[1,1,1,1,0,20,0,1,-1,1,0,0,0,3,3,2,1,1,1,1,2,2,2,2,2,3,2,2,2,1,1,1,2,1,1,1,4,4,4,2,1,1], 42
-//[1,1,1,1,0,20,0,1,-1,1,0,0,0,3,3,2,1,1,1,1,1,2,2,2,2,2,1,2,2,2,1,1,1,2,1,1,1,4,4,4,2,4,1], 43
-//[1,1,1,1,0,20,0,1,-1,1,0,0,0,3,3,2,1,1,1,1,1,2,2,2,2,2,1,2,2,2,1,1,1,2,1,1,1,4,4,4,2,4,1], 43
-//[1,1,1,1,0,20,0,1,-1,1,0,0,0,3,3,2,1,1,1,1,1,2,2,2,2,2,4,2,2,2,1,1,1,2,3,3,1,4,4,4,2,4,1], 43
-//setPos
+_puavhacker	= paramsArray select 33;
+_pengineer	= paramsArray select 34;
+_pexplspec	= paramsArray select 35;
+_pmedic		= paramsArray select 36;
+_precoil 	= paramsArray select 37;
+_psway   	= paramsArray select 38;
+_pstamina	= paramsArray select 39;
+_pload		= paramsArray select 40;
+_paudible	= paramsArray select 41;
+_pcamo		= paramsArray select 42;
 
-_puavhacker	= paramsArray select 32;
-_pengineer	= paramsArray select 33;
-_pexplspec	= paramsArray select 34;
-_pmedic		= paramsArray select 35;
-_precoil 	= paramsArray select 36;
-_psway   	= paramsArray select 37;
-_pstamina	= paramsArray select 38;
-_pload		= paramsArray select 39;
-_paudible	= paramsArray select 40;
-_pcamo		= paramsArray select 41;
+//_PSettings	= paramsArray select 43;
+//_PSaves		= paramsArray select 44;
+//_Param_Loadparams	= paramsArray select 45;
 
-//_PSkill = _player execVM "ParamsPlus\GF_AiSkill.sqf";
+//[1,1,1,1,1,20,2,1,1,2,-1,1,0,0,0,3,3,2,1,1,1,2,1,1,2,2,2,2,1,2,1,2,2,1,1,1,2,1,1,1,4,4,4,2,4,1], 46
+
+
+//_PSkill = _player execVM "ParamsPlus\AiSkill.sqf";
 
 	switch (_puavhacker) do
 	{

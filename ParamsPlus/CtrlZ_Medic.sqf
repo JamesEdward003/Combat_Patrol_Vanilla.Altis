@@ -1,4 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////
+// =======================================================================================
+// SCRIPT INTENT: Selected units will form a 360 around the player and heal player
+// =======================================================================================
 //===DisplayAddEventHandler===//===To find the number on YOUR keyboard===//
 //	waituntil {!(IsNull (findDisplay 46))};
 //	_keyDown = (findDisplay 46) displayAddEventHandler ["KeyDown", "hint str _this"];
@@ -15,12 +18,12 @@ params ["_ctrl", "_dikCode", "_shift", "_ctrlKey", "_alt", ["_handled", false, [
     	
     switch (_dikCode) do {
 			
-                	//Ctrl-M
-        case 181 : {
+                	//Ctrl-Z
+        case 44 : {
 	        
-	        if (_ctrl) then {
+	        if (_ctrlKey) then {
 	        
-	     		if (tempheal) then {tempheal = false;[player] execVM "ParamsPlus\CtrlM_Medic.sqf";};
+	     		if (tempheal) then {tempheal = false;execVM "ParamsPlus\HealPlayer.sqf";};
 				_handled = true;		
 			};	
 	            	

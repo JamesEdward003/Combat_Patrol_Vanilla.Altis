@@ -1,5 +1,13 @@
 ///////  [_unit] execVM "paramsplus\loadouts_r.sqf";  ///////
 //_recruitableunits = ["I_diver_TL_F","I_diver_exp_F","I_diver_F","I_medic_F","I_engineer_F","I_soldier_mine_F","I_Story_Colonel_F","I_Captain_Hladas_F","I_Story_Officer_01_F","I_Story_Crew_F"];
+//I_Soldier_SL_F (Rosi_1)
+//I_soldier_F (Rosi_2)
+//I_Soldier_LAT_F (Rosi_3)
+//I_Soldier_M_F (Rosi_4)
+//I_Soldier_AR_F (Rosi_5)
+//I_medic_F (Rosi_6)
+//I_Soldier_AT_F (Rosi_7)
+//I_Soldier_AA_F (Rosi_8)
 private ["_unit","_typeUnit","_classname","_displayname","_PLoadOut","_PDiverEquip"];
 _PLoadOut = "PLoadOut" call BIS_fnc_getParamValue;
 _PDiverEquip = "PDiverEquip" call BIS_fnc_getParamValue;

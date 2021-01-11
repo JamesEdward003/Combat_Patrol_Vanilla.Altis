@@ -1,10 +1,11 @@
 //////////////////////////////////////////////////////////////////
 // [_x,15,1] execVM "paramsplus\regen_health.sqf";
 _PRegenHealth = "PRegenHealth" call BIS_fnc_getParamValue;
-if (_PRegenHealth isEqualTo 4) exitWith {};
+if (_PRegenHealth isEqualTo 1) exitWith {};
 private ["_unit","_armor","_recovery","_newDamage","_PRegenHealth"];
 _unit = _this;
 _rhv = missionNameSpace getVariable "RegenHealthVar";
+uisleep 01;
 //_rhv = 35;
 _armor = _rhv/100;
 

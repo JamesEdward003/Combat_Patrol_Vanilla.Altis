@@ -1,33 +1,33 @@
-// _unit execVM "paramsplus\GF_AiSkill.sqf" //
+// _unit execVM "paramsplus\AiSkill.sqf" //
 _unit = _this;
 
 _AiSkill = switch true do {
 
 	case (side _unit isEqualTo WEST) :  {
 
-		GF_Set_AISkill = "Bskill" call BIS_fnc_getParamValue;
+		AISkill = "Bskill" call BIS_fnc_getParamValue;
 	};
 	case (side _unit isEqualTo EAST) :  {
 
-		GF_Set_AISkill = "Oskill" call BIS_fnc_getParamValue;
+		AISkill = "Oskill" call BIS_fnc_getParamValue;
 	};
 	case (side _unit isEqualTo RESISTANCE) :  {
 
-		GF_Set_AISkill = "Oskill" call BIS_fnc_getParamValue;
+		AISkill = "Oskill" call BIS_fnc_getParamValue;
 	};
 	case (side _unit isEqualTo CIVILIAN) :  {
 
-		GF_Set_AISkill = "Oskill" call BIS_fnc_getParamValue;
+		AISkill = "Oskill" call BIS_fnc_getParamValue;
 	};
 };
 
-switch (GF_Set_AISkill) do  {
+switch (AISkill) do  {
 		
 //________________	Rookie	________________
 
 	case 1: {
 	
-		if (((alive _unit)) && (!(_unit getVariable ["GF_AISkill",false]))) then {
+		if (((alive _unit)) && (!(_unit getVariable ["AISkill",false]))) then {
 			_unit setSkill ["aimingAccuracy", 0.1 + (random 0.05)];
 			_unit setSkill ["aimingShake", 0.1 + (random 0.05)];
 			_unit setSkill ["aimingSpeed", 0.1 + (random 0.05)];
@@ -38,9 +38,9 @@ switch (GF_Set_AISkill) do  {
 			_unit setSkill ["spotDistance", 0.1 + (random 0.05)];
 			_unit setSkill ["spotTime", 0.1+ (random 0.05)];
 			};						
-			_unit setVariable ["GF_AISkill",true];
+			_unit setVariable ["AISkill",true];
 			{waitUntil {!alive _unit};
-			_unit setVariable ["GF_AISkill",false];		 
+			_unit setVariable ["AISkill",false];		 
 
 	};
 	
@@ -48,7 +48,7 @@ switch (GF_Set_AISkill) do  {
 
 	case 2: {
 		
-		if (((alive _unit)) && (!(_unit getVariable ["GF_AISkill",false]))) then {
+		if (((alive _unit)) && (!(_unit getVariable ["AISkill",false]))) then {
 			_unit setSkill ["aimingAccuracy", 0.2 + (random 0.05)];
 			_unit setSkill ["aimingShake", 0.2 + (random 0.05)];
 			_unit setSkill ["aimingSpeed", 0.2 + (random 0.05)];
@@ -59,9 +59,9 @@ switch (GF_Set_AISkill) do  {
 			_unit setSkill ["spotDistance", 0.2 + (random 0.05)];
 			_unit setSkill ["spotTime", 0.2+ (random 0.05)];
 			};						
-			_unit setVariable ["GF_AISkill",true];
+			_unit setVariable ["AISkill",true];
 			{waitUntil {!alive _unit};
-			_unit setVariable ["GF_AISkill",false];		 
+			_unit setVariable ["AISkill",false];		 
 
 	};
 
@@ -69,7 +69,7 @@ switch (GF_Set_AISkill) do  {
 
 	case 3: {	
 		
-		if (((alive _unit)) && (!(_unit getVariable ["GF_AISkill",false]))) then {		
+		if (((alive _unit)) && (!(_unit getVariable ["AISkill",false]))) then {		
 			_unit setSkill ["aimingAccuracy", 0.5 + (random 0.20)];
 			_unit setSkill ["aimingShake", 0.5 + (random 0.20)];
 			_unit setSkill ["aimingSpeed", 0.5 + (random 0.20)];
@@ -80,9 +80,9 @@ switch (GF_Set_AISkill) do  {
 			_unit setSkill ["spotDistance", 0.5 + (random 0.20)];
 			_unit setSkill ["spotTime", 0.5 + (random 0.20)];
 			};						
-			_unit setVariable ["GF_AISkill",true];
+			_unit setVariable ["AISkill",true];
 			{waitUntil {!alive _unit};
-			_unit setVariable ["GF_AISkill",false];		 
+			_unit setVariable ["AISkill",false];		 
 			
 	};
 
@@ -90,7 +90,7 @@ switch (GF_Set_AISkill) do  {
 
 	case 4: {		
 		
-		if (((alive _unit)) && (!(_unit getVariable ["GF_AISkill",false]))) then {	
+		if (((alive _unit)) && (!(_unit getVariable ["AISkill",false]))) then {	
 			_unit setSkill ["aimingAccuracy", 0.75 + (random 0.25)];
 			_unit setSkill ["aimingShake", 0.75 + (random 0.25)];
 			_unit setSkill ["aimingSpeed", 0.75 + (random 0.25)];
@@ -101,9 +101,9 @@ switch (GF_Set_AISkill) do  {
 			_unit setSkill ["spotDistance", 0.75 + (random 0.25)];
 			_unit setSkill ["spotTime", 0.75 + (random 0.25)];
 			};						
-			_unit setVariable ["GF_AISkill",true];
+			_unit setVariable ["AISkill",true];
 			{waitUntil {!alive _unit};
-			_unit setVariable ["GF_AISkill",false];		 
+			_unit setVariable ["AISkill",false];		 
 
 	};
 
@@ -112,7 +112,7 @@ switch (GF_Set_AISkill) do  {
 
 	case 5:	{		
 		
-		if (((alive _unit)) && (!(_unit getVariable ["GF_AISkill",false]))) then {
+		if (((alive _unit)) && (!(_unit getVariable ["AISkill",false]))) then {
 			_unit setSkill ["aimingAccuracy", 0.25 + (random 0.75)];
 			_unit setSkill ["aimingShake", 0.25 + (random 0.75)];
 			_unit setSkill ["aimingSpeed", 0.25 + (random 0.75)];
@@ -123,9 +123,9 @@ switch (GF_Set_AISkill) do  {
 			_unit setSkill ["spotDistance", 0.25 + (random 0.75)];
 			_unit setSkill ["spotTime", 0.25+ (random 0.75)];
 			};						
-			_unit setVariable ["GF_AISkill",true];
+			_unit setVariable ["AISkill",true];
 			{waitUntil {!alive _unit};
-			_unit setVariable ["GF_AISkill",false];		 
+			_unit setVariable ["AISkill",false];		 
 
 	};
 

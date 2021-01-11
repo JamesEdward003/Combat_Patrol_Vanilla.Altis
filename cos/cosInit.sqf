@@ -1,25 +1,129 @@
-/*
- Civilian Occupation System (COS)
- By BangaBob v0.5
- 
- null=[] execVM "cos/cosInit.sqf";
- 
- IMPORTANT: BEFORE PROCEEDING ADD AN OBJECT NAMED SERVER INTO THE EDITOR.
- 
- To edit population of zones browse to line 95
- Open COS/AddScript_Unit.sqf to apply scripts to spawned units.
- Open COS/AddScript_Vehicle.sqf to apply scripts to spawned vehicles.
- To get Array of COS markers use _allMarkers=SERVER getvariable "COSmarkers";
-*/
+// "cos/cosInit.sqf" //
+// =======================================================================================
+// SCRIPT INTENT: CIVILIANS WILL CONGREGATE AND MOVE AT SELECTED AREA
+// =======================================================================================
+<<<<<<< HEAD
+waitUntil { !isNil "BIS_CP_initDone" };
+private _future = time + 120; 
+waitUntil { time >= _future };
+=======
+action_interrogate = player addAction["Interrogate", { 
+	0 = cursorTarget spawn interrogate
+}, nil, 1.5, false, true, "", " 
+	(alive cursorTarget && side cursorTarget == sideEnemy && {player distance cursorTarget < 3})
+"];
+
+directionText = {
+    if ((_this > 22.5) && (_this <= 67.5)) exitWith {"NORTHEAST"};
+    if ((_this > 67.5) && (_this <= 112.5)) exitWith {"EAST"};
+    if ((_this > 112.5) && (_this <= 157.5)) exitWith {"SOUTHEAST"};
+    if ((_this > 157.5) && (_this <= 202.5)) exitWith {"SOUTH"};
+    if ((_this > 202.5) && (_this <= 247.5)) exitWith {"SOUTHWEST"};
+    if ((_this > 247.5) && (_this <= 295.5)) exitWith {"WEST"};
+    if ((_this > 295.5) && (_this <= 337.5)) exitWith {"NORTHWEST"};
+    "NORTH"
+};
+
+interrogate = {
+	if (random 100 > 100) exitWith {systemChat "I don't feel like talking..."};
+
+    private "_enemy";
+	_enemy = { if (side _x == east || side _x == independent) exitWith {_x}; objNull } forEach (_this nearEntities [["Man", "Air", "Car", "Motorcycle", "Tank"],1000] - [player]);
+	if (isNull _enemy) exitWith {systemChat "I've seen no baddies recently"};
+
+	systemChat format["There is a %1 group of enemies to the %2 of here",
+		call {
+            private "_n";
+            _n = count units group _enemy;
+            switch true do {
+	            case (_n > 0): {"small"};
+	            case (_n > 5): {"large"};
+                case (_n > 8): {"massive"};              
+                default "";
+            }
+        },
+		([_this,_enemy] call BIS_fnc_dirTo) call directionText
+	];
+};
+>>>>>>> 3b4f390dd2378f749fb2b9652006e484006c4c41
 _PCivilians = "PCivilians" call BIS_fnc_getParamValue;
-if (_PCivilians isEqualTo 1) exitWith {};
+if (_PCivilians isEqualTo 1) exitWith {
+
+action_interrogate = player addAction["Interrogate", { 
+	0 = cursorTarget spawn interrogate
+}, nil, 1.5, false, true, "", " 
+	(alive cursorTarget && side cursorTarget == sideEnemy && {player distance cursorTarget < 3})
+"];
+
+directionText = {
+    if ((_this > 22.5) && (_this <= 67.5)) exitWith {"NORTHEAST"};
+    if ((_this > 67.5) && (_this <= 112.5)) exitWith {"EAST"};
+    if ((_this > 112.5) && (_this <= 157.5)) exitWith {"SOUTHEAST"};
+    if ((_this > 157.5) && (_this <= 202.5)) exitWith {"SOUTH"};
+    if ((_this > 202.5) && (_this <= 247.5)) exitWith {"SOUTHWEST"};
+    if ((_this > 247.5) && (_this <= 295.5)) exitWith {"WEST"};
+    if ((_this > 295.5) && (_this <= 337.5)) exitWith {"NORTHWEST"};
+    "NORTH"
+};
+
+interrogate = {
+	if (random 100 > 100) exitWith {systemChat "I don't feel like talking..."};
+
+    private "_enemy";
+	_enemy = { if (side _x == east || side _x == independent) exitWith {_x}; objNull } forEach (_this nearEntities [["Man", "Air", "Car", "Motorcycle", "Tank"],1000] - [player]);
+	if (isNull _enemy) exitWith {systemChat "I've seen no baddies recently"};
+
+	systemChat format["There is a %1 group of enemies to the %2 of here",
+		call {
+            private "_n";
+            _n = count units group _enemy;
+            switch true do {
+	            case (_n > 0): {"small"};
+	            case (_n > 5): {"large"};
+                case (_n > 8): {"massive"};              
+                default "";
+            }
+        },
+		([_this,_enemy] call BIS_fnc_dirTo) call directionText
+	];
+};
+};
+	
+if (_PCivilians isEqualTo 2) then {
+	
+	if ( isNil { missionNamespace getVariable "StoryLines" } ) then {
+	_texts = [ 
+	["One...Ask and it shall be told.", "In the old days citizens felt relatively safe.", "The wives and children came outside and enjoyed life.", "Only hiding inside now days."],
+	["Strife is everywhere.", "The men love to play with their weapons.", "They all have access to weapons.", "Staying alive becomes a challenge."],
+	["Two...Ask and it shall be told.", "In the old days citizens felt relatively safe.", "The wives and children came outside and enjoyed life.", "Only hiding inside now days."],
+	["Strife is everywhere.", "The men love to play with their weapons.", "They all have access to weapons.", "Staying alive becomes a challenge."],
+	["Three...Ask and it shall be told.", "In the old days citizens felt relatively safe.", "The wives and children came outside and enjoyed life.", "Only hiding inside now days."],
+	["Strife is everywhere.", "The men love to play with their weapons.", "They all have access to weapons.", "Staying alive becomes a challenge."],
+	["Four...Ask and it shall be told.", "In the old days citizens felt relatively safe.", "The wives and children came outside and enjoyed life.", "Only hiding inside now days."],
+	["Strife is everywhere.", "The men love to play with their weapons.", "They all have access to weapons.", "Staying alive becomes a challenge."],
+	["Five...Ask and it shall be told.", "In the old days citizens felt relatively safe.", "The wives and children came outside and enjoyed life.", "Only hiding inside now days."],
+	["Strife is everywhere.", "The men love to play with their weapons.", "They all have access to weapons.", "Staying alive becomes a challenge."],
+	["Six...Ask and it shall be told.", "In the old days citizens felt relatively safe.", "The wives and children came outside and enjoyed life.", "Only hiding inside now days."],
+	["Strife is everywhere.", "The men love to play with their weapons.", "They all have access to weapons.", "Staying alive becomes a challenge."]
+	];
+		missionNamespace setVariable ["StoryLines",_texts];
+	};
+
+	addMissionEventHandler ["HandleChatMessage", {
+		params ["_channel", "_owner", "_from", "_text", "_person", "_name", "_strID", "_forcedDisplay", "_isPlayerMessage", "_sentenceType", "_chatMessageType"];
+		copyToClipboard format ["%1,%2,%3,%4,%5,%6,%7,%8,%9,%10,%11", _channel, _owner, _from, _text, _person, _name, _strID, _forcedDisplay, _isPlayerMessage, _sentenceType, _chatMessageType];
+		if (_chatMessageType isEqualTo 0) then {
+		_texts = missionNamespace getVariable "StoryLines"; 
+		_txts = _texts select 0;                                  
+		[[(_txts select 0),1,4,1],[(_txts select 1),1,4,1],[(_txts select 2),1,4,1],[(_txts select 3),1,4,1]] spawn BIS_fnc_EXP_camp_SITREP;
+		_texts = _texts - [_txts]; 
+		missionNamespace setVariable ["StoryLines",_texts];};
+	}];
+};
+
 if (isnil "SERVER") then {Hint "You must ADD a object named SERVER";Player Sidechat "You must ADD a object named SERVER";}else{
 if (isServer) then {
-IF (!isnil ("COScomplete")) then {Hint "Check your call. COS was called twice!";}else{
-
-_tLoading = 30;
-waitUntil {!isNil "BIS_CP_initDone"};
-waitUntil {time > _tLoading};
+if (!isnil ("COScomplete")) then {Hint "Check your call. COS was called twice!";}else{
 
 COS_distance=500;//Set spawn distance
 _aerielActivation=true;// Set if flying units can activate civilian Zones
@@ -195,6 +299,89 @@ null=[] execVM "COS\localScript.sqf";// This shows messages for players during m
 };
 };
 
+_startpos = [BIS_CP_targetLocationPos, 300, (0 + random 90)] call BIS_fnc_relPos;
+
+_civilianBuildingStart = nearestBuilding _startpos;
+
+_grp = createGroup civilian;
+
+placetwoSpots = 
+{
+_startpos = getpos _this;
+
+_m1 = _grp createUnit ["ModuleCivilianPresenceSafeSpot_F", _startpos, [], 0, "NONE"];
+_m1 setVariable ["#capacity",5];
+_m1 setVariable ["#usebuilding",true];
+_m1 setVariable ["#terminal",false];
+_m1 setVariable ["#type",5];
+
+_m2 = _grp createUnit ["ModuleCivilianPresenceUnit_F", _startpos, [], 0, "NONE"];
+
+_endpos = [BIS_CP_targetLocationPos, 300, (180 + random 90)] call BIS_fnc_relPos;
+
+_civilianBuildingEnd = nearestBuilding _endpos;
+
+_m3 = _grp createUnit ["ModuleCivilianPresenceSafeSpot_F", _endpos, [], 0, "NONE"];
+_m3 setVariable ["#capacity",5];
+_m3 setVariable ["#usebuilding",true];
+_m3 setVariable ["#terminal",false];
+_m3 setVariable ["#type",5];
+};
+
+_civilianBuildingStart call placetwoSpots;
+
+_cen = getpos _civilianBuildingStart;
+
+_m = _grp createUnit ["ModuleCivilianPresence_F", [0,0,0], [], 0, "NONE"];
+
+_m setVariable ["#area",[_cen,1000,1000,0,true,-1]];  // Fixed! this gets passed to https://community.bistudio.com/wiki/inAreaArray 
+
+_m setVariable ["#debug",false]; // Debug mode on
+
+_m setVariable ["#useagents",true];
+_m setVariable ["#usepanicmode",false];
+
+_m setVariable ["#unitcount",10];
+
+action_interrogate = player addAction["Interrogate", { 
+	0 = cursorTarget spawn interrogate
+}, nil, 1.5, false, true, "", " 
+	(alive cursorTarget && side cursorTarget == sideEnemy && {player distance cursorTarget < 3})
+"];
+
+directionText = {
+    if ((_this > 22.5) && (_this <= 67.5)) exitWith {"NORTHEAST"};
+    if ((_this > 67.5) && (_this <= 112.5)) exitWith {"EAST"};
+    if ((_this > 112.5) && (_this <= 157.5)) exitWith {"SOUTHEAST"};
+    if ((_this > 157.5) && (_this <= 202.5)) exitWith {"SOUTH"};
+    if ((_this > 202.5) && (_this <= 247.5)) exitWith {"SOUTHWEST"};
+    if ((_this > 247.5) && (_this <= 295.5)) exitWith {"WEST"};
+    if ((_this > 295.5) && (_this <= 337.5)) exitWith {"NORTHWEST"};
+    "NORTH"
+};
+
+interrogate = {
+	if (random 100 > 100) exitWith {systemChat "I don't feel like talking..."};
+
+    private "_enemy";
+	_enemy = { if (side _x == east || side _x == independent) exitWith {_x}; objNull } forEach (_this nearEntities [["Man", "Air", "Car", "Motorcycle", "Tank"],1000] - [player]);
+	if (isNull _enemy) exitWith {systemChat "I've seen no baddies recently"};
+
+	systemChat format["There is a %1 group of enemies to the %2 of here",
+		call {
+            private "_n";
+            _n = count units group _enemy;
+            switch true do {
+	            case (_n > 0): {"small"};
+	            case (_n > 5): {"large"};
+                case (_n > 8): {"massive"};              
+                default "";
+            }
+        },
+		([_this,_enemy] call BIS_fnc_dirTo) call directionText
+	];
+};
+
 switch (side player) do 
 {
 	case WEST: // BLUFOR task notice goes here
@@ -204,12 +391,12 @@ switch (side player) do
 			["task1", "CREATED",true] spawn BIS_fnc_taskSetState;
 			waitUntil{ ((missionNamespace getVariable "StoryLines") isEqualTo []) };
 			["task1", "SUCCEEDED",true] spawn BIS_fnc_taskSetState;
-				Civilian setFriend [East, 1];
-				East setFriend [Civilian, 1];
-				Civilian setFriend [West, 1];
-				West setFriend [Civilian, 1];
-				Civilian setFriend [Resistance, 1];
-				Resistance setFriend [Civilian, 1];
+//				Civilian setFriend [East, 1];
+//				East setFriend [Civilian, 1];
+//				Civilian setFriend [West, 1];
+//				West setFriend [Civilian, 1];
+//				Civilian setFriend [Resistance, 1];
+//				Resistance setFriend [Civilian, 1];
 			};
 
 			waitUntil { sleep 1; (("task1" call BIS_fnc_taskState == "SUCCEEDED") isEqualTo true) };
@@ -226,12 +413,12 @@ switch (side player) do
 			["task1", "CREATED",true] spawn BIS_fnc_taskSetState;
 			waitUntil{ ((missionNamespace getVariable "StoryLines") isEqualTo []) };
 			["task1", "SUCCEEDED",true] spawn BIS_fnc_taskSetState;
-				Civilian setFriend [East, 1];
-				East setFriend [Civilian, 1];
-				Civilian setFriend [West, 1];
-				West setFriend [Civilian, 1];
-				Civilian setFriend [Resistance, 1];
-				Resistance setFriend [Civilian, 1];
+//				Civilian setFriend [East, 1];
+//				East setFriend [Civilian, 1];
+//				Civilian setFriend [West, 1];
+//				West setFriend [Civilian, 1];
+//				Civilian setFriend [Resistance, 1];
+//				Resistance setFriend [Civilian, 1];
 			};
 
 			waitUntil { sleep 1; (("task1" call BIS_fnc_taskState == "SUCCEEDED") isEqualTo true) };
@@ -248,12 +435,12 @@ switch (side player) do
 			["task1", "CREATED",true] spawn BIS_fnc_taskSetState;
 			waitUntil{ ((missionNamespace getVariable "StoryLines") isEqualTo []) };
 			["task1", "SUCCEEDED",true] spawn BIS_fnc_taskSetState;
-				Civilian setFriend [East, 1];
-				East setFriend [Civilian, 1];
-				Civilian setFriend [West, 1];
-				West setFriend [Civilian, 1];
-				Civilian setFriend [Resistance, 1];
-				Resistance setFriend [Civilian, 1];
+//				Civilian setFriend [East, 1];
+//				East setFriend [Civilian, 1];
+//				Civilian setFriend [West, 1];
+//				West setFriend [Civilian, 1];
+//				Civilian setFriend [Resistance, 1];
+//				Resistance setFriend [Civilian, 1];
 			};
 
 			waitUntil { sleep 1; (("task1" call BIS_fnc_taskState == "SUCCEEDED") isEqualTo true) };
@@ -270,12 +457,12 @@ switch (side player) do
 			["task1", "CREATED",true] spawn BIS_fnc_taskSetState;
 			waitUntil{ ((missionNamespace getVariable "StoryLines") isEqualTo []) };
 			["task1", "CANCELED",true] spawn BIS_fnc_taskSetState;
-				Civilian setFriend [East, 1];
-				East setFriend [Civilian, 1];
-				Civilian setFriend [West, 1];
-				West setFriend [Civilian, 1];
-				Civilian setFriend [Resistance, 1];
-				Resistance setFriend [Civilian, 1];
+//				Civilian setFriend [East, 1];
+//				East setFriend [Civilian, 1];
+//				Civilian setFriend [West, 1];
+//				West setFriend [Civilian, 1];
+//				Civilian setFriend [Resistance, 1];
+//				Resistance setFriend [Civilian, 1];
 			};
 
 			waitUntil { sleep 1; (("task1" call BIS_fnc_taskState == "CANCELED") isEqualTo true) };

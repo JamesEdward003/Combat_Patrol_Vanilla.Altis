@@ -1,4 +1,4 @@
-version=53;
+version=54;
 class EditorData
 {
 	moveGridStep=16;
@@ -16,17 +16,18 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=50;
+		nextID=66;
 	};
 	class Camera
 	{
-		pos[]={14754.977,670.16089,16018.021};
-		dir[]={-8.1630333e-006,-0.1152174,0.99334216};
-		up[]={-9.4707525e-007,0.99333578,0.11524764};
-		aside[]={1.0000012,0,8.2177521e-006};
+		pos[]={14625.825,50.090946,16692.023};
+		dir[]={-1.2363449e-007,-0.70710683,0.70710683};
+		up[]={-1.2363449e-007,0.70710671,0.70710683};
+		aside[]={1,0,1.7484557e-007};
 	};
 };
 binarizationWanted=0;
+sourceName="combat_patrol_vanilla";
 addons[]=
 {
 	"A3_Characters_F",
@@ -120,8 +121,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={14622.636,17.960281,16727.258};
-						angles[]={0,5.5258765,0};
+						position[]={14622.636,17.960438,16727.258};
+						angles[]={0,5.5258694,0};
 					};
 					side="West";
 					flags=7;
@@ -131,13 +132,13 @@ class Mission
 						rank="MAJOR";
 						init="call{{doStop _x} forEach (units this);}";
 						name="Rambo_1";
-						description="Rambo_1  SquadLeader";
+						description="Rambo_1 -  SquadLeader";
 						isPlayer=1;
 						isPlayable=1;
 					};
 					id=1;
 					type="B_Soldier_SL_F";
-					atlOffset=0.048843384;
+					atlOffset=0.048999786;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -883,7 +884,7 @@ class Mission
 				garbageCollect=1;
 			};
 			id=0;
-			atlOffset=0.048843384;
+			atlOffset=0.048999786;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -1298,7 +1299,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={14679.878,17.91,16783.275};
-				angles[]={-0,5.5259051,0};
+				angles[]={0,5.5259051,0};
 			};
 			name="respawn_vehicle_west";
 			id=70;
@@ -1654,7 +1655,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={14681.792,17.91,16770.369};
-				angles[]={-0,5.5258765,0};
+				angles[]={0,5.5258765,0};
 			};
 			name="cas_one";
 			id=103;
@@ -8381,7 +8382,7 @@ class Mission
 			flags=1;
 			id=348;
 			type="ModuleCivilianPresenceUnit_F";
-			atlOffset=1.5258789e-005;
+			atlOffset=0.21199989;
 		};
 		class Item53
 		{

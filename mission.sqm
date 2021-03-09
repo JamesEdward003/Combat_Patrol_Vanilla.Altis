@@ -16,13 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=70;
+		nextID=74;
 	};
 	class Camera
 	{
 		pos[]={14625.825,50.090946,16692.023};
-		dir[]={0,-0.70710683,0.70710683};
-		up[]={0,0.70710671,0.70710683};
+		dir[]={-1.2363449e-007,-0.70710683,0.70710683};
+		up[]={-1.2363449e-007,0.70710671,0.70710683};
+		aside[]={1,0,1.7484557e-007};
 	};
 };
 binarizationWanted=0;
@@ -131,7 +132,7 @@ class Mission
 						rank="MAJOR";
 						init="call{{doStop _x} forEach (units this);}";
 						name="Rambo_1";
-						description="Rambo_1 -  SquadLeader";
+						description="Rambo_1 -  Squad Leader";
 						isPlayer=1;
 						isPlayable=1;
 					};

@@ -1,5 +1,5 @@
 /// init.sqf /// Test 11-23-2020 
-[playerSide, "HQ"] commandChat "Initiating Init!";
+[playerSide, "HQ"] commandChat "Initiating Init...FINALLY!";
 
 //addMissionEventHandler ["Loaded", {
 //	params ["_saveType"];

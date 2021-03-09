@@ -16,14 +16,13 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=66;
+		nextID=70;
 	};
 	class Camera
 	{
 		pos[]={14625.825,50.090946,16692.023};
-		dir[]={-1.2363449e-007,-0.70710683,0.70710683};
-		up[]={-1.2363449e-007,0.70710671,0.70710683};
-		aside[]={1,0,1.7484557e-007};
+		dir[]={0,-0.70710683,0.70710683};
+		up[]={0,0.70710671,0.70710683};
 	};
 };
 binarizationWanted=0;
@@ -225,8 +224,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={14629.903,17.962652,16727.98};
-						angles[]={0,5.5258765,0};
+						position[]={14629.903,17.962439,16727.98};
+						angles[]={0,5.5258694,0};
 					};
 					side="West";
 					flags=5;
@@ -235,12 +234,12 @@ class Mission
 						skill=0.85407525;
 						rank="CAPTAIN";
 						name="Rambo_2";
-						description="Rambo_2  AutoRifleman";
+						description="Rambo_2  - Auto Rifleman";
 						isPlayable=1;
 					};
 					id=2;
 					type="B_soldier_AR_F";
-					atlOffset=0.051214218;
+					atlOffset=0.051000595;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -8382,7 +8381,7 @@ class Mission
 			flags=1;
 			id=348;
 			type="ModuleCivilianPresenceUnit_F";
-			atlOffset=0.21199989;
+			atlOffset=1.5258789e-005;
 		};
 		class Item53
 		{

@@ -21,6 +21,7 @@ if(!isNull player) then {
    };
 
    player createDiaryRecord ["Diary", ["Settings", _settings]];
+   
 } else {
     hint format["Player is null"];
 };

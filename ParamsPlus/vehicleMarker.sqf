@@ -2,7 +2,7 @@
 // 		[PWNR_Taxi_B] execVM "paramsplus\vehicleMarker.sqf";
 //////////////////////////////////////////////////////////////////
 private ["_vehicle","_vehType","_marker","_mrkrName","_mrkrcolor","_markertype"];
-_vehicle = _this;
+_vehicle = _this select 0;
 
 //_vehType = typeOf _vehicle;  //getText (configFile >> "CfgVehicles" >> (typeOf _vehicle) >> "displayName");
 _classname 	= format ["%1", typeOf _vehicle];
@@ -78,18 +78,50 @@ _markertype = switch (side player) do
 		};
 }; 	
 	
-if (isMultiPlayer) then
-	{	
-		_vehicle addEventHandler ["Respawn",{_this execVM "paramsplus\vehicleMarker.sqf"}];
-	};
+if (isMultiPlayer) then {	
+	_vehicle addEventHandler ["Respawn",{_this execVM "paramsplus\vehicleMarker.sqf"}];
+};
 
-While {alive _vehicle} do {
+_array = ["slingload_base_f", "reammobox_f"];
+
+if ((typeOf _vehicle) isKindOf "slingload_base_f" or (typeOf _vehicle) isKindOf "reammobox_f") then {
 	_marker = createMarkerLocal [_mrkrName, position _vehicle];
 	_marker setMarkerTypeLocal _markertype;
-	_marker setMarkerColorLocal _mrkrcolor;
+	_marker setMarkerColorLocal "ColorRed";
 	_marker setMarkerTextLocal _displayname;
 	_marker setMarkerSizeLocal [0.75,0.75];
-	sleep 2;
-	deleteMarkerLocal _marker;
+	hint parseText format["<t size='1' color='#44ff00'>AmmoBox on the map marker!</t>"];
+} else {
+	While {alive _vehicle} do {
+		_marker = createMarkerLocal [_mrkrName, position _vehicle];
+		_marker setMarkerTypeLocal _markertype;
+		_marker setMarkerColorLocal _mrkrcolor;
+		_marker setMarkerTextLocal _displayname;
+		_marker setMarkerSizeLocal [0.75,0.75];
+		sleep 2;
+		deleteMarkerLocal _marker;
+	};
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

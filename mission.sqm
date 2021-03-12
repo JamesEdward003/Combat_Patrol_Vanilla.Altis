@@ -8,7 +8,7 @@ class EditorData
 	toggles=513;
 	class ItemIDProvider
 	{
-		nextID=809;
+		nextID=811;
 	};
 	class MarkerIDProvider
 	{
@@ -16,18 +16,18 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=74;
+		nextID=174;
 	};
 	class Camera
 	{
-		pos[]={14625.825,50.090946,16692.023};
-		dir[]={-1.2363449e-007,-0.70710683,0.70710683};
-		up[]={-1.2363449e-007,0.70710671,0.70710683};
-		aside[]={1,0,1.7484557e-007};
+		pos[]={14670.479,352.52414,16430.92};
+		dir[]={-6.402674e-006,-0.70710683,0.70710683};
+		up[]={-6.4026744e-006,0.70710671,0.70710683};
+		aside[]={1,4.5474735e-013,9.0547492e-006};
 	};
 };
 binarizationWanted=0;
-sourceName="combat_patrol_vanilla";
+sourceName="Combat_Patrol_Vanilla";
 addons[]=
 {
 	"A3_Characters_F",
@@ -85,6 +85,51 @@ randomSeed=15867596;
 class ScenarioData
 {
 	author="RENFRO";
+	wreckRemovalMaxTime=3600;
+};
+class CustomAttributes
+{
+	class Category0
+	{
+		name="Multiplayer";
+		class Attribute0
+		{
+			property="RespawnTemplates";
+			expression="true";
+			class Value
+			{
+				class data
+				{
+					class type
+					{
+						type[]=
+						{
+							"ARRAY"
+						};
+					};
+					class value
+					{
+						items=1;
+						class Item0
+						{
+							class data
+							{
+								class type
+								{
+									type[]=
+									{
+										"STRING"
+									};
+								};
+								value="None";
+							};
+						};
+					};
+				};
+			};
+		};
+		nAttributes=1;
+	};
 };
 class Mission
 {
@@ -308,8 +353,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={14623.577,17.966129,16720.441};
-						angles[]={0,5.5258765,0};
+						position[]={14623.577,17.966438,16720.441};
+						angles[]={0,5.5258694,0};
 					};
 					side="West";
 					flags=5;
@@ -318,12 +363,12 @@ class Mission
 						skill=0.95075893;
 						rank="LIEUTENANT";
 						name="Rambo_3";
-						description="Rambo_3  CombatLifeSaver";
+						description="Rambo_3  - Combat LifeSaver";
 						isPlayable=1;
 					};
 					id=8;
 					type="B_medic_F";
-					atlOffset=0.054691315;
+					atlOffset=0.055000305;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -391,8 +436,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={14637.182,17.972385,16728.719};
-						angles[]={0,5.5258765,0};
+						position[]={14637.182,17.972439,16728.719};
+						angles[]={0,5.5258694,0};
 					};
 					side="West";
 					flags=4;
@@ -401,12 +446,12 @@ class Mission
 						skill=0.91928053;
 						rank="SERGEANT";
 						name="Rambo_4";
-						description="Rambo_4  Grenadier";
+						description="Rambo_4  - Grenadier";
 						isPlayable=1;
 					};
 					id=30;
 					type="B_Soldier_GL_F";
-					atlOffset=0.060947418;
+					atlOffset=0.061000824;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -474,8 +519,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={14624.141,17.977909,16713.277};
-						angles[]={0,5.5258765,0};
+						position[]={14624.14,17.977438,16713.277};
+						angles[]={0,5.5258694,0};
 					};
 					side="West";
 					flags=4;
@@ -484,12 +529,12 @@ class Mission
 						skill=0.91703224;
 						rank="SERGEANT";
 						name="Rambo_5";
-						description="Rambo_5  Grenadier";
+						description="Rambo_5  - Grenadier";
 						isPlayable=1;
 					};
 					id=31;
 					type="B_Soldier_GL_F";
-					atlOffset=0.0664711;
+					atlOffset=0.065999985;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -576,8 +621,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={14644.742,17.990421,16729.145};
-						angles[]={0,5.5258765,0};
+						position[]={14644.742,17.990438,16729.145};
+						angles[]={0,5.5258694,0};
 					};
 					side="West";
 					flags=4;
@@ -586,12 +631,12 @@ class Mission
 						skill=0.92377746;
 						rank="CORPORAL";
 						name="Rambo_6";
-						description="Rambo_6  Marksman";
+						description="Rambo_6  - Marksman";
 						isPlayable=1;
 					};
 					id=32;
 					type="B_soldier_M_F";
-					atlOffset=0.078983307;
+					atlOffset=0.079000473;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -678,8 +723,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={14624.853,17.991371,16706.078};
-						angles[]={0,5.5258765,0};
+						position[]={14624.853,17.991438,16706.078};
+						angles[]={0,5.5258694,0};
 					};
 					side="West";
 					flags=4;
@@ -688,12 +733,12 @@ class Mission
 						skill=0.95300734;
 						rank="CORPORAL";
 						name="Rambo_7";
-						description="Rambo_7  CombatLifeSaver";
+						description="Rambo_7  - Combat LifeSaver";
 						isPlayable=1;
 					};
 					id=33;
 					type="B_medic_F";
-					atlOffset=0.079933167;
+					atlOffset=0.079999924;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -780,8 +825,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={14652.878,17.997789,16729.816};
-						angles[]={0,5.5258765,0};
+						position[]={14652.878,17.997438,16729.816};
+						angles[]={0,5.5258694,0};
 					};
 					side="West";
 					flags=4;
@@ -790,12 +835,12 @@ class Mission
 						skill=0.92152894;
 						rank="CORPORAL";
 						name="Rambo_8";
-						description="Rambo_8  LAT";
+						description="Rambo_8  - Light Anti-Tank";
 						isPlayable=1;
 					};
 					id=409;
 					type="B_soldier_LAT_F";
-					atlOffset=0.086351395;
+					atlOffset=0.086000443;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -8149,138 +8194,6 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={20834.512,28.793434,7237.1831};
-			};
-			name="civilian_presence_module";
-			areaSize[]={100,-1,100};
-			flags=1;
-			id=346;
-			type="ModuleCivilianPresence_F";
-			atlOffset=-1.9073486e-006;
-			class CustomAttributes
-			{
-				class Attribute0
-				{
-					property="#usePanicMode";
-					expression="_this setVariable [""#usePanicMode"",_value]";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"BOOL"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				class Attribute1
-				{
-					property="#debug";
-					expression="_this setVariable [""#debug"",_value]";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"BOOL"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				class Attribute2
-				{
-					property="#onDeleted";
-					expression="_this setVariable [""#onDeleted"",compile _value]";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"STRING"
-								};
-							};
-							value="true";
-						};
-					};
-				};
-				class Attribute3
-				{
-					property="#unitCount";
-					expression="_this setVariable [""#unitCount"",_value]";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"SCALAR"
-								};
-							};
-							value=5;
-						};
-					};
-				};
-				class Attribute4
-				{
-					property="#useAgents";
-					expression="_this setVariable [""#useAgents"",_value]";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"BOOL"
-								};
-							};
-							value=1;
-						};
-					};
-				};
-				class Attribute5
-				{
-					property="#onCreated";
-					expression="_this setVariable [""#onCreated"",compile _value]";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"STRING"
-								};
-							};
-							value="_this execVM ""ParamsPlus\Civilian_Presense.sqf"";";
-						};
-					};
-				};
-				nAttributes=6;
-			};
-		};
-		class Item51
-		{
-			dataType="Logic";
-			class PositionInfo
-			{
 				position[]={20808.682,27.734451,7288.1538};
 			};
 			name="civ_waypoint_1";
@@ -8370,7 +8283,7 @@ class Mission
 				nAttributes=4;
 			};
 		};
-		class Item52
+		class Item51
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -8384,7 +8297,7 @@ class Mission
 			type="ModuleCivilianPresenceUnit_F";
 			atlOffset=1.5258789e-005;
 		};
-		class Item53
+		class Item52
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -8477,7 +8390,7 @@ class Mission
 				nAttributes=4;
 			};
 		};
-		class Item54
+		class Item53
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -8571,7 +8484,7 @@ class Mission
 				nAttributes=4;
 			};
 		};
-		class Item55
+		class Item54
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -8664,7 +8577,7 @@ class Mission
 				nAttributes=4;
 			};
 		};
-		class Item56
+		class Item55
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -8757,7 +8670,7 @@ class Mission
 				nAttributes=4;
 			};
 		};
-		class Item57
+		class Item56
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -8769,7 +8682,7 @@ class Mission
 			id=365;
 			type="LocationCamp_F";
 		};
-		class Item58
+		class Item57
 		{
 			dataType="Trigger";
 			position[]={20783.623,27.87735,7278.6709};
@@ -8784,7 +8697,7 @@ class Mission
 			id=366;
 			type="EmptyDetector";
 		};
-		class Item59
+		class Item58
 		{
 			dataType="Group";
 			side="Independent";
@@ -8959,7 +8872,7 @@ class Mission
 				nAttributes=1;
 			};
 		};
-		class Item60
+		class Item59
 		{
 			dataType="Group";
 			side="Civilian";
@@ -9116,7 +9029,7 @@ class Mission
 				nAttributes=1;
 			};
 		};
-		class Item61
+		class Item60
 		{
 			dataType="Group";
 			side="West";
@@ -9295,35 +9208,35 @@ class Mission
 				nAttributes=1;
 			};
 		};
-		class Item62
+		class Item61
 		{
 			dataType="Layer";
 			name="USS Liberty";
 			id=452;
 			atlOffset=185.97;
 		};
-		class Item63
+		class Item62
 		{
 			dataType="Layer";
 			name="USS Freedom";
 			id=529;
 			atlOffset=185.97;
 		};
-		class Item64
+		class Item63
 		{
 			dataType="Layer";
 			name="USS_Freedom_Liberation";
 			id=664;
 			atlOffset=185.97;
 		};
-		class Item65
+		class Item64
 		{
 			dataType="Layer";
 			name="USS Freedom and USS Liberty";
 			id=807;
 			atlOffset=185.97;
 		};
-		class Item66
+		class Item65
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -9332,6 +9245,138 @@ class Mission
 			};
 			id=808;
 			type="ModuleCombatPatrol_Init_F";
+		};
+		class Item66
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={20834.311,28.797087,7236.9766};
+				angles[]={0.029324362,0,0.012000273};
+			};
+			name="civilian_presence_module";
+			areaSize[]={100,-1,100};
+			flags=1;
+			id=810;
+			type="ModuleCivilianPresence_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="#usePanicMode";
+					expression="_this setVariable [""#usePanicMode"",_value]";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="#debug";
+					expression="_this setVariable [""#debug"",_value]";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="#onDeleted";
+					expression="_this setVariable [""#onDeleted"",compile _value]";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="true";
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="#unitCount";
+					expression="_this setVariable [""#unitCount"",_value]";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=5;
+						};
+					};
+				};
+				class Attribute4
+				{
+					property="#useAgents";
+					expression="_this setVariable [""#useAgents"",_value]";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute5
+				{
+					property="#onCreated";
+					expression="_this setVariable [""#onCreated"",compile _value]";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="_this execVM ""ParamsPlus\Civilian_Presense.sqf"";";
+						};
+					};
+				};
+				nAttributes=6;
+			};
 		};
 	};
 	class Connections

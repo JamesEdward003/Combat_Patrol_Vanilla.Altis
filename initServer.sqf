@@ -15,9 +15,17 @@
 
 {if (!( isPlayer _x ) and (_x in (units group player))) then  {_x addAction ["<t color='#00FFFF'>Dismiss</t>","ParamsPlus\dismiss.sqf",[],-100,false,true,""];}} forEach (if ismultiplayer then {playableunits} else {switchableunits});
 
+/*
+
+_PCivilians = "PCivilians" call BIS_fnc_getParamValue;
+
+if (_PCivilians isEqualTo 2) then {
+	
 switch (playerSide) do {
 	
 	case west: {
+		
+//		Civilian setFriend [Civilian, 0];
 		
 		Civilian setFriend [East, 1];
 		East setFriend [Civilian, 1];
@@ -70,8 +78,13 @@ switch (playerSide) do {
 		Resistance setFriend [West, 0];
 	};
 };
+	_CROSSROAD = [playerSide, "HQ"] commandChat "Initiated Sides!";
+	
+	player addAction ["<t color='#40e0d0'>Take Pack</t>","params ['_target','_caller']; _caller action ['AddBag', (nearestObject [_caller, 'GroundWeaponHolder']), typeOf firstBackpack (nearestObject [_caller, 'GroundWeaponHolder'])];","",10,false,true,"","_this distance _target<10"];
+//	player addAction ["<t color='#40e0d0'>Take Pack</t>","params ['_target','_caller']; _caller action ['AddBag', (nearestObject [_caller, 'GroundWeaponHolder']), typeOf firstBackpack (nearestObject [_caller, 'GroundWeaponHolder'])];","",10,false,true,"","_this distance _target<10"];
+};
 
-_CROSSROAD = [playerSide, "HQ"] commandChat "Initiated Sides!";
+*/
 	
 _BI_CP_startLocation = "BI_CP_startLocation" call BIS_fnc_getParamValue;	
 

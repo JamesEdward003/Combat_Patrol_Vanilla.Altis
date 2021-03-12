@@ -57,12 +57,13 @@ Rally_Point = _unit addAction ["<t color='#00FFFF'>Deploy Rally Point</t>", {(_t
 	uisleep 0.5;
 	uavbp = "GroundWeaponHolder_Scripted" createVehicle _location;
 	uavbp setVehiclePosition [_this modelToWorld [0,2,_height], [], 0, "CAN_COLLIDE"];
-
 	uisleep 0.1;
 	uavbp addBackpackCargoGlobal [_uavbpclass, 1];
 	uisleep 0.1;
-																				//	uavbp action ['AddBag', sourceUnit, _uavbpclass];
-	uavbp addAction ["<t color='#40e0d0'>Take Pack</t>","params ['_target','_caller']; _caller action ['AddBag', 'GroundWeaponHolder_Scripted', typeOf firstBackpack uavbp];","",10,false,true,"","_this distance _target<10"];
+//	_this action ['AddBag', (nearestObject [_this, 'GroundWeaponHolder']), typeOf firstBackpack (nearestObject [_this, 'GroundWeaponHolder'])];
+
+//	_this addAction ["<t color='#40e0d0'>Take Pack</t>","params ['_target','_caller']; _target action ['AddBag', (nearestObject [_target, 'GroundWeaponHolder']), typeOf firstBackpack (nearestObject [_target, 'WeaponHolder'])];","",10,false,true,"","_this distance _target<10"];
+	
 	uisleep 0.1;
 	[uavbp] execVM "ParamsPlus\terminal.sqf";
 	uisleep 0.1;

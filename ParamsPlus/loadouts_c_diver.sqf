@@ -1,5 +1,5 @@
 ///////  [_unit] execVM "paramsplus\loadouts_c_diver.sqf";  ///////
-//_recruitableunits = ["C_Nikos_aged","C_Orestes","C_man_p_fugitive_F","C_man_p_fugitive_F_euro","C_man_p_beggar_F_euro","C_man_p_beggar_F_asia","C_man_p_beggar_F_afro","C_man_w_worker_F","C_man_polo_2_F","C_man_p_shorts_1_F"];
+//_recruitableunits = ["c_nikos","C_Orestes","C_man_p_fugitive_F","C_man_p_fugitive_F_euro","C_man_p_beggar_F_euro","C_man_p_beggar_F_asia","C_man_p_beggar_F_afro","C_man_w_worker_F","C_man_polo_2_F","C_man_p_shorts_1_F"];
 private ["_unit","_typeUnit","_classname","_displayname","_PDiverEquip"];
 _PDiverEquip = "PDiverEquip" call BIS_fnc_getParamValue;
 if (_PDiverEquip isEqualTo 1) exitWith {};
@@ -9,7 +9,7 @@ _typeUnit = typeOf _unit;
 
 switch (_typeUnit) do {
 
-	case "C_Nikos_aged" : {
+	case "c_nikos" : {
 
 comment "Exported from Arsenal by DIEHARD";
 

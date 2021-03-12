@@ -1,6 +1,6 @@
 ///////  [_unit] execVM "paramsplus\loadouts_c.sqf";  ///////
-//_recruitableunits = ["C_Nikos_aged","C_Orestes","C_man_p_fugitive_F","C_man_p_fugitive_F_euro","C_man_p_beggar_F_euro","C_man_p_beggar_F_asia","C_man_p_beggar_F_afro","C_man_w_worker_F","C_man_polo_2_F","C_man_p_shorts_1_F"];
-//C_Nikos_aged (Revolution_1)
+//_recruitableunits = ["c_nikos","C_Orestes","C_man_p_fugitive_F","C_man_p_fugitive_F_euro","C_man_p_beggar_F_euro","C_man_p_beggar_F_asia","C_man_p_beggar_F_afro","C_man_w_worker_F","C_man_polo_2_F","C_man_p_shorts_1_F"];
+//c_nikos (Revolution_1)
 //C_Orestes (Revolution_2)
 //C_man_p_fugitive_F_euro (Revolution_3)
 //C_man_p_beggar_F_euro (Revolution_4)
@@ -19,7 +19,7 @@ _unit = _this;
 
 switch (typeOf _unit) do {
 
-	case "C_Nikos_aged" : {
+	case "c_nikos" : {
 
 comment "Exported from Arsenal by RENFRO";
 

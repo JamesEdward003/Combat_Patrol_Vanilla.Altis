@@ -1,5 +1,5 @@
 // "loadouts_c_weapons.sqf"; //
-//COScivPool =["C_Nikos_aged","C_Orestes","C_man_p_fugitive_F","C_man_p_fugitive_F_euro","C_man_p_beggar_F_euro","C_man_p_beggar_F_asia","C_man_p_beggar_F_afro","C_man_w_worker_F","C_man_polo_2_F","C_man_p_shorts_1_F"];
+//COScivPool =["c_nikos","C_Orestes","C_man_p_fugitive_F","C_man_p_fugitive_F_euro","C_man_p_beggar_F_euro","C_man_p_beggar_F_asia","C_man_p_beggar_F_afro","C_man_w_worker_F","C_man_polo_2_F","C_man_p_shorts_1_F"];
 private ["_PLoadOutsWeaponsUnit","_PLoadOutsGroupUnit","_PLoadOut","_PDiverEquip","_PRespawnLoadOut"];
 _PCivilians = "PCivilians" call BIS_fnc_getParamValue;
 //_PLoadOutsWeaponsUnit = "PLoadOutsWeaponsUnit" call BIS_fnc_getParamValue;
@@ -20,7 +20,7 @@ _unit = _this;
 
 switch (typeOf _unit) do {
 
-	case "C_Nikos_aged" : {	//	GRENADE LAUNCHER/LASERDESIGNATOR
+	case "c_nikos" : {	//	GRENADE LAUNCHER/LASERDESIGNATOR
 
 comment "Exported from Arsenal by DIEHARD";
 

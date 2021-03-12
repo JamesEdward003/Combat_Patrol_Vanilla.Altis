@@ -104,7 +104,7 @@ if (bon_dynamic_list isEqualTo true) then {
 		
 		case CIVILIAN: {
 
-			if (((typeOf player) == "C_Nikos_aged") isEqualTo true) then
+			if (((typeOf player) == "c_nikos") isEqualTo true) then
 				{
 					_scripthandler =[] execVM "bon_recruit_units\recruitable_units_static_civilian.sqf";
 					waitUntil{ ScriptDone _scripthandler  };

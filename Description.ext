@@ -115,9 +115,9 @@ class Params
 	};
     class PCivilians      
 	{ 
-        	title = "Civilians Enabled";
-        	values[] = {1, 2};
-        	texts[] = {"Disabled","Enabled"};
+        	title = "Civilians";
+        	values[] = {1, 2, 3, 4};
+        	texts[] = {"None","Unarmed","Unarmed & Talkative","Armed & Talkative"};
         	default = 1;
        	file = "cos\cosInit.sqf";
         	isGlobal = 0;

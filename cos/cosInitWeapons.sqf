@@ -2,14 +2,14 @@
 // =======================================================================================
 // SCRIPT INTENT: CIVILIANS WILL CONGREGATE AND MOVE AT SELECTED AREA
 // =======================================================================================
-_PCivilians = "PCivilians" call BIS_fnc_getParamValue;
-if (_PCivilians isEqualTo 1) exitWith {};
-	
-if (_PCivilians isEqualTo 2) then {
+//_PCivilians = "PCivilians" call BIS_fnc_getParamValue;
+//if (_PCivilians isEqualTo 1) exitWith {};
+//	
+//if (_PCivilians isEqualTo 2) then {
 
-	waitUntil { !isNil "BIS_CP_initDone" };
-	private _future = time + 120; 
-	waitUntil { time >= _future };
+//	waitUntil { !isNil "BIS_CP_initDone" };
+//	private _future = time + 120; 
+//	waitUntil { time >= _future };
 	
 	if ( isNil { missionNamespace getVariable "StoryLines" } ) then {
 	_texts = [ 
@@ -39,7 +39,7 @@ if (_PCivilians isEqualTo 2) then {
 		_texts = _texts - [_txts]; 
 		missionNamespace setVariable ["StoryLines",_texts];};
 	}];
-};
+//};
 
 if (isnil "SERVER") then {Hint "You must ADD a object named SERVER";Player Sidechat "You must ADD a object named SERVER";}else{
 if (isServer) then {
@@ -302,9 +302,6 @@ interrogate = {
 	];
 };
 
-
-/*
-
 switch (side player) do 
 {
 	case WEST: // BLUFOR task notice goes here
@@ -397,7 +394,15 @@ switch (side player) do
 		};
 };
 
-*/
+_PCivilians = "PCivilians" call BIS_fnc_getParamValue;
+	
+if (_PCivilians isEqualTo 2) then {
+
+	[playerSide, "HQ"] commandChat "Initiating Armed Civilians!";
+
+	civilian_presence_module execVM "ParamsPlus\Civilian_Presense.sqf";
+
+};
 
 
 

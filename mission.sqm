@@ -16,7 +16,7 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=174;
+		nextID=186;
 	};
 	class Camera
 	{
@@ -27,7 +27,7 @@ class EditorData
 	};
 };
 binarizationWanted=0;
-sourceName="Combat_Patrol_Vanilla";
+sourceName="combat_patrol_vanilla";
 addons[]=
 {
 	"A3_Characters_F",

@@ -15,12 +15,12 @@ if (!isMultiPlayer) then {
 		
 	_PRespawnLoadOut = "PRespawnLoadOut" call BIS_fnc_getParamValue;
 
-	if (_PRespawnLoadOut isEqualTo 2) then
+	//if (_PRespawnLoadOut isEqualTo 2) then
 
-	{
+	//{
 		//player setUnitLoadout (getUnitLoadout _oldUnit);
-		player setUnitLoadout (_oldUnit getVariable "SavedLoadout");
-	};	
+		//player setUnitLoadout (_oldUnit getVariable "SavedLoadout");
+	//};	
 
 	waitUntil { !visibleMap OR !isNil "choosenBuilding" };
 		

@@ -15,7 +15,7 @@ _PCivilians = "PCivilians" call BIS_fnc_getParamValue;
 
 if (_PCivilians isEqualTo 1) exitWith {};
 		
-if !(_PCivilians isEqualTo 1) then {
+if ((_PCivilians isEqualTo 2) or (_PCivilians isEqualTo 3) or (_PCivilians isEqualTo 4)) then {
 	
 if (isnil "SERVER") then {Hint "You must ADD a object named SERVER";Player Sidechat "You must ADD a object named SERVER";}else{
 if (isServer) then {
@@ -194,6 +194,10 @@ null=[] execVM "COS\localScript.sqf";// This shows messages for players during m
 };
 };
 };
+
+_PCivilians = "PCivilians" call BIS_fnc_getParamValue;
+
+if (_PCivilians isEqualTo 2) exitWith {};
 	
 if ((_PCivilians isEqualTo 3) or (_PCivilians isEqualTo 4)) then {
 	
@@ -318,12 +322,12 @@ switch (side player) do
 			["task1", "CREATED",true] spawn BIS_fnc_taskSetState;
 			waitUntil{ ((missionNamespace getVariable "StoryLines") isEqualTo []) };
 			["task1", "SUCCEEDED",true] spawn BIS_fnc_taskSetState;
-//				Civilian setFriend [East, 1];
-//				East setFriend [Civilian, 1];
-//				Civilian setFriend [West, 1];
-//				West setFriend [Civilian, 1];
-//				Civilian setFriend [Resistance, 1];
-//				Resistance setFriend [Civilian, 1];
+				Civilian setFriend [East, 0];
+				East setFriend [Civilian, 0];
+				Civilian setFriend [West, 0];
+				West setFriend [Civilian, 0];
+				Civilian setFriend [Resistance, 0];
+				Resistance setFriend [Civilian, 0];
 			};
 
 			waitUntil { sleep 1; (("task1" call BIS_fnc_taskState == "SUCCEEDED") isEqualTo true) };
@@ -340,12 +344,12 @@ switch (side player) do
 			["task1", "CREATED",true] spawn BIS_fnc_taskSetState;
 			waitUntil{ ((missionNamespace getVariable "StoryLines") isEqualTo []) };
 			["task1", "SUCCEEDED",true] spawn BIS_fnc_taskSetState;
-//				Civilian setFriend [East, 1];
-//				East setFriend [Civilian, 1];
-//				Civilian setFriend [West, 1];
-//				West setFriend [Civilian, 1];
-//				Civilian setFriend [Resistance, 1];
-//				Resistance setFriend [Civilian, 1];
+				Civilian setFriend [East, 0];
+				East setFriend [Civilian, 0];
+				Civilian setFriend [West, 0];
+				West setFriend [Civilian, 0];
+				Civilian setFriend [Resistance, 0];
+				Resistance setFriend [Civilian, 0];
 			};
 
 			waitUntil { sleep 1; (("task1" call BIS_fnc_taskState == "SUCCEEDED") isEqualTo true) };
@@ -362,12 +366,12 @@ switch (side player) do
 			["task1", "CREATED",true] spawn BIS_fnc_taskSetState;
 			waitUntil{ ((missionNamespace getVariable "StoryLines") isEqualTo []) };
 			["task1", "SUCCEEDED",true] spawn BIS_fnc_taskSetState;
-//				Civilian setFriend [East, 1];
-//				East setFriend [Civilian, 1];
-//				Civilian setFriend [West, 1];
-//				West setFriend [Civilian, 1];
-//				Civilian setFriend [Resistance, 1];
-//				Resistance setFriend [Civilian, 1];
+				Civilian setFriend [East, 0];
+				East setFriend [Civilian, 0];
+				Civilian setFriend [West, 0];
+				West setFriend [Civilian, 0];
+				Civilian setFriend [Resistance, 0];
+				Resistance setFriend [Civilian, 0];
 			};
 
 			waitUntil { sleep 1; (("task1" call BIS_fnc_taskState == "SUCCEEDED") isEqualTo true) };
@@ -384,12 +388,12 @@ switch (side player) do
 			["task1", "CREATED",true] spawn BIS_fnc_taskSetState;
 			waitUntil{ ((missionNamespace getVariable "StoryLines") isEqualTo []) };
 			["task1", "CANCELED",true] spawn BIS_fnc_taskSetState;
-//				Civilian setFriend [East, 1];
-//				East setFriend [Civilian, 1];
-//				Civilian setFriend [West, 1];
-//				West setFriend [Civilian, 1];
-//				Civilian setFriend [Resistance, 1];
-//				Resistance setFriend [Civilian, 1];
+				Civilian setFriend [East, 0];
+				East setFriend [Civilian, 0];
+				Civilian setFriend [West, 0];
+				West setFriend [Civilian, 0];
+				Civilian setFriend [Resistance, 0];
+				Resistance setFriend [Civilian, 0];
 			};
 
 			waitUntil { sleep 1; (("task1" call BIS_fnc_taskState == "CANCELED") isEqualTo true) };
@@ -402,14 +406,15 @@ switch (side player) do
 };	
 };
 
+_PCivilians = "PCivilians" call BIS_fnc_getParamValue;
+
+if (_PCivilians isEqualTo 3) exitWith {};
+
 if (_PCivilians isEqualTo 4) then {
 	
 	[playerSide, "HQ"] commandChat "Initiating Armed Civilians!";
 
-	civilian_presence_module execVM "ParamsPlus\Civilian_Presense.sqf";
+	civilian_presence_module execVM "ParamsPlus\Armed_Civilian_Presense.sqf";
 	
-} else {
-	
-	[playerSide, "HQ"] commandChat "Initiating Armed Civilians!";
 };
 

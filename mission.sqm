@@ -8,22 +8,22 @@ class EditorData
 	toggles=513;
 	class ItemIDProvider
 	{
-		nextID=811;
+		nextID=814;
 	};
 	class MarkerIDProvider
 	{
-		nextID=3;
+		nextID=4;
 	};
 	class LayerIndexProvider
 	{
-		nextID=186;
+		nextID=214;
 	};
 	class Camera
 	{
-		pos[]={14670.479,352.52414,16430.92};
-		dir[]={-6.402674e-006,-0.70710683,0.70710683};
-		up[]={-6.4026744e-006,0.70710671,0.70710683};
-		aside[]={1,4.5474735e-013,9.0547492e-006};
+		pos[]={20858.939,67.796776,7132.0503};
+		dir[]={-0.96635824,-0.24999996,0.060416047};
+		up[]={-0.24951276,0.9682458,0.015599552};
+		aside[]={0.062397968,0,0.99805152};
 	};
 };
 binarizationWanted=0;
@@ -37,13 +37,14 @@ addons[]=
 	"A3_Modules_F_Supports",
 	"A3_Modules_F_Tacops",
 	"A3_Modules_F",
-	"A3_Modules_F_Patrol"
+	"A3_Modules_F_Patrol",
+	"A3_Ui_F_Orange"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=5;
+		items=6;
 		class Item0
 		{
 			className="A3_Characters_F";
@@ -76,6 +77,13 @@ class AddonsMetaData
 		{
 			className="A3_Modules_F_Patrol";
 			name="Arma 3 Patrol - Scripted Modules";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item5
+		{
+			className="A3_Ui_F_Orange";
+			name="Arma 3 Orange - User Interface";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
@@ -153,7 +161,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=67;
+		items=68;
 		class Item0
 		{
 			dataType="Group";
@@ -8302,7 +8310,8 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={20767.711,30.50576,7178.6069};
+				position[]={20770.73,30.431026,7178.3872};
+				angles[]={0.0080009829,0,6.2578578};
 			};
 			name="civ_waypoint_4";
 			areaSize[]={0.1,-1,0.1};
@@ -8489,7 +8498,8 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={20765.854,30.537893,7180.2012};
+				position[]={20764.674,30.544811,7182.874};
+				angles[]={0.0080009829,0,6.2591896};
 			};
 			name="civ_waypoint_5";
 			areaSize[]={0.1,-1,0.1};
@@ -9251,14 +9261,15 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={20834.311,28.797087,7236.9766};
-				angles[]={0.029324362,0,0.012000273};
+				position[]={20834.311,28.797071,7236.9771};
+				angles[]={0.029321531,0,0.012007865};
 			};
 			name="civilian_presence_module";
 			areaSize[]={100,-1,100};
 			flags=1;
 			id=810;
 			type="ModuleCivilianPresence_F";
+			atlOffset=-1.9073486e-006;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -9371,12 +9382,22 @@ class Mission
 									"STRING"
 								};
 							};
-							value="_this execVM ""ParamsPlus\Civilian_Presense.sqf"";";
+							value="";
 						};
 					};
 				};
 				nAttributes=6;
 			};
+		};
+		class Item67
+		{
+			dataType="Marker";
+			position[]={20803.938,28.445,7249.499};
+			name="marker_3";
+			text="Civilian Town";
+			type="loc_CivilDefense";
+			id=813;
+			atlOffset=-0.00043296814;
 		};
 	};
 	class Connections

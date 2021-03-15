@@ -75,6 +75,11 @@ switch (_PLoadOut) do
 							
 						};
 						case (side _unit isEqualTo CIVILIAN) :  {
+							
+							_PCivilians = "PCivilians" call BIS_fnc_getParamValue;
+							if (_PCivilians isEqualTo 1) exitWith {};
+							if (_PCivilians isEqualTo 2) exitWith {};
+							if (_PCivilians isEqualTo 3) exitWith {};
 						
 							if (((dayTime > ((date call BIS_fnc_sunriseSunsetTime) select 0) - 0.5) && (dayTime < ((date call BIS_fnc_sunriseSunsetTime) select 1) + 0.5)) isEqualTo false) then {_unit action ["nvGoggles", _unit]};
 
@@ -119,7 +124,12 @@ switch (_PLoadOut) do
 							_unit execVM "paramsplus\loadouts_r.sqf";
 						};
 						case (side _unit isEqualTo CIVILIAN) :  {
-						
+
+							_PCivilians = "PCivilians" call BIS_fnc_getParamValue;
+							if (_PCivilians isEqualTo 1) exitWith {};
+							if (_PCivilians isEqualTo 2) exitWith {};
+							if (_PCivilians isEqualTo 3) exitWith {};
+													
 							_unit execVM "paramsplus\loadouts_c.sqf";	
 						};
 					};		
@@ -148,7 +158,12 @@ switch (_PLoadOut) do
 							_unit execVM "paramsplus\loadouts_r_diver.sqf";
 						};
 						case (side _unit isEqualTo CIVILIAN) :  {
-						
+
+							_PCivilians = "PCivilians" call BIS_fnc_getParamValue;
+							if (_PCivilians isEqualTo 1) exitWith {};
+							if (_PCivilians isEqualTo 2) exitWith {};
+							if (_PCivilians isEqualTo 3) exitWith {};
+													
 							_unit execVM "paramsplus\loadouts_c.sqf";	
 						};
 					};		

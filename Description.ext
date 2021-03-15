@@ -117,7 +117,7 @@ class Params
 	{ 
         	title = "Civilians";
         	values[] = {1, 2, 3, 4};
-        	texts[] = {"None","Unarmed","Unarmed & Talkative","Armed & Talkative"};
+        	texts[] = {"Civilian Town Only","Island_Wide & Unarmed","Island_Wide, Unarmed & Talkative","Island_Wide, Armed & Talkative"};
         	default = 1;
        	file = "cos\cosInit.sqf";
         	isGlobal = 0;

@@ -195,8 +195,6 @@ null=[] execVM "COS\localScript.sqf";// This shows messages for players during m
 };
 };
 
-_PCivilians = "PCivilians" call BIS_fnc_getParamValue;
-
 if (_PCivilians isEqualTo 2) exitWith {};
 	
 if ((_PCivilians isEqualTo 3) or (_PCivilians isEqualTo 4)) then {
@@ -405,7 +403,7 @@ switch (side player) do
 		};
 };	
 };
-
+/*
 _PCivilians = "PCivilians" call BIS_fnc_getParamValue;
 
 if (_PCivilians isEqualTo 3) exitWith {};
@@ -417,4 +415,4 @@ if (_PCivilians isEqualTo 4) then {
 	civilian_presence_module execVM "ParamsPlus\Armed_Civilian_Presense.sqf";
 	
 };
-
+*/

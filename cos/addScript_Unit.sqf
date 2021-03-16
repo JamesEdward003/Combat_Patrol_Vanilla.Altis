@@ -6,7 +6,14 @@ _unit = unit. Refer to Unit as _unit.
 */
 
 _unit =_this;
-_unit execVM "ParamsPlus\loadouts_c_weapons.sqf";
+//_unit execVM "ParamsPlus\loadouts_c_weapons.sqf";
+
+_PCivilians = "PCivilians" call BIS_fnc_getParamValue;
+
+if (_PCivilians isEqualTo 2) exitWith {};
+	
+if ((_PCivilians isEqualTo 3) or (_PCivilians isEqualTo 4)) then {
+
 _unit addAction ["Hello", {
 _message = selectRandom [ 
 "I would kill for a Nobel Peace Prize.", 
@@ -26,6 +33,15 @@ _message = selectRandom [
 ];
 [_this select 0,_message] remoteExec ["globalChat",0];
 }];
+};
+
+if (_PCivilians isEqualTo 3) exitWith {};
+	
+if (_PCivilians isEqualTo 4) then {
+
+_unit execVM "ParamsPlus\loadouts_c_weapons.sqf";
+
+};
 /*
 player addEventHandler ["GetInMan", {
 	params ["_unit", "_role", "_vehicle", "_turret"];

@@ -44,6 +44,7 @@ _apc = createVehicle [ 'B_APC_Wheeled_01_cannon_F', _pos, [], 0, 'CAN_COLLIDE' ]
 createVehicleCrew _apc;
 {_x setCaptive true} forEach crew _apc;
 _apc addEventHandler ['Fired',{(_this select 0) setvehicleammo 1}];
+_apc addeventhandler ['Killed',{_this execvm 'GarageVehicleEH.sqf'}];
 [_apc] execVM 'paramsplus\vehicleMarker.sqf';
 { _apc deleteVehicleCrew _x } forEach crew _apc;
 
@@ -72,6 +73,7 @@ _apc = createVehicle [ 'B_Heli_Light_01_F', _pos, [], 0, 'CAN_COLLIDE' ];
 createVehicleCrew _apc;
 {_x setCaptive true} forEach crew _apc;
 _apc addEventHandler ['Fired',{(_this select 0) setvehicleammo 1}];
+_apc addeventhandler ['Killed',{_this execvm 'GarageVehicleEH.sqf'}];
 [_apc] execVM 'paramsplus\vehicleMarker.sqf';
 { _apc deleteVehicleCrew _x } forEach crew _apc;
 
@@ -100,6 +102,7 @@ _apc = createVehicle [ 'B_Heli_Light_01_dynamicLoadout_F', _pos, [], 0, 'CAN_COL
 createVehicleCrew _apc;
 {_x setCaptive true} forEach crew _apc;
 _apc addEventHandler ['Fired',{(_this select 0) setvehicleammo 1}];
+_apc addeventhandler ['Killed',{_this execvm 'GarageVehicleEH.sqf'}];
 [_apc] execVM 'paramsplus\vehicleMarker.sqf';
 { _apc deleteVehicleCrew _x } forEach crew _apc;
 

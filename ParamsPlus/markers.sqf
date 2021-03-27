@@ -42,6 +42,14 @@ switch (side _unit) do {
          case civilian:		{_mrkrcolor = "ColorYellow"};
 };
 
+//switch (group _unit) do {
+
+//         case Rambo:		{_mrkrcolor = "Color4_FD_F"};
+//         case Nazari:		{_mrkrcolor = "Color1_FD_F"};
+//         case Rosi:			{_mrkrcolor = "Color5_FD_F"};
+//         case Revolution:	{_mrkrcolor = "Color6_FD_F"};
+//};
+
 //Default	[0,0,0,1]
 //ColorBlack	[0,0,0,1]
 //ColorGrey	[0.5,0.5,0.5,1]
@@ -54,20 +62,25 @@ switch (side _unit) do {
 //ColorBlue	[0,0,1,1]
 //ColorPink	[1,0.3,0.4,1]
 //ColorWhite	[1,1,1,1]
-//ColorWEST	[0,0.3,0.6,1]
-//ColorEAST	[0.5,0,0,1]
-//ColorGUER	[0,0.5,0,1]
-//ColorCIV	[0.4,0,0.5,1]
-//ColorUNKNOWN	[0.7,0.6,0,1]
-//colorBLUFOR	[0,0.3,0.6,1]
-//colorOPFOR	[0.5,0,0,1]
-//colorIndependent	[0,0.5,0,1]
-//colorCivilian	[0.4,0,0.5,1]
-//Color1_FD_F	[0.694118,0.2,0.223529,1]
-//Color2_FD_F	[0.678431,0.74902,0.513726,1]
-//Color3_FD_F	[0.941176,0.509804,0.192157,1]
-//Color4_FD_F	[0.403922,0.545098,0.607843,1]
-//Color5_FD_F	[0.690196,0.25098,0.654902,1]
+
+//ColorWEST	[0,0.3,0.6,1]-Light Blue
+//ColorEAST	[0.5,0,0,1]-Red
+//ColorGUER	[0,0.5,0,1]-Green
+//ColorCIV	[0.4,0,0.5,1]-Dark Pink
+//ColorUNKNOWN	[0.7,0.6,0,1]-Light Orange
+
+//colorBLUFOR	[0,0.3,0.6,1]-Blue
+//colorOPFOR	[0.5,0,0,1]-Red
+//colorIndependent	[0,0.5,0,1]-Green
+//colorCivilian	[0.4,0,0.5,1]-Yellow
+
+//Color1_FD_F	[0.694118,0.2,0.223529,1]-Red
+//Color2_FD_F	[0.678431,0.74902,0.513726,1]-Light Green
+//Color3_FD_F	[0.941176,0.509804,0.192157,1]-Orange
+//Color4_FD_F	[0.403922,0.545098,0.607843,1]-Light Blue
+//Color5_FD_F	[0.690196,0.25098,0.654902,1]-Pink
+//Color6_FD_F	[0.352941,0.34902,0.352941,1]-Grey
+//Color8_FD_F	[1,1,1,1]-White
 
 	_mrkrCnt = _unit getVariable "markerGroup";	
 	_mrkrname = format ["%1_%2",_varname,_mrkrCnt];
@@ -79,25 +92,46 @@ switch (side _unit) do {
 	_mrkr setMarkerColorLocal _mrkrcolor;
 
 
-	if ((_grp == "Rambo") isEqualTo true) then {
-		_mrkr setMarkerColor "Color4_FD_F";
+	if ((group _unit == Rambo) isEqualTo true) then {
+		_mrkr setMarkerColorLocal "Color4_FD_F";
 	};
-	if ((_grp == "Jester") isEqualTo true) then {
-		_mrkr setMarkerColor "ColorKhaki";
+	if ((group _unit == Snake) isEqualTo true) then {
+		_mrkr setMarkerColorLocal "Color4_FD_F";
 	};
-//	if (_grp isEqualTo "Revolution") then {
-//		_mrkr setMarkerColor "ColorGreen";
-//	}; 
-//	if (_grp isEqualTo "Namdar") then {
-//		_mrkr setMarkerColor "ColorRed";
-//	};
-//	if (_grp isEqualTo "GreyWolf") then {
-//		_mrkr setMarkerColor "ColorGrey";
-//	};
-//	if (_grp isEqualTo "Nomad") then {
-//		_mrkr setMarkerColor "ColorWhite";
-//	};
-
+	if ((group _unit == Viper) isEqualTo true) then {
+		_mrkr setMarkerColorLocal "Color4_FD_F";
+	};
+	
+	if ((group _unit == Nazari) isEqualTo true) then {
+		_mrkr setMarkerColorLocal "Color1_FD_F";
+	};
+	if ((group _unit == Namdar) isEqualTo true) then {
+		_mrkr setMarkerColorLocal "Color1_FD_F";
+	};
+	if ((group _unit == Attar) isEqualTo true) then {
+		_mrkr setMarkerColorLocal "Color1_FD_F";
+	};
+	
+	if ((group _unit == Rosi) isEqualTo true) then {
+		_mrkr setMarkerColorLocal "Color2_FD_F";
+	};
+	if ((group _unit == Griffin) isEqualTo true) then {
+		_mrkr setMarkerColorLocal "Color2_FD_F";
+	};
+	if ((group _unit == Hladik) isEqualTo true) then {
+		_mrkr setMarkerColorLocal "Color2_FD_F";
+	};
+		
+	if ((group _unit == Revolution) isEqualTo true) then {
+		_mrkr setMarkerColorLocal "Color5_FD_F";
+	}; 
+	if ((group _unit == Jester) isEqualTo true) then {
+		_mrkr setMarkerColorLocal "Color5_FD_F";
+	};
+	if ((group _unit == Cosmos) isEqualTo true) then {
+		_mrkr setMarkerColorLocal "Color5_FD_F";
+	};
+	
 scopeName "main";
 while {(getDammage _unit) < .3} do {
 	scopeName "loop1";

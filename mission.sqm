@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=226;
+		nextID=246;
 	};
 	class Camera
 	{
-		pos[]={20976.727,77.582199,7131.9526};
-		dir[]={-0.79712492,-0.24999996,0.54962718};
-		up[]={-0.20581679,0.9682458,0.14191338};
-		aside[]={0.56765354,0,0.82326776};
+		pos[]={14720.425,793.65582,16341.799};
+		dir[]={-1.2363449e-007,-0.70710683,0.70710683};
+		up[]={-1.2363449e-007,0.70710671,0.70710683};
+		aside[]={1,0,1.7484557e-007};
 	};
 };
 binarizationWanted=0;
@@ -2194,8 +2194,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={14632.901,17.995031,16715.41};
-						angles[]={0,5.5258765,0};
+						position[]={14632.901,17.995438,16715.41};
+						angles[]={0,5.5258694,0};
 					};
 					side="West";
 					flags=7;
@@ -2210,7 +2210,7 @@ class Mission
 					};
 					id=188;
 					type="B_Captain_Pettka_F";
-					atlOffset=0.083593369;
+					atlOffset=0.083999634;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -2336,7 +2336,7 @@ class Mission
 				name="Snake";
 			};
 			id=187;
-			atlOffset=0.083593369;
+			atlOffset=0.083999634;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -2384,7 +2384,7 @@ class Mission
 						rank="MAJOR";
 						init="call{{doStop _x} forEach (units this);}";
 						name="Nazari_1";
-						description="Nazari_1  -  Team Leader";
+						description="Nazari  -  Team Leader";
 						isPlayable=1;
 					};
 					id=212;
@@ -3183,6 +3183,7 @@ class Mission
 			};
 			class Attributes
 			{
+				name="Nazari";
 				garbageCollect=1;
 			};
 			id=211;
@@ -5946,8 +5947,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={26750.604,20.826637,24617.867};
-						angles[]={0,2.2711444,0};
+						position[]={26750.604,20.826227,24617.867};
+						angles[]={0,2.2711446,0};
 					};
 					side="East";
 					flags=7;
@@ -5955,13 +5956,13 @@ class Mission
 					{
 						skill=0.89697134;
 						rank="COLONEL";
-						name="Namdar";
-						description="Namdar  -  Commander";
+						name="Namdar_1";
+						description="Colonel Namdar  -  Commander";
 						isPlayable=1;
 					};
 					id=294;
 					type="O_Story_Colonel_F";
-					atlOffset=0.14340973;
+					atlOffset=0.14299965;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -6027,9 +6028,10 @@ class Mission
 			};
 			class Attributes
 			{
+				name="Namdar";
 			};
 			id=293;
-			atlOffset=0.14340973;
+			atlOffset=0.14299965;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -6066,8 +6068,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={26748.316,21.047375,24614.832};
-						angles[]={0,2.2711444,0};
+						position[]={26748.316,21.047825,24614.83};
+						angles[]={0,2.2711446,0};
 					};
 					side="East";
 					flags=3;
@@ -6075,13 +6077,13 @@ class Mission
 					{
 						skill=1;
 						rank="COLONEL";
-						name="Attar";
-						description="Attar  -  CEO";
+						name="Attar_1";
+						description="Colonel Attar  -  CEO";
 						isPlayable=1;
 					};
 					id=296;
 					type="O_Story_CEO_F";
-					atlOffset=0.42058945;
+					atlOffset=0.42099762;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -6147,9 +6149,10 @@ class Mission
 			};
 			class Attributes
 			{
+				name="Attar";
 			};
 			id=295;
-			atlOffset=0.42058945;
+			atlOffset=0.42099762;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -7893,6 +7896,7 @@ class Mission
 			};
 			class Attributes
 			{
+				name="Revolution";
 			};
 			id=321;
 			atlOffset=-1.9073486e-006;
@@ -8061,8 +8065,8 @@ class Mission
 					{
 						skill=0.90147156;
 						rank="COLONEL";
-						name="Mylonaki";
-						description="Jester  -  CEO Civilian Union Altis";
+						name="Jester_1";
+						description="Jester_1  -  CEO Civilian Union Altis";
 						isPlayable=1;
 					};
 					id=343;
@@ -8170,7 +8174,7 @@ class Mission
 			};
 			class Attributes
 			{
-				name="CEO";
+				name="Jester";
 			};
 			id=342;
 			class CustomAttributes
@@ -8190,7 +8194,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="CEO";
+							value="Jester";
 						};
 					};
 				};
@@ -8728,8 +8732,8 @@ class Mission
 					{
 						skill=0.89922148;
 						rank="CAPTAIN";
-						name="Hladik";
-						description="Hladik  -  Medical Supervisor";
+						name="Hladik_1";
+						description="Captain Hladik  -  Medical Supervisor";
 						isPlayable=1;
 					};
 					id=397;
@@ -8856,6 +8860,7 @@ class Mission
 			};
 			class Attributes
 			{
+				name="Hladik";
 			};
 			id=395;
 			class CustomAttributes
@@ -8875,7 +8880,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="Rosi";
+							value="Hladik";
 						};
 					};
 				};
@@ -8903,8 +8908,8 @@ class Mission
 					{
 						skill=0.90147156;
 						rank="CAPTAIN";
-						name="Cosmos";
-						description="Cosmos  -  Pilot Civilian Union Altis";
+						name="Cosmos_1";
+						description="Cosmos _1 -  Pilot Civilian Union Altis";
 						isPlayable=1;
 					};
 					id=400;
@@ -9012,7 +9017,7 @@ class Mission
 			};
 			class Attributes
 			{
-				name="Jester";
+				name="Cosmos";
 			};
 			id=398;
 			class CustomAttributes
@@ -9051,8 +9056,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={14636.963,17.993717,16720.793};
-						angles[]={0,5.5258765,0};
+						position[]={14636.963,17.993439,16720.793};
+						angles[]={0,5.5258694,0};
 					};
 					side="West";
 					flags=6;
@@ -9067,7 +9072,7 @@ class Mission
 					};
 					id=403;
 					type="B_CTRG_soldier_GL_LAT_F";
-					atlOffset=0.082279205;
+					atlOffset=0.082000732;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -9193,7 +9198,7 @@ class Mission
 				name="Viper";
 			};
 			id=401;
-			atlOffset=0.082279205;
+			atlOffset=0.082000732;
 			class CustomAttributes
 			{
 				class Attribute0

@@ -42,7 +42,7 @@ waitUntil {!(isNull (findDisplay 46))};
 
 player addEventHandler ["Respawn", {
 	params ["_unit", "_corpse"];
-	_unit execVM "ParamsPlus\CtrlM_Medic.sqf";
+	_unit execVM "ParamsPlus\CtrlZ_Medic.sqf";
 }];
 
 //hint composeText ["HEAL keypress installed", lineBreak, "Ctrl-M"];

@@ -47,7 +47,7 @@ if (!isNil "choosenBuilding") then {
 	//Remove hint
 	hint "";
 };
-
+/*
 if !(player getVariable ["civSuitPowers_eh",false]) then
 {
 	[
@@ -80,7 +80,7 @@ if !(player getVariable ["civSuitPowers_eh",false]) then
 	] call BIS_fnc_addStackedEventHandler;
 	player setVariable ["civSuitPowers_eh",true];
 };
-
+*/
 
 
 

@@ -19,7 +19,7 @@ switch ((units group _unit) find _unit) do {
 
 	case 0: {	//	GRENADE LAUNCHER/LASERDESIGNATOR
 
-comment "Exported from Arsenal by DIEHARD";
+comment "Exported from Arsenal by RENFRO";
 
 comment "[!] UNIT MUST BE LOCAL [!]";
 if (!local _unit) exitWith {};
@@ -86,13 +86,13 @@ _unit linkItem "B_UavTerminal";
 _unit linkItem "NVGoggles";
 
 comment "Set identity";
-[_unit,"WhiteHead_08","male02eng"] call BIS_fnc_setIdentity;
+[_unit,"WhiteHead_08","male02eng", 1.00, "JarHead"] call BIS_fnc_setIdentity;
 [_unit,"111thID"] call BIS_fnc_setUnitInsignia;
 };
 
 	case 1: {	//	GRENADE LAUNCHER/LASERDESIGNATOR
 
-comment "Exported from Arsenal by DIEHARD";
+comment "Exported from Arsenal by RENFRO";
 
 comment "[!] UNIT MUST BE LOCAL [!]";
 if (!local _unit) exitWith {};
@@ -159,13 +159,13 @@ _unit linkItem "B_UavTerminal";
 _unit linkItem "NVGoggles";
 
 comment "Set identity";
-[_unit,"WhiteHead_08","male09eng"] call BIS_fnc_setIdentity;
+[_unit,"WhiteHead_08","male09eng", 1.00, "JarHead"] call BIS_fnc_setIdentity;
 [_unit,"111thID"] call BIS_fnc_setUnitInsignia;
 };
 
 	case 2: {	//	GRENADE LAUNCHER/LASERDESIGNATOR
 
-comment "Exported from Arsenal by DIEHARD";
+comment "Exported from Arsenal by RENFRO";
 
 comment "[!] UNIT MUST BE LOCAL [!]";
 if (!local _unit) exitWith {};
@@ -232,13 +232,13 @@ _unit linkItem "B_UavTerminal";
 _unit linkItem "NVGoggles";
 
 comment "Set identity";
-[_unit,"WhiteHead_08","male09eng"] call BIS_fnc_setIdentity;
+[_unit,"WhiteHead_08","male09eng", 1.00, "JarHead"] call BIS_fnc_setIdentity;
 [_unit,"111thID"] call BIS_fnc_setUnitInsignia;
 };
 
 	case 3: {	//	GRENADE LAUNCHER/LASERDESIGNATOR
 
-comment "Exported from Arsenal by DIEHARD";
+comment "Exported from Arsenal by RENFRO";
 
 comment "[!] UNIT MUST BE LOCAL [!]";
 if (!local _unit) exitWith {};
@@ -305,13 +305,13 @@ _unit linkItem "B_UavTerminal";
 _unit linkItem "NVGoggles";
 
 comment "Set identity";
-[_unit,"WhiteHead_08","male02eng"] call BIS_fnc_setIdentity;
+[_unit,"WhiteHead_08","male02eng", 1.00, "JarHead"] call BIS_fnc_setIdentity;
 [_unit,"111thID"] call BIS_fnc_setUnitInsignia;
 };
 
-case 4: {	//	GRENADE LAUNCHER/LASERDESIGNATOR
+	case 4: {	//	GRENADE LAUNCHER/LASERDESIGNATOR
 
-comment "Exported from Arsenal by DIEHARD";
+comment "Exported from Arsenal by RENFRO";
 
 comment "[!] UNIT MUST BE LOCAL [!]";
 if (!local _unit) exitWith {};
@@ -374,13 +374,13 @@ _unit linkItem "B_UavTerminal";
 _unit linkItem "NVGoggles";
 
 comment "Set identity";
-[_unit,"WhiteHead_19","male04eng"] call BIS_fnc_setIdentity;
+[_unit,"WhiteHead_19","male04eng", 1.00, "JarHead"] call BIS_fnc_setIdentity;
 [_unit,"111thID"] call BIS_fnc_setUnitInsignia;
 };
 
 	case 5: {	//	GRENADE LAUNCHER/JAVELIN EQUIPPED AUTORIFLEMAN
 	
-comment "Exported from Arsenal by DIEHARD";
+comment "Exported from Arsenal by RENFRO";
 
 comment "[!] UNIT MUST BE LOCAL [!]";
 if (!local _unit) exitWith {};
@@ -441,13 +441,13 @@ _unit linkItem "B_UavTerminal";
 _unit linkItem "NVGoggles";
 
 comment "Set identity";
-[_unit,"WhiteHead_08","male04eng"] call BIS_fnc_setIdentity;
+[_unit,"WhiteHead_08","male04eng", 1.00, "JarHead"] call BIS_fnc_setIdentity;
 [_unit,"111thID"] call BIS_fnc_setUnitInsignia;
 };
 
 	case 6: {
 
-comment "Exported from Arsenal by DIEHARD";
+comment "Exported from Arsenal by RENFRO";
 
 comment "[!] UNIT MUST BE LOCAL [!]";
 if (!local _unit) exitWith {};
@@ -511,13 +511,13 @@ _unit linkItem "B_UavTerminal";
 _unit linkItem "NVGoggles";
 
 comment "Set identity";
-[_unit,"WhiteHead_08","male05eng"] call BIS_fnc_setIdentity;
+[_unit,"WhiteHead_08","male05eng", 1.00, "JarHead"] call BIS_fnc_setIdentity;
 [_unit,"111thID"] call BIS_fnc_setUnitInsignia;
 };
 
 	case 7: {
 
-comment "Exported from Arsenal by DIEHARD";
+comment "Exported from Arsenal by RENFRO";
 
 comment "[!] UNIT MUST BE LOCAL [!]";
 if (!local _unit) exitWith {};
@@ -580,13 +580,13 @@ _unit linkItem "B_UavTerminal";
 _unit linkItem "NVGoggles";
 
 comment "Set identity";
-[_unit,"WhiteHead_08","male08eng"] call BIS_fnc_setIdentity;
+[_unit,"WhiteHead_08","male08eng", 1.00, "JarHead"] call BIS_fnc_setIdentity;
 [_unit,"111thID"] call BIS_fnc_setUnitInsignia;
 };
 
 	case 8: {
 
-comment "Exported from Arsenal by DIEHARD";
+comment "Exported from Arsenal by RENFRO";
 
 comment "[!] UNIT MUST BE LOCAL [!]";
 if (!local _unit) exitWith {};
@@ -649,13 +649,13 @@ _unit linkItem "B_UavTerminal";
 _unit linkItem "NVGoggles";
 
 comment "Set identity";
-[_unit,"WhiteHead_08","male07eng"] call BIS_fnc_setIdentity;
+[_unit,"WhiteHead_08","male07eng", 1.00, "JarHead"] call BIS_fnc_setIdentity;
 [_unit,"111thID"] call BIS_fnc_setUnitInsignia;
 };
 
 	case 9: {
 
-comment "Exported from Arsenal by DIEHARD";
+comment "Exported from Arsenal by RENFRO";
 
 comment "[!] UNIT MUST BE LOCAL [!]";
 if (!local _unit) exitWith {};
@@ -718,13 +718,13 @@ _unit linkItem "B_UavTerminal";
 _unit linkItem "NVGoggles";
 
 comment "Set identity";
-[_unit,"WhiteHead_15","male08eng"] call BIS_fnc_setIdentity;
+[_unit,"WhiteHead_15","male08eng", 1.00, "JarHead"] call BIS_fnc_setIdentity;
 [_unit,"111thID"] call BIS_fnc_setUnitInsignia;
 };
 
 	case 10: {
 
-comment "Exported from Arsenal by DIEHARD";
+comment "Exported from Arsenal by RENFRO";
 
 comment "[!] UNIT MUST BE LOCAL [!]";
 if (!local _unit) exitWith {};
@@ -784,7 +784,7 @@ _unit linkItem "B_UavTerminal";
 _unit linkItem "NVGoggles";
 
 comment "Set identity";
-[_unit,"WhiteHead_17","male09eng"] call BIS_fnc_setIdentity;
+[_unit,"WhiteHead_17","male09eng", 1.00, "JarHead"] call BIS_fnc_setIdentity;
 [_unit,"111thID"] call BIS_fnc_setUnitInsignia;
 };
 
@@ -847,13 +847,13 @@ _unit linkItem "ItemGPS";
 _unit linkItem "NVGoggles";
 
 comment "Set identity";
-[_unit,"WhiteHead_14","male09eng"] call BIS_fnc_setIdentity;
+[_unit,"WhiteHead_14","male09eng", 1.00, "JarHead"] call BIS_fnc_setIdentity;
 [_unit,"111thID"] call BIS_fnc_setUnitInsignia;
 };
 
 	case 12: {
 
-comment "Exported from Arsenal by DIEHARD";
+comment "Exported from Arsenal by RENFRO";
 
 comment "[!] UNIT MUST BE LOCAL [!]";
 if (!local _unit) exitWith {};
@@ -920,13 +920,13 @@ _unit linkItem "B_UavTerminal";
 _unit linkItem "NVGoggles";
 
 comment "Set identity";
-[_unit,"WhiteHead_01","male04eng",1,"Snake"] call BIS_fnc_setIdentity;
+[_unit,"WhiteHead_01","male04eng", 1.00, "JarHead"] call BIS_fnc_setIdentity;
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
 };
 
 	case 13: {
 
-comment "Exported from Arsenal by DIEHARD";
+comment "Exported from Arsenal by RENFRO";
 
 comment "[!] UNIT MUST BE LOCAL [!]";
 if (!local _unit) exitWith {};
@@ -990,13 +990,13 @@ _unit linkItem "B_UavTerminal";
 _unit linkItem "NVGoggles";
 
 comment "Set identity";
-[_unit,"WhiteHead_02","male04eng",1,"Snake"] call BIS_fnc_setIdentity;
+[_unit,"WhiteHead_02","male04eng", 1.00, "JarHead"] call BIS_fnc_setIdentity;
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
 };
 
 	case 14: {
 
-comment "Exported from Arsenal by DIEHARD";
+comment "Exported from Arsenal by RENFRO";
 
 comment "[!] UNIT MUST BE LOCAL [!]";
 if (!local _unit) exitWith {};
@@ -1059,13 +1059,13 @@ _unit linkItem "B_UavTerminal";
 _unit linkItem "NVGoggles";
 
 comment "Set identity";
-[_unit,"WhiteHead_03","male05eng",1,"Snake"] call BIS_fnc_setIdentity;
+[_unit,"WhiteHead_03","male05eng", 1.00, "JarHead"] call BIS_fnc_setIdentity;
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
 };
 
 	case 15: {
 
-comment "Exported from Arsenal by DIEHARD";
+comment "Exported from Arsenal by RENFRO";
 
 comment "[!] UNIT MUST BE LOCAL [!]";
 if (!local _unit) exitWith {};
@@ -1128,13 +1128,13 @@ _unit linkItem "B_UavTerminal";
 _unit linkItem "NVGoggles";
 
 comment "Set identity";
-[_unit,"WhiteHead_04","male06eng",1,"Snake"] call BIS_fnc_setIdentity;
+[_unit,"WhiteHead_04","male06eng", 1.00, "JarHead"] call BIS_fnc_setIdentity;
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
 };
 
 	case 16: {
 
-comment "Exported from Arsenal by DIEHARD";
+comment "Exported from Arsenal by RENFRO";
 
 comment "[!] UNIT MUST BE LOCAL [!]";
 if (!local _unit) exitWith {};
@@ -1194,13 +1194,13 @@ _unit linkItem "B_UavTerminal";
 _unit linkItem "NVGoggles";
 
 comment "Set identity";
-[_unit,"WhiteHead_06","male07eng",1,"Snake"] call BIS_fnc_setIdentity;
+[_unit,"WhiteHead_06","male07eng", 1.00, "JarHead"] call BIS_fnc_setIdentity;
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
 };
 
 	case 17: {
 
-comment "Exported from Arsenal by DIEHARD";
+comment "Exported from Arsenal by RENFRO";
 
 comment "[!] UNIT MUST BE LOCAL [!]";
 if (!local _unit) exitWith {};
@@ -1263,13 +1263,13 @@ _unit linkItem "B_UavTerminal";
 _unit linkItem "NVGoggles";
 
 comment "Set identity";
-[_unit,"WhiteHead_07","male08eng",1,"Snake"] call BIS_fnc_setIdentity;
+[_unit,"WhiteHead_07","male08eng", 1.00, "JarHead"] call BIS_fnc_setIdentity;
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
 };
 
 	case 18: {
 
-comment "Exported from Arsenal by DIEHARD";
+comment "Exported from Arsenal by RENFRO";
 
 comment "[!] UNIT MUST BE LOCAL [!]";
 if (!local _unit) exitWith {};
@@ -1332,7 +1332,7 @@ _unit linkItem "B_UavTerminal";
 _unit linkItem "NVGoggles";
 
 comment "Set identity";
-[_unit,"WhiteHead_08","male09eng",1,"Snake"] call BIS_fnc_setIdentity;
+[_unit,"WhiteHead_08","male09eng", 1.00, "JarHead"] call BIS_fnc_setIdentity;
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
 };
 
@@ -1393,7 +1393,7 @@ _unit linkItem "B_UavTerminal";
 _unit linkItem "NVGoggles";
 
 comment "Set identity";
-[_unit,"WhiteHead_09","male11eng",1,"Snake"] call BIS_fnc_setIdentity;
+[_unit,"WhiteHead_09","male11eng", 1.00, "JarHead"] call BIS_fnc_setIdentity;
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
 };
 
@@ -1457,7 +1457,7 @@ _unit linkItem "B_UavTerminal";
 _unit linkItem "NVGoggles";
 
 comment "Set identity";
-[_unit,"WhiteHead_10","male11eng",1,"Snake"] call BIS_fnc_setIdentity;
+[_unit,"WhiteHead_10","male11eng", 1.00, "JarHead"] call BIS_fnc_setIdentity;
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
 };
 
@@ -1516,7 +1516,7 @@ _unit linkItem "B_UavTerminal";
 _unit linkItem "NVGoggles_INDEP";
 
 comment "Set identity";
-[_unit,"WhiteHead_22_a","male11eng",1,"Snake"] call BIS_fnc_setIdentity;
+[_unit,"WhiteHead_22_a","male11eng", 1.00, "JarHead"] call BIS_fnc_setIdentity;
 [_unit,"Curator"] call BIS_fnc_setUnitInsignia;
 };
 };

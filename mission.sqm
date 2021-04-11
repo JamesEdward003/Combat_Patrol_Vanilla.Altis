@@ -16,14 +16,13 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=254;
+		nextID=262;
 	};
 	class Camera
 	{
 		pos[]={14720.425,793.65582,16341.799};
-		dir[]={-1.2363449e-007,-0.70710683,0.70710683};
-		up[]={-1.2363449e-007,0.70710671,0.70710683};
-		aside[]={1,0,1.7484557e-007};
+		dir[]={0,-0.70710683,0.70710683};
+		up[]={0,0.70710671,0.70710683};
 	};
 };
 binarizationWanted=0;
@@ -943,7 +942,7 @@ class Mission
 				class Attribute0
 				{
 					property="groupID";
-					expression="_this setGroupID [_value];";
+					expression="[_this, _value] call CBA_fnc_setCallsign";
 					class Value
 					{
 						class data
@@ -2342,7 +2341,7 @@ class Mission
 				class Attribute0
 				{
 					property="groupID";
-					expression="_this setGroupID [_value];";
+					expression="[_this, _value] call CBA_fnc_setCallsign";
 					class Value
 					{
 						class data
@@ -2382,9 +2381,9 @@ class Mission
 					{
 						skill=0.89691079;
 						rank="MAJOR";
-						init="call{{doStop _x} forEach (units this);}";
+						init="call{this setName [""Simpl"",""Sabet"",""Simpl Sabet""]; this setGroupID [""Nazari""];{doStop _x} forEach (units this);}";
 						name="Nazari_1";
-						description="Nazari  -  Team Leader";
+						description="Nazari_1  -  Team Leader";
 						isPlayable=1;
 					};
 					id=212;
@@ -2451,6 +2450,25 @@ class Mission
 						};
 						class Attribute3
 						{
+							property="unitName";
+							expression="_this setname _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Simpl Sabet";
+								};
+							};
+						};
+						class Attribute4
+						{
 							property="unitInsignia";
 							expression="[_this,_value] call BIS_fnc_setUnitInsignia;";
 							class Value
@@ -2468,7 +2486,7 @@ class Mission
 								};
 							};
 						};
-						nAttributes=4;
+						nAttributes=5;
 					};
 				};
 				class Item1
@@ -3193,7 +3211,7 @@ class Mission
 				class Attribute0
 				{
 					property="groupID";
-					expression="_this setGroupID [_value];";
+					expression="[_this, _value] call CBA_fnc_setCallsign";
 					class Value
 					{
 						class data
@@ -4930,7 +4948,7 @@ class Mission
 					{
 						skill=0.89922148;
 						rank="MAJOR";
-						init="call{{doStop _x} forEach (units this);}";
+						init="call{this setName [""Militari"",""Gikas"",""Militari Gikas""]; this setGroupID [""Rosi""];{doStop _x} forEach (units this);}";
 						name="Rosi_1";
 						description="Rosi_1  -  Squad Leader";
 						isPlayable=1;
@@ -4999,6 +5017,25 @@ class Mission
 						};
 						class Attribute3
 						{
+							property="unitName";
+							expression="_this setname _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Militari Gikas";
+								};
+							};
+						};
+						class Attribute4
+						{
 							property="unitInsignia";
 							expression="[_this,_value] call BIS_fnc_setUnitInsignia;";
 							class Value
@@ -5016,7 +5053,7 @@ class Mission
 								};
 							};
 						};
-						nAttributes=4;
+						nAttributes=5;
 					};
 				};
 				class Item1
@@ -5759,7 +5796,7 @@ class Mission
 				class Attribute0
 				{
 					property="groupID";
-					expression="_this setGroupID [_value];";
+					expression="[_this, _value] call CBA_fnc_setCallsign";
 					class Value
 					{
 						class data
@@ -5799,8 +5836,9 @@ class Mission
 					{
 						skill=0.89922148;
 						rank="COLONEL";
+						init="call{this setName [""Colin"",""Akhanteros"",""Colin Akhanteros""]; this setGroupID [""Akhanteros""];{doStop _x} forEach (units this);}";
 						name="Akhanteros";
-						description="Colonel Akhanteros";
+						description="Colonel Akhanteros  -  Commander";
 						isPlayable=1;
 					};
 					id=394;
@@ -5916,7 +5954,7 @@ class Mission
 				class Attribute0
 				{
 					property="groupID";
-					expression="_this setGroupID [_value];";
+					expression="[_this, _value] call CBA_fnc_setCallsign";
 					class Value
 					{
 						class data
@@ -5956,6 +5994,7 @@ class Mission
 					{
 						skill=0.89697134;
 						rank="COLONEL";
+						init="call{this setName [""Numsk"",""Namdar"",""Numsk Namdar""]; this setGroupID [""Namdar""];{doStop _x} forEach (units this);}";
 						name="Namdar_1";
 						description="Colonel Namdar  -  Commander";
 						isPlayable=1;
@@ -5986,6 +6025,25 @@ class Mission
 						};
 						class Attribute1
 						{
+							property="unitName";
+							expression="_this setname _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Numsk Namdar";
+								};
+							};
+						};
+						class Attribute2
+						{
 							property="unitInsignia";
 							expression="[_this,_value] call BIS_fnc_setUnitInsignia;";
 							class Value
@@ -6003,7 +6061,7 @@ class Mission
 								};
 							};
 						};
-						class Attribute2
+						class Attribute3
 						{
 							property="face";
 							expression="_this setface _value;";
@@ -6022,7 +6080,7 @@ class Mission
 								};
 							};
 						};
-						nAttributes=3;
+						nAttributes=4;
 					};
 				};
 			};
@@ -6037,7 +6095,7 @@ class Mission
 				class Attribute0
 				{
 					property="groupID";
-					expression="_this setGroupID [_value];";
+					expression="[_this, _value] call CBA_fnc_setCallsign";
 					class Value
 					{
 						class data
@@ -6077,6 +6135,7 @@ class Mission
 					{
 						skill=1;
 						rank="COLONEL";
+						init="call{this setName [""Hussein"",""Attar"",""Hussein Attar""]; this setGroupID [""Attar""];{doStop _x} forEach (units this);}";
 						name="Attar_1";
 						description="Colonel Attar  -  CEO";
 						isPlayable=1;
@@ -6126,6 +6185,25 @@ class Mission
 						};
 						class Attribute2
 						{
+							property="unitName";
+							expression="_this setname _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Hussein Attar";
+								};
+							};
+						};
+						class Attribute3
+						{
 							property="unitInsignia";
 							expression="[_this,_value] call BIS_fnc_setUnitInsignia;";
 							class Value
@@ -6143,7 +6221,7 @@ class Mission
 								};
 							};
 						};
-						nAttributes=3;
+						nAttributes=4;
 					};
 				};
 			};
@@ -6158,7 +6236,7 @@ class Mission
 				class Attribute0
 				{
 					property="groupID";
-					expression="_this setGroupID [_value];";
+					expression="[_this, _value] call CBA_fnc_setCallsign";
 					class Value
 					{
 						class data
@@ -7039,7 +7117,7 @@ class Mission
 					{
 						skill=0.89697134;
 						rank="MAJOR";
-						init="call{{doStop _x} forEach (units this);}";
+						init="call{this setName [""C Nikos"",""C"",""Nikos""]; this setGroupID [""Revolution""];{doStop _x} forEach (units this);}";
 						name="Revolution_1";
 						description="Revolution_1  -  Commander In Chief";
 						isPlayable=1;
@@ -7064,7 +7142,7 @@ class Mission
 											"STRING"
 										};
 									};
-									value="Stranger";
+									value="";
 								};
 							};
 						};
@@ -7905,7 +7983,7 @@ class Mission
 				class Attribute0
 				{
 					property="groupID";
-					expression="_this setGroupID [_value];";
+					expression="[_this, _value] call CBA_fnc_setCallsign";
 					class Value
 					{
 						class data
@@ -8065,6 +8143,7 @@ class Mission
 					{
 						skill=0.90147156;
 						rank="COLONEL";
+						init="call{this setName [""Panos"",""Mylonaki"",""Panos Mylonaki""]; this setGroupID [""Jester""];{doStop _x} forEach (units this);}";
 						name="Jester_1";
 						description="Jester_1  -  CEO Civilian Union Altis";
 						isPlayable=1;
@@ -8182,7 +8261,7 @@ class Mission
 				class Attribute0
 				{
 					property="groupID";
-					expression="_this setGroupID [_value];";
+					expression="[_this, _value] call CBA_fnc_setCallsign";
 					class Value
 					{
 						class data
@@ -8732,6 +8811,7 @@ class Mission
 					{
 						skill=0.89922148;
 						rank="CAPTAIN";
+						init="call{this setName [""Roy"",""Roy Hladik"",""Hladik""]; this setGroupID [""Hladik""];{doStop _x} forEach (units this);}";
 						name="Hladik_1";
 						description="Captain Hladik  -  Medical Supervisor";
 						isPlayable=1;
@@ -8812,7 +8892,7 @@ class Mission
 											"STRING"
 										};
 									};
-									value="Dr Hladik";
+									value="Dr Roy Hladik";
 								};
 							};
 						};
@@ -8868,7 +8948,7 @@ class Mission
 				class Attribute0
 				{
 					property="groupID";
-					expression="_this setGroupID [_value];";
+					expression="[_this, _value] call CBA_fnc_setCallsign";
 					class Value
 					{
 						class data
@@ -8908,6 +8988,7 @@ class Mission
 					{
 						skill=0.90147156;
 						rank="CAPTAIN";
+						init="call{this setName [""Evangelos"",""Cosmos"",""Evangelos Cosmos""]; this setGroupID [""Cosmos""];{doStop _x} forEach (units this);}";
 						name="Cosmos_1";
 						description="Cosmos _1 -  Pilot Civilian Union Altis";
 						isPlayable=1;
@@ -9025,7 +9106,7 @@ class Mission
 				class Attribute0
 				{
 					property="groupID";
-					expression="_this setGroupID [_value];";
+					expression="[_this, _value] call CBA_fnc_setCallsign";
 					class Value
 					{
 						class data
@@ -9204,7 +9285,7 @@ class Mission
 				class Attribute0
 				{
 					property="groupID";
-					expression="_this setGroupID [_value];";
+					expression="[_this, _value] call CBA_fnc_setCallsign";
 					class Value
 					{
 						class data

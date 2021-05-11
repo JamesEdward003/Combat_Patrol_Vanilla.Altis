@@ -73,7 +73,7 @@ execVM "ParamsPlus\nightvision_Group.sqf";
 execVM "ParamsPlus\silencers_Group.sqf";
 execVM "ParamsPlus\markers_Group.sqf";
 execVM "ParamsPlus\regen_health_Group.sqf";
-execVM "ParamsPlus\CtrlM_Medic.sqf";
+execVM "ParamsPlus\CtrlZ_Medic.sqf";
 execVM "ParamsPlus\GiGoEH_Group.sqf";
 execVM "ParamsPlus\RallyPoint_Group.sqf";
 

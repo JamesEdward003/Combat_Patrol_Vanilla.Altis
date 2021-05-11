@@ -1,5 +1,6 @@
 //player addAction [ "New Weapon", { player call fnc_randomWeapon } ];
 //Get all available primary weapons from config
+// execVM "zorilyas_random_loadout/fnc_randomWeapon.sqf";
 allPrimaryWeapons = "
 ( getNumber ( _x >> 'scope' ) isEqualTo 2
 &&

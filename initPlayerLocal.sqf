@@ -44,17 +44,10 @@ if ( isNil{player getVariable "CommReenforcements"} ) then
 	[player,"SpawnReenforcements"] call BIS_fnc_addCommMenuItem;
 	 player setVariable ["CommReenforcements", true];	
 };
-/*
 if ( isNil{player getVariable "CommWindSpeed"} ) then
 {	
 	[player,"WindSpeed"] call BIS_fnc_addCommMenuItem;
 	 player setVariable ["CommWindSpeed", true];	
-};
-*/
-if ( isNil{player getVariable "Zorilya"} ) then
-{	
-	[player,"Zorilya"] call BIS_fnc_addCommMenuItem;
-	 player setVariable ["Zorilya", true];	
 };
 if ( isNil{player getVariable "CommGroupManager"} ) then
 {	

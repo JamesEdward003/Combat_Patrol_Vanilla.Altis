@@ -56,7 +56,7 @@ class Header
 {
 	gameType = Patrol;
 	minPlayers = 1;
-	maxPlayers = 16;
+	maxPlayers = 8;
 };
 
 #include "bon_recruit_units\dialog\common.hpp"

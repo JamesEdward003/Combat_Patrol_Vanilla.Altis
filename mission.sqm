@@ -8,7 +8,7 @@ class EditorData
 	toggles=513;
 	class ItemIDProvider
 	{
-		nextID=814;
+		nextID=815;
 	};
 	class MarkerIDProvider
 	{
@@ -16,7 +16,7 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=298;
+		nextID=318;
 	};
 	class Camera
 	{
@@ -37,13 +37,14 @@ addons[]=
 	"A3_Modules_F_Tacops",
 	"A3_Modules_F",
 	"A3_Modules_F_Patrol",
-	"A3_Ui_F_Orange"
+	"A3_Ui_F_Orange",
+	"A3_Air_F_Jets_Plane_Fighter_01"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=6;
+		items=7;
 		class Item0
 		{
 			className="A3_Characters_F";
@@ -86,7 +87,18 @@ class AddonsMetaData
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
+		class Item6
+		{
+			className="A3_Air_F_Jets";
+			name="Arma 3 Jets - Aircraft";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
 	};
+};
+dlcs[]=
+{
+	"Jets"
 };
 randomSeed=15867596;
 class ScenarioData
@@ -160,7 +172,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=68;
+		items=69;
 		class Item0
 		{
 			dataType="Group";
@@ -9484,6 +9496,23 @@ class Mission
 			type="loc_CivilDefense";
 			id=813;
 			atlOffset=-0.00043296814;
+		};
+		class Item68
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={14996.537,20.375832,16746.107};
+				angles[]={0,2.9146998,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=814;
+			type="B_Plane_Fighter_01_Stealth_F";
+			atlOffset=1.9073486e-006;
 		};
 	};
 	class Connections

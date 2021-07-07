@@ -120,8 +120,7 @@ switch (side _unit) do {
 	};
 	if ((group _unit == Hladik) isEqualTo true) then {
 		_mrkr setMarkerColorLocal "Color2_FD_F";
-	};
-		
+	};		
 	if ((group _unit == Revolution) isEqualTo true) then {
 		_mrkr setMarkerColorLocal "Color5_FD_F";
 	}; 

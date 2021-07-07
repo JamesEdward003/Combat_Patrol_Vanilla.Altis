@@ -1540,11 +1540,11 @@ _unit setVariable ["LoadoutDone", true];
 
 _unit action ["WEAPONONBACK", _unit];
 
-if (isPlayer _unit) then {
+//if (isPlayer _unit) then {
 
-[playerSide, "HQ"] commandChat "Loadouts Done!";
+//[playerSide, "HQ"] commandChat "Loadouts Done!";
 
-};
+//};
 
 
 

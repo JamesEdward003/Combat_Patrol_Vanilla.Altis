@@ -3,43 +3,38 @@ private ["_caller","_position","_target","_is3D","_id"];
 params ["_caller","_position","_target","_is3D","_id"];
 _caller = _this select 0;
 _position = _this select 1;
-_types = ["B_MBT_01_arty_F","O_MBT_02_arty_F","I_Truck_02_MRL_F"];
+_activationDistance = 1000;                  
+_types = ["B_MBT_01_arty_F","O_MBT_02_arty_F","I_Truck_02_MRL_F","I_Truck_02_MRL_F"];
 
 _vehicle = [];
 
 switch (side _caller) do {
 
-         case west:		{_vehicle = (_types select 0)};
-         case east:		{_vehicle = (_types select 1)};
+         case west:			{_vehicle = (_types select 0)};
+         case east:			{_vehicle = (_types select 1)};
          case resistance:	{_vehicle = (_types select 2)};
-         case civilian:	{_vehicle = (_types select 2)};
+         case civilian:		{_vehicle = (_types select 3)};
 };
 
 _mrkrcolor = [];
 
 switch (side _caller) do {
 
-         case west:		{_mrkrcolor = "ColorBLUFOR"};
-         case east:		{_mrkrcolor = "ColorOPFOR"};
+         case west:			{_mrkrcolor = "ColorBLUFOR"};
+         case east:			{_mrkrcolor = "ColorOPFOR"};
          case resistance:	{_mrkrcolor = "ColorGUER"};
-         case civilian:	{_mrkrcolor = "ColorCIV"};
+         case civilian:		{_mrkrcolor = "ColorCIV"};
 };
 
-_spawnPoint = [];
-
-switch (side _caller) do {
-
-         case west:		{_spawnPoint = respawn_vehicle_west};
-         case east:		{_spawnPoint = respawn_vehicle_east};
-         case resistance:	{_spawnPoint = respawn_vehicle_guer};
-         case civilian:	{_spawnPoint = respawn_vehicle_civ};
+if (!isNil {missionNamespace getVariable "ArtilleryInProgress"}) exitWith {
+	hint parseText format["<t size='1.25' color='#ff6161'>Artillery Mission Currently In Progress!</t>"];
 };
-				
+
 if (_position isEqualTo []) then { 
 
 	objective = false;
 	sleep 0.25;
-	openMap true;
+	openmap [true,false];
 	sleep 0.25;
 
 	titleText["Map target", "PLAIN"];
@@ -50,138 +45,108 @@ if (_position isEqualTo []) then {
 		hint parseText format["<t size='1.25' color='#ff6161'>Map target canceled</t>"];
 		titletext ["","plain"];
 		};
-
-	if ((getMarkerPos "Artillery") isEqualTo [0,0,0]) then {deleteMarker "Artillery"};
-	if (!((getMarkerPos "Artillery") isEqualTo [0,0,0])) then {deleteMarker "Artillery"};
 		  
 	_hLand = createMarkerLocal ["Artillery", mappos];
 	_hLand setMarkerTypeLocal "mil_objective";
 	_hLand setMarkerShapeLocal "Icon";
 	_hLand setMarkerTextLocal " Artillery";
-	_hLand setMarkerSizeLocal [1,1];
+	_hLand setMarkerSizeLocal [.5,.5];
+	_hLand setMarkerAlphaLocal .5;
 	_hLand setMarkerColorLocal _mrkrcolor;
 	
 	titletext ["","plain",0.2];
 	hint parseText format["<t size='1.25' color='#44ff00'>Map target successful</t>"];
 	
-	_position = _position;
+	_position = getMarkerPos "Artillery";
 		
 	uisleep 1;
-	openmap false;
+	openmap [false,false];
 
 } else {
-
-	if ((getMarkerPos "Artillery") isEqualTo [0,0,0]) then {deleteMarker "Artillery"};
-	if (!((getMarkerPos "Artillery") isEqualTo [0,0,0])) then {deleteMarker "Artillery"};
 		  
 	_hLand = createMarkerLocal ["Artillery", _position];
 	_hLand setMarkerTypeLocal "mil_objective";
 	_hLand setMarkerShapeLocal "Icon";
 	_hLand setMarkerTextLocal " Artillery";
-	_hLand setMarkerSizeLocal [1,1];
+	_hLand setMarkerSizeLocal [.5,.5];
+	_hLand setMarkerAlphaLocal .5;
 	_hLand setMarkerColorLocal _mrkrcolor;
 	
-	hint parseText format["<t size='1.25' color='#44ff00'>Map objective successful</t>"];
+	hint parseText format["<t size='1.25' color='#44ff00'>Mark target successful</t>"];
 	
 	_position = _position;
 };
+uisleep 4;
 
-if (!alive Arty_One isEqualTo true) then {
-_spawnPos = getPos _spawnPoint;
-_virtualProvider = [_spawnPos, 0, _vehicle, side group player] call BIS_fnc_spawnVehicle;
-Arty_One = _virtualProvider select 0;
-(_virtualProvider select 0) setVehicleVarname "Arty_One";
-(_virtualProvider select 0) setvehicleammo 1;
-Arty_One_Group = _virtualProvider select 2;
-uisleep 1;
+_artillery = [];
+{
+	_arty = createVehicle [ _vehicle, getPos _x, [], 0, "NONE" ];
+	_arty setVehiclePosition [_x modelToWorld [0,-1,((getPosASLW _x) select 2)], [], 0, "CAN_COLLIDE"];
+	createVehicleCrew _arty;
+	_artillery pushBack _arty;
+	uisleep 1;
+} forEach [spawnpt1,spawnpt2,spawnpt3];
 
-hint format ["%1",currentMagazine Arty_One]; //(_virtualProvider select 0)
-uisleep 1;
+missionNamespace setVariable ["ArtilleryInProgress",true];
 
-Arty_One commandArtilleryFire [[_position], "32Rnd_155mm_Mo_shells", 8];
-uisleep 1;
+if (_artillery isEqualTo []) exitWith {deleteMarker "Artillery";missionNamespace setVariable ["ArtilleryInProgress",nil];_caller sidechat "Artillery Malfunction!"};
 
-if (_position inRangeOfArtillery [[Arty_One], currentMagazine Arty_One]) then {
-
-["[SUPPORTS] Spawned %1", typeOf Arty_One] call BIS_fnc_logFormat;
-private _future = time + 2;
-waitUntil { time >= _future };
-_virtualProviderUnit = leader Arty_One_Group;
-private _future = time + 2;
-waitUntil { time >= _future };
-_caller sidechat format["%1, %2",Arty_One,Arty_One_Group];
-private _future = time + 2;
-waitUntil { time >= _future };
-_caller sidechat format ["Target In Range: %1", _position inRangeOfArtillery [[Arty_One], currentMagazine Arty_One]];
-private _future = time + 2;
-waitUntil { time >= _future };
-_caller sidechat format ["Artillery ETA Target: %1", Arty_One getArtilleryETA [_position, getArtilleryAmmo [Arty_One] select 0]];
-private _future = time + 2;
-waitUntil { time >= _future };
-_caller sidechat format ["Artillery Ammo: %1", getArtilleryAmmo [Arty_One] select 0];
-private _future = time + 2;
-waitUntil { time >= _future };
-_virtualProviderUnit kbAddTopic ["BIS_SUPP_protocol", "A3\Modules_F\supports\kb\protocol.bikb", "A3\Modules_F\supports\kb\protocol.fsm", {call compile preprocessFileLineNumbers "A3\Modules_F\supports\kb\protocol.sqf"}];
-private _future = time + 2;
-waitUntil { time >= _future };
-_virtualProviderUnit setVariable ["BIS_SUPP_request", ["Artillery", _position]];
-private _future = time + 2;
-waitUntil { time >= _future };
-_virtualProviderUnit setVariable ["BIS_SUPP_selectedProviderVeh", Arty_One];
-private _future = time + 2;
-waitUntil { time >= _future };
-_virtualProviderUnit setVariable ["BIS_SUPP_supporting",true,true];
-private _future = time + 2;
-waitUntil { time >= _future };
-_virtualProviderUnit setVariable ["BIS_SUPP_requester",_caller,true];
-private _future = time + 2;
-waitUntil { time >= _future };
-_virtualProviderUnit setVariable ["BIS_SUPP_supportRunCoords", _position, true];
-private _future = time + 2;
-waitUntil { time >= _future };
-_virtualProviderUnit setVariable ["BIS_SUPP_ammoType", 0];
-private _future = time + 2;
-waitUntil { time >= _future };
-_virtualProviderUnit setVariable ["BIS_SUPP_burst", 12];
-private _future = time + 2;
-waitUntil { time >= _future };
-_virtualProviderUnit setVariable ["BIS_SUPP_supportType","Artillery",true];
-private _future = time + 2;
-waitUntil { time >= _future };
-_virtualProviderUnit execFSM "A3\modules_f\supports\fsms\artillery.fsm";
-private _future = time + 2;
-waitUntil { time >= _future };
-_virtualProviderUnit setVariable ["BIS_SUPP_virtual", true];
-private _future = time + 2;
-waitUntil { time >= _future };
-
-_caller setVariable ["BIS_SUPP_selectedProvider", _virtualProviderUnit];
-private _future = time + 2;
-waitUntil { time >= _future };
-deleteMarker "Artillery";
-
-_deleteVirtual = true;
-
-} else {
-	_caller sidechat "Artillery Target is out of range!"; 
-	
+if (!(allPlayers findIf{ _p = _x; _artillery findIf{ _p distance _x < _activationDistance } > -1 } > -1)) exitWith
+	{hint parseText format["<t size='1.25' color='#ff6161'>Distance caller to target must be less than 1000 meters!</t>"];
 	deleteMarker "Artillery";
-	
-	_deleteVirtual = true;
-	_near_artillery = [];
-	_near_artillery = nearestObjects [player, ["B_MBT_01_arty_F","O_MBT_02_arty_F"], 500];
 
-	if (!(_near_artillery isEqualTo [])) then {
-		for "_i" from 0 to count _near_artillery do {
-		{(_near_artillery select _i) deleteVehicleCrew _x} forEach crew (_near_artillery select _i);
-		deleteVehicle (_near_artillery select _i); 
-		};
+	for "_i" from 0 to count _artillery do {
+	{(_artillery select _i) deleteVehicleCrew _x} forEach crew (_artillery select _i);
+	deleteVehicle (_artillery select _i); 
 	};
+	missionNamespace setVariable ["ArtilleryInProgress",nil];	
 };
 
-//[(_virtualProvider select 0),_position,"32Rnd_155mm_Mo_shells",100,24,10] spawn BIS_fnc_fireSupport;
+if (_position inRangeOfArtillery [[(_artillery select 0)], currentMagazine (_artillery select 0)]) then {
+	_caller sidechat format ["Target In Range: %1", _position inRangeOfArtillery [[(_artillery select 0)], currentMagazine (_artillery select 0)]];
+	uisleep 4;
+	{
+		_x setVehicleAmmo 1;
+		_amount = _x ammo (currentWeapon _x);
+		_shotsFired = floor (random _amount);
+		if (_shotsFired < 3) then {_shotsFired = 3};
+		_ammo = (getArtilleryAmmo [_x] select 0);
+		_smokePos = [_position select 0, _position select 1, ((_position select 2) + 10)];
+		_redSmoke = createVehicle ["SmokeShellRed", _smokePos, [], 10, "NONE"];
+		_x commandArtilleryFire [_position, _ammo, _shotsFired];
+	} forEach _artillery;
+	(_artillery select 0) call KS_fnc_vehicleRespawnNotification;
+	uisleep 2;
+	_caller sidechat "Artillery Rounds Firing!"; 
+	uisleep 6;
+	_caller sidechat format ["Artillery Ammo: %1", (getArtilleryAmmo [_artillery select 0] select 0)];
+	uisleep 2;
+	_caller sidechat format ["Artillery ETA Target: %1", (_artillery select 0) getArtilleryETA [_position, getArtilleryAmmo [(_artillery select 0)] select 0]];
+	uisleep 16;
+	_caller sidechat "Artillery Rounds Fired!"; 
+	uisleep 16;
 
-//[[_position, "32Rnd_155mm_Mo_shells", 100, 24, 10] spawn BIS_fnc_fireSupportVirtual;
+	deleteMarker "Artillery";
 
-//[_position,"AT_Mine_155mm_AMOS_range",300,6400,10,nil, 32,4900, 150] spawn BIS_fnc_fireSupportVirtual;
+	for "_i" from 0 to count _artillery do {
+	{(_artillery select _i) deleteVehicleCrew _x} forEach crew (_artillery select _i);
+	deleteVehicle (_artillery select _i); 
+	};
+	missionNamespace setVariable ["ArtilleryInProgress",nil];
+
+	_caller sidechat "Artillery Ready For ReAssignment!";
+
+} else {
+	_caller sidechat format ["Target In Range: %1", _position inRangeOfArtillery [[(_artillery select 0)], currentMagazine (_artillery select 0)]];
+
+		deleteMarker "Artillery";
+
+		for "_i" from 0 to count _artillery do {
+		{(_artillery select _i) deleteVehicleCrew _x} forEach crew (_artillery select _i);
+		deleteVehicle (_artillery select _i); 
+		};
+		missionNamespace setVariable ["ArtilleryInProgress",nil];
+
+		_caller sidechat "Artillery Ready For ReAssignment!";
+};
 

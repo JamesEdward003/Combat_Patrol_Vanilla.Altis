@@ -315,7 +315,7 @@ comment "Set identity";
 [_unit,"111thID"] call BIS_fnc_setUnitInsignia;
 };
 
-	case "B_Soldier_TL_F": {	//	GRENADE LAUNCHER/LASERDESIGNATOR EQUIPPED TEAM LEADER "B_soldier_AR_F"
+	case "B_Soldier_TL_F": {	//	GRENADE LAUNCHER/LASERDESIGNATOR EQUIPPED TEAM LEADER
 
 comment "Exported from Arsenal by DIEHARD";
 
@@ -388,7 +388,7 @@ comment "Set identity";
 [_unit,"111thID"] call BIS_fnc_setUnitInsignia;
 };
 
-	case "B_soldier_AR_F": {	//	GRENADE LAUNCHER/JAVELIN EQUIPPED AUTORIFLEMAN
+	case "B_soldier_AR_F": {	//	GRENADE LAUNCHER EQUIPPED AUTORIFLEMAN
 	
 comment "Exported from Arsenal by RENFRO";
 
@@ -931,7 +931,7 @@ _unit linkItem "NVGoggles_OPFOR";
 
 comment "Set identity";
 [_unit,"Whitehead_02","male11eng",1,"Snake"] call BIS_fnc_setIdentity;
-[_unit,"Curator"] call BIS_fnc_setUnitInsignia;
+[_unit,"111thID"] call BIS_fnc_setUnitInsignia;
 };
 
 	case "B_CTRG_soldier_GL_LAT_F": {		// NorthGate GL-LAT
@@ -1004,7 +1004,7 @@ _unit linkItem "NVGoggles_OPFOR";
 
 comment "Set identity";
 [_unit,"WhiteHead_18","male01eng","Viper"] call BIS_fnc_setIdentity;
-[_unit,"Curator"] call BIS_fnc_setUnitInsignia;
+[_unit,"111thID"] call BIS_fnc_setUnitInsignia;
 };
 
 	case "B_Story_Protagonist_F": {	//  Kerry 
@@ -1075,7 +1075,7 @@ _unit linkItem "NVGoggles_OPFOR";
 
 comment "Set identity";
 [_unit,"WhiteHead_03","male05eng",1,"Viper"] call BIS_fnc_setIdentity;
-[_unit,"Curator"] call BIS_fnc_setUnitInsignia;
+[_unit,"111thID"] call BIS_fnc_setUnitInsignia;
 };
 
 	case "B_CTRG_soldier_AR_A_F": {	//  McKay - Autorifleman
@@ -1146,7 +1146,7 @@ _unit linkItem "NVGoggles_OPFOR";
 
 comment "Set identity";
 [_unit,"WhiteHead_04","male06eng",1,"Viper"] call BIS_fnc_setIdentity;
-[_unit,"Curator"] call BIS_fnc_setUnitInsignia;
+[_unit,"111thID"] call BIS_fnc_setUnitInsignia;
 };
 
 	case "B_CTRG_soldier_M_medic_F": {		//  James - Combat_Life_Saver
@@ -1217,7 +1217,7 @@ _unit linkItem "NVGoggles_OPFOR";
 
 comment "Set identity";
 [_unit,"WhiteHead_06","male07eng",1,"Viper"] call BIS_fnc_setIdentity;
-[_unit,"Curator"] call BIS_fnc_setUnitInsignia;
+[_unit,"111thID"] call BIS_fnc_setUnitInsignia;
 };
 
 	case "B_CTRG_soldier_engineer_exp_F": {		//  Hardy - Explosives_Specialist
@@ -1288,7 +1288,7 @@ _unit linkItem "NVGoggles_OPFOR";
 
 comment "Set identity";
 [_unit,"WhiteHead_07","male08eng",1,"Viper"] call BIS_fnc_setIdentity;
-[_unit,"Curator"] call BIS_fnc_setUnitInsignia;
+[_unit,"111thID"] call BIS_fnc_setUnitInsignia;
 };
 
 	case "B_Captain_Jay_F": {	//  Captain Jay
@@ -1359,7 +1359,7 @@ _unit linkItem "NVGoggles_OPFOR";
 
 comment "Set identity";
 [_unit,"WhiteHead_08","male09eng",1,"Viper"] call BIS_fnc_setIdentity;
-[_unit,"Curator"] call BIS_fnc_setUnitInsignia;
+[_unit,"111thID"] call BIS_fnc_setUnitInsignia;
 };
 /*
 	case "B_Captain_Dwarden_F": {	//  Dwarden_Dress
@@ -1420,7 +1420,7 @@ _unit linkItem "NVGoggles";
 
 comment "Set identity";
 [_unit,"Dwarden","male11eng",1,"Nomad"] call BIS_fnc_setIdentity; // Dwarden // Default
-[_unit,"Curator"] call BIS_fnc_setUnitInsignia;
+[_unit,"111thID"] call BIS_fnc_setUnitInsignia;
 };
 */
 	case "B_Captain_Dwarden_F": {	//  Dwarden_Scout
@@ -1484,7 +1484,7 @@ _unit linkItem "NVGoggles";
 
 comment "Set identity";
 [_unit,"Dwarden","male11eng",1,"Nomad"] call BIS_fnc_setIdentity; // Dwarden // Default
-[_unit,"Curator"] call BIS_fnc_setUnitInsignia;
+[_unit,"111thID"] call BIS_fnc_setUnitInsignia;
 };
 
 	case "B_Story_SF_Captain_F": {	//  Captain Miller  -  Sharpshooter
@@ -1543,7 +1543,7 @@ _unit linkItem "NVGoggles_INDEP";
 
 comment "Set identity";
 [_unit,"WhiteHead_22_a","male11eng",1,"Ghost"] call BIS_fnc_setIdentity;
-[_unit,"Curator"] call BIS_fnc_setUnitInsignia;
+[_unit,"111thID"] call BIS_fnc_setUnitInsignia;
 };
 };
 

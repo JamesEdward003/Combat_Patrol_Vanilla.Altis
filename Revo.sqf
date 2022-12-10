@@ -4,6 +4,7 @@
 	Description:
 	Retrieves loadout of unit and formats it for CfgRespawnLoadouts. Content is copied to clipboard and returned by function.
 	[_x] execVM "Revo.sqf";
+	
 	Parameter(s):
 	0: Object - Object to take the loadout from
 	1: String - Class name of the respawn loadout

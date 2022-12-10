@@ -1,16 +1,16 @@
-// "ParamsPlus\UnlimitedAmmo_Group.sqf" //
-private ["_unit","_PUA"];
-_PUA = "PUA" call BIS_fnc_getParamValue;
-if (_PUA isEqualTo 1) exitWith {};
+// "UnlimitedAmmo_Group.sqf" //
+private ["_unit","_BI_CP_UnlimitedAmmo"];
+_BI_CP_UnlimitedAmmo = "BI_CP_UnlimitedAmmo" call BIS_fnc_getParamValue;
+if (_BI_CP_UnlimitedAmmo isEqualTo 1) exitWith {};
 
-switch (_PUA) do
+switch (_BI_CP_UnlimitedAmmo) do
 {
 	case 1: {
 		
-			for "_i" from 0 to count (units group player) - 1 do
+			for "_i" from 0 to count (units group _unit) - 1 do
 			
 				{
-					_unit = (units group player) select _i;
+					_unit = (units group _unit) select _i;
 				
 				switch true do 
 				
@@ -23,7 +23,7 @@ switch (_PUA) do
 
 							if (isPlayer _unit) then {
 
-							[playerSide, "HQ"] commandChat format ["%1, Unlimited Ammo Not Installed!",name _player];
+							[playerSide, "HQ"] commandChat format ["%1, Unlimited Ammo Not Installed!",name _unit];
 
 							};
 
@@ -32,44 +32,44 @@ switch (_PUA) do
 						};
 						case (side _unit isEqualTo EAST) :  {
 													
-							_unit execVM "paramsplus\UnlimitedAmmo.sqf";
+							_unit execVM "UnlimitedAmmo.sqf";
 						};
 						case (side _unit isEqualTo RESISTANCE) :  {
 																			
-							_unit execVM "paramsplus\UnlimitedAmmo.sqf";
+							_unit execVM "UnlimitedAmmo.sqf";
 						};
 						case (side _unit isEqualTo CIVILIAN) :  {
 													
-							_unit execVM "paramsplus\UnlimitedAmmo.sqf";
+							_unit execVM "UnlimitedAmmo.sqf";
 						};
 					};		
 				};						
 			};
 	case 2: {	
 					
-			for "_i" from 0 to count (units group player) - 1 do
+			for "_i" from 0 to count (units group _unit) - 1 do
 			
 				{
-					_unit = (units group player) select _i;
+					_unit = (units group _unit) select _i;
 
 				switch true do 
 				
 					{
 						case (side _unit isEqualTo WEST) :  {
 																					
-							_unit execVM "paramsplus\UnlimitedAmmo.sqf";	
+							_unit execVM "UnlimitedAmmo.sqf";	
 						};
 						case (side _unit isEqualTo EAST) :  {
 													
-							_unit execVM "paramsplus\UnlimitedAmmo.sqf";
+							_unit execVM "UnlimitedAmmo.sqf";
 						};
 						case (side _unit isEqualTo RESISTANCE) :  {
 																			
-							_unit execVM "paramsplus\UnlimitedAmmo.sqf";
+							_unit execVM "UnlimitedAmmo.sqf";
 						};
 						case (side _unit isEqualTo CIVILIAN) :  {
 													
-							_unit execVM "paramsplus\UnlimitedAmmo.sqf";
+							_unit execVM "UnlimitedAmmo.sqf";
 						};
 					};		
 				};						
@@ -86,19 +86,19 @@ switch (_PUA) do
 					{
 						case (side _unit isEqualTo WEST) :  {
 													
-							_unit execVM "paramsplus\UnlimitedAmmo.sqf";	
+							_unit execVM "UnlimitedAmmo.sqf";	
 						};
 						case (side _unit isEqualTo EAST) :  {
 													
-							_unit execVM "paramsplus\UnlimitedAmmo.sqf";	
+							_unit execVM "UnlimitedAmmo.sqf";	
 						};
 						case (side _unit isEqualTo RESISTANCE) :  {
 													
-							_unit execVM "paramsplus\UnlimitedAmmo.sqf";
+							_unit execVM "UnlimitedAmmo.sqf";
 						};
 						case (side _unit isEqualTo CIVILIAN) :  {
 													
-							_unit execVM "paramsplus\UnlimitedAmmo.sqf";	
+							_unit execVM "UnlimitedAmmo.sqf";	
 						};
 					};		
 				};	

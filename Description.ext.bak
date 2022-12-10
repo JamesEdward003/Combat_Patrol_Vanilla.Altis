@@ -24,7 +24,7 @@ allowSubordinatesTakeWeapons = 1;
 enableItemsDropping = 0;
 disabledAI = 0;
 
-respawnTemplates[] = { "MenuInventory", "MenuPosition", "Tickets" };
+respawnTemplates[] = { "MenuInventory", "MenuPosition", "Tickets" }; // "MenuInventory",
 
 corpseManagerMode = 1;
 /*
@@ -405,19 +405,19 @@ class Params
     }; 
   	class PSettings
 	{
-        title = "Settings";
+        	title = "Settings";
        	values[] = {1, 2, 3};
-        texts[] = {"Disabled","Units Group Player","All Playable or Switchable Units"};
-        default = 2;
-        file = "ParamsPlus\playerSettings_Group.sqf";
-        isGlobal = 1;
+        	texts[] = {"Disabled","Units Group Player","All Playable or Switchable Units"};
+        	default = 2;
+        	file = "ParamsPlus\playerSettings_Group.sqf";
+        	isGlobal = 1;
 	};  
     class PSaves      
 	{ 
-        title = "Saves";
-        values[] = {1, 2, 3, 4};
-        texts[] = {"Saving Disabled, No Autosave","Saving Disabled, Autosave","Saving Enabled, No Autosave","Saving Enabled, Autosave"};
-        default = 4;
+        	title = "Saves";
+        	values[] = {1, 2, 3, 4};
+        	texts[] = {"Saving Disabled, No Autosave","Saving Disabled, Autosave","Saving Enabled, No Autosave","Saving Enabled, Autosave"};
+        	default = 4;
 		isGlobal = 0;
     };
  	class Param_Loadparams

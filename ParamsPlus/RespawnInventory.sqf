@@ -12,15 +12,15 @@ if (_PRespawnLoadOut isEqualTo 2) exitWith {
 [west, "Squadleader"] call BIS_fnc_addRespawnInventory;
 
 [west, "Marksman"] call BIS_fnc_addRespawnInventory;
-++
-//[west, "PETTKA"] call BIS_fnc_addRespawnInventory;
-//[west, "NORTHGATE"] call BIS_fnc_addRespawnInventory;
-//[west, "KERRY"] call BIS_fnc_addRespawnInventory;
-//[west, "MCKAY"] call BIS_fnc_addRespawnInventory;
-//[west, "JAMES"] call BIS_fnc_addRespawnInventory;
-//[west, "HARDY"] call BIS_fnc_addRespawnInventory;
-//[west, "JAY"] call BIS_fnc_addRespawnInventory;
-//[west, "DWARDEN"] call BIS_fnc_addRespawnInventory;     
+
+//[west, ["PETTKA",1]] call BIS_fnc_addRespawnInventory;
+//[west, ["NORTHGATE",1]] call BIS_fnc_addRespawnInventory;
+//[west, ["KERRY",1]] call BIS_fnc_addRespawnInventory;
+//[west, ["MCKAY",1]] call BIS_fnc_addRespawnInventory;
+//[west, ["JAMES",1]] call BIS_fnc_addRespawnInventory;
+//[west, ["HARDY",1]] call BIS_fnc_addRespawnInventory;
+//[west, ["JAY",1]] call BIS_fnc_addRespawnInventory;
+//[west, ["DWARDEN",1]] call BIS_fnc_addRespawnInventory;     
      
 //[missionNamespace,["PETTKA",1,1]] call BIS_fnc_addRespawnInventory;
 //[missionNamespace,["NORTHGATE",1,1]] call BIS_fnc_addRespawnInventory;

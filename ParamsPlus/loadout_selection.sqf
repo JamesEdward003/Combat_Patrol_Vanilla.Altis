@@ -1,4 +1,4 @@
-/////--"paramsplus\loadout_selection.sqf"--/////
+/////--"paramsplus\loadouts_selection.sqf"--/////
 private ["_unit","_PLoadOut"];
 _PLoadOut = "PLoadOut" call BIS_fnc_getParamValue;
 _PDiverEquip = "PDiverEquip" call BIS_fnc_getParamValue;
@@ -129,9 +129,8 @@ switch (_PLoadOut) do
 							if (_PCivilians isEqualTo 1) exitWith {};
 							if (_PCivilians isEqualTo 2) exitWith {};
 							if (_PCivilians isEqualTo 3) exitWith {};
-							if (_PCivilians isEqualTo 4) then {
+													
 							_unit execVM "paramsplus\loadouts_c.sqf";	
-							};
 						};
 					};		
 				};						
@@ -164,9 +163,8 @@ switch (_PLoadOut) do
 							if (_PCivilians isEqualTo 1) exitWith {};
 							if (_PCivilians isEqualTo 2) exitWith {};
 							if (_PCivilians isEqualTo 3) exitWith {};
-							if (_PCivilians isEqualTo 4) then {
+													
 							_unit execVM "paramsplus\loadouts_c.sqf";	
-							};							
 						};
 					};		
 				};	

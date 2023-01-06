@@ -19,7 +19,7 @@ _unit = _this;
 
 switch (typeOf _unit) do {
 
-	case "c_nikos_aged" : {
+	case "c_nikos" : {
 
 comment "Exported from Arsenal by RENFRO";
 
@@ -571,7 +571,7 @@ _unit linkItem "ItemWatch";
 _unit linkItem "ItemRadio";
 
 comment "Set identity";
-_unit setName ["Militidas Lias","Militidas","Lias"];
+_unit setName ["Harvey Hladik","Harvey","Hladik"];
 [_unit,"","male01gre",1,"Revolution"] call BIS_fnc_setIdentity;
 [_unit,"BI"] call BIS_fnc_setUnitInsignia;
 };
@@ -812,9 +812,9 @@ _unit setVariable ["LoadoutDone", true];
 
 _unit action ["WEAPONONBACK", _unit];
 
-//if (isPlayer _unit) then {
+if (isPlayer _unit) then {
 
-//[playerSide, "HQ"] commandChat "Loadouts Done!"
+[playerSide, "HQ"] commandChat "Loadouts Done!"
 
-//};
+};
 

@@ -82,8 +82,8 @@ switch (side _Player) do
 		_Member		setBehaviour "AWARE";
 		_Member		setCombatMode "YELLOW";
 		_Member		setSpeedMode "FULL";
-		_Member 		setUnitPos "MIDDLE";
-		_Member 		action ["Heal", _Player];
+		_Member 	setUnitPos "MIDDLE";
+		_Member 	action ["Heal", _Player];
 		
 	};	
 
@@ -111,8 +111,8 @@ switch (side _Player) do
 		_Member		setBehaviour "AWARE";
 		_Member		setCombatMode "YELLOW";
 		_Member		setSpeedMode "FULL";
-		_Member 		setUnitPos "MIDDLE";
-		_Member 		action ["HealSoldier", _Player];
+		_Member 	setUnitPos "MIDDLE";
+		_Member 	action ["HealSoldier", _Player];
 		
 		};	
 	

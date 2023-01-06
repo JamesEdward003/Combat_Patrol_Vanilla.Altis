@@ -195,8 +195,6 @@ null=[] execVM "COS\localScript.sqf";// This shows messages for players during m
 };
 };
 
-//execVM "COS\CivBanter.sqf";
-
 if (_PCivilians isEqualTo 2) exitWith {};
 	
 if ((_PCivilians isEqualTo 3) or (_PCivilians isEqualTo 4)) then {
@@ -312,7 +310,7 @@ interrogate = {
 		([_this,_enemy] call BIS_fnc_dirTo) call directionText
 	];
 };
-
+	
 switch (side player) do 
 {
 	case WEST: // BLUFOR task notice goes here
@@ -405,7 +403,7 @@ switch (side player) do
 		};
 };	
 };
-
+/*
 _PCivilians = "PCivilians" call BIS_fnc_getParamValue;
 
 if (_PCivilians isEqualTo 3) exitWith {};
@@ -415,8 +413,6 @@ if (_PCivilians isEqualTo 4) then {
 	[playerSide, "HQ"] commandChat "Initiating Armed Civilians!";
 
 	civilian_presence_module execVM "ParamsPlus\Armed_Civilian_Presense.sqf";
-
-	{if ((side _x) == Civilian) then {_x addRating -10000}} forEach allUnits;
 	
 };
-
+*/

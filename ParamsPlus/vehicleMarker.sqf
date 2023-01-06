@@ -87,7 +87,7 @@ _array = ["slingload_base_f", "reammobox_f"];
 if ((typeOf _vehicle) isKindOf "slingload_base_f" or (typeOf _vehicle) isKindOf "reammobox_f") then {
 	_marker = createMarkerLocal [_mrkrName, position _vehicle];
 	_marker setMarkerTypeLocal _markertype;
-	_marker setMarkerColorLocal _mrkrcolor;
+	_marker setMarkerColorLocal "ColorRed";
 	_marker setMarkerTextLocal _displayname;
 	_marker setMarkerSizeLocal [0.75,0.75];
 	hint parseText format["<t size='1' color='#44ff00'>AmmoBox on the map marker!</t>"];

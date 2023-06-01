@@ -43,7 +43,7 @@ addMissionEventHandler ["Map", {
 
 addMissionEventHandler ["MapSingleClick", {
 	params ["_units", "_pos", "_alt", "_shift"];
-	if (_shift) then {
+	if (_alt) then {
 	deleteVehicle LZ;
 	if ((getMarkerPos "LZ") isEqualTo [0,0,0]) then {deleteMarker "LZ"};
 	if (!((getMarkerPos "LZ") isEqualTo [0,0,0])) then {deleteMarker "LZ"};

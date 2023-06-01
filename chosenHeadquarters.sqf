@@ -3,6 +3,8 @@
 	_exister = _this select 0;
 	_radius = _this select 1;
 
+	missionNamespace setVariable ["availableBuildings",nil];
+	
 	availableBuildings = [];
 	
 	//Create building markers

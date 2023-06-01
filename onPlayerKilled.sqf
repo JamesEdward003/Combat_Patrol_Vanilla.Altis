@@ -44,6 +44,8 @@ if (!isMultiPlayer) then {
 		hint "";
 	} else {		
 		//Delete all markers
+		waitUntil { !isNil "availableBuildings" };
+
 		availableBuildings = ( missionNamespace getVariable "availableBuildings" );
 
 		waitUntil { alive player };

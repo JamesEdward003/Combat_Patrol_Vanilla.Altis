@@ -40,6 +40,10 @@ uisleep 0.25;
 hintSilent "";
 openmap [false,false];
 
+[_unit] execVM "ParamsPlus\altimeter.sqf";
+
+PAPABEAR=[side _unit,"HQ"]; PAPABEAR SideChat format ["Pull the ripcord, %1, before height 300 meters!", name _unit];
+
 unassignVehicle _leader;
 _leader action ["EJECT", _veh];
 uisleep 0.03;
@@ -47,7 +51,7 @@ _leader allowDamage false;
 _leader setPos getMarkerPos "mrkrx";
 [_leader,3000] call BIS_fnc_halo;
 //[_x,2000] exec "ca\air2\halo\data\Scripts\HALO_init.sqs";
-_leader spawn {waitUntil {getPosATL _this select 2 < 300}; _this action ["openParachute"];};
+_leader spawn {waitUntil {getPosATL _this select 2 < 300}; _this action ["openParachute",_this];};
 _leader move (getMarkerPos "mrkrx");
 
 {if (_x != _leader ) then {
@@ -61,11 +65,11 @@ _leader move (getMarkerPos "mrkrx");
 	_x setDir _leadDir;
 	[_x,3000] call BIS_fnc_halo;
 	_x addBackpack "B_Parachute"; 
-	_x spawn {waitUntil {getPosATL _this select 2 < 200}; _this action ["openParachute"];};
+	_x spawn {waitUntil {getPosATL _this select 2 < 200}; _x action ["openParachute",_x];};
 	_x move (getMarkerPos "mrkrx");	
 }} forEach units _group;
 
-//{if (isPlayer _x) then {[_x] execVM "spectator\altimeter.sqf";}} forEach units _group;
+{if (isPlayer _x) then {[_x] execVM "ParamsPlus\altimeter.sqf";}} forEach units _group;
 
 	enableRadio false;
 

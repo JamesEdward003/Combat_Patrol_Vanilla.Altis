@@ -48,7 +48,7 @@ addMissionEventHandler ["TeamSwitch", {
 	params ["_previousUnit", "_newUnit"];
 	_previousUnit enableAI "TeamSwitch";
 }];
-
+/*
 addMissionEventHandler ["GroupIconClick", {
 	params [
 		"_is3D", "_group", "_waypointId",
@@ -58,7 +58,6 @@ addMissionEventHandler ["GroupIconClick", {
 	if (_shift) then {{_x allowDamage false} forEach units _group};
 	if (_alt) then {{_x allowDamage true} forEach units _group};
 }];
-
 addMissionEventHandler ["MarkerCreated", {
 	params ["_marker", "_channelNumber", "_owner", "_local"];
 
@@ -72,13 +71,12 @@ addMissionEventHandler ["MarkerDeleted", {
 	
 	hintSilent parseText format ["<t size='1.25' color='#ff0000'>Marker Deleted</t><br/><br/><t size='1.10'>Marker: %1</t><br/><t size='1.00'>Local: %2</t>", _marker, _local];
 }];
-
 addMissionEventHandler ["MarkerUpdated", {
 	params ["_marker", "_local"];
 	
 	hintSilent parseText format ["<t size='1.25' color='#ff0000'>Marker Updated</t><br/><br/><t size='1.10'>Marker: %1</t><br/><t size='1.00'>Local: %2</t>", _marker, _local];
 }];
-
+*/
 KS_fnc_vehicleRespawnNotification =
 {
 	params [ ["_vehicle", objNull, [objNull]] ];

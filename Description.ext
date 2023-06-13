@@ -133,7 +133,7 @@ class Params
 		title = "Start At Base Station";
 		values[] = {1, 2};
         texts[] = {"Disabled","Enabled"};
-        default = 1;
+        default = 2;
 		isGlobal = 0;
 	};
 	class BIS_CP_objective

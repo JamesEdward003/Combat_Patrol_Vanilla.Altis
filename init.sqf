@@ -1,38 +1,25 @@
-/// init.sqf /// Test 11-23-2020 
+// init.sqf //
 [playerSide, "HQ"] commandChat "Initiating v2.16";
-
-//addMissionEventHandler ["Loaded", {
-//	params ["_saveType"];
-//	"save"
-//}];
-//addMissionEventHandler ["Loaded", {
-//	params ["_saveType"];
-//	"autoSave"
-//}];
-//addMissionEventHandler ["Loaded", {
-//	params ["_saveType"];
-//	"continue"
-//}];
 
 addMissionEventHandler ["EntityKilled", { 
 	params ["_unit", "_killer", "_instigator", "_useEffects"];
 	removeAllActions _unit;
 }];
 
-//addMissionEventHandler ["EntityRespawned", { 
-//	params ["_entity", "_corpse"];
-//	if (!isPlayer _entity) then {
-//	_PRespawnLoadOut = "PRespawnLoadOut" call BIS_fnc_getParamValue;
-//	if (_PRespawnLoadOut isEqualTo 2) then
-//		{
-//			if (isNull _corpse) exitWith {};
-//			_entity setUnitLoadout (getUnitLoadout _corpse);
-//		};
-//		_droppedGear = nearestObjects [_corpse, ["WeaponHolder", "WeaponHolderSimulated", "GroundWeaponHolder"], 10];
-//        	sleep 5;
-//            {deleteVehicle _x} forEach _droppedGear + [_corpse];
-//	};
-//}]; 
+addMissionEventHandler ["EntityRespawned", { 
+	params ["_entity", "_corpse"];
+	if (!isPlayer _entity) then {
+	_PRespawnLoadOut = "PRespawnLoadOut" call BIS_fnc_getParamValue;
+	if (_PRespawnLoadOut isEqualTo 2) then
+		{
+			if (isNull _corpse) exitWith {};
+			_entity setUnitLoadout (getUnitLoadout _corpse);
+		};
+		_droppedGear = nearestObjects [_corpse, ["WeaponHolder", "WeaponHolderSimulated", "GroundWeaponHolder"], 10];
+       	sleep 5;
+           {deleteVehicle _x} forEach _droppedGear + [_corpse];
+	};
+}]; 
 
 addMissionEventHandler ["Map", {
 	params ["_mapIsOpened", "_mapIsForced"];
@@ -71,7 +58,7 @@ addMissionEventHandler ["GroupIconClick", {
 	if (_shift) then {{_x allowDamage false} forEach units _group};
 	if (_alt) then {{_x allowDamage true} forEach units _group};
 }];
-/*
+
 addMissionEventHandler ["MarkerCreated", {
 	params ["_marker", "_channelNumber", "_owner", "_local"];
 
@@ -85,12 +72,12 @@ addMissionEventHandler ["MarkerDeleted", {
 	
 	hintSilent parseText format ["<t size='1.25' color='#ff0000'>Marker Deleted</t><br/><br/><t size='1.10'>Marker: %1</t><br/><t size='1.00'>Local: %2</t>", _marker, _local];
 }];
-*/
-//addMissionEventHandler ["MarkerUpdated", {
-//	params ["_marker", "_local"];
-//	
-//	hintSilent parseText format ["<t size='1.25' color='#ff0000'>Marker Updated</t><br/><br/><t size='1.10'>Marker: %1</t><br/><t size='1.00'>Local: %2</t>", _marker, _local];
-//}];
+
+addMissionEventHandler ["MarkerUpdated", {
+	params ["_marker", "_local"];
+	
+	hintSilent parseText format ["<t size='1.25' color='#ff0000'>Marker Updated</t><br/><br/><t size='1.10'>Marker: %1</t><br/><t size='1.00'>Local: %2</t>", _marker, _local];
+}];
 
 KS_fnc_vehicleRespawnNotification =
 {
@@ -152,8 +139,6 @@ KS_fnc_vehicleRespawnNotification =
 //};
 
 ["Preload"] call BIS_fnc_arsenal;
-	
-//Adjust MARTA MILITARY ICONS distance to be seen from stock distance	
 
 [] spawn {
 	while {true} do {

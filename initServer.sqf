@@ -1,15 +1,19 @@
 /////////////  "initServer.sqf"  ////////////
-// _Base = [playerSide, "PAPA_BEAR"] commandChat "Initiating InitServer!";
+/*
+_Base = [playerSide, "PAPA_BEAR"] commandChat "Initiating InitServer!";
  _CROSSROAD = [playerSide, "HQ"] commandChat "Initiating InitServer!";
-// _Base = [playerSide, "Base"] commandChat "Initiating InitServer!";
-// _Base = [playerSide, "AirBase"] commandChat "Initiating InitServer!";
-// _Broadway = [playerSide, "BLU"] commandChat "Initiating InitServer!";
-// _Griffin = [playerSide, "OPF"] commandChat "Initiating InitServer!";
-// _Phalanx = [playerSide, "IND"] commandChat "Initiating InitServer!";
-// _Slingshot = [playerSide, "IND"] commandChat "Initiating InitServer!";
+_Base = [playerSide, "Base"] commandChat "Initiating InitServer!";
+_Base = [playerSide, "AirBase"] commandChat "Initiating InitServer!";
+_Broadway = [playerSide, "BLU"] commandChat "Initiating InitServer!";
+_Griffin = [playerSide, "OPF"] commandChat "Initiating InitServer!";
+_Phalanx = [playerSide, "IND"] commandChat "Initiating InitServer!";
+_Slingshot = [playerSide, "IND"] commandChat "Initiating InitServer!";
 
-// Headquarters Entity module
-//  BIS_hqWest, BIS_hqEast, BIS_hqGuer
+Headquarters Entity module
+ BIS_hqWest, BIS_hqEast, BIS_hqGuer
+*/
+
+_CROSSROAD = [playerSide, "HQ"] commandChat "Initiating InitServer!";
 
 {if (!( isPlayer _x ) and !(_x in (units group player))) then  {deleteVehicle _x}} forEach (if ismultiplayer then {playableunits} else {switchableunits});
 

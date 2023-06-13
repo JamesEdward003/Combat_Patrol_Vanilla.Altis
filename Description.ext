@@ -114,12 +114,12 @@ class Params
 	};
     class PCivilians      
 	{ 
-        	title = "Civilians";
-        	values[] = {1, 2, 3, 4};
-        	texts[] = {"Civilian Town Only","Island_Wide & Unarmed","Island_Wide, Unarmed & Talkative","Island_Wide, Armed & Talkative"};
-        	default = 1;
+    	title = "Civilians";
+    	values[] = {1, 2, 3, 4};
+    	texts[] = {"Civilian Town Only","Island_Wide & Unarmed","Island_Wide, Unarmed & Talkative","Island_Wide, Armed & Talkative"};
+    	default = 1;
        	file = "cos\cosInit.sqf";
-        	isGlobal = 0;
+        isGlobal = 0;
     };
 	class BIS_CP_locationSelection
 	{
@@ -132,8 +132,8 @@ class Params
 	{
 		title = "Start At Base Station";
 		values[] = {1, 2};
-        	texts[] = {"Disabled","Enabled"};
-        	default = 1;
+        texts[] = {"Disabled","Enabled"};
+        default = 1;
 		isGlobal = 0;
 	};
 	class BIS_CP_objective
@@ -182,12 +182,12 @@ class Params
 	};
 	class Oskill	 
 	{
-        	title = "Opfor Skill";
-        	values[] = {1, 2, 3, 4, 5};
-        	texts[] = {"Rookie", "Recruit", "Veteran", "Expert", "Random"};
-        	default = 3;
+        title = "Opfor Skill";
+        values[] = {1, 2, 3, 4, 5};
+        texts[] = {"Rookie", "Recruit", "Veteran", "Expert", "Random"};
+        default = 3;
        	file = "ParamsPlus\OpSkill.sqf";
-        	isGlobal = 0;
+        isGlobal = 0;
 	};
     class PSymbols       
 	{
@@ -737,31 +737,31 @@ class CfgRespawnInventory
 };
 class Weapons 
 {
-	class srifle_DMR_01_F							{count = 2;};
+	class srifle_DMR_01_F						{count = 2;};
 	class srifle_EBR_F							{count = 2;};
 	class srifle_EBR_DMS_F						{count = 2;};
 	class srifle_GM6_LRPS_F						{count = 2;};
 	class srifle_LRR_LRPS_F						{count = 2;};
 	class LMG_Mk200_MRCO_F						{count = 2;};
-	class Laserdesignator							{count = 2;};
-	class FirstAidKit								{count = 2;};
-	class Medikit									{count = 2;};
-	class Toolkit									{count = 2;};
+	class Laserdesignator						{count = 2;};
+	class FirstAidKit							{count = 2;};
+	class Medikit								{count = 2;};
+	class Toolkit								{count = 2;};
 	class arifle_MX_F 							{count = 2;};
-	class arifle_MX_GL_F 							{count = 2;};
-	class arifle_MX_SW_F 							{count = 2;};
+	class arifle_MX_GL_F 						{count = 2;};
+	class arifle_MX_SW_F 						{count = 2;};
 	class arifle_MXC_F 							{count = 2;};
 	class arifle_MXM_F 							{count = 2;};
-	class arifle_TRG20_F 							{count = 2;};
-	class arifle_TRG21_F 							{count = 2;};
-	class arifle_TRG21_GL_F 						{count = 2;};
-	class hgun_P07_F 								{count = 2;};
+	class arifle_TRG20_F 						{count = 2;};
+	class arifle_TRG21_F 						{count = 2;};
+	class arifle_TRG21_GL_F 					{count = 2;};
+	class hgun_P07_F 							{count = 2;};
 	class LMG_Mk200_F 							{count = 2;};
-	class arifle_SDAR_F 							{count = 2;};
-	class arifle_MX_SW_Black_Hamr_pointer_F 		{count = 2;};
-	class arifle_MX_GL_Black_Hamr_pointer_F 		{count = 2;};
+	class arifle_SDAR_F 						{count = 2;};
+	class arifle_MX_SW_Black_Hamr_pointer_F 	{count = 2;};
+	class arifle_MX_GL_Black_Hamr_pointer_F 	{count = 2;};
 	class launch_NLAW_F							{count = 2;};
-	class launch_RPG32_F							{count = 2;};
+	class launch_RPG32_F						{count = 2;};
 };
 class Magazines 
 {
@@ -770,70 +770,70 @@ class Magazines
 	class 5Rnd_127x108_Mag						{count = 48;};
 	class 5Rnd_127x108_APDS_Mag					{count = 48;};
 	class 7Rnd_408_Mag							{count = 48;};
-	class 20Rnd_556x45_UW_mag 						{count = 24;};
-	class 30Rnd_556x45_Stanag 						{count = 24;};
-	class 30Rnd_65x39_caseless_green 				{count = 24;};
+	class 20Rnd_556x45_UW_mag 					{count = 24;};
+	class 30Rnd_556x45_Stanag 					{count = 24;};
+	class 30Rnd_65x39_caseless_green 			{count = 24;};
 	class 30Rnd_65x39_caseless_green_mag_Tracer 	{count = 24;};
 	class 30Rnd_65x39_caseless_mag 				{count = 24;};
-	class 100Rnd_65x39_caseless_mag 				{count = 12;};
-	class 100Rnd_65x39_caseless_mag_Tracer 			{count = 12;};
-	class 16Rnd_9x21_Mag 							{count = 24;};
-	class 30Rnd_9x21_Mag 							{count = 24;};
-	class 200Rnd_65x39_cased_Box					{count = 12;};
-	class Laserbatteries							{count = 12;};
+	class 100Rnd_65x39_caseless_mag 			{count = 12;};
+	class 100Rnd_65x39_caseless_mag_Tracer 		{count = 12;};
+	class 16Rnd_9x21_Mag 						{count = 24;};
+	class 30Rnd_9x21_Mag 						{count = 24;};
+	class 200Rnd_65x39_cased_Box				{count = 12;};
+	class Laserbatteries						{count = 12;};
 	class HandGrenade_Stone						{count = 48;};
-	class HandGrenade								{count = 48;};
-	class MiniGrenade								{count = 48;};
-	class SmokeShell								{count = 48;};
+	class HandGrenade							{count = 48;};
+	class MiniGrenade							{count = 48;};
+	class SmokeShell							{count = 48;};
 	class SmokeShellYellow						{count = 48;};
-	class SmokeShellGreen							{count = 48;};
+	class SmokeShellGreen						{count = 48;};
 	class SmokeShellRed							{count = 48;};
 	class SmokeShellPurple						{count = 48;};
 	class SmokeShellOrange						{count = 48;};
-	class SmokeShellBlue							{count = 48;};
-	class Chemlight_green							{count = 48;};
+	class SmokeShellBlue						{count = 48;};
+	class Chemlight_green						{count = 48;};
 	class Chemlight_red							{count = 48;};
 	class Chemlight_yellow						{count = 48;};
-	class Chemlight_blue							{count = 48;};
+	class Chemlight_blue						{count = 48;};
 	class B_IR_Grenade							{count = 48;};
 	class O_IR_Grenade							{count = 48;};
 	class I_IR_Grenade							{count = 48;};
-	class O_R_IR_Grenade							{count = 48;};
-	class I_E_IR_Grenade							{count = 48;};
+	class O_R_IR_Grenade						{count = 48;};
+	class I_E_IR_Grenade						{count = 48;};
 	class 1Rnd_HE_Grenade_shell					{count = 48;};
 	class 3Rnd_HE_Grenade_shell					{count = 48;};
 	class UGL_FlareWhite_F						{count = 48;};
 	class UGL_FlareGreen_F						{count = 48;};
-	class UGL_FlareRed_F							{count = 48;};
+	class UGL_FlareRed_F						{count = 48;};
 	class UGL_FlareYellow_F						{count = 48;};
-	class UGL_FlareCIR_F							{count = 48;};
-	class 1Rnd_Smoke_Grenade_shell					{count = 48;};
-	class 1Rnd_SmokeRed_Grenade_shell				{count = 48;};
+	class UGL_FlareCIR_F						{count = 48;};
+	class 1Rnd_Smoke_Grenade_shell				{count = 48;};
+	class 1Rnd_SmokeRed_Grenade_shell			{count = 48;};
 	class 1Rnd_SmokeGreen_Grenade_shell			{count = 48;};
-	class 1Rnd_SmokeYellow_Grenade_shell			{count = 48;};
-	class 1Rnd_SmokePurple_Grenade_shell			{count = 48;};
-	class 1Rnd_SmokeBlue_Grenade_shell				{count = 48;};
-	class 1Rnd_SmokeOrange_Grenade_shell			{count = 48;};
+	class 1Rnd_SmokeYellow_Grenade_shell		{count = 48;};
+	class 1Rnd_SmokePurple_Grenade_shell		{count = 48;};
+	class 1Rnd_SmokeBlue_Grenade_shell			{count = 48;};
+	class 1Rnd_SmokeOrange_Grenade_shell		{count = 48;};
 	class 3Rnd_UGL_FlareWhite_F					{count = 48;};
 	class 3Rnd_UGL_FlareGreen_F					{count = 48;};
-	class 3Rnd_UGL_FlareRed_F						{count = 48;};
-	class 3Rnd_UGL_FlareYellow_F					{count = 48;};
-	class 3Rnd_UGL_FlareCIR_F						{count = 48;};
-	class 3Rnd_Smoke_Grenade_shell					{count = 48;};
-	class 3Rnd_SmokeRed_Grenade_shell				{count = 48;};
+	class 3Rnd_UGL_FlareRed_F					{count = 48;};
+	class 3Rnd_UGL_FlareYellow_F				{count = 48;};
+	class 3Rnd_UGL_FlareCIR_F					{count = 48;};
+	class 3Rnd_Smoke_Grenade_shell				{count = 48;};
+	class 3Rnd_SmokeRed_Grenade_shell			{count = 48;};
 	class 3Rnd_SmokeGreen_Grenade_shell			{count = 48;};
-	class 3Rnd_SmokeYellow_Grenade_shell			{count = 48;};
-	class 3Rnd_SmokePurple_Grenade_shell			{count = 48;};
-	class 3Rnd_SmokeBlue_Grenade_shell				{count = 48;};
-	class 3Rnd_SmokeOrange_Grenade_shell			{count = 48;};
-	class NLAW_F									{count = 48;};
-	class RPG32_F									{count = 48;};
-	class RPG32_HE_F								{count = 48;};
-	class SatchelCharge_Remote_Mag					{count = 48;};
+	class 3Rnd_SmokeYellow_Grenade_shell		{count = 48;};
+	class 3Rnd_SmokePurple_Grenade_shell		{count = 48;};
+	class 3Rnd_SmokeBlue_Grenade_shell			{count = 48;};
+	class 3Rnd_SmokeOrange_Grenade_shell		{count = 48;};
+	class NLAW_F								{count = 48;};
+	class RPG32_F								{count = 48;};
+	class RPG32_HE_F							{count = 48;};
+	class SatchelCharge_Remote_Mag				{count = 48;};
 };
 class Backpacks
 {
-	class V_PlateCarrierL_CTRG						{count = 2;};
+	class V_PlateCarrierL_CTRG					{count = 2;};
 };
 class CfgTaskEnhancements
 {

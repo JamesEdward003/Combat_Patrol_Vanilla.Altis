@@ -54,29 +54,32 @@ if ( isNil{player getVariable "CommGroupManager"} ) then
 	execVM "Group_Manager.sqf";
 	player setVariable ["CommGroupManager", true];	
 };
-//if ( isNil{player getVariable "CommAirLift"} ) then
-//{	
-//    [player,"AirLift"] call BIS_fnc_addCommMenuItem;
-//	 player setVariable ["CommAirLift", true];	
-//};
-//if ( isNil{player getVariable "CommAirSupport"} ) then
-//{	
-//    [player,"AirSupport"] call BIS_fnc_addCommMenuItem;
-//	 player setVariable ["CommAirSupport", true];	
-//};
-//if ( isNil{player getVariable "CommArty"} ) then
-//{	
-//	[player,"Artillery"] call BIS_fnc_addCommMenuItem;
-//	 player setVariable ["CommArty", true];	
-//};
-//if ( isNil{player getVariable "CommMortarBag"} ) then
-//{	
-//	[player,"SpawnMortarBag"] call BIS_fnc_addCommMenuItem;
-//	 player setVariable ["CommMortarBag", true];	
-//};
-//if ( isNil{player getVariable "CommCargo"} ) then
-//{	
-//	[player,"SpawnCargoDrop"] call BIS_fnc_addCommMenuItem;
-//	 player setVariable ["CommCargo", true];	
-//};
+
+/*
+if ( isNil{player getVariable "CommAirLift"} ) then
+{	
+   [player,"AirLift"] call BIS_fnc_addCommMenuItem;
+	 player setVariable ["CommAirLift", true];	
+};
+if ( isNil{player getVariable "CommAirSupport"} ) then
+{	
+   [player,"AirSupport"] call BIS_fnc_addCommMenuItem;
+	 player setVariable ["CommAirSupport", true];	
+};
+if ( isNil{player getVariable "CommArty"} ) then
+{	
+	[player,"Artillery"] call BIS_fnc_addCommMenuItem;
+	 player setVariable ["CommArty", true];	
+};
+if ( isNil{player getVariable "CommMortarBag"} ) then
+{	
+	[player,"SpawnMortarBag"] call BIS_fnc_addCommMenuItem;
+	 player setVariable ["CommMortarBag", true];	
+};
+if ( isNil{player getVariable "CommCargo"} ) then
+{	
+	[player,"SpawnCargoDrop"] call BIS_fnc_addCommMenuItem;
+	 player setVariable ["CommCargo", true];	
+};
+*/
 

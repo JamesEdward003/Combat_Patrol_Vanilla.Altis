@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////
-// 008\flagpoleHALO.sqf
+// 008\HaloPlayer.sqf
 // hint 'Close the map and don''t forget to open your chute!';
 ///////////////////////////////////////////////////////////////
 private ["_mrkrcolor", "_mrkr"];
@@ -51,17 +51,17 @@ titleText["Map location", "PLAIN DOWN"];
 
 uisleep 0.25;
 
-PAPABEAR=[playerSide,"HQ"]; PAPABEAR SideChat format ["Mapclick your HALO position, %1, mark your new destination on the map.",name player];
+hintSilent parseText format ["<t size='1.25' color='#00FFFF'>Mapclick your HALO position</t>"];
+//PAPABEAR=[playerSide,"HQ"]; PAPABEAR SideChat format ["Mapclick your HALO position, %1, mark your new destination on the map.",name player];
 
 onMapSingleClick "onMapSingleClick ''; mappos = _pos; location = true";		
 waitUntil {uisleep 1; (!visiblemap OR location OR !alive player)};
-	if (!location OR !alive _caller) exitWith {
+	if (!location OR !alive player) exitWith {
 	mappos = nil;
 	titletext ["","plain"];
 	PAPABEAR=[playerSide,"HQ"]; PAPABEAR SideChat "HALO location canceled";
 	hintSilent parseText format ["<t size='1.25' color='#ff0000'>HALO location canceled</t>"];
 	};
-	player setPos mappos;
 	
 	_mrkr = createMarkerLocal ["LZ_Halo", mappos];
 	_mrkr setMarkerShapeLocal "ELLIPSE";
@@ -75,17 +75,30 @@ titletext ["","plain"];
 hintSilent parseText format ["<t size='1.25' color='#00FFFF'>Mapclick location successful</t>"];
 uisleep 2;
 hintSilent "";
-[player, 2000] exec 'ca\air2\halo\data\Scripts\HALO_init.sqs';
-[player] execVM 'paramsplus\altimeter.sqf';
+player allowDamage false;
+if (vehicle player == player) then {
+	unassignVehicle leader group player;
+	leader group player action ["EJECT", vehicle player];
+};
+uisleep 0.03;
+player disableConversation true;
+enableRadio false;
+titleCut ["Pull the ripcord before height 300 meters!", "BLACK FADED", 999];
+player setPos mappos;
+[player, 2000] exec "ca\air2\halo\data\Scripts\HALO_init.sqs";
+[player] execVM "paramsplus\altimeter.sqf";
 ["LZ_Halo","LZ_Halo"] spawn MOVE_TASK;
 uisleep 0.5;
 openmap [false,false];
 
-enableRadio false;
+titlecut ["","BLACK IN",5];
 
 PAPABEAR=[playerSide,"HQ"]; PAPABEAR SideChat format ["Pull the ripcord, %1, before height 300 meters!", name player];
 	
 waitUntil {((getPos player) select 2) < 1 || !alive player};
+
+player disableConversation false;
+enableRadio true;
 
 uisleep 6; 
 

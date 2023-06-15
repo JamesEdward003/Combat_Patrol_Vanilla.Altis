@@ -1,5 +1,5 @@
 // init.sqf //
-[playerSide, "HQ"] commandChat "Initiating v2.16";
+[playerSide, "HQ"] commandChat "Initiating v2023.6.14";
 
 addMissionEventHandler ["EntityKilled", { 
 	params ["_unit", "_killer", "_instigator", "_useEffects"];

@@ -1,7 +1,5 @@
 //////     [player] execVM "paramsplus\rallyPoint.sqf";    ///////
 //(_this select 0) addEventHandler ["Respawn",{(_this select 0) execVM "paramsplus\rallyPoint.sqf"}];
-waitUntil {!isNull player && alive player};
-[playerSide, "HQ"] commandChat "RallyPoint Action Install!";
 _unit = _this;
 _actions = actionIDs _unit;
 _array = [];
@@ -93,8 +91,8 @@ Rally_Point = _unit addAction ["<t color='#00FFFF'>Deploy Rally Point</t>", {(_t
 
 if (isPlayer _unit) then {
 
-[playerSide, "HQ"] commandChat "RallyPoint Adjustments Done!";
-[playerSide, "HQ"] commandChat "RallyPoint Action Installed!";
+	[playerSide, "HQ"] commandChat "RallyPoint Adjustments Done!";
+
 };
 	
 			

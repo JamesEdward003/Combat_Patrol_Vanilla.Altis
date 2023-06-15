@@ -109,7 +109,7 @@ titlecut ["","BLACK IN",5];
 	_x move (getMarkerPos "LZ_Halo");	
 }} forEach units group player;
 
-{if (isPlayer _x) then {[_x] execVM "008\altimeter.sqf";}} forEach units group player;
+{if (isPlayer _x) then {[_x] execVM "paramsplus\altimeter.sqf";}} forEach units group player;
 
 waitUntil {((getPos player) select 2) < 1 || !alive player};
 

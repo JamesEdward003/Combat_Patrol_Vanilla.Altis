@@ -7,6 +7,7 @@
 //B_soldier_M_F (Rambo_6)
 //B_medic_F (Rambo_7)
 //B_soldier_LAT_F (Rambo_8)
+waitUntil {!isNull player && alive player};
 private ["_PLoadOutsWeaponsUnit","_PLoadOutsGroupUnit","_PLoadOut","_PDiverEquip","_PRespawnLoadOut"];
 _PLoadOutsWeaponsUnit = "PLoadOutsWeaponsUnit" call BIS_fnc_getParamValue;
 _PLoadOutsGroupUnit = "PLoadOutsGroupUnit" call BIS_fnc_getParamValue;

@@ -7,18 +7,16 @@ waitUntil { !(isNil {_player getVariable "LoadoutDone"}) };
 private _future = time + 1;
 waitUntil { time >= _future };
 
-_puavhacker	= paramsArray select 33;
-_pengineer	= paramsArray select 34;
-_pexplspec	= paramsArray select 35;
-_pmedic		= paramsArray select 36;
-_precoil 	= paramsArray select 37;
-_psway   	= paramsArray select 38;
-_pstamina	= paramsArray select 39;
-_pload		= paramsArray select 40;
-_paudible	= paramsArray select 41;
-_pcamo		= paramsArray select 42;
-
-//_PSkill = _player execVM "ParamsPlus\AiSkill.sqf";
+_puavhacker	= paramsArray select 34;
+_pengineer	= paramsArray select 35;
+_pexplspec	= paramsArray select 36;
+_pmedic		= paramsArray select 37;
+_precoil 	= paramsArray select 38;
+_psway   	= paramsArray select 39;
+_pstamina	= paramsArray select 40;
+_pload		= paramsArray select 41;
+_paudible	= paramsArray select 42;
+_pcamo		= paramsArray select 43;
 
 	switch (_puavhacker) do
 	{

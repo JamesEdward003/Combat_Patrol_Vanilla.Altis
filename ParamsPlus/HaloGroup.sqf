@@ -13,7 +13,21 @@ switch (playerSide) do {
          case resistance:	{_mrkrcolor = "ColorGreen"};
          case civilian:		{_mrkrcolor = "ColorYellow"};
 };
-
+MOVE_TASK = {
+	if (!isNil "taskID") then {["taskID"] call BIS_fnc_deleteTask};
+	private _title = "Halo Jump";
+	private _description = "Halo Jump at marked LZ";
+	private _waypoint = "LZ_Halo";
+	private _myTask = [group player, "taskID", [_description, _title, _waypoint], LZ_Halo, true] call BIS_fnc_taskCreate;
+	private _myTask = ["taskID", true, ["Halo Jump at marked LZ","Halo Jump","LZ_Halo"], [LZ_Halo,false], "ASSIGNED", 5, true, true, "Defend", true] call BIS_fnc_setTask;
+	"taskID" call BIS_fnc_taskSetCurrent;
+	["taskID", "defend"] call BIS_fnc_taskSetType;	
+	["taskID", [(_this select 0), true]] call BIS_fnc_taskSetDestination;
+	["taskID", true] call BIS_fnc_taskSetAlwaysVisible;
+	["taskID", "ASSIGNED"] call BIS_fnc_taskSetState;
+	["taskID", "ASSIGNED"] call BIS_fnc_taskHint;
+};
+/*
 MOVE_TASK = {
 	if (!isNil "A_MOVE_TASK") then {player removeSimpleTask A_MOVE_TASK};
 	_task = _this select 0;
@@ -41,7 +55,7 @@ MOVE_TASK = {
 	uisleep 60; 
 	player removeSimpleTask A_MOVE_TASK;
 };
-
+*/
 if (isServer) then {
 
 uisleep 0.25;
@@ -71,6 +85,8 @@ waitUntil {uisleep 1; (!visiblemap OR location OR !alive player)};
 	_mrkr setMarkerAlpha .5;
 	_mrkr setMarkerColorLocal _mrkrcolor;
 
+	LZ_Halo = "Land_JumpTarget_F" createVehicle getMarkerPos "LZ_Halo";
+
 titletext ["","plain"];
 hintSilent parseText format ["<t size='1.25' color='#00FFFF'>Mapclick location successful</t>"];
 uisleep 2;
@@ -89,7 +105,7 @@ leader group player setPos getMarkerPos "LZ_Halo";
 [leader group player,2000] call BIS_fnc_halo;
 //[_x,2000] exec "ca\air2\halo\data\Scripts\HALO_init.sqs";
 leader group player move (getMarkerPos "LZ_Halo");
-["LZ_Halo","LZ_Halo"] spawn MOVE_TASK;
+[LZ_Halo] spawn MOVE_TASK;
 uisleep 0.5;
 openmap [false,false];
 
@@ -116,11 +132,17 @@ waitUntil {((getPos player) select 2) < 1 || !alive player};
 player disableConversation false;
 enableRadio true;
 
-uisleep 6; 
+uisleep 16; 
 
 {_x allowDamage true} forEach units group player;
 
 deleteMarker "LZ_Halo";
+
+uisleep 40;
+
+if (!isNil "taskID") then {["taskID"] call BIS_fnc_deleteTask};
+
+deleteVehicle LZ_Halo;
 
 };
 

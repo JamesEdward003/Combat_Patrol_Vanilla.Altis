@@ -24,6 +24,20 @@ allowSubordinatesTakeWeapons = 1;
 enableItemsDropping = 0;
 disabledAI = 0;
 
+onLoadIntroTime = 1;
+
+enableDebugConsole = 2;
+/*
+	0 = Default behavior, available only in editor
+	1 = Available in SP and for hosts / logged in admins
+	2 = Available for everyone
+*/
+
+allowFunctionsLog = 1;
+/*
+	Allow logging to RPT by BIS_fnc_error
+*/
+
 respawnTemplates[] = { "MenuInventory", "MenuPosition", "Tickets" };
 
 corpseManagerMode = 1;
@@ -176,7 +190,7 @@ class Params
         title = "Blufor Skill";
         values[] = {1, 2, 3, 4, 5};
         texts[] = {"Rookie", "Recruit", "Veteran", "Expert", "Random"};
-        default = 3;
+        default = 4;
         file = "ParamsPlus\BluSkill.sqf";
         isGlobal = 0;
 	};
@@ -331,6 +345,15 @@ class Params
         texts[] = {"Disabled","Enabled"};
         default = 2;
         file = "ParamsPlus\RallyPoint_Group.sqf";
+        isGlobal = 1;
+    };
+    class PRallyTent      
+	{ 
+        title = "Group Leader Rally Tent";
+        values[] = {1, 2};
+        texts[] = {"Disabled","Enabled"};
+        default = 2;
+        file = "ParamsPlus\RallyTent_Group.sqf";
         isGlobal = 1;
     };
     class PUAVHacker       
@@ -842,5 +865,47 @@ class CfgTaskEnhancements
 	3dDrawDist   = 2000;	//3d marker draw distance (default: 2000)
 	share        = 1;	//0: do not count assigned players (default), 1: count how many players have the task assigned
 	propagate    = 1;	//0: do not propagate (default), 1: propagate shared tasks to subordinates
+};
+class CfgNotifications
+{
+	class Default
+	{
+		title = "";				// Title displayed as text on black background. Filled by arguments.
+		iconPicture = "";		// Small icon displayed in left part. Colored by "color", filled by arguments.
+		iconText = "";			// Short text displayed over the icon. Colored by "color", filled by arguments.
+		description = "";		// Brief description displayed as structured text. Colored by "color", filled by arguments.
+		color[] = {1,1,1,1};	// Icon and text color
+		duration = 5;			// How many seconds will the notification be displayed
+		priority = 0;			// Priority; higher number = more important; tasks in queue are selected by priority
+		difficulty[] = {};		// Required difficulty settings. All listed difficulties has to be enabled
+	};
+
+	// Example 1
+	class TaskAssigned
+	{
+		title = "TASK ASSIGNED";
+		iconPicture = "\A3\ui_f\data\map\mapcontrol\taskIcon_ca.paa";
+		description = "%1";
+		priority = 7;
+	};
+
+	// Example 2
+	class ScoreAdded
+	{
+		title = "Score bonus";
+		iconText = "+%2";
+		description = "%1";
+		color[] = {0.5,1,1,1};
+		priority = 0;
+		difficulty[] = {"netStats"};
+	};
+
+	class HaloJumpAssigned
+	{
+		title = "HALO JUMP ASSIGNED";
+		iconPicture = "\A3\ui_f\data\map\mapcontrol\taskIcon_ca.paa";
+		description = "%1";
+		priority = 7;
+	};
 };
 

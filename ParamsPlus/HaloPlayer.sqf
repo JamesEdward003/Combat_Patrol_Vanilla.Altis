@@ -87,7 +87,7 @@ titleCut ["Pull the ripcord before height 300 meters!", "BLACK FADED", 999];
 player setPos mappos;
 [player, 2000] exec "ca\air2\halo\data\Scripts\HALO_init.sqs";
 [player] execVM "paramsplus\altimeter.sqf";
-["LZ_Halo","LZ_Halo"] spawn MOVE_TASK;
+//["LZ_Halo","LZ_Halo"] spawn MOVE_TASK;
 uisleep 0.5;
 openmap [false,false];
 

@@ -11,8 +11,7 @@ _unit addEventHandler ["Respawn", {
 
 _unit addEventHandler ["WeaponAssembled", { (_this select 1) setCaptive true;(_this select 1) allowDamage false }];
 
-for 	[{_i= (count _actions)-1},{_i>-1},{_i=_i-1}]
-do 	{
+for [{_i= (count _actions)-1},{_i>-1},{_i=_i-1}] do {
 	_params = _unit actionParams (_actions select _i);
 	_array = _array + [(_params select 0)];
 	};
@@ -69,16 +68,25 @@ Rally_Point = _unit addAction ["<t color='#00FFFF'>Deploy Rally Point</t>", {(_t
 	uisleep 0.1;
 	uavbp addAction ["<t color='#40e0d0'>Recruit Units</t>","bon_recruit_units\open_dialog.sqf",[],10,false,true,"","_this distance _target<10"];
 	
+		switch true do 
+		{
+		case (_this == leader group _this && {((units group _this) findIf {_x distance _this < 25}) != -1} && { allUnits findIf {side _x getFriend side _this <0.6 && _x distance _this < 50} == -1}): {hintSilent parsetext format ["<t size='0.85' color='#00bbff' align='left'>RallyPoint set with group members closer than 25m and no enemies closer than 50m, </t><t size='0.85' color='#00bbff' align='left'> %1</t>", name _this];};
+		case (_this == leader group _this && {((units group _this) findIf {_x distance _this < 25}) != -1} && { allUnits findIf {side _x getFriend side _this <0.6 && _x distance _this < 50} != -1}): {hintSilent parsetext format ["<t size='0.85' color='#00bbff' align='left'>RallyPoint set with group members closer than 25m and enemies closer than 50m, </t><t size='0.85' color='#00bbff' align='left'> %1</t>", name _this];};
+		case (_this == leader group _this && {((units group _this) findIf {_x distance _this < 25}) == -1} && { allUnits findIf {side _x getFriend side _this <0.6 && _x distance _this < 50} == -1}): {hintSilent parsetext format ["<t size='0.85' color='#00bbff' align='left'>RallyPoint set with no members closer than 25m and no enemies closer than 50m, </t><t size='0.85' color='#00bbff' align='left'> %1</t>", name _this];};
+		case (_this == leader group _this && {((units group _this) findIf {_x distance _this < 25}) == -1} && { allUnits findIf {side _x getFriend side _this <0.6 && _x distance _this < 50} != -1}): {hintSilent parsetext format ["<t size='0.85' color='#00bbff' align='left'>RallyPoint set with no members closer than 25m and enemies closer than 50m, </t><t size='0.85' color='#00bbff' align='left'> %1</t>", name _this];};
+		};
+	/*
 	switch true do 
 		{
 		case (_this == leader group _this && {((units group _this) findIf {_x distance _this < 25}) > -1} && { allUnits findIf {side _x getFriend side _this <0.6 && _x distance _this < 50} == -1}): {hintSilent parsetext format ["<t size='0.85' color='#00bbff' align='left'>Rallypoint set with group members farther than 25m, </t><t size='0.85' color='#00bbff' align='left'> %1</t>", name _this];};
 		case (_this == leader group _this && {((units group _this) findIf {_x distance _this < 25}) > -1} && { allUnits findIf {side _x getFriend side _this <0.6 && _x distance _this < 50} > -1}): {hintSilent parsetext format ["<t size='0.85' color='#00bbff' align='left'>Rallypoint set with enemy closer than 50m, </t><t size='0.85' color='#00bbff' align='left'> %1</t>", name _this];};
 		case (_this == leader group _this && {((units group _this) findIf {_x distance _this < 25}) > -1} && { allUnits findIf {side _x getFriend side _this <0.6 && _x distance _this < 50} == -1}): {hintSilent parsetext format ["<t size='0.85' color='#00bbff' align='left'>Rallypoint placed for: </t><t size='0.85' color='#00bbff' align='left'> %1</t>", name _this];};
 		};	
+	*/
 	};
 	},
   	[],
-  	-10,
+  	10,
   	false,
   	true,
   	"",

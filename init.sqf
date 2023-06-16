@@ -1,9 +1,10 @@
 // init.sqf //
-[playerSide, "HQ"] commandChat "Initiating v2023.6.14";
+[playerSide, "HQ"] commandChat "Initiating v2023.6.15";
 
 addMissionEventHandler ["EntityKilled", { 
 	params ["_unit", "_killer", "_instigator", "_useEffects"];
 	removeAllActions _unit;
+	_killer addRating 100;
 }];
 
 addMissionEventHandler ["EntityRespawned", { 
@@ -100,6 +101,12 @@ KS_fnc_vehicleRespawnNotification =
 [ "supportCalled", "onEachFrame", {
 	if ( ( player getVariable "BIS_SUPP_request" ) select 0 == "Artillery" && ( player getVariable "bis_supp_selectedmodule" ) == arty_one && ( player getVariable "BIS_SUPP_selectedProvider" ) getVariable[ "BIS_SUPP_supporting", false ] ) then {
 		hint parseText format["<t size='1.25' color='#44ff00'>Artillery Support Called!</t>"];
+	};
+}] call BIS_fnc_addStackedEventHandler;
+
+[ "supportCalled", "onEachFrame", {
+	if ( ( player getVariable "BIS_SUPP_request" ) select 0 == "HaloJump" && ( player getVariable "BIS_SUPP_selectedProvider" ) getVariable[ "BIS_SUPP_supporting", false ] ) then {
+		hint parseText format["<t size='1.25' color='#44ff00'>HaloJump Support Called!</t>"];
 	};
 }] call BIS_fnc_addStackedEventHandler;
 

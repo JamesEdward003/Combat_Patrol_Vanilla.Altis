@@ -2,4 +2,4 @@
 
 Here is an adaptation of Arma 3's Combat Patrol.
 
-Files edited regularly.
+Files edited periodically.

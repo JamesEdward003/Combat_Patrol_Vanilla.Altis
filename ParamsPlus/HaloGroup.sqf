@@ -2,7 +2,13 @@
 // 008\HaloGroup.sqf
 // hint 'Close the map and don''t forget to open your chute!';
 ///////////////////////////////////////////////////////////////
-private ["_mrkrcolor", "_mrkr"];
+private ["_mrkrcolor", "_mrkr", "_currTask"];
+
+enableRadio false;
+enableSentences false;
+{_x disableConversation true} forEach units group player;
+
+_currTask = currentTask (leader (group player));
 
 _mrkrcolor 	= [];
 
@@ -19,43 +25,15 @@ MOVE_TASK = {
 	private _description = "Halo Jump at marked LZ";
 	private _waypoint = "LZ_Halo";
 	private _myTask = [group player, "taskID", [_description, _title, _waypoint], LZ_Halo, true] call BIS_fnc_taskCreate;
-	private _myTask = ["taskID", true, ["Halo Jump at marked LZ","Halo Jump","LZ_Halo"], [LZ_Halo,false], "ASSIGNED", 5, true, true, "Defend", true] call BIS_fnc_setTask;
+	private _myTask = ["taskID", group player, ["Halo Jump at marked LZ","Halo Jump","LZ_Halo"], [LZ_Halo,false], "ASSIGNED", 7, true, true, "Defend", true] call BIS_fnc_setTask;
 	"taskID" call BIS_fnc_taskSetCurrent;
-	["taskID", "defend"] call BIS_fnc_taskSetType;	
-	["taskID", [(_this select 0), true]] call BIS_fnc_taskSetDestination;
-	["taskID", true] call BIS_fnc_taskSetAlwaysVisible;
-	["taskID", "ASSIGNED"] call BIS_fnc_taskSetState;
-	["taskID", "ASSIGNED"] call BIS_fnc_taskHint;
+	//["taskID", "defend"] call BIS_fnc_taskSetType;	
+	//["taskID", [(_this select 0), true]] call BIS_fnc_taskSetDestination;
+	//["taskID", true] call BIS_fnc_taskSetAlwaysVisible;
+	//["taskID", "ASSIGNED"] call BIS_fnc_taskSetState;
+	//["taskID", "ASSIGNED"] call BIS_fnc_taskHint;
 };
-/*
-MOVE_TASK = {
-	if (!isNil "A_MOVE_TASK") then {player removeSimpleTask A_MOVE_TASK};
-	_task = _this select 0;
-	_task_dest = _this select 1;
-	_task_pos = [(getMarkerPos _task_dest) select 0,(getMarkerPos _task_dest) select 1,0];
-	A_MOVE_TASK = player createSimpleTask [_task];
-	A_MOVE_TASK setSimpleTaskDestination _task_pos;
-	A_MOVE_TASK setSimpleTaskDescription [
-	_task,
-	_task,
-	_task
-	];
-	A_MOVE_TASK setTaskState "CREATED";
-	taskHint ["LZ4", [1, 1, .5, 1], "taskNew"];
-	//[objNull, objNull, A_MOVE_TASK, "CREATED"] execVM "CA\Modules\MP\data\scriptCommands\taskHint.sqf";
-	uisleep 4;
 
-	A_MOVE_TASK setTaskState "ASSIGNED";
-	taskHint ["LZ4", [0, 1, 0, 1], "taskCurrent"];
-	//[objNull, objNull, A_MOVE_TASK, "ASSIGNED"] execVM "CA\Modules\MP\data\scriptCommands\taskHint.sqf";
-	player setCurrentTask A_MOVE_TASK;
-	uisleep 10; 
-
-	PAPABEAR=[playerSide,"HQ"]; PAPABEAR SideChat "The task marker shown will be removed in 60 seconds";
-	uisleep 60; 
-	player removeSimpleTask A_MOVE_TASK;
-};
-*/
 if (isServer) then {
 
 uisleep 0.25;
@@ -87,30 +65,27 @@ waitUntil {uisleep 1; (!visiblemap OR location OR !alive player)};
 
 	LZ_Halo = "Land_JumpTarget_F" createVehicle getMarkerPos "LZ_Halo";
 
-titletext ["","plain"];
-hintSilent parseText format ["<t size='1.25' color='#00FFFF'>Mapclick location successful</t>"];
-uisleep 2;
-hintSilent "";
-leader group player allowDamage false;
-if (vehicle player == player) then {
-	unassignVehicle leader group player;
-	leader group player action ["EJECT", vehicle player];
-};
-uisleep 0.03;
-player disableConversation true;
-enableRadio false;
-titleCut ["Pull the ripcord before height 300 meters!", "BLACK FADED", 999];
-player setPos mappos;
-leader group player setPos getMarkerPos "LZ_Halo";
-[leader group player,2000] call BIS_fnc_halo;
-//[_x,2000] exec "ca\air2\halo\data\Scripts\HALO_init.sqs";
-leader group player move (getMarkerPos "LZ_Halo");
-[LZ_Halo] spawn MOVE_TASK;
-uisleep 0.5;
+	titletext ["","plain"];
+	hintSilent parseText format ["<t size='1.25' color='#00FFFF'>Mapclick location successful</t>"];
+	uisleep 2;
+	hintSilent "";
+	leader group player allowDamage false;
+	if (vehicle player == player) then {
+		unassignVehicle leader group player;
+		leader group player action ["EJECT", vehicle player];
+	};
+	uisleep 0.03;
+	titleCut ["Pull the ripcord before height 300 meters!", "BLACK FADED", 999];
+	player setPos mappos;
+	leader group player setPos getMarkerPos "LZ_Halo";
+	[leader group player,2000] call BIS_fnc_halo;
+	//[_x,2000] exec "ca\air2\halo\data\Scripts\HALO_init.sqs";
+	leader group player doMove (getMarkerPos "LZ_Halo");
+	[LZ_Halo] spawn MOVE_TASK;
+	uisleep 1;
 openmap [false,false];
-
-titlecut ["","BLACK IN",5];
-
+uisleep 1;
+titlecut ["Pull the ripcord before height 300 meters!","BLACK IN",4];
 //PAPABEAR=[playerSide,"HQ"]; PAPABEAR SideChat format ["Pull the ripcord, %1, before height 300 meters!", name player];
 
 {if (_x != leader group player ) then {
@@ -122,15 +97,16 @@ titlecut ["","BLACK IN",5];
 	_x setDir direction leader group player;
 	[_x,2000] call BIS_fnc_halo;
 	//[_x,2000] exec "ca\air2\halo\data\Scripts\HALO_init.sqs";
-	_x move (getMarkerPos "LZ_Halo");	
+	_x doFollow (leader group player);	
 }} forEach units group player;
 
 {if (isPlayer _x) then {[_x] execVM "paramsplus\altimeter.sqf";}} forEach units group player;
 
 waitUntil {((getPos player) select 2) < 1 || !alive player};
 
-player disableConversation false;
 enableRadio true;
+enableSentences true;
+{_x disableConversation false} forEach units group player;
 
 uisleep 16; 
 
@@ -138,11 +114,15 @@ uisleep 16;
 
 deleteMarker "LZ_Halo";
 
+(group player) setFormation "WEDGE";
+
 uisleep 40;
 
-if (!isNil "taskID") then {["taskID"] call BIS_fnc_deleteTask};
+["taskID", "SUCCEEDED"] call BIS_fnc_taskSetState;
 
 deleteVehicle LZ_Halo;
+
+(leader (group player)) setCurrentTask _currTask;
 
 };
 

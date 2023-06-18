@@ -879,8 +879,6 @@ class CfgNotifications
 		priority = 0;			// Priority; higher number = more important; tasks in queue are selected by priority
 		difficulty[] = {};		// Required difficulty settings. All listed difficulties has to be enabled
 	};
-
-	// Example 1
 	class TaskAssigned
 	{
 		title = "TASK ASSIGNED";
@@ -888,8 +886,6 @@ class CfgNotifications
 		description = "%1";
 		priority = 7;
 	};
-
-	// Example 2
 	class ScoreAdded
 	{
 		title = "Score bonus";
@@ -899,10 +895,16 @@ class CfgNotifications
 		priority = 0;
 		difficulty[] = {"netStats"};
 	};
-
-	class HaloJumpAssigned
+	class HaloJump
 	{
 		title = "HALO JUMP ASSIGNED";
+		iconPicture = "\A3\ui_f\data\map\mapcontrol\taskIcon_ca.paa";
+		description = "%1";
+		priority = 7;
+	};
+	class WindSpeed
+	{
+		title = "WIND SPEED CHECK ASSIGNED";
 		iconPicture = "\A3\ui_f\data\map\mapcontrol\taskIcon_ca.paa";
 		description = "%1";
 		priority = 7;

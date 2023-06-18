@@ -16,7 +16,7 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=342;
+		nextID=350;
 	};
 	class Camera
 	{
@@ -6335,7 +6335,7 @@ class Mission
 			flags=1;
 			id=348;
 			type="ModuleCivilianPresenceUnit_F";
-			atlOffset=0.21199989;
+			atlOffset=1.5258789e-005;
 		};
 		class Item52
 		{

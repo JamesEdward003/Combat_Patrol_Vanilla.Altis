@@ -25,14 +25,20 @@
 	
 	missionNamespace setVariable ["availableBuildings",availableBuildings];
 
+	hintSilent parseText format["<t size='1.25' color='#ff6161'>Open map to select new spawn point...20 seconds!</t>"];
+
+	[visibleMap, 20] spawn BIS_fnc_CPWaitUntil;
+
+	if (!visibleMap) exitWith {hintSilent parseText format["<t size='1.25' color='#ff6161'>New spawn selection canceled</t>"];};
+
 	//Force open users map
 	openMap[ true, false ];
   
 	//Display user instruction
 	if (availableBuildings isEqualTo []) then {
-		hint "No buildings to select headquarters";
+		hintSilent "No buildings to select headquarters";
 	} else {
-		hint "Double left click a marker to select new spawn headquarters";
+		hintSilent "Double left click a marker to select new spawn headquarters";
 	};
 
 	//Make sure map is open, before...
@@ -98,14 +104,14 @@ if (!isNil "choosenBuilding") then {
 	uisleep 1;
 	
 	player setPos [(getMarkerPos _marker) select 0,(getMarkerPos _marker) select 1,0];
-	hint format ["%1,%2",_building,_marker];
+	hintSilent format ["%1,%2",_building,_marker];
 	
 	missionNamespace setVariable[ "choosenBuilding", nil];
 	
-	hint parseText format["<t size='1.25' color='#44ff00'>New headquarters selection successful</t>"];
+	hintSilent parseText format["<t size='1.25' color='#44ff00'>New headquarters selection successful</t>"];
 	uisleep 5;	
-	//Remove hint
-	hint "";
+	//Remove hintSilent
+	hintSilent "";
 } else {		
 	//Delete all markers
 	availableBuildings = ( missionNamespace getVariable "availableBuildings" );
@@ -123,10 +129,10 @@ if (!isNil "choosenBuilding") then {
 	
 	missionNamespace setVariable[ "choosenBuilding", nil];
 		
-	hint parseText format["<t size='1.25' color='#ff6161'>New headquarters selection canceled</t>"];
+	hintSilent parseText format["<t size='1.25' color='#ff6161'>New headquarters selection canceled</t>"];
 	uisleep 5;
-	//Remove hint
-	hint "";
+	//Remove hintSilent
+	hintSilent "";
 };
 	
 

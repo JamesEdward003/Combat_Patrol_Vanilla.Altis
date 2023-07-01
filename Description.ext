@@ -298,7 +298,7 @@ class Params
         title = "Group Markers";
         values[] = {1, 2, 3, 4};
         texts[] = {"Disabled","Units Group Player","All Playable or Switchable Units","All Units"};
-        default = 2;
+        default = 1;
         file = "ParamsPlus\markers_Group.sqf";
         isGlobal = 1;
     };
@@ -498,6 +498,17 @@ class CfgCommunicationMenu
 		enable = "1";
 		removeAfterExpressionCall = 0;
 //		[player,"HaloJump"] call BIS_fnc_addCommMenuItem;
+	};
+	class MenuSupport
+	{
+		text = "Support Menu";
+		submenu = "#USER:Custom_Main_Menu";
+		expression = "_this execVM '008\menu.sqf'"; // [caller, pos, target, is3D, id]
+		icon = "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa";
+		cursor = "";  //"\a3\Ui_f\data\IGUI\Cfg\Cursors\iconCursorSupport_ca.paa";
+		enable = "1";
+		removeAfterExpressionCall = 0;
+//		[player,"MenuSupport"] call BIS_fnc_addCommMenuItem;
 	};
 	class SpawnCargoDrop
 	{
@@ -908,6 +919,114 @@ class CfgNotifications
 		iconPicture = "\A3\ui_f\data\map\mapcontrol\taskIcon_ca.paa";
 		description = "%1";
 		priority = 7;
+	};
+};
+class CfgSounds
+{
+	sounds[] = {Trophy,Gunshot,Sirena,ThunderStruck,HellsBells};
+class Trophy
+	{
+		name = "Trophy"; 
+		sound[] = {"\Sounds\Trophy.ogg", 1, 1};
+		titles[] = { };
+	};	
+class Gunshot
+	{
+		name = "Gunshot"; 
+		sound[] = {"\Sounds\Gunshot.ogg", 1, 1};
+		titles[] = { };
+	};
+class Sirena
+	{
+		name = "Sirena";
+		sound[] = {"\Sounds\Sirena.ogg",db+1, 1};
+		titles[] = {1, ""};
+	};
+class ThunderStruck
+	{
+		name = "ThunderStruck";
+		sound[] = {"\Sounds\ThunderStruck.ogg",db+10, 1};
+		titles[] = {1, ""};
+	};
+class HellsBells
+	{
+		name = "HellsBells";
+		sound[] = {"\Sounds\HellsBells.ogg",db+10, 1};
+		titles[] = {1, ""};
+	};
+};
+class CfgMusic
+{
+	tracks[] = {FortunateSon,FortunateSon2,BornOnTheBayou,GoodGollyMissMolly,KeepOnChooglin,RunThroughTheJungle,AM92Intro,DownTheNile,DidYouEverHavetoMakeupYourMind,DirtyCity,TheMagdaleneLaundries,UpontheRoof,Thunderstruck,HellsBells};
+class FortunateSon
+	{
+		name = "FortunateSon"; 
+		sound[] = {"\music\FortunateSon.ogg", db+10, 0.99, 900};
+	};
+class FortunateSon2
+	{
+		name = "FortunateSon2"; 
+		sound[] = {"\music\FortunateSon2.ogg", db+1, 1.0};
+	};
+class BornOnTheBayou
+	{
+		name = "BornOnTheBayou"; 
+		sound[] = {"\music\BornOnTheBayou.ogg", db+1, 1.0};
+	};
+class GoodGollyMissMolly
+	{
+		name = "GoodGollyMissMolly"; 
+		sound[] = {"\music\GoodGollyMissMolly.ogg", db+10, 1.0};
+	};
+class KeepOnChooglin
+	{
+		name = "KeepOnChooglin"; 
+		sound[] = {"\music\KeepOnChooglin.ogg", db+1, 1.0};
+	};
+class RunThroughTheJungle
+	{
+		name = "RunThroughTheJungle"; 
+		sound[] = {"\music\RunThroughTheJungle.ogg", db+1, 1.0};
+	};	
+class AM92Intro
+	{
+		name = "AM92Intro";
+		sound[] = {"\music\AM92Intro.ogg", db+0, 1.0};
+	};
+class DownTheNile
+	{
+		name = "DownTheNile";
+		sound[] = {"\music\DownTheNile.ogg", db+0, 1.0};
+	};
+class DidYouEverHavetoMakeupYourMind
+	{
+		name = "DidYouEverHavetoMakeupYourMind";
+		sound[] = {"\music\DidYouEverHavetoMakeupYourMind.ogg", db+0, 1.0};
+	};
+class DirtyCity
+	{
+		name = "DirtyCity";
+		sound[] = {"\music\DirtyCity.ogg", db+0, 1.0};
+	};
+class TheMagdaleneLaundries
+	{
+		name = "TheMagdaleneLaundries";
+		sound[] = {"\music\TheMagdaleneLaundries.ogg", db+0, 1.0};
+	};
+class UpontheRoof
+	{
+		name = "UpontheRoof";
+		sound[] = {"\music\UpontheRoof.ogg", db+0, 1.0};
+	};
+class Thunderstruck
+	{
+		name = "Thunderstruck"; 
+		sound[] = {"\music\Thunderstruck.ogg", db+10, 1.0};
+	};
+class HellsBells
+	{
+		name = "HellsBells"; 
+		sound[] = {"\music\HellsBells.ogg", db+10, 1.0};
 	};
 };
 

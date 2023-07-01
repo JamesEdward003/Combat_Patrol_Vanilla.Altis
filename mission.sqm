@@ -21,8 +21,9 @@ class EditorData
 	class Camera
 	{
 		pos[]={14720.425,793.65582,16341.799};
-		dir[]={0,-0.70710683,0.70710683};
-		up[]={0,0.70710671,0.70710683};
+		dir[]={-1.2363449e-007,-0.70710683,0.70710683};
+		up[]={-1.2363449e-007,0.70710671,0.70710683};
+		aside[]={1,0,1.7484557e-007};
 	};
 };
 binarizationWanted=0;
@@ -6348,7 +6349,7 @@ class Mission
 			flags=1;
 			id=348;
 			type="ModuleCivilianPresenceUnit_F";
-			atlOffset=0.21199989;
+			atlOffset=1.5258789e-005;
 		};
 		class Item52
 		{

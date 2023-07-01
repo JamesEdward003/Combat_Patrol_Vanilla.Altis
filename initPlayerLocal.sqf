@@ -24,10 +24,17 @@ call compile preprocessFileLineNumbers "arsenalTriggerAction.sqf";
 
 call compile preprocessFileLineNumbers "garageTriggerAction.sqf";
 
+call compile preprocessFileLineNumbers "008\menu.sqf";
+
 if ( isNil{player getVariable "CommHalo"} ) then
 {	
 	[player,"HaloJump"] call BIS_fnc_addCommMenuItem;
 	 player setVariable ["CommHalo", true];	
+};
+if ( isNil{player getVariable "CommMenuSupport"} ) then
+{	
+	[player,"MenuSupport"] call BIS_fnc_addCommMenuItem;
+	 player setVariable ["CommMenuSupport", true];	
 };
 if ( isNil{player getVariable "CommMortar"} ) then
 {	
@@ -44,11 +51,14 @@ if ( isNil{player getVariable "CommReenforcements"} ) then
 	[player,"SpawnReenforcements"] call BIS_fnc_addCommMenuItem;
 	 player setVariable ["CommReenforcements", true];	
 };
+/*
+[player,"MenuSupport"] call BIS_fnc_addCommMenuItem;
 if ( isNil{player getVariable "CommWindSpeed"} ) then
 {	
 	[player,"WindSpeed"] call BIS_fnc_addCommMenuItem;
 	 player setVariable ["CommWindSpeed", true];	
 };
+*/
 if ( isNil{player getVariable "CommGroupManager"} ) then
 {	
 	execVM "Group_Manager.sqf";

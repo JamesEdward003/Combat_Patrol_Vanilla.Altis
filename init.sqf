@@ -1,5 +1,5 @@
 // init.sqf //
-[playerSide, "HQ"] commandChat "Initiating v2023.6.15";
+[playerSide, "HQ"] commandChat "Initiating v2023.7.1";
 
 addMissionEventHandler ["EntityKilled", { 
 	params ["_unit", "_killer", "_instigator", "_useEffects"];
@@ -49,7 +49,7 @@ addMissionEventHandler ["TeamSwitch", {
 	params ["_previousUnit", "_newUnit"];
 	_previousUnit enableAI "TeamSwitch";
 }];
-/*
+
 addMissionEventHandler ["GroupIconClick", {
 	params [
 		"_is3D", "_group", "_waypointId",
@@ -59,25 +59,50 @@ addMissionEventHandler ["GroupIconClick", {
 	if (_shift) then {{_x allowDamage false} forEach units _group};
 	if (_alt) then {{_x allowDamage true} forEach units _group};
 }];
+
 addMissionEventHandler ["MarkerCreated", {
 	params ["_marker", "_channelNumber", "_owner", "_local"];
-
-	hintSilent parseText format ["<t size='1.25' color='#ff0000'>Marker Created</t><br/><br/><t size='1.10'>Marker: %1</t><br/><t size='1.00'>Channel#: %2</t><br/><t size='1.00'>Owner: %3</t><br/></t><br/><t size='1.00'>Local: %4</t>", _marker, _channelNumber, _owner, _local];
-
-//	hintSilent format ["Marker: %1 Channel#: %2 Owner: %3 Local: %4", _marker, _channelNumber, _owner, _local];
+	//if (_marker isEqualTo (allMapMarkers select {toUpper _x find "BIS_SUPP" >= 0}) select 0) then { 
+	if (_marker in (allMapMarkers select {toUpper _x find "BIS_SUPP" >= 0})) then {
+		[] spawn {
+			if (!(isNull HelipadEmpty)) then {deleteVehicle HelipadEmpty};
+			if (!(isNull JumpTarget)) then {deleteVehicle JumpTarget};
+		};
+		HelipadEmpty = "Land_HelipadEmpty_F" createVehicle (getMarkerPos _marker);
+		JumpTarget = "Land_JumpTarget_F" createVehicle (getMarkerPos _marker);
+		hintSilent format ["MarkerArray: %1", allMapMarkers select {toUpper _x find "BIS_SUPP" >= 0}];
+		//hintSilent parseText format ["<t size='1.25' color='#ff0000'>Marker Created</t><br/><br/><t size='1.10'>Marker: %1</t><br/><t size='1.00'>Channel#: %2</t><br/><t size='1.00'>Owner: %3</t><br/></t><br/><t size='1.00'>Local: %4</t>", _marker, _channelNumber, _owner, _local];
+	};
 }];
 
 addMissionEventHandler ["MarkerDeleted", {
 	params ["_marker", "_local"];
-	
-	hintSilent parseText format ["<t size='1.25' color='#ff0000'>Marker Deleted</t><br/><br/><t size='1.10'>Marker: %1</t><br/><t size='1.00'>Local: %2</t>", _marker, _local];
+	if (_marker in (allMapMarkers select {toUpper _x find "BIS_SUPP" >= 0})) then {
+		//[] spawn {
+			if (!(isNull HelipadEmpty)) then {deleteVehicle HelipadEmpty};
+			if (!(isNull JumpTarget)) then {deleteVehicle JumpTarget};
+		//};
+		hintSilent format ["MarkerArray: %1", allMapMarkers select {toUpper _x find "BIS_SUPP" >= 0}];
+		//hintSilent parseText format ["<t size='1.25' color='#ff0000'>Marker Created</t><br/><br/><t size='1.10'>Marker: %1</t><br/><t size='1.00'>Channel#: %2</t><br/><t size='1.00'>Owner: %3</t><br/></t><br/><t size='1.00'>Local: %4</t>", _marker, _channelNumber, _owner, _local];
+	};	
+	//hintSilent parseText format ["<t size='1.25' color='#ff0000'>Marker Deleted</t><br/><br/><t size='1.10'>Marker: %1</t><br/><t size='1.00'>Local: %2</t>", _marker, _local];
 }];
+
 addMissionEventHandler ["MarkerUpdated", {
 	params ["_marker", "_local"];
-	
-	hintSilent parseText format ["<t size='1.25' color='#ff0000'>Marker Updated</t><br/><br/><t size='1.10'>Marker: %1</t><br/><t size='1.00'>Local: %2</t>", _marker, _local];
+	//hintSilent parseText format ["<t size='1.25' color='#ff0000'>Marker Updated</t><br/><br/><t size='1.10'>Marker: %1</t><br/><t size='1.00'>Local: %2</t>", _marker, _local];
+	if (_marker in (allMapMarkers select {toUpper _x find "BIS_SUPP" >= 0})) then {
+		[] spawn {
+			if (!(isNull HelipadEmpty)) then {deleteVehicle HelipadEmpty};
+			if (!(isNull JumpTarget)) then {deleteVehicle JumpTarget};
+		};
+		HelipadEmpty = "Land_HelipadEmpty_F" createVehicle (getMarkerPos _marker);
+		JumpTarget = "Land_JumpTarget_F" createVehicle (getMarkerPos _marker);
+		hintSilent format ["MarkerArray: %1", allMapMarkers select {toUpper _x find "BIS_SUPP" >= 0}];
+		//hintSilent parseText format ["<t size='1.25' color='#ff0000'>Marker Created</t><br/><br/><t size='1.10'>Marker: %1</t><br/><t size='1.00'>Channel#: %2</t><br/><t size='1.00'>Owner: %3</t><br/></t><br/><t size='1.00'>Local: %4</t>", _marker, _channelNumber, _owner, _local];
+	};
 }];
-*/
+
 KS_fnc_vehicleRespawnNotification =
 {
 	params [ ["_vehicle", objNull, [objNull]] ];
@@ -101,12 +126,6 @@ KS_fnc_vehicleRespawnNotification =
 [ "supportCalled", "onEachFrame", {
 	if ( ( player getVariable "BIS_SUPP_request" ) select 0 == "Artillery" && ( player getVariable "bis_supp_selectedmodule" ) == arty_one && ( player getVariable "BIS_SUPP_selectedProvider" ) getVariable[ "BIS_SUPP_supporting", false ] ) then {
 		hint parseText format["<t size='1.25' color='#44ff00'>Artillery Support Called!</t>"];
-	};
-}] call BIS_fnc_addStackedEventHandler;
-
-[ "supportCalled", "onEachFrame", {
-	if ( ( player getVariable "BIS_SUPP_request" ) select 0 == "HaloJump" && ( player getVariable "BIS_SUPP_selectedProvider" ) getVariable[ "BIS_SUPP_supporting", false ] ) then {
-		hint parseText format["<t size='1.25' color='#44ff00'>HaloJump Support Called!</t>"];
 	};
 }] call BIS_fnc_addStackedEventHandler;
 

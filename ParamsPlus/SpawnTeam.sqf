@@ -17,7 +17,7 @@ switch (side player) do {
 			[_unit] execVM "ParamsPlus\markerGroup.sqf";
 			[_unit] execVM "ParamsPlus\regen_health.sqf";
 			[_unit] joinSilent (group player);
-			 _unit addAction ["<t color='#00FFFF'>Dismiss</t>",BON_RECRUIT_PATH+"dismiss.sqf",[],-100,false,true,""];
+			 _unit addAction ["<t color='#00FFFF'>Dismiss</t>",BON_RECRUIT_PATH+"dismiss.sqf",[],100,false,true,""];
 			 _unit action ["WEAPONONBACK", _unit];																	
 			 _unit allowDamage true;
 		};
@@ -38,7 +38,7 @@ switch (side player) do {
 			[_unit] execVM "ParamsPlus\markerGroup.sqf";
 			[_unit] execVM "ParamsPlus\regen_health.sqf";
 			[_unit] joinSilent (group player);
-			 _unit addAction ["<t color='#00FFFF'>Dismiss</t>",BON_RECRUIT_PATH+"dismiss.sqf",[],-100,false,true,""];
+			 _unit addAction ["<t color='#00FFFF'>Dismiss</t>",BON_RECRUIT_PATH+"dismiss.sqf",[],100,false,true,""];
 			 _unit action ["WEAPONONBACK", _unit];																	
 			 _unit allowDamage true;
 		};
@@ -59,7 +59,7 @@ switch (side player) do {
 			[_unit] execVM "ParamsPlus\markerGroup.sqf";
 			[_unit] execVM "ParamsPlus\regen_health.sqf";
 			[_unit] joinSilent (group player);
-			 _unit addAction ["<t color='#00FFFF'>Dismiss</t>",BON_RECRUIT_PATH+"dismiss.sqf",[],-100,false,true,""];
+			 _unit addAction ["<t color='#00FFFF'>Dismiss</t>",BON_RECRUIT_PATH+"dismiss.sqf",[],100,false,true,""];
 			 _unit action ["WEAPONONBACK", _unit];																	
 			 _unit allowDamage true;
 		};

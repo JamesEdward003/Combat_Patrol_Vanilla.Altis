@@ -98,7 +98,7 @@ player allowDamage true;
 
 deleteMarker "LZ_Halo";
 
-uisleep 30;
+uisleep 20;
 
 ["taskID", "SUCCEEDED"] call BIS_fnc_taskSetState;
 

@@ -1,4 +1,4 @@
-///////  execVM "respawn.sqf"  ///////
+///////  execVM "paramsplus\respawn.sqf"  ///////
 _unitvn		= vehicleVarName player;
 _classname 	= format ["%1", typeOf player];
 _displayname = gettext (configfile >> "CfgVehicles" >> _className >> "displayName");
@@ -76,6 +76,7 @@ execVM "ParamsPlus\regen_health_Group.sqf";
 execVM "ParamsPlus\CtrlZ_Medic.sqf";
 execVM "ParamsPlus\GiGoEH_Group.sqf";
 execVM "ParamsPlus\RallyPoint_Group.sqf";
+execVM "ParamsPlus\RallyTent_Group.sqf";
 
 execVM "ParamsPlus\HolsterAction.sqf";
 
@@ -133,10 +134,10 @@ if ( isNil{player getVariable "CommWindSpeed"} ) then
 	[player,"WindSpeed"] call BIS_fnc_addCommMenuItem;
 	 player setVariable ["CommWindSpeed", true];	
 };
-if ( isNil{player getVariable "CommZorilya"} ) then
+if ( isNil{player getVariable "CommMenuSupport"} ) then
 {	
-	[player,"ZorilyasUnits"] call BIS_fnc_addCommMenuItem;
-	 player setVariable ["CommZorilya", true];	
+	[player,"MenuSupport"] call BIS_fnc_addCommMenuItem;
+	 player setVariable ["CommMenuSupport", true];	
 };
 if ( isNil{player getVariable "CommGroupManager"} ) then
 {	
@@ -148,7 +149,7 @@ if ( isNil{player getVariable "CommGroupManager"} ) then
 		waitUntil { time >= _future };
 
 		[playerSide, "HQ"] commandChat format ["%1 respawned!",name player];
-				
+
 		waitUntil {!alive player};
 		call playerRespawn;
 //	};

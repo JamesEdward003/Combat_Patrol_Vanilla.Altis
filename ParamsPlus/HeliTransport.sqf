@@ -20,7 +20,7 @@ _airType = [];
 switch (_sideUnit) do 
 {
 	case west: 		{_airType = "B_Heli_Light_01_F"};
-	case east: 		{_airType = "	O_Heli_Light_02_F"};
+	case east: 		{_airType = "O_Heli_Light_02_F"};
 	case resistance: 	{_airType = "O_Heli_Light_02_v2_F"};
 	case civilian: 	{_airType = "O_Heli_Light_02_unarmed_F"};
 };
@@ -62,8 +62,8 @@ waitUntil {sleep 1; (!visiblemap OR location OR !alive player)};
 	if ((getMarkerPos "LZ") isEqualTo [0,0,0]) then {deleteMarker "LZ"};
 	if !((getMarkerPos "LZ") isEqualTo [0,0,0]) then {deleteMarker "LZ"};
 
-	if (!isNull lzPickup) then {deleteVehicle lzPickup};
-//	if !((getPos lzPickup) isEqualTo [0,0,0]) then {deleteVehicle lzPickup};
+	if ((getPos lzPickup) isEqualTo [0,0,0]) then {deleteVehicle lzPickup};
+	if !((getPos lzPickup) isEqualTo [0,0,0]) then {deleteVehicle lzPickup};
 
 	if ((getPos lzDropoff) isEqualTo [0,0,0]) then {deleteVehicle lzDropoff};
 	if !((getPos lzDropoff) isEqualTo [0,0,0]) then {deleteVehicle lzDropoff};
@@ -99,21 +99,35 @@ openmap [false,false];
 			hint parseText format ["<t size = '1.5' color = '#FF0000'>Transport Not Available!</t><br/><br/>Enemies are too close! (100m)<br/><br/>Secure the area before requesting transport!"];
 
 			deleteMarker "LZ";
-	    		deleteVehicle lzDropOff;
+	    	deleteVehicle lzDropOff;
 		};
 	
 	_flightPath = _airStart getDir _airEnd;		
 
-	_ch = [_airStart, _flightPath, _airType, _sideUnit] call BIS_fnc_spawnVehicle;
-	TransportHelo = _ch select 0;
-	
+	_ch = [_airStart, _flightPath, _airType, _sideUnit] call BIS_fnc_spawnVehicle; TransportHelo = _ch select 0;	
 	(_ch select 0) setVehicleVarname "TransportHelo";
-	
-	[TransportHelo] execVM "vehicleMarker.sqf";
-	
-	TransportHelo addEventHandler ["GetIn", { if (_this select 1 == "cargo") then { (_this select 2) allowDamage false; } } ]; 
-	TransportHelo addEventHandler ["GetOut", { if (_this select 1 == "cargo") then { (_this select 2) allowDamage true; } } ];	
-			
+	(_ch select 0) flyInHeight 100;  
+	(_ch select 0) setvehiclelock "unlocked"; 
+	(_ch select 0) addAction ["Alternate Landing Zone","008\altLZ.sqf",[],1,false,true,"","(alive _this)"];
+	(_ch select 0) addEventHandler ["Fired",{[_this select 0,getNumber (configFile/"CfgAmmo"/(_this select 4)/"explosive")] spawn {if (_this select 1==1) then {uisleep 0.5};_this select 0 setVehicleAmmo 1}}];
+	(_ch select 0) addEventHandler ["Killed", {[_this select 0,_this select 1,"hStart",lzPickup,lzDropOff] execVM "008\onKilled.sqf"}];
+	(_ch select 0) addeventhandler ["Getin", {_nul=[_this select 2] execVM "008\adfalse.sqf"}];
+	(_ch select 0) addeventhandler ["Getout", {_nul=[_this select 2] execVM "008\adtrue.sqf"}];
+	(_ch select 0) addAction ["Get In Cargo","008\GetInCargo.sqf",[],2,false,true,"",""];
+	(_ch select 0) addEventHandler ["GetIn","(_this select 2) setBehaviour ""CARELESS"";(_this select 2) allowDamage FALSE"];
+	(_ch select 0) addEventHandler ["GetOut","(_this select 2) setBehaviour ""COMBAT"";(_this select 2) allowDamage FALSE;[(_this select 0),(_this select 2)] spawn {waitUntil {((_this select 1) distance (_this select 0)) > 20;}; (_this select 1) allowDamage TRUE;}"];
+	(_ch select 0) addEventHandler ["GetIn", { if (_this select 1 == "cargo") then { (_this select 2) allowDamage false; } } ]; 
+	(_ch select 0) addEventHandler ["GetOut", { if (_this select 1 == "cargo") then { (_this select 2) allowDamage true; } } ];	
+	(_ch select 0) execVM "008\SeatAction\seat_action.sqf";
+	(_ch select 0) execVM "008\vehicleMarker.sqf";
+	{deleteVehicle _x} forEach crew (_ch select 0) - [driver (_ch select 0)];
+	{[_x] execVM "008\adfalse.sqf"} forEach crew (_ch select 0);
+	{addSwitchableUnit _x} forEach crew (_ch select 0);
+//_this call KS_fnc_vehicleRespawnNotification;_this execVM "008\vehicleMarker.sqf";_this execVM "008\SeatAction\seat_action.sqf";_this addEventHandler ["GetIn","(_this select 2) setBehaviour ""CARELESS"";(_this select 2) allowDamage FALSE"];_this addEventHandler ["GetOut","(_this select 2) setBehaviour ""COMBAT"";(_this select 2) allowDamage FALSE;[(_this select 0),(_this select 2)] spawn {waitUntil {((_this select 1) distance (_this select 0)) > 20;}; (_this select 1) allowDamage TRUE;}"];_this addAction ["Get In Cargo","008\GetInCargo.sqf",[],2,false,true,"",""];_this addeventhandler ["Getin", {_nul=[_this select 2] execVM "008\adfalse.sqf"}];_this addeventhandler ["Getout", {_nul=[_this select 2] execVM "008\adtrue.sqf"}];{deleteVehicle _x} forEach crew _this - [driver _this];{addSwitchableUnit _x} forEach crew _this;{[_x] execVM "008\adfalse.sqf"} forEach crew _this;_this setvehiclelock "unlocked";_this addAction ["Alternate Landing Zone","008\altLZ.sqf",[],1,false,true,"","(alive _target)"];	
+//_this spawn { waitUntil {getPosATL _this select 2 < 3};  ["AmmoboxInit", [_this, true, {true}]] spawn BIS_fnc_arsenal;[_this] execVM "008/twirlyMrkr2.sqf";
+//_this call KS_fnc_vehicleRespawnNotification;_this execVM "008\vehicleMarker.sqf"; };{[_x] execVM "008\adfalse.sqf"} forEach crew _this;{addSwitchableUnit _x} forEach crew _this;_this execVM "008\SeatAction\seat_action.sqf";_this setvehiclelock "unlocked";
+//_this call KS_fnc_vehicleRespawnNotification;{[_x] execVM "008\adfalse.sqf"} forEach crew _this;{addSwitchableUnit _x} forEach crew _this;_this execVM "008\SeatAction\seat_action.sqf";_this setvehiclelock "unlocked";
+//_this call KS_fnc_vehicleRespawnNotification;{[_x] execVM "008\adfalse.sqf"} forEach crew _this;{addSwitchableUnit _x} forEach crew _this;_this execVM "008\SeatAction\seat_action.sqf";_this setvehiclelock "unlocked";
 	{_x addEventHandler ["HandleDamage", {false}]} forEach crew (TransportHelo) + [TransportHelo];
 	
 	PAPABEAR=[_sideUnit,"HQ"]; PAPABEAR SideChat format ["TransportHelo to your position %1", name _unit];

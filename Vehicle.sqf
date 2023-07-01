@@ -182,7 +182,7 @@ Prep_Aquisitions = {
 			};
 		};
 		
-		_veh execVM "paramsplus\vehicleMarker.sqf";
+		_veh call KS_fnc_vehicleRespawnNotification;_veh call Vehicle_Module_Mgmt;
 		
 	} forEach _veh_list;
 };

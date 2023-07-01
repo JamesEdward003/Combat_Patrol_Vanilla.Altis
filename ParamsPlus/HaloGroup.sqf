@@ -75,17 +75,17 @@ waitUntil {uisleep 1; (!visiblemap OR location OR !alive player)};
 		leader group player action ["EJECT", vehicle player];
 	};
 	uisleep 0.03;
-	titleCut ["Pull the ripcord before height 300 meters!", "BLACK FADED", 999];
+	titleCut ["Pull the ripcord before height 300 meters!\nPress 'V' twice in rapid succession!", "BLACK FADED", 999];
 	player setPos mappos;
 	leader group player setPos getMarkerPos "LZ_Halo";
-	[leader group player,2000] call BIS_fnc_halo;
+	[leader group player,3000] call BIS_fnc_halo;
 	//[_x,2000] exec "ca\air2\halo\data\Scripts\HALO_init.sqs";
 	leader group player doMove (getMarkerPos "LZ_Halo");
 	[LZ_Halo] spawn MOVE_TASK;
 	uisleep 1;
 openmap [false,false];
 uisleep 1;
-titlecut ["Pull the ripcord before height 300 meters!","BLACK IN",4];
+titleCut ["Pull the ripcord before height 300 meters!\nPress 'V' twice in rapid succession!","BLACK IN",4];
 //PAPABEAR=[playerSide,"HQ"]; PAPABEAR SideChat format ["Pull the ripcord, %1, before height 300 meters!", name player];
 
 {if (_x != leader group player ) then {
@@ -95,12 +95,13 @@ titlecut ["Pull the ripcord before height 300 meters!","BLACK IN",4];
 	_x allowDamage false;
 	_x setPos [(getPos leader group player select 0)-10*sin(random 359),(getPos leader group player select 1)-10*cos(random 359)];
 	_x setDir direction leader group player;
-	[_x,2000] call BIS_fnc_halo;
+	[_x,2850] call BIS_fnc_halo;
 	//[_x,2000] exec "ca\air2\halo\data\Scripts\HALO_init.sqs";
+	_x doMove (getMarkerPos "LZ_Halo");
 	_x doFollow (leader group player);	
 }} forEach units group player;
 
-{if (isPlayer _x) then {[_x] execVM "paramsplus\altimeter.sqf";}} forEach units group player;
+{if (isPlayer _x) then {[_x] execVM "paramsplus\altimeter.sqf"}} forEach units group player;
 
 waitUntil {((getPos player) select 2) < 1 || !alive player};
 
@@ -108,7 +109,7 @@ enableRadio true;
 enableSentences true;
 {_x disableConversation false} forEach units group player;
 
-uisleep 16; 
+uisleep 20; 
 
 {_x allowDamage true} forEach units group player;
 
@@ -116,7 +117,7 @@ deleteMarker "LZ_Halo";
 
 (group player) setFormation "WEDGE";
 
-uisleep 40;
+uisleep 30;
 
 ["taskID", "SUCCEEDED"] call BIS_fnc_taskSetState;
 

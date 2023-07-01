@@ -45,7 +45,7 @@ switch (side _caller) do {
 			_unit execVM "ParamsPlus\UnlimitedAmmo.sqf";
 			_unit execVM "ParamsPlus\markers.sqf";
 			_unit execVM "ParamsPlus\playerSettings.sqf";
-			_unit addAction ["<t color='#00FFFF'>Dismiss</t>","ParamsPlus\dismiss.sqf",[],-100,false,true,""];
+			_unit addAction ["<t color='#00FFFF'>Dismiss</t>","ParamsPlus\dismiss.sqf",[],100,false,true,""];
 
 			_unit allowDamage true;
 		};
@@ -89,7 +89,7 @@ switch (side _caller) do {
 			_unit execVM "ParamsPlus\UnlimitedAmmo.sqf";
 			_unit execVM "ParamsPlus\markers.sqf";
 			_unit execVM "ParamsPlus\playerSettings.sqf";
-			_unit addAction ["<t color='#00FFFF'>Dismiss</t>","ParamsPlus\dismiss.sqf",[],-100,false,true,""];
+			_unit addAction ["<t color='#00FFFF'>Dismiss</t>","ParamsPlus\dismiss.sqf",[],100,false,true,""];
 
 			_unit allowDamage true;
 		};
@@ -133,7 +133,7 @@ switch (side _caller) do {
 			_unit execVM "ParamsPlus\UnlimitedAmmo.sqf";
 			_unit execVM "ParamsPlus\markers.sqf";
 			_unit execVM "ParamsPlus\playerSettings.sqf";
-			_unit addAction ["<t color='#00FFFF'>Dismiss</t>","ParamsPlus\dismiss.sqf",[],-100,false,true,""];
+			_unit addAction ["<t color='#00FFFF'>Dismiss</t>","ParamsPlus\dismiss.sqf",[],100,false,true,""];
 
 			_unit allowDamage true;
 		};
@@ -180,7 +180,7 @@ switch (side _caller) do {
 			_unit execVM "ParamsPlus\UnlimitedAmmo.sqf";
 			_unit execVM "ParamsPlus\markers.sqf";
 			_unit execVM "ParamsPlus\playerSettings.sqf";
-			_unit addAction ["<t color='#00FFFF'>Dismiss</t>","ParamsPlus\dismiss.sqf",[],-100,false,true,""];
+			_unit addAction ["<t color='#00FFFF'>Dismiss</t>","ParamsPlus\dismiss.sqf",[],100,false,true,""];
 
 			_unit allowDamage true;
 		};

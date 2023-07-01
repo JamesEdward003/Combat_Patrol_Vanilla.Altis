@@ -1,0 +1,71 @@
+///////////////////////////////////////////////////////////////
+// 008\Bis_Halo.sqf
+// hint 'Close the map and don''t forget to open your chute!';
+///////////////////////////////////////////////////////////////
+private ["_veh", "_unit", "_group", "_leader", "_pos", "_m"];
+_veh = vehicle player;
+_unit = player;
+_group = group player;
+_leader = leader _group;
+
+uisleep 0.25;
+openMap true;
+uisleep 0.25;
+
+deleteMarker "mrkrx";
+
+PAPABEAR=[playerSide,"HQ"]; PAPABEAR SideChat format ["On mapclick, %1, set HALO area!", name _unit];
+	
+dt=true;
+onMapSingleClick "hPos = _pos;dt=false";
+waitUntil {!dt};
+onMapSingleClick "";
+
+_m = createMarker ["mrkrx",hPos];
+_m setMarkerShape "ELLIPSE";
+_m setMarkerSize [200,200];
+_m setMarkerBrush "DiagGrid";
+_m setMarkerAlpha 1;
+_m setMarkerColor "ColorGreen";
+	
+uisleep 1;
+openMap false;
+
+unassignVehicle _leader;
+_leader action ["EJECT", _veh];
+uisleep 0.03;
+_leader allowDamage false;
+_leader setPos getMarkerPos "mrkrx";
+[_leader,2000] call BIS_fnc_halo;
+//[_x,2000] exec "ca\air2\halo\data\Scripts\HALO_init.sqs";
+_leader move (getMarkerPos "mrkrx");
+
+{if (_x != _leader ) then {
+	_dir = random 359;
+	_leadDir = direction _leader;
+	unassignVehicle _x;
+	_x action ["EJECT", _veh];
+	uisleep 0.03;
+	_x allowDamage false;
+	_x setPos [(getPos _leader select 0)-10*sin(_dir),(getPos _leader select 1)-10*cos(_dir)];
+	_x setDir _leadDir;
+	[_x,2000] call BIS_fnc_halo;
+	//[_x,2000] exec "ca\air2\halo\data\Scripts\HALO_init.sqs";
+	_x move (getMarkerPos "mrkrx");	
+}} forEach units _group;
+
+{if (isPlayer _x) then {[_x] execVM "008\altimeter.sqf";}} forEach units _group;
+
+enableRadio false;
+
+PAPABEAR=[playerSide,"HQ"]; PAPABEAR SideChat format ["Pull the ripcord, %1, before height 300 meters!", name _unit];
+	
+waitUntil {((getPos player) select 2) < 1 || !alive player};
+
+uisleep 6; 
+
+{_x allowDamage true} forEach units _group;
+
+enableRadio true;
+
+deleteMarker "mrkrx";

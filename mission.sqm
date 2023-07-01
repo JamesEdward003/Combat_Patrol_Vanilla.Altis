@@ -8,22 +8,21 @@ class EditorData
 	toggles=513;
 	class ItemIDProvider
 	{
-		nextID=814;
+		nextID=913;
 	};
 	class MarkerIDProvider
 	{
-		nextID=4;
+		nextID=5;
 	};
 	class LayerIndexProvider
 	{
-		nextID=350;
+		nextID=446;
 	};
 	class Camera
 	{
 		pos[]={14720.425,793.65582,16341.799};
-		dir[]={-1.2363449e-007,-0.70710683,0.70710683};
-		up[]={-1.2363449e-007,0.70710671,0.70710683};
-		aside[]={1,0,1.7484557e-007};
+		dir[]={0,-0.70710683,0.70710683};
+		up[]={0,0.70710671,0.70710683};
 	};
 };
 binarizationWanted=0;
@@ -38,13 +37,14 @@ addons[]=
 	"A3_Modules_F_Tacops",
 	"A3_Modules_F",
 	"A3_Modules_F_Patrol",
-	"A3_Ui_F_Orange"
+	"A3_Ui_F_Orange",
+	"A3_Structures_F_Mil_Helipads"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=6;
+		items=7;
 		class Item0
 		{
 			className="A3_Characters_F";
@@ -84,6 +84,13 @@ class AddonsMetaData
 		{
 			className="A3_Ui_F_Orange";
 			name="Arma 3 Orange - User Interface";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item6
+		{
+			className="A3_Structures_F_Mil";
+			name="Arma 3 - Military Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
@@ -149,7 +156,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=68;
+		items=76;
 		class Item0
 		{
 			dataType="Group";
@@ -1047,21 +1054,22 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={14649.449,17.91,16751.414};
-				angles[]={0,5.525877,0};
+				position[]={14649.45,17.91,16751.414};
+				angles[]={0,5.5258694,0};
 			};
 			name="Military_Symbol_Module";
+			init="setGroupIconsVisible [true,true];";
 			id=65;
 			type="MartaManager";
 		};
 		class Item8
 		{
 			dataType="Marker";
-			position[]={14679.873,17.91,16783.283};
+			position[]={14675.325,17.91,16784.865};
 			name="respawn_vehicle_west";
 			type="respawn_armor";
 			colorName="ColorWEST";
-			angle=316.61014;
+			angle=310.93979;
 			id=68;
 		};
 		class Item9
@@ -1069,8 +1077,8 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={14679.878,17.91,16783.275};
-				angles[]={0,5.5259051,0};
+				position[]={14675.331,17.91,16784.857};
+				angles[]={0,5.426939,0};
 			};
 			name="respawn_vehicle_west";
 			id=70;
@@ -1323,8 +1331,8 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={14681.792,17.91,16770.369};
-				angles[]={0,5.525877,0};
+				position[]={15199.938,17.91,16770.336};
+				angles[]={0,3.2611129,0};
 			};
 			name="cas_one";
 			id=103;
@@ -1353,7 +1361,7 @@ class Mission
 						class data
 						{
 							singleType="STRING";
-							value="_this call KS_fnc_vehicleRespawnNotification; _this setDamage 0; _this allowDamage false;";
+							value="_this call KS_fnc_vehicleRespawnNotification;_this call Vehicle_Module_Mgmt;";
 						};
 					};
 				};
@@ -1391,13 +1399,13 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={14683.3,17.949507,16759.473};
-				angles[]={0,5.5258918,0};
+				position[]={15207.352,17.950001,16778.465};
+				angles[]={0,3.2611301,0};
 			};
 			name="cas_two";
 			id=104;
 			type="SupportProvider_Virtual_CAS_Heli";
-			atlOffset=0.039506912;
+			atlOffset=0.040000916;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -1422,7 +1430,7 @@ class Mission
 						class data
 						{
 							singleType="STRING";
-							value="_this call KS_fnc_vehicleRespawnNotification; _this setDamage 0; _this allowDamage false;";
+							value="_this call KS_fnc_vehicleRespawnNotification;_this call Vehicle_Module_Mgmt;";
 						};
 					};
 				};
@@ -1460,8 +1468,8 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={14684.787,17.91,16748.352};
-				angles[]={0,5.525476,0};
+				position[]={15214.95,17.91,16786.723};
+				angles[]={0,3.2607112,0};
 			};
 			name="transport_one";
 			id=105;
@@ -1503,7 +1511,7 @@ class Mission
 						class data
 						{
 							singleType="STRING";
-							value="_this call KS_fnc_vehicleRespawnNotification; _this setDamage 0; _this allowDamage false;";
+							value="_this call KS_fnc_vehicleRespawnNotification;_this call Vehicle_Module_Mgmt;";
 						};
 					};
 				};
@@ -1528,8 +1536,8 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={14686.156,17.91,16737.371};
-				angles[]={0,5.525877,0};
+				position[]={15222.514,17.91,16794.797};
+				angles[]={0,3.2611129,0};
 			};
 			name="supply_drop_one";
 			id=106;
@@ -1558,7 +1566,7 @@ class Mission
 						class data
 						{
 							singleType="STRING";
-							value="_this call KS_fnc_vehicleRespawnNotification;";
+							value="_this call KS_fnc_vehicleRespawnNotification;_this call Vehicle_Module_Mgmt;";
 						};
 					};
 				};
@@ -1597,7 +1605,7 @@ class Mission
 						class data
 						{
 							singleType="STRING";
-							value="_this spawn { waitUntil {getPosATL _this select 2 < 3};  [""AmmoboxInit"", [_this, true, {true}]] spawn BIS_fnc_arsenal; [_this] execVM ""paramsplus\vehicleMarker.sqf""; }; _this setDamage 0; _this allowDamage false;";
+							value="_this spawn { waitUntil {getPosATL _this select 2 < 3};  [""AmmoboxInit"", [_this, true, {true}]] spawn BIS_fnc_arsenal;[_this] execVM ""paramsplus\vehicleMarker.sqf"";};";
 						};
 					};
 				};
@@ -1609,8 +1617,8 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={14680.02,17.91,16781.178};
-				angles[]={0,5.5259042,0};
+				position[]={14675.68,17.91,16782.785};
+				angles[]={0,5.4269381,0};
 			};
 			name="arty_one";
 			id=107;
@@ -2746,13 +2754,13 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={26718.283,30.467787,24627.057};
-				angles[]={0,1.819875,0};
+				position[]={26812.814,35.393085,24504.641};
+				angles[]={0,3.3372962,0};
 			};
 			name="cas_one_opfor";
 			id=234;
 			type="SupportProvider_Virtual_CAS_Bombing";
-			atlOffset=10.564663;
+			atlOffset=10.563999;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -2777,7 +2785,7 @@ class Mission
 						class data
 						{
 							singleType="STRING";
-							value="_this call KS_fnc_vehicleRespawnNotification;";
+							value="_this call KS_fnc_vehicleRespawnNotification;_this call Vehicle_Module_Mgmt;";
 						};
 					};
 				};
@@ -2815,13 +2823,13 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={26709.895,25.83749,24634.43};
-				angles[]={0,1.7036279,0};
+				position[]={26819.729,30.752697,24513.41};
+				angles[]={0,3.22104,0};
 			};
 			name="cas_two_opfor";
 			id=235;
 			type="SupportProvider_Virtual_CAS_Heli";
-			atlOffset=6.068388;
+			atlOffset=6.0679989;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -2846,7 +2854,7 @@ class Mission
 						class data
 						{
 							singleType="STRING";
-							value="_this call KS_fnc_vehicleRespawnNotification;";
+							value="_this call KS_fnc_vehicleRespawnNotification;_this call Vehicle_Module_Mgmt;";
 						};
 					};
 				};
@@ -2884,13 +2892,13 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={26701.414,27.024164,24642.176};
-				angles[]={0,1.7036279,0};
+				position[]={26827.012,31.705534,24522.289};
+				angles[]={0,3.22104,0};
 			};
 			name="transport_one_opfor";
 			id=236;
 			type="SupportProvider_Virtual_Transport";
-			atlOffset=7.2541637;
+			atlOffset=7.2540016;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -2928,7 +2936,7 @@ class Mission
 						class data
 						{
 							singleType="STRING";
-							value="_this call KS_fnc_vehicleRespawnNotification;";
+							value="_this call KS_fnc_vehicleRespawnNotification;_this call Vehicle_Module_Mgmt;";
 						};
 					};
 				};
@@ -2953,13 +2961,13 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={26692.549,24.433693,24649.859};
-				angles[]={0,1.702319,0};
+				position[]={26834.211,29.821262,24531.553};
+				angles[]={0,3.2197311,0};
 			};
 			name="supply_drop_one_opfor";
 			id=237;
 			type="SupportProvider_Virtual_Drop";
-			atlOffset=5.5223923;
+			atlOffset=5.5220013;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -2984,7 +2992,7 @@ class Mission
 						class data
 						{
 							singleType="STRING";
-							value="_this call KS_fnc_vehicleRespawnNotification;";
+							value="_this call KS_fnc_vehicleRespawnNotification;_this call Vehicle_Module_Mgmt;";
 						};
 					};
 				};
@@ -3023,7 +3031,7 @@ class Mission
 						class data
 						{
 							singleType="STRING";
-							value="_this spawn { waitUntil {getPosATL _this select 2 < 3};  [""AmmoboxInit"", [_this, true, {true}]] spawn BIS_fnc_arsenal; [_this] execVM ""paramsplus\vehicleMarker.sqf""; };";
+							value="_this spawn { waitUntil {getPosATL _this select 2 < 3};  [""AmmoboxInit"", [_this, true, {true}]] spawn BIS_fnc_arsenal;[_this] execVM ""paramsplus\vehicleMarker.sqf"";};";
 						};
 					};
 				};
@@ -3357,13 +3365,13 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={9184.4561,15.075472,21657.203};
-				angles[]={0,3.6067891,0};
+				position[]={9242.4873,17.535362,21553.279};
+				angles[]={0,3.5430183,0};
 			};
 			name="cas_one_indfor";
 			id=256;
 			type="SupportProvider_Virtual_CAS_Bombing";
-			atlOffset=0.64867592;
+			atlOffset=0.64799881;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -3388,7 +3396,7 @@ class Mission
 						class data
 						{
 							singleType="STRING";
-							value="_this call KS_fnc_vehicleRespawnNotification;";
+							value="_this call KS_fnc_vehicleRespawnNotification;_this call Vehicle_Module_Mgmt;";
 						};
 					};
 				};
@@ -3426,12 +3434,13 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={9193.4629,14.502139,21663.799};
-				angles[]={0,3.4905341,0};
+				position[]={9251.0557,16.968725,21560.438};
+				angles[]={6.2805324,3.4267621,0.0039968039};
 			};
 			name="cas_two_indfor";
 			id=257;
 			type="SupportProvider_Virtual_CAS_Heli";
+			atlOffset=1.9073486e-006;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -3456,7 +3465,7 @@ class Mission
 						class data
 						{
 							singleType="STRING";
-							value="_this call KS_fnc_vehicleRespawnNotification;";
+							value="_this call KS_fnc_vehicleRespawnNotification;_this call Vehicle_Module_Mgmt;";
 						};
 					};
 				};
@@ -3494,12 +3503,13 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={9202.834,14.569503,21670.436};
-				angles[]={0,3.4905341,0};
+				position[]={9259.9844,16.996645,21567.658};
+				angles[]={0,3.4267621,0.0012915437};
 			};
 			name="transport_one_indfor";
 			id=258;
 			type="SupportProvider_Virtual_Transport";
+			atlOffset=-1.9073486e-006;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -3537,7 +3547,7 @@ class Mission
 						class data
 						{
 							singleType="STRING";
-							value="_this call KS_fnc_vehicleRespawnNotification;";
+							value="_this call KS_fnc_vehicleRespawnNotification;_this call Vehicle_Module_Mgmt;";
 						};
 					};
 				};
@@ -3562,12 +3572,13 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={9212.2471,14.61194,21677.457};
-				angles[]={0,3.4889131,0};
+				position[]={9268.9307,17.005367,21575.266};
+				angles[]={6.2791882,3.425139,0.0053232545};
 			};
 			name="supply_drop_one_indfor";
 			id=259;
 			type="SupportProvider_Virtual_Drop";
+			atlOffset=1.9073486e-006;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -3592,7 +3603,7 @@ class Mission
 						class data
 						{
 							singleType="STRING";
-							value="_this call KS_fnc_vehicleRespawnNotification;";
+							value="_this call KS_fnc_vehicleRespawnNotification;_this call Vehicle_Module_Mgmt;";
 						};
 					};
 				};
@@ -3631,7 +3642,7 @@ class Mission
 						class data
 						{
 							singleType="STRING";
-							value="_this spawn { waitUntil {getPosATL _this select 2 < 3};  [""AmmoboxInit"", [_this, true, {true}]] spawn BIS_fnc_arsenal; [_this] execVM ""paramsplus\vehicleMarker.sqf""; };";
+							value="_this spawn { waitUntil {getPosATL _this select 2 < 3};  [""AmmoboxInit"", [_this, true, {true}]] spawn BIS_fnc_arsenal;[_this] execVM ""paramsplus\vehicleMarker.sqf"";};";
 						};
 					};
 				};
@@ -5006,7 +5017,8 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={20785.473,28.437683,7248.335};
+				position[]={21174.471,17.619574,7599.5972};
+				angles[]={0.079831354,0.75335395,6.2818413};
 			};
 			name="cas_one_civ";
 			id=312;
@@ -5035,7 +5047,7 @@ class Mission
 						class data
 						{
 							singleType="STRING";
-							value="_this call KS_fnc_vehicleRespawnNotification;";
+							value="_this call KS_fnc_vehicleRespawnNotification;_this call Vehicle_Module_Mgmt;";
 						};
 					};
 				};
@@ -5073,7 +5085,8 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={20791.406,28.933205,7238.8838};
+				position[]={21172.314,17.958858,7588.647};
+				angles[]={0.021327924,0.75478506,0};
 			};
 			name="cas_two_civ";
 			id=313;
@@ -5102,7 +5115,7 @@ class Mission
 						class data
 						{
 							singleType="STRING";
-							value="_this call KS_fnc_vehicleRespawnNotification;";
+							value="_this call KS_fnc_vehicleRespawnNotification;_this call Vehicle_Module_Mgmt;";
 						};
 					};
 				};
@@ -5140,12 +5153,12 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={20797.352,29.132729,7229.0498};
+				position[]={21169.906,18.144278,7577.4111};
+				angles[]={0.010663962,0.75487232,0};
 			};
 			name="transport_one_civ";
 			id=314;
 			type="SupportProvider_Virtual_Transport";
-			atlOffset=1.9073486e-006;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -5183,7 +5196,7 @@ class Mission
 						class data
 						{
 							singleType="STRING";
-							value="_this call KS_fnc_vehicleRespawnNotification;";
+							value="_this call KS_fnc_vehicleRespawnNotification;_this call Vehicle_Module_Mgmt;";
 						};
 					};
 				};
@@ -5208,12 +5221,12 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={20803.68,29.039055,7219.1641};
+				position[]={21167.742,18.274881,7565.875};
+				angles[]={0.022654373,0.75490725,6.2751913};
 			};
 			name="supply_drop_one_civ";
 			id=315;
 			type="SupportProvider_Virtual_Drop";
-			atlOffset=-1.9073486e-006;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -5238,7 +5251,7 @@ class Mission
 						class data
 						{
 							singleType="STRING";
-							value="_this call KS_fnc_vehicleRespawnNotification;";
+							value="_this call KS_fnc_vehicleRespawnNotification;_this call Vehicle_Module_Mgmt;";
 						};
 					};
 				};
@@ -5277,7 +5290,7 @@ class Mission
 						class data
 						{
 							singleType="STRING";
-							value="_this spawn { waitUntil {getPosATL _this select 2 < 3};  [""AmmoboxInit"", [_this, true, {true}]] spawn BIS_fnc_arsenal; [_this] execVM ""paramsplus\vehicleMarker.sqf""; };";
+							value="_this spawn { waitUntil {getPosATL _this select 2 < 3};  [""AmmoboxInit"", [_this, true, {true}]] spawn BIS_fnc_arsenal;[_this] execVM ""paramsplus\vehicleMarker.sqf"";};";
 						};
 					};
 				};
@@ -6335,7 +6348,7 @@ class Mission
 			flags=1;
 			id=348;
 			type="ModuleCivilianPresenceUnit_F";
-			atlOffset=1.5258789e-005;
+			atlOffset=0.21199989;
 		};
 		class Item52
 		{
@@ -7181,6 +7194,111 @@ class Mission
 			type="loc_CivilDefense";
 			id=813;
 			atlOffset=-0.00043296814;
+		};
+		class Item68
+		{
+			dataType="Marker";
+			position[]={15214.717,17.91,16786.969};
+			name="transport_west";
+			text=" airport_blufor";
+			type="mil_circle";
+			colorName="ColorWEST";
+			id=903;
+		};
+		class Item69
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={15214.903,17.91,16786.869};
+			};
+			side="Empty";
+			class Attributes
+			{
+				name="transport_west";
+			};
+			id=904;
+			type="Land_HelipadEmpty_F";
+		};
+		class Item70
+		{
+			dataType="Marker";
+			position[]={9259.7852,16.996,21567.996};
+			name="transport_guer";
+			text=" airstrip_independent";
+			type="mil_circle";
+			colorName="ColorGUER";
+			id=905;
+			atlOffset=-0.00037956238;
+		};
+		class Item71
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9259.8838,16.996511,21567.918};
+				angles[]={0,0,0.0012918708};
+			};
+			side="Empty";
+			class Attributes
+			{
+				name="transport_guer";
+			};
+			id=906;
+			type="Land_HelipadEmpty_F";
+		};
+		class Item72
+		{
+			dataType="Marker";
+			position[]={26819.615,24.681999,24513.57};
+			name="transport_east";
+			text=" airstrip_opfor";
+			type="mil_circle";
+			colorName="ColorEAST";
+			id=909;
+			atlOffset=0.00017738342;
+		};
+		class Item73
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={26819.805,24.684471,24513.469};
+			};
+			side="Empty";
+			class Attributes
+			{
+				name="transport_east";
+			};
+			id=910;
+			type="Land_HelipadEmpty_F";
+			atlOffset=0.00050544739;
+		};
+		class Item74
+		{
+			dataType="Marker";
+			position[]={21169.891,18.144156,7577.4224};
+			name="transport_civilian";
+			text=" airstrip_civilian";
+			type="mil_circle";
+			colorName="ColorCIV";
+			id=911;
+		};
+		class Item75
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={21170.076,18.145229,7577.3218};
+				angles[]={0.010664274,0,0};
+			};
+			side="Empty";
+			class Attributes
+			{
+				name="transport_civilian";
+			};
+			id=912;
+			type="Land_HelipadEmpty_F";
 		};
 	};
 	class Connections

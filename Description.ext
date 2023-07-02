@@ -298,7 +298,7 @@ class Params
         title = "Group Markers";
         values[] = {1, 2, 3, 4};
         texts[] = {"Disabled","Units Group Player","All Playable or Switchable Units","All Units"};
-        default = 1;
+        default = 2;
         file = "ParamsPlus\markers_Group.sqf";
         isGlobal = 1;
     };
